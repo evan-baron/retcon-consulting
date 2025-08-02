@@ -1,4 +1,10 @@
+// Library imports
+import Image from 'next/image';
+
+// Styles imports
 import styles from './page.module.css';
+
+// Component imports
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
@@ -10,9 +16,21 @@ export default function Home() {
 			<main className={styles.main}>
 				<Header />
 				<Hero />
-				<section id='about' className={styles.summary}></section>
-				<section id='services' className={styles.carousel}></section>
-				<section className={styles.profiles}></section>
+				<section id='about' className={styles.about}>
+					<div className={styles['image-background']}></div>
+					<Image
+						src='/data-extraction-cuate.svg'
+						alt='Data Extraction Illustration'
+						className={styles['data-image']}
+						width={600}
+						height={600}
+						priority={true}
+					/>
+				</section>
+				<section id='services' className={styles.services}>
+					Services
+				</section>
+				<section className={styles['previous-work']}>Previous Work</section>
 				<section id='contact' className={styles['contact-form']}></section>
 				<Footer />
 			</main>

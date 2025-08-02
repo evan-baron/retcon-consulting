@@ -15,6 +15,7 @@ function Hero() {
 	const backgroundRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		// need a hero element and a background element to apply the mouse effect, basically check if mouse is in hero element, if it is create a new element inside the background that follows the mouse and fades out
 		const heroElement = heroRef.current;
 		const backgroundElement = backgroundRef.current;
 
@@ -24,25 +25,31 @@ function Hero() {
 		const throttle = 20; // milliseconds
 
 		const moveEffect = (event: MouseEvent) => {
-			const hue = (Date.now() / 10) % 360; // Change hue based on time
+			// Change the hue of the mouse effect based on time, adds a cool color change effect
+			const hue = (Date.now() / 10) % 360;
 			heroElement?.style.setProperty('--effect-hue', `${hue}`);
 
+			// Throttle the mouse move event to keep performance smooth and reduce load on the browser
 			const now = Date.now();
 			if (now - lastTime < throttle) {
-				return; // Throttle the mouse move event
+				return;
 			}
 			lastTime = now;
 
-			const i = document.createElement('div');
+			const i = document.createElement('div'); // Create a new element for the effect called 'i'
 			i.classList.add(styles['mouse-effect']);
-			const rect = heroElement.getBoundingClientRect();
+			const rect = heroElement.getBoundingClientRect(); // Get the bounding rectangle dimensions of the hero element
 			const x = event.clientX - rect.left;
 			const y = event.clientY - rect.top;
+
+			// Set the position of the effect element relative to the hero element using the mouse coordinates
 			i.style.left = `${x}px`;
 			i.style.top = `${y}px`;
 
+			// Add the effect element to the background element
 			backgroundElement.appendChild(i);
 
+			// Remove the effect element after a delay of 1 second, using CSS transitions for a fade-out effect
 			setTimeout(() => {
 				i.remove();
 			}, 1000);
@@ -55,8 +62,7 @@ function Hero() {
 		};
 	}, []);
 
-	// Typing effect for the title
-	// State to manage typing effect
+	// Typewriter effect for the title
 	const [displayed, setDisplayed] = useState('');
 	const [wordIndex, setWordIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
@@ -67,15 +73,15 @@ function Hero() {
 
 	useEffect(() => {
 		let timeout: NodeJS.Timeout;
-		const fullWord = words[wordIndex];
+		const word: string = words[wordIndex];
 
 		if (phase === 'typing') {
-			if (charIndex < fullWord.length) {
+			if (charIndex < word.length) {
 				timeout = setTimeout(() => {
 					setDisplayed(
 						wordIndex === words.length - 1
-							? fullWord.slice(0, charIndex + 2)
-							: fullWord.slice(0, charIndex + 2)
+							? word.slice(0, charIndex + 2)
+							: word.slice(0, charIndex + 2)
 					);
 					setCharIndex(charIndex + 1);
 				}, 60);
@@ -85,21 +91,21 @@ function Hero() {
 		} else if (phase === 'blinking') {
 			if (wordIndex === words.length - 1) {
 				setPhase('done');
-				setDisplayed(fullWord);
+				setDisplayed(word);
 				return;
 			}
 
 			if (blinkCount < 5) {
 				timeout = setTimeout(() => {
 					setDisplayed((prev) =>
-						prev.endsWith('_') ? prev.slice(0, -1) : fullWord + '_'
+						prev.endsWith('_') ? prev.slice(0, -1) : word + '_'
 					);
 					setBlinkCount(blinkCount + 1);
 				}, 300);
 			} else {
 				if (wordIndex === words.length - 1) {
 					setPhase('done');
-					setDisplayed(fullWord);
+					setDisplayed(word);
 					return; // Remove the underscore for the final word
 				} else {
 					setPhase('deleting');
@@ -108,7 +114,7 @@ function Hero() {
 		} else if (phase === 'deleting') {
 			if (charIndex > 3) {
 				timeout = setTimeout(() => {
-					setDisplayed(fullWord.slice(0, charIndex - 1) + '_');
+					setDisplayed(word.slice(0, charIndex - 1) + '_');
 					setCharIndex(charIndex - 1);
 				}, 60);
 			} else {

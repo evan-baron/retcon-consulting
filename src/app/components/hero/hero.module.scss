@@ -1,7 +1,3 @@
-:root {
-	--effect-color: var(--effect-hue), 100%, 50%;
-}
-
 .hero {
 	position: relative;
 	display: flex;
@@ -100,25 +96,36 @@
 	}
 
 	.content {
+		align-self: center;
 		position: absolute;
 		display: flex;
 
-		width: 80%;
 		height: 80%;
-
-		max-width: 1600px;
 
 		z-index: 10;
 		background-color: transparent;
 
+		@media screen and (max-width: 3600px) {
+			width: 60%;
+		}
+
+		@media screen and (max-width: 2800px) {
+			width: 70%;
+		}
+
+		@media screen and (max-width: 2000px) {
+			width: 80%;
+		}
+
 		.title-box {
+			width: 832px;
 			position: absolute;
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
 			font-size: 5rem;
 			align-self: center;
-			left: 40%;
+			right: 0;
 			white-space: nowrap;
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;

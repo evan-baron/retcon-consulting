@@ -16,15 +16,21 @@
 	--main-gray: hsl(0, 0, 75%);
 	--main-teal: hsl(180, 100%, 35%);
 
-	--background: hsl(0, 0, 5%);
+	--background: hsl(0, 0%, 5%);
 }
 
 html,
 body {
-	width: 100%;
-	max-width: 100vw;
-	overflow-x: hidden;
+	width: 100vw;
 	font-family: var(--font-roboto);
+	overflow: auto;
+
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+
+	&::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
 }
 
 body {
@@ -35,7 +41,7 @@ body {
 }
 
 * {
-	box-sizing: border-box;
+	box-sizing: border-box !important;
 	padding: 0;
 	margin: 0;
 }

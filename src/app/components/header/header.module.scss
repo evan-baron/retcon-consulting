@@ -5,8 +5,9 @@
 	display: flex;
 	width: 100%;
 	background-color: var(--background);
-	z-index: 10;
+	z-index: 1000;
 	box-shadow: 0 10px 1rem black;
+	transition: transform 0.1s;
 
 	.nav {
 		width: 100%;

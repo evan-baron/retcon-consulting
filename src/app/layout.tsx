@@ -1,13 +1,7 @@
 import type { Metadata } from 'next';
-import { Cascadia_Mono, Roboto, Fredericka_the_Great } from 'next/font/google';
+import { Roboto, Fredericka_the_Great } from 'next/font/google';
 import './reset.css';
 import './globals.css';
-
-const cascadiaMono = Cascadia_Mono({
-	variable: '--font-cascadia-mono',
-	weight: '400',
-	subsets: ['latin'],
-});
 
 const frederickaTheGreat = Fredericka_the_Great({
 	variable: '--font-fredericka-the-great',
@@ -33,9 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body
-				className={`${cascadiaMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
-			>
+			<body className={`${roboto.variable} ${frederickaTheGreat.variable}`}>
 				{children}
 			</body>
 		</html>
