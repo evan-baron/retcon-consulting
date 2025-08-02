@@ -7,34 +7,34 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './header.module.scss';
 
 function Header() {
-	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
-	const [offset, setOffset] = useState(0);
-	const lastScrollY = useRef(0);
-	const headerHeight = 64; // 64px is the height of the header (4rem)
+	// // Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
+	// const [offset, setOffset] = useState(0);
+	// const lastScrollY = useRef(0);
+	// const headerHeight = 64; // 64px is the height of the header (4rem)
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const currentY = window.scrollY;
-			const delta = currentY - lastScrollY.current;
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		const currentY = window.scrollY;
+	// 		const delta = currentY - lastScrollY.current;
 
-			// Only adjust when scrolling down
-			if (delta > 0) {
-				setOffset((prev) => Math.min(prev + delta, headerHeight));
-			} else {
-				setOffset((prev) => Math.max(prev + delta, 0));
-			}
+	// 		// Only adjust when scrolling down
+	// 		if (delta > 0) {
+	// 			setOffset((prev) => Math.min(prev + delta, headerHeight));
+	// 		} else {
+	// 			setOffset((prev) => Math.max(prev + delta, 0));
+	// 		}
 
-			lastScrollY.current = currentY;
-		};
+	// 		lastScrollY.current = currentY;
+	// 	};
 
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	return () => window.removeEventListener('scroll', handleScroll);
+	// }, []);
 
 	return (
 		<header
 			className={styles.header}
-			style={{ transform: `translateY(-${offset}px)` }}
+			// style={{ transform: `translateY(-${offset}px)` }}
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>

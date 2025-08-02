@@ -16,7 +16,7 @@ export default function Home() {
 			<main className={styles.main}>
 				<Header />
 				<Hero />
-				<section id='about' className={styles.about}>
+				<section className={styles.summary}>
 					<div className={styles['image-background']}></div>
 					<Image
 						src='/data-extraction-cuate.svg'
@@ -31,6 +31,9 @@ export default function Home() {
 					Services
 				</section>
 				<section className={styles['previous-work']}>Previous Work</section>
+				<section id='about' className={styles.about}>
+					About
+				</section>
 				<section id='contact' className={styles['contact-form']}></section>
 				<Footer />
 			</main>
