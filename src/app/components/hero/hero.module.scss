@@ -10,6 +10,7 @@
 	width: 100%;
 	height: 600px;
 	overflow: hidden;
+	margin-top: 4rem;
 
 	.background {
 		position: relative;
@@ -105,6 +106,8 @@
 		width: 80%;
 		height: 80%;
 
+		max-width: 1600px;
+
 		z-index: 10;
 		background-color: transparent;
 
@@ -115,7 +118,7 @@
 			gap: 1rem;
 			font-size: 5rem;
 			align-self: center;
-			left: 448px;
+			left: 40%;
 			white-space: nowrap;
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;

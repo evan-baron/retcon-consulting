@@ -133,7 +133,7 @@ function Hero() {
 					<button
 						className={`${styles.cta} ${phase === 'done' ? styles.done : ''}`}
 					>
-						<span className={styles['cta-text']}>Book Now</span>
+						<span className={styles['cta-text']}>Book a free consultation</span>
 					</button>
 				</div>
 
