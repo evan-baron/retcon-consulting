@@ -6,6 +6,9 @@ import React, { useRef, useEffect, useState } from 'react';
 // Styles Imports
 import styles from './hero.module.scss';
 
+// Component Imports
+import CTA from '../ctaButton/CTA';
+
 // Words for the typing effect
 const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles'];
 
@@ -23,7 +26,7 @@ function Hero() {
 
 		let lastTime = 0;
 		const throttle = 20; // milliseconds
-		const MAX_EFFECTS = 25; // Maximum number of effects to show
+		const MAX_EFFECTS = 20; // Maximum number of effects to show
 
 		const moveEffect = (event: MouseEvent) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
@@ -145,12 +148,12 @@ function Hero() {
 			<div className={styles.content}>
 				<div className={styles['title-box']}>
 					<h1 className={styles.title}>{displayed}</h1>
-					<button
-						className={`${styles.cta} ${phase === 'done' ? styles.done : ''}`}
+					<CTA
+						className={`${phase === 'done' ? styles.done : ''}`}
 						disabled={phase !== 'done'}
-					>
-						<span className={styles['cta-text']}>Book a free consultation</span>
-					</button>
+						content='Book a free consultation'
+						parent='hero'
+					/>
 				</div>
 
 				<section className={styles.definition}>

@@ -6,6 +6,9 @@ import React, { useEffect, useState, useRef } from 'react';
 // Styles imports
 import styles from './header.module.scss';
 
+// Component imports
+import CTA from '../ctaButton/CTA';
+
 function Header() {
 	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
 	const [offset, setOffset] = useState(0);
@@ -50,9 +53,7 @@ function Header() {
 					<li>
 						<a href='#contact'>Contact</a>
 					</li>
-					<li>
-						<a href='#contact'>Book Now</a>
-					</li>
+					<CTA content='Book Now' />
 				</ul>
 			</nav>
 		</header>
