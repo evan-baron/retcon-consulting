@@ -55,9 +55,9 @@
 
 			.summary-highlight {
 				color: white;
-				/* color: var(--teal1); */
+				// color: var(--teal1);
 				font-weight: 700;
-				font-size: 2rem;
+				font-size: 2.5rem;
 				line-height: 1.25;
 			}
 
@@ -67,21 +67,6 @@
 				font-weight: 400;
 				line-height: 1.5;
 				text-wrap: pretty;
-			}
-
-			.cta {
-				font-size: 1.5rem;
-				border: 2px solid var(--main-gray);
-				width: fit-content;
-
-				padding: 0.5rem 1.5rem;
-				border-radius: 0.5rem;
-				cursor: pointer;
-				text-shadow: none;
-
-				&:hover {
-					background-color: var(--gray4);
-				}
 			}
 		}
 	}
