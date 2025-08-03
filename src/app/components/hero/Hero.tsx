@@ -23,6 +23,7 @@ function Hero() {
 
 		let lastTime = 0;
 		const throttle = 20; // milliseconds
+		const MAX_EFFECTS = 25; // Maximum number of effects to show
 
 		const moveEffect = (event: MouseEvent) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
@@ -35,6 +36,14 @@ function Hero() {
 				return;
 			}
 			lastTime = now;
+
+			// Remove oldest effect if over limit
+			const effects = backgroundElement.querySelectorAll(
+				`.${styles['mouse-effect']}`
+			);
+			if (effects.length >= MAX_EFFECTS) {
+				effects[0].remove();
+			}
 
 			const i = document.createElement('div'); // Create a new element for the effect called 'i'
 			i.classList.add(styles['mouse-effect']);
@@ -138,6 +147,7 @@ function Hero() {
 					<h1 className={styles.title}>{displayed}</h1>
 					<button
 						className={`${styles.cta} ${phase === 'done' ? styles.done : ''}`}
+						disabled={phase !== 'done'}
 					>
 						<span className={styles['cta-text']}>Book a free consultation</span>
 					</button>

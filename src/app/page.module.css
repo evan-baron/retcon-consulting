@@ -5,14 +5,30 @@
 	flex-direction: column;
 	min-height: 100vh;
 
+	.about-wrapper {
+		position: relative;
+		width: 100%;
+		height: 800px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		filter: drop-shadow(0 0 1rem black);
+	}
+
 	.about {
 		width: 100%;
-		height: 600px;
+		height: 800px;
 		position: relative;
+		transform: translateY(-125px);
+
+		clip-path: polygon(0px 150px, 100% 0px, 100% 650px, 0px 800px);
+		background-color: var(--gray6);
 
 		display: flex;
 		align-items: center;
 		padding-left: 10%;
+
+		z-index: 5;
 
 		.image-background {
 			position: relative;
@@ -21,10 +37,10 @@
 			justify-content: center;
 			left: 25px;
 			width: 550px;
-			height: 600px;
+			height: 650px;
 			clip-path: ellipse(30% 50% at 50% 50%);
 			transform: rotate(60deg);
-			background-color: var(--gray3);
+			background-color: var(--gray4);
 		}
 
 		.data-image {

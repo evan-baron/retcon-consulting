@@ -22,7 +22,7 @@
 html,
 body {
 	width: 100vw;
-	font-family: var(--font-roboto);
+	font-family: var(--font-ibm-plex-mono), var(--font-roboto);
 	overflow: auto;
 
 	scrollbar-width: none; /* Firefox */

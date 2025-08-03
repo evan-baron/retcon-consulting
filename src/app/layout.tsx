@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
-import { Roboto, Fredericka_the_Great } from 'next/font/google';
+import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
 import './globals.css';
+
+const ibmPlexMono = IBM_Plex_Mono({
+	variable: '--font-ibm-plex-mono',
+	weight: ['400', '500', '600', '700'],
+	subsets: ['latin'],
+});
 
 const frederickaTheGreat = Fredericka_the_Great({
 	variable: '--font-fredericka-the-great',
@@ -27,7 +33,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${roboto.variable} ${frederickaTheGreat.variable}`}>
+			<body
+				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
+			>
 				{children}
 			</body>
 		</html>

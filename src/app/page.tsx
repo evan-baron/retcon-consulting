@@ -16,17 +16,19 @@ export default function Home() {
 			<main className={styles.main}>
 				<Header />
 				<Hero />
-				<section id='about' className={styles.about}>
-					<div className={styles['image-background']}></div>
-					<Image
-						src='/data-extraction-cuate.svg'
-						alt='Data Extraction Illustration'
-						className={styles['data-image']}
-						width={600}
-						height={600}
-						priority={true}
-					/>
-				</section>
+				<div className={styles['about-wrapper']}>
+					<section id='about' className={styles.about}>
+						<div className={styles['image-background']}></div>
+						<Image
+							src='/data-extraction-cuate.svg'
+							alt='Data Extraction Illustration'
+							className={styles['data-image']}
+							width={600}
+							height={600}
+							priority={true}
+						/>
+					</section>
+				</div>
 				<section id='services' className={styles.services}>
 					Services
 				</section>
