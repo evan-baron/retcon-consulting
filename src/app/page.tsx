@@ -1,14 +1,12 @@
-// Library imports
-import Image from 'next/image';
-
 // Styles imports
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 // Component imports
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Summary from './components/summary/Summary';
+import Services from './components/services/Services';
 
 export default function Home() {
 	return (
@@ -20,10 +18,7 @@ export default function Home() {
 					<Header />
 					<Hero />
 					<Summary />
-
-					<section id='services' className={styles.services}>
-						Services
-					</section>
+					<Services id='services' />\
 					<section className={styles['previous-work']}>Previous Work</section>
 					<section id='contact' className={styles['contact-form']}></section>
 					<Footer />
