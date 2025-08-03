@@ -17,7 +17,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 0 10%;
-		gap: 2rem;
+		gap: 3rem;
 		z-index: 5;
 
 		.h2 {
@@ -43,11 +43,30 @@
 				.image-wrapper {
 					filter: drop-shadow(0.5rem 0.5rem 1rem black);
 
+					.wrapper {
+						position: absolute;
+						align-self: center;
+						z-index: -1;
+
+						.image-background {
+							position: relative;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							width: 400px;
+							height: 400px;
+							clip-path: ellipse(40% 45% at 50% 50%);
+							transform: rotate(-60deg);
+							background-color: var(--gray2);
+						}
+					}
+
 					.image {
 						width: 100%;
 						height: auto;
 						border-radius: 0.5rem;
 						margin-bottom: 15px;
+						z-index: 5;
 					}
 				}
 

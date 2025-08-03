@@ -16,6 +16,9 @@ function Services({ id }: { id: string }) {
 				<div className={styles['services-tiles']}>
 					<div className={styles.tile}>
 						<div className={styles['image-wrapper']}>
+							<div className={styles.wrapper}>
+								<div className={styles['image-background']}></div>
+							</div>
 							<Image
 								src='/consulting-rafiki.svg'
 								alt='Consulting services'
