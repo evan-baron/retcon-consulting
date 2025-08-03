@@ -32,8 +32,8 @@ function Summary() {
 					<p className={styles['summary-text']}>
 						If you&#39;re stuck, circling the same challenges, or unsure
 						what&#39;s next, it&#39;s time to break that cycle. We help
-						companies move forward with purpose through design, product
-						strategy, and creative problem-solving.
+						startups, entrepreneurs, and innovators move forward with purpose
+						through design, product strategy, and creative problem-solving.
 					</p>
 					<p className={styles['summary-text']}>
 						It&#39;s time to rewrite your narrative.
