@@ -15,16 +15,19 @@ export default function Home() {
 		<>
 			<div id='top'></div>
 			<main className={styles.main}>
-				<Header />
-				<Hero />
-				<Summary />
+				<div className={styles['main-bg']}></div>
+				<div className={styles['main-content']}>
+					<Header />
+					<Hero />
+					<Summary />
 
-				<section id='services' className={styles.services}>
-					Services
-				</section>
-				<section className={styles['previous-work']}>Previous Work</section>
-				<section id='contact' className={styles['contact-form']}></section>
-				<Footer />
+					<section id='services' className={styles.services}>
+						Services
+					</section>
+					<section className={styles['previous-work']}>Previous Work</section>
+					<section id='contact' className={styles['contact-form']}></section>
+					<Footer />
+				</div>
 			</main>
 		</>
 	);
