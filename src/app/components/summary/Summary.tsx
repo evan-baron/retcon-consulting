@@ -11,14 +11,17 @@ import CTA from '../ctaButton/CTA';
 function Summary() {
 	return (
 		<div className={styles['summary-wrapper']}>
-			<section id='about' className={styles.summary}>
+			<section
+				className={styles.summary}
+				aria-label="Summary of why you're here"
+			>
 				<div className={styles.wrapper}>
 					<div className={styles['image-background']}></div>
 				</div>
 				<div className={styles['image-wrapper']}>
 					<Image
 						src='/data-extraction-cuate.svg'
-						alt='Data Extraction Illustration'
+						alt='Illustration representing startup innovation, outreach improvement, and data-driven design and growth strategy'
 						className={styles['data-image']}
 						width={600}
 						height={600}

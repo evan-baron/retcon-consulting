@@ -11,6 +11,9 @@ interface CTAProps {
 const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => (
 	<a
 		href='#contact'
+		role='button'
+		tabIndex={0}
+		aria-label='Book a session'
 		className={`${styles.cta} ${!disabled ? styles.done : ''} ${
 			parent === 'hero' && styles.hero
 		} ${className || ''}`}
