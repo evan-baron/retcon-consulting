@@ -25,26 +25,37 @@ function Tile({
 	const [flipped, setFlipped] = useState(false);
 
 	return (
-		<div className={styles.tile} onClick={() => setFlipped((prev) => !prev)}>
+		<div
+			className={styles.tile}
+			onClick={() => setFlipped((prev) => !prev)}
+			aria-label={`Details for ${title}`}
+		>
 			<div
 				className={`${styles['tile-content']} ${flipped ? styles.flipped : ''}`}
 			>
-				<div className={styles['tile-front']}>
-					<div className={styles['image-wrapper']}>
+				<div className={styles['tile-front']} aria-hidden={flipped}>
+					<figure className={styles['image-wrapper']}>
 						{imageBackground && (
 							<div className={styles.wrapper}>
-								<div className={styles['image-background']}></div>
+								<div
+									className={styles['image-background']}
+									aria-hidden={true}
+								></div>
 							</div>
 						)}
 						<Image src={image} alt={alt} width={400} height={400} />
-					</div>
-					<h3 className={styles.h3}>{title}</h3>
+					</figure>
+					<header>
+						<h3 className={styles.h3}>{title}</h3>
+					</header>
 					<p className={styles.p}>{summary}</p>
 				</div>
 
-				<div className={styles['tile-back']}>
+				<div className={styles['tile-back']} aria-hidden={!flipped}>
 					<div className={styles['back-content']}>
-						<h3 className={styles.h3}>{title}</h3>
+						<header>
+							<h3 className={styles.h3}>{title}</h3>
+						</header>
 						<ul className={styles.ul}>
 							{details.map((detail, index) => (
 								<li key={index} className={styles.li}>
