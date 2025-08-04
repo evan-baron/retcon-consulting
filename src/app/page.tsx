@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Summary from './components/summary/Summary';
 import Services from './components/services/Services';
+import Process from './components/process/Process';
 import About from './components/about/About';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
 					<Hero />
 					<Summary />
 					<Services id='services' />
+					<Process />
 					<About id='about' />
 					<section className={styles['previous-work']}>Previous Work</section>
 					<section id='contact' className={styles['contact-form']}></section>
