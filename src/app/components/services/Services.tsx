@@ -46,8 +46,10 @@ function Services({ id }: { id: string }) {
 										height={400}
 									/>
 								</div>
-								<h3>Consulting</h3>
-								<p>Expert advice to guide your business strategy.</p>
+								<h3 className={styles.h3}>Consulting</h3>
+								<p className={styles.p}>
+									Expert advice to guide your business strategy.
+								</p>
 							</div>
 
 							<div className={styles['tile-back']}>
@@ -112,8 +114,10 @@ function Services({ id }: { id: string }) {
 										height={400}
 									/>
 								</div>
-								<h3>Development</h3>
-								<p>Custom software solutions tailored to your needs.</p>
+								<h3 className={styles.h3}>Development</h3>
+								<p className={styles.p}>
+									Custom software solutions tailored to your needs.
+								</p>
 							</div>
 							<div className={styles['tile-back']}>
 								<div className={styles['back-content']}>
@@ -174,8 +178,10 @@ function Services({ id }: { id: string }) {
 										height={400}
 									/>
 								</div>
-								<h3>Design</h3>
-								<p>Creative designs that enhance user experience.</p>
+								<h3 className={styles.h3}>Design</h3>
+								<p className={styles.p}>
+									Creative designs that enhance user experience.
+								</p>
 							</div>
 							<div className={styles['tile-back']}>
 								<div className={styles['back-content']}>
