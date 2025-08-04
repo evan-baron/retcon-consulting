@@ -33,7 +33,7 @@
 		}
 
 		.tile-front {
-			background-color: hsl(0, 0%, 15%);
+			background-color: var(--gray6);
 			padding: 1.25rem;
 
 			.h3 {
@@ -46,7 +46,7 @@
 		}
 
 		.tile-back {
-			background-color: hsl(0, 0%, 15%);
+			background-color: var(--gray6);
 			transform: rotateY(180deg);
 
 			.back-content {
