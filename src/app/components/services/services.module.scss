@@ -33,15 +33,81 @@
 
 			.tile {
 				width: 400px;
-				border-radius: 0.5rem;
-				padding: 1.25rem 0;
-				text-align: center;
-				background-color: hsl(0, 0%, 15%);
-				box-shadow: 0.5rem 0.5rem 1rem black;
-				cursor: pointer;
+
+				.tile-content {
+					position: relative;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1);
+					transform-style: preserve-3d;
+
+					&.flipped {
+						transform: rotateY(180deg);
+					}
+
+					.tile-front,
+					.tile-back {
+						width: 400px;
+						height: 525px;
+						position: absolute;
+
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						border-radius: 0.5rem;
+						padding: 1.25rem 0;
+						text-align: center;
+						box-shadow: 0.5rem 0.5rem 1rem black;
+						cursor: pointer;
+
+						backface-visibility: hidden;
+					}
+
+					.tile-front {
+						background-color: hsl(0, 0%, 15%);
+					}
+
+					.tile-back {
+						background-color: hsl(0, 0%, 15%);
+						transform: rotateY(180deg);
+
+						.back-content {
+							width: 100%;
+							height: 100%;
+
+							.h3 {
+								font-size: 2rem;
+								font-weight: 500;
+							}
+
+							.ul {
+								display: flex;
+								flex-direction: column;
+								gap: 1.25rem;
+								padding: 1.25rem;
+
+								.li {
+									align-self: flex-start;
+									text-align: left;
+									list-style: disc;
+									margin-left: 1.25rem;
+									font-size: 1.125rem;
+									line-height: 1.5;
+
+									.emphasis {
+										font-weight: bold;
+									}
+								}
+							}
+						}
+					}
+				}
 
 				.image-wrapper {
 					filter: drop-shadow(0.5rem 0.5rem 1rem black);
+					position: relative;
 
 					.wrapper {
 						position: absolute;
@@ -59,14 +125,6 @@
 							transform: rotate(-60deg);
 							background-color: var(--gray2);
 						}
-					}
-
-					.image {
-						width: 100%;
-						height: auto;
-						border-radius: 0.5rem;
-						margin-bottom: 15px;
-						z-index: 5;
 					}
 				}
 
