@@ -28,7 +28,7 @@ export const tileData: TileData[] = [
 		alt: 'Development services',
 		summary: 'Custom software solutions tailored to your needs.',
 		details: [
-			"Beautifully designed <span style='font-weight:bold;'>custom websites</span> with <span style='font-weight:bold;'>interactive content</span>",
+			"Intuitively built <span style='font-weight:bold;'>custom websites</span> with <span style='font-weight:bold;'>interactive content</span>",
 			"Full-stack architecture built for <span style='font-weight:bold;'>speed</span>, <span style='font-weight:bold;'>scalability</span>, and <span style='font-weight:bold;'>easy maintenance</span>",
 			"End-to-end solutions from <span style='font-weight:bold;'>concept</span> to <span style='font-weight:bold;'>reality</span> with modern tech stacks like <span style='font-weight:bold;'>React</span>, <span style='font-weight:bold;'>Next.js</span>, and <span style='font-weight:bold;'>Node</span>",
 			"Performance-optimized code with a focus on <span style='font-weight:bold;'>accessibility</span> and <span style='font-weight:bold;'>SEO best practices</span>",

@@ -40,7 +40,7 @@ export const sendContactForm = async (name: string, email: string, services: str
 	const mailOptions = {
 		from: process.env.NEXT_PUBLIC_EMAIL,
 		to: process.env.PERSONAL_EMAIL,
-		subject: `New Consulting Lead Message From ${name}`,
+		subject: `Retcon Consulting Lead Request From ${name}`,
 		html: htmlContent,
 	};
 
