@@ -2,6 +2,7 @@
 import styles from './page.module.scss';
 
 // Component imports
+import BackgroundEffect from './components/background/BackgroundEffect';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
@@ -15,7 +16,8 @@ export default function Home() {
 		<>
 			<div id='top'></div>
 			<main className={styles.main}>
-				<div className={styles['main-bg']}></div>
+				<BackgroundEffect />
+				{/* <div className={styles['main-bg']}></div> */}
 				<div className={styles['main-content']}>
 					<Header />
 					<Hero />
