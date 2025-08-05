@@ -1,6 +1,9 @@
 // Library imports
 import React from 'react';
 
+// Actions import
+import { sendContact } from './sendContact';
+
 // Styles imports
 import styles from './contact.module.scss';
 
@@ -12,7 +15,7 @@ function Contact({ id }: { id: string }) {
 				aria-label='Schedule a consultation to discuss your needs'
 			>
 				<h2 className={styles.h2}>Get in Touch</h2>
-				<form action='' className={styles['contact-form']}>
+				<form action={sendContact} className={styles['contact-form']}>
 					<div className={styles['names-wrapper']}>
 						<div className={styles['name-input']}>
 							<label htmlFor='first-name'>First Name:</label>
