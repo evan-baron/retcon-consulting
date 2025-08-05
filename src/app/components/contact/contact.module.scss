@@ -1,0 +1,136 @@
+.contact-wrapper {
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+
+	.contact {
+		width: 100%;
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 10%;
+		gap: 3rem;
+		z-index: 5;
+
+		.h2 {
+			font-size: 4rem;
+			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+				0.5rem 0.5rem 3rem black;
+			padding-top: 2rem;
+			color: var(--gray1);
+		}
+
+		label,
+		h3 {
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: var(--gray1);
+		}
+
+		.contact-form {
+			width: 90%;
+			height: 800px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			padding: 50px 100px;
+			background-color: var(--gray6);
+			border-radius: 0.5rem;
+			box-shadow: 0.5rem 0.5rem 1rem black;
+
+			.names-wrapper {
+				display: flex;
+				gap: 2rem;
+
+				.name-input {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+
+					input {
+						border: 2px solid var(--gray2);
+						border-radius: 0.5rem;
+						padding: 0.5rem;
+						font-size: 1.25rem;
+					}
+				}
+			}
+
+			.email-input {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+
+				input {
+					border: 2px solid var(--gray2);
+					border-radius: 0.5rem;
+					padding: 0.5rem;
+					font-size: 1.25rem;
+				}
+			}
+
+			.services-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				margin-bottom: 1rem;
+
+				.services-checkboxes {
+					margin-left: 1rem;
+					display: flex;
+					flex-direction: column;
+
+					label {
+						font-size: 1.25rem;
+						color: var(--main-gray);
+						display: flex;
+						align-items: center;
+					}
+
+					input[type='checkbox'] {
+						margin-right: 0.75rem;
+						transform: scale(1.5);
+					}
+				}
+			}
+
+			.message-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				margin-bottom: 1rem;
+
+				textarea {
+					border: 2px solid var(--gray2);
+					border-radius: 0.5rem;
+					padding: 0.5rem;
+					font-size: 1.25rem;
+					resize: vertical;
+				}
+			}
+
+			.button {
+				background-color: var(--gray1);
+				color: var(--gray6);
+				border: none;
+				border-radius: 0.5rem;
+				padding: 0.75rem 1.5rem;
+				font-size: 1.5rem;
+				cursor: pointer;
+				transition: opacity 0.2s;
+				opacity: 0.25;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

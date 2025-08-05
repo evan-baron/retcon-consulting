@@ -1,6 +1,6 @@
 :root {
 	--gray1: hsl(0, 0, 98%);
-	--gray2: hsl(0, 0, 80%);
+	--gray2: hsl(0, 0%, 80%);
 	--gray3: hsl(0, 0, 60%);
 	--gray4: hsl(0, 0, 40%);
 	--gray5: hsl(0, 0, 20%);

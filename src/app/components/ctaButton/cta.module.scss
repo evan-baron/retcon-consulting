@@ -7,6 +7,7 @@
 	border-radius: 0.5rem;
 	text-shadow: none;
 	opacity: 0;
+	color: var(--main-gray);
 
 	&.done {
 		opacity: 1;
@@ -22,8 +23,8 @@
 
 	&:hover {
 		background-color: var(--gray5);
-		color: white;
-		border-color: white;
+		color: var(--gray1);
+		border-color: var(--gray1);
 	}
 
 	&:focus {

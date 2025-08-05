@@ -44,9 +44,9 @@ function Header() {
 					<li>
 						<a href='#top'>Retcon Consulting</a>
 					</li>
-					<li>
+					{/* <li>
 						<a href='#about'>About</a>
-					</li>
+					</li> */}
 					<li>
 						<a href='#services'>Services</a>
 					</li>

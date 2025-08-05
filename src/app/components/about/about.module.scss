@@ -37,6 +37,14 @@
 			border-bottom-right-radius: 50px;
 			box-shadow: 0.5rem 0.5rem 1rem black;
 			background-color: var(--gray6);
+			// background-color: hsla(0, 0%, 50%, 0.1);
+			// backdrop-filter: blur(5px);
+
+			@media screen and (min-width: 1800px) {
+				align-self: center;
+				width: 1500px;
+				border-radius: 50px;
+			}
 
 			.content {
 				position: relative;
@@ -56,6 +64,10 @@
 						bottom: 0;
 						left: 50px;
 						filter: drop-shadow(0.5rem 0.5rem 1rem black);
+
+						@media screen and (min-width: 1800px) {
+							left: 0;
+						}
 
 						.portrait {
 							position: absolute;
@@ -100,6 +112,10 @@
 							hsla(0, 0%, 5%, 0.25) 40%,
 							hsla(0, 0%, 5%, 1) 70%
 						);
+
+						@media screen and (min-width: 1800px) {
+							left: 0;
+						}
 					}
 				}
 

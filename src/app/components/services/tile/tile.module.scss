@@ -1,5 +1,7 @@
 .tile {
 	width: 400px;
+	height: 525px;
+
 	.tile-content {
 		position: relative;
 		display: flex;
@@ -37,6 +39,7 @@
 
 			.h3 {
 				font-size: 2rem;
+				color: var(--gray1);
 			}
 
 			.p {
@@ -55,6 +58,7 @@
 				.h3 {
 					font-size: 2rem;
 					font-weight: 500;
+					color: var(--gray1);
 				}
 
 				.ul {

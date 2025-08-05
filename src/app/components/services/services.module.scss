@@ -1,16 +1,14 @@
 .services-wrapper {
 	position: relative;
 	width: 100%;
-	height: 700px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	user-select: none;
-	transform: translateY(-100px);
+	// transform: translateY(-100px);
 
 	.services {
 		width: 100%;
-		height: 700px;
 		position: relative;
 
 		display: flex;
@@ -25,12 +23,17 @@
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;
 			padding-top: 2rem;
+			color: var(--gray1);
 		}
 
 		.services-tiles {
 			width: 100%;
+			max-width: 1400px;
 			display: flex;
-			justify-content: space-between;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 4rem;
+			margin-bottom: 4rem;
 		}
 	}
 }

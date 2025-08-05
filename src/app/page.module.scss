@@ -5,28 +5,10 @@
 	flex-direction: column;
 	min-height: 100vh;
 
-	.main-bg {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		background-color: hsl(0, 0%, 15%);
-		background-image: url(/lg-grid-background.webp);
-		background-repeat: repeat;
-
-		-webkit-mask-image: linear-gradient(
-			to right,
-			hsla(0, 0%, 5%, 0) 0%,
-			hsla(0, 0%, 5%, 1) 20%,
-			hsla(0, 0%, 5%, 1) 80%,
-			hsla(0, 0%, 5%, 0) 100%
-		);
-
-		mask-image: linear-gradient(
-			to right,
-			hsla(0, 0%, 5%, 0) 0%,
-			hsla(0, 0%, 5%, 1) 20%,
-			hsla(0, 0%, 5%, 1) 80%,
-			hsla(0, 0%, 5%, 0) 100%
-		);
+	.main-content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
 	}
 }
