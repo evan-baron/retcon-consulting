@@ -121,7 +121,8 @@ function Contact({ id }: { id: string }) {
 				<h2 className={styles.h2}>Get in Touch</h2>
 				{!formComplete ? (
 					<form onSubmit={handleSubmit} className={styles['contact-form']}>
-						<div className={styles['names-wrapper']}>
+						<fieldset className={styles['names-wrapper']}>
+							<legend className={styles.legend}>Name</legend>
 							<div className={styles['name-input']}>
 								<label htmlFor='firstName'>
 									First Name:{' '}
@@ -147,9 +148,10 @@ function Contact({ id }: { id: string }) {
 									required
 								/>
 							</div>
-						</div>
+						</fieldset>
 
-						<div className={styles['communication-wrapper']}>
+						<fieldset className={styles['communication-wrapper']}>
+							<legend className={styles.legend}>Contact Information</legend>
 							<div className={styles['communication-input']}>
 								<label htmlFor='email'>
 									Email: <span className={styles.required}>(Required)</span>
@@ -175,13 +177,13 @@ function Contact({ id }: { id: string }) {
 									placeholder='(123) 456 - 7890'
 								/>
 							</div>
-						</div>
+						</fieldset>
 
-						<div className={styles['services-wrapper']}>
-							<h3>
-								Service(s) Needed:{' '}
+						<fieldset className={styles['services-wrapper']}>
+							<legend className={styles.h3}>
+								Service(s) Needed{' '}
 								<span className={styles.required}>(Choose at least one)</span>
-							</h3>
+							</legend>
 							<div id='services' className={styles['services-checkboxes']}>
 								<label>
 									<input
@@ -233,7 +235,7 @@ function Contact({ id }: { id: string }) {
 									Personal Coaching
 								</label>
 							</div>
-						</div>
+						</fieldset>
 
 						<div className={styles['message-wrapper']}>
 							<label htmlFor='message'>
