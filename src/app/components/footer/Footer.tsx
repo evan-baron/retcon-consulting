@@ -1,3 +1,5 @@
+'use client';
+
 // Libary imports
 import React from 'react';
 

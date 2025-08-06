@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
-import './globals.css';
+import './globals.scss';
 
 const ibmPlexMono = IBM_Plex_Mono({
 	variable: '--font-ibm-plex-mono',

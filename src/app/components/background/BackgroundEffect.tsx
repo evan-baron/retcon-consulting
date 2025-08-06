@@ -8,7 +8,6 @@ import styles from './backgroundEffect.module.scss';
 
 function BackgroundEffect() {
 	// Effect to handle mouse movement and create effects under the mouse
-	const heroRef = useRef<HTMLDivElement>(null);
 	const backgroundRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
