@@ -4,18 +4,19 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
 	try {
-		const { name, email, services, message } = await req.json() as {
+		const { name, email, phone, services, message } = await req.json() as {
 			name: string;
 			email: string;
+			phone: string;
 			services: string;
 			message: string;
 		};
 
-		await sendContactForm(name, email, services, message);
+		await sendContactForm(name, email, phone, services, message);
 
 		const response = NextResponse.json(
 			{
-				message: 'Contact Us email sent',
+				message: 'Contact Us email sent',	
 			},
 			{ status: 201 }
 		);

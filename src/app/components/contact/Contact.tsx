@@ -15,6 +15,7 @@ function Contact({ id }: { id: string }) {
 		firstName: string;
 		lastName: string;
 		email: string;
+		phone: string;
 		services: string[];
 		message: string;
 	};
@@ -23,6 +24,7 @@ function Contact({ id }: { id: string }) {
 		firstName: '',
 		lastName: '',
 		email: '',
+		phone: '',
 		services: [],
 		message: '',
 	});
@@ -31,16 +33,45 @@ function Contact({ id }: { id: string }) {
 		formData.firstName &&
 			formData.lastName &&
 			formData.email &&
+			formData.phone?.length === 10 &&
 			formData.message &&
 			formData.services.length > 0
 	);
 
 	const [formComplete, setFormComplete] = useState(false);
 
+	function formatPhone(value: string): string {
+		// Remove all non-digit characters
+		const digits = value.replace(/\D/g, '');
+
+		if (digits.length === 0) return '';
+		if (digits.length < 4) return `${digits}`;
+		if (digits.length < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+		if (digits.length <= 10)
+			return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)} - ${digits.slice(
+				6
+			)}`;
+		// If more than 10 digits, ignore extras
+		return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)} - ${digits.slice(
+			6,
+			10
+		)}`;
+	}
+
 	const handleChange = (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
 		const { name, value, type } = event.target;
+
+		if (name === 'phone') {
+			// Only allow digits, but format for display
+			const digits = value.replace(/\D/g, '');
+			setFormData((prev) => ({
+				...prev,
+				phone: digits.slice(0, 10), // Limit to 10 digits
+			}));
+			return;
+		}
 
 		if (type === 'checkbox') {
 			const checked = (event.target as HTMLInputElement).checked;
@@ -52,7 +83,6 @@ function Contact({ id }: { id: string }) {
 			}));
 		} else {
 			setFormData((prev) => ({ ...prev, [name]: value }));
-			console.log(`Updated ${name}:`, value);
 		}
 	};
 
@@ -62,6 +92,7 @@ function Contact({ id }: { id: string }) {
 			const response = await axiosInstance.post('/api/contact', {
 				name: formData.firstName + ' ' + formData.lastName,
 				email: formData.email,
+				phone: formData.phone,
 				services: formData.services.join(', '),
 				message: formData.message,
 			});
@@ -71,6 +102,7 @@ function Contact({ id }: { id: string }) {
 					firstName: '',
 					lastName: '',
 					email: '',
+					phone: '',
 					services: [],
 					message: '',
 				});
@@ -91,7 +123,10 @@ function Contact({ id }: { id: string }) {
 					<form onSubmit={handleSubmit} className={styles['contact-form']}>
 						<div className={styles['names-wrapper']}>
 							<div className={styles['name-input']}>
-								<label htmlFor='firstName'>First Name:</label>
+								<label htmlFor='firstName'>
+									First Name:{' '}
+									<span className={styles.required}>(Required)</span>
+								</label>
 								<input
 									type='text'
 									id='firstName'
@@ -101,7 +136,9 @@ function Contact({ id }: { id: string }) {
 								/>
 							</div>
 							<div className={styles['name-input']}>
-								<label htmlFor='lastName'>Last Name:</label>
+								<label htmlFor='lastName'>
+									Last Name: <span className={styles.required}>(Required)</span>
+								</label>
 								<input
 									type='text'
 									id='lastName'
@@ -112,19 +149,39 @@ function Contact({ id }: { id: string }) {
 							</div>
 						</div>
 
-						<div className={styles['email-input']}>
-							<label htmlFor='email'>Email:</label>
-							<input
-								type='email'
-								id='email'
-								name='email'
-								onChange={handleChange}
-								required
-							/>
+						<div className={styles['communication-wrapper']}>
+							<div className={styles['communication-input']}>
+								<label htmlFor='email'>
+									Email: <span className={styles.required}>(Required)</span>
+								</label>
+								<input
+									type='email'
+									id='email'
+									name='email'
+									onChange={handleChange}
+									required
+								/>
+							</div>
+							<div className={styles['communication-input']}>
+								<label htmlFor='phone'>Phone:</label>
+								<input
+									type='tel'
+									id='phone'
+									name='phone'
+									inputMode='numeric'
+									onChange={handleChange}
+									maxLength={16}
+									value={formatPhone(formData.phone)}
+									placeholder='(123) 456 - 7890'
+								/>
+							</div>
 						</div>
 
 						<div className={styles['services-wrapper']}>
-							<h3>Service(s) Needed:</h3>
+							<h3>
+								Service(s) Needed:{' '}
+								<span className={styles.required}>(Choose at least one)</span>
+							</h3>
 							<div id='services' className={styles['services-checkboxes']}>
 								<label>
 									<input
@@ -179,7 +236,9 @@ function Contact({ id }: { id: string }) {
 						</div>
 
 						<div className={styles['message-wrapper']}>
-							<label htmlFor='message'>Message:</label>
+							<label htmlFor='message'>
+								Message: <span className={styles.required}>(Required)</span>
+							</label>
 							<textarea
 								id='message'
 								name='message'
@@ -192,7 +251,7 @@ function Contact({ id }: { id: string }) {
 						<button
 							type='submit'
 							className={`${styles.button} ${
-								!formReady ? styles.disabled : ''
+								!formReady ? styles.disabled : styles.enabled
 							}`}
 							disabled={!formReady}
 						>
@@ -216,6 +275,14 @@ function Contact({ id }: { id: string }) {
 							<br />
 							Thank you for contacting Retcon Consulting!
 						</p>
+						<button
+							type='button'
+							aria-label='Send Another Message'
+							onClick={() => setFormComplete(false)}
+							className={styles.button}
+						>
+							Send Another Message
+						</button>
 					</div>
 				)}
 			</section>

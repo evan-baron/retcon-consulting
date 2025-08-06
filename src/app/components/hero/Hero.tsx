@@ -10,7 +10,7 @@ import styles from './hero.module.scss';
 import CTA from '../ctaButton/CTA';
 
 // Words for the typing effect
-const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles.'];
+const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your hurdles.'];
 
 function Hero() {
 	// Typewriter effect for the title
