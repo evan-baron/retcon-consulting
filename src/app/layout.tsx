@@ -25,9 +25,66 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://www.retconconsulting.com'),
 	title: 'Retcon Consulting',
 	description: 'Tech-focused consulting services for your business needs',
 	manifest: '/manifest.json',
+
+	openGraph: {
+		title: 'Retcon Consulting - Tech-Focused Business Solutions',
+		description:
+			'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+		url: 'https://www.retconconsulting.com',
+		siteName: 'Retcon Consulting',
+		images: [
+			{
+				url: '/og-image.jpg',
+				width: 1200,
+				height: 630,
+				alt: 'Retcon Consulting - Tech-Focused Business Solutions',
+			},
+		],
+		locale: 'en_US',
+		type: 'website',
+	},
+
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Retcon Consulting - Tech-Focused Business Solutions',
+		description:
+			'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+		images: ['/og-image.jpg'],
+	},
+
+	keywords: [
+		'consulting',
+		'tech consulting',
+		'startup',
+		'product strategy',
+		'web development',
+		'business solutions',
+		'coaching',
+		'sales coaching',
+		'sales consulting',
+		'web design',
+		'web design services',
+		'retcon',
+		'retcon consulting',
+	],
+	authors: [{ name: 'Retcon Consulting' }],
+	creator: 'Retcon Consulting',
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
+
 	icons: [
 		{
 			url: '/favicon.ico',
@@ -56,6 +113,25 @@ export const metadata: Metadata = {
 	],
 };
 
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: 'Retcon Consulting',
+	description:
+		'Tech-focused consulting services for startups and entrepreneurs',
+	url: 'https://www.retconconsulting.com',
+	address: {
+		'@type': 'PostalAddress',
+		addressCountry: 'USA',
+		addressLocality: 'Denver',
+		addressRegion: 'CO',
+		postalCode: '80202',
+	},
+	serviceType: ['Business Consulting', 'Web Development', 'Product Strategy'],
+	areaServed: 'USA',
+	image: 'https://www.retconconsulting.com/og-image.jpg',
+};
+
 export const viewport: Viewport = {
 	width: 'device-width',
 	initialScale: 1,
@@ -68,6 +144,14 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			<head>
+				<script
+					type='application/ld+json'
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(structuredData),
+					}}
+				/>
+			</head>
 			<body
 				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
 			>

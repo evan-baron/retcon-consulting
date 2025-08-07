@@ -15,9 +15,9 @@ export const tileData: TileData[] = [
 		alt: 'Consulting services',
 		summary: 'Expert advice to guide your business strategy.',
 		details: [
-			"Define product <span style='font-weight:bold;'>positioning</span> and GTM <span style='font-weight:bold;'>messaging</span>",
-			"Develop technical <span style='font-weight:bold;'>sales enablement materials</span> and new client <span style='font-weight:bold;'>onboarding workflows</span>",
-			"Align product features to buyer pain points to identify <span style='font-weight:bold;'>product-market fit</span>",
+			"Define your product <span style='font-weight:bold;'>positioning</span> and GTM <span style='font-weight:bold;'>messaging</span>",
+			"Develop technical <span style='font-weight:bold;'>sales enablement</span> materials and new client onboarding <span style='font-weight:bold;'>workflows</span>",
+			"Align your product features to buyer pain points to identify <span style='font-weight:bold;'>product-market fit</span>",
 			"Create <span style='font-weight:bold;'>launch strategies</span> for new products or features",
 			"Coach sales and product teams on <span style='font-weight:bold;'>discovery</span> and <span style='font-weight:bold;'>communication</span>",
 		],
