@@ -269,12 +269,14 @@ function Contact({ id }: { id: string }) {
 								alt='Thank You'
 								width={500}
 								height={500}
+								className={styles.image}
 							/>
 						</div>
 						<h3>Message Received!</h3>
 						<p>
 							We&#39;ve received your message. A member of our team will reach
 							out to you shortly.
+							<br />
 							<br />
 							Thank you for contacting Retcon Consulting!
 						</p>
