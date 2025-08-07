@@ -74,6 +74,10 @@
 				0.5rem 0.5rem 3rem black;
 			color: var(--main-gray);
 
+			@media screen and (max-width: 500px) {
+				margin-bottom: 1rem;
+			}
+
 			.h2 {
 				font-family: var(--font-fredericka-the-great);
 				font-size: 4.5rem;
