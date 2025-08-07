@@ -32,7 +32,9 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		description:
-			'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+			'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
+		// description:
+		// 	'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
 		url: 'https://www.retconconsulting.com',
 		siteName: 'Retcon Consulting',
 		images: [
@@ -51,7 +53,9 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		description:
-			'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+			'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
+		// description:
+		// 	'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
 		images: ['/og-image.jpg'],
 	},
 
@@ -112,7 +116,7 @@ const structuredData = {
 	'@type': 'ProfessionalService',
 	name: 'Retcon Consulting',
 	description:
-		'Tech-focused consulting services for startups and entrepreneurs',
+		'Tech-focused consulting services for startups, entrepreneurs, and innovators.',
 	url: 'https://www.retconconsulting.com',
 	address: {
 		'@type': 'PostalAddress',
