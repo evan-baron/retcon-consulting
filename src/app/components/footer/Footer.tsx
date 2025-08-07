@@ -21,7 +21,7 @@ function Footer() {
 				<a
 					href='#'
 					className={`${styles['to-top']} ${
-						isTouchDevice && styles['hover-enabled']
+						!isTouchDevice && styles['hover-enabled']
 					}`}
 				>
 					&uarr; To the top &uarr;
@@ -34,7 +34,12 @@ function Footer() {
 						reserved.
 					</span>
 					{windowWidth && windowWidth > 500 && (
-						<a href='#' className={styles['to-top']}>
+						<a
+							href='#'
+							className={`${styles['to-top']} ${
+								!isTouchDevice && styles['hover-enabled']
+							}`}
+						>
 							&uarr; To the top &uarr;
 						</a>
 					)}
