@@ -11,5 +11,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: 4rem;
+
+		@media screen and (max-width: 500px) {
+			overflow-x: hidden;
+		}
 	}
 }

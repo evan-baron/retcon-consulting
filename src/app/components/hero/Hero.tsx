@@ -87,9 +87,6 @@ function Hero() {
 	return (
 		//heroRef used to go in section div styles.hero, backgroundRef used to go in div styles.background
 		<section className={styles.hero}>
-			<div className={styles.background}>
-				<div className={styles.grid} aria-hidden='true'></div>
-			</div>
 			<div className={styles.content}>
 				<div className={styles['title-box']}>
 					<h1 className={styles.title}>{displayed}</h1>
