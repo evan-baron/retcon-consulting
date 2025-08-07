@@ -40,6 +40,11 @@ function Header() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	// Delay rendering the header until windowWidth is defined
+	if (typeof windowWidth !== 'number') {
+		return null;
+	}
+
 	return (
 		<header
 			className={styles.header}
@@ -53,10 +58,7 @@ function Header() {
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
-					{!screenWidth ||
-					!windowWidth ||
-					screenWidth > 700 ||
-					windowWidth > 700 ? (
+					{!windowWidth || windowWidth > 700 ? (
 						<>
 							<li>
 								<a href='#services'>Services</a>
