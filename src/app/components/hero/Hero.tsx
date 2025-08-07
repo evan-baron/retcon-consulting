@@ -9,10 +9,15 @@ import styles from './hero.module.scss';
 // Component Imports
 import CTA from '../ctaButton/CTA';
 
+// Context
+import { useAppContext } from '@/app/context/AppContext';
+
 // Words for the typing effect
 const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your hurdles.'];
 
 function Hero() {
+	const { isTouchDevice } = useAppContext();
+
 	// Typewriter effect for the title
 	const [displayed, setDisplayed] = useState('');
 	const [wordIndex, setWordIndex] = useState(0);
@@ -89,10 +94,11 @@ function Hero() {
 				<div className={styles['title-box']}>
 					<h1 className={styles.title}>{displayed}</h1>
 					<CTA
-						className={`${phase === 'done' ? styles.done : ''}`}
+						className={`${phase === 'done' ? styles.done : ''} `}
 						disabled={phase !== 'done'}
 						content='Book a free consultation'
 						parent='hero'
+						touchDevice={isTouchDevice}
 					/>
 				</div>
 

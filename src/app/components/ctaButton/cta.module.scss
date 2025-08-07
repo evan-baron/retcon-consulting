@@ -9,6 +9,11 @@
 	opacity: 0;
 	color: var(--main-gray);
 
+	@media screen and (max-width: 500px) {
+		font-size: 1.25rem;
+		padding: 0.5rem 1rem;
+	}
+
 	&.done {
 		opacity: 1;
 		transition: opacity 0.2s ease-in-out;
@@ -21,7 +26,15 @@
 		background-color: var(--background);
 	}
 
-	&:hover {
+	&.hover-enabled {
+		&:hover {
+			background-color: var(--gray5);
+			color: var(--gray1);
+			border-color: var(--gray1);
+		}
+	}
+
+	&:active {
 		background-color: var(--gray5);
 		color: var(--gray1);
 		border-color: var(--gray1);

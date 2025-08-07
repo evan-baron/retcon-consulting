@@ -6,9 +6,16 @@ interface CTAProps {
 	parent?: string; // Optional, used for styling or context
 	disabled?: boolean;
 	className?: string;
+	touchDevice?: boolean; // Optional, used for touch device styling
 }
 
-const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => (
+const CTA: React.FC<CTAProps> = ({
+	content,
+	parent,
+	disabled,
+	className,
+	touchDevice,
+}) => (
 	<a
 		href='#contact'
 		role='button'
@@ -16,7 +23,7 @@ const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => (
 		aria-label='Book a session'
 		className={`${styles.cta} ${!disabled ? styles.done : ''} ${
 			parent === 'hero' && styles.hero
-		} ${className || ''}`}
+		} ${touchDevice === false && styles['hover-enabled']} ${className || ''}`}
 	>
 		<span className={styles['cta-text']}>{content}</span>
 	</a>

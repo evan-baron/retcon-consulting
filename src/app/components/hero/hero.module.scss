@@ -9,36 +9,8 @@
 
 	user-select: none;
 
-	.mouse-effect {
-		--effect-color: var(--effect-hue), 100%, 50%;
-
-		position: absolute;
-		height: 10px;
-		width: 10px;
-		will-change: opacity;
-		border-radius: 50%;
-		background-color: hsl(var(--effect-color));
-		pointer-events: none;
-		transform: translate(-50%, -50%);
-		box-shadow: 0 0 25px 25px hsla(var(--effect-color), 1),
-			0 0 50px 50px hsla(var(--effect-color), 0.75),
-			0 0 75px 75px hsla(var(--effect-color), 0.5),
-			0 0 100px 100px hsla(var(--effect-color), 0.25);
-		opacity: 1;
-
-		animation: fadeout 1s ease-in-out forwards;
-		transition: opacity 1s ease-in-out;
-
-		z-index: -1;
-
-		@keyframes fadeout {
-			0% {
-				opacity: 1;
-			}
-			100% {
-				opacity: 0;
-			}
-		}
+	@media screen and (max-width: 500px) and (orientation: portrait) {
+		height: 100vh;
 	}
 
 	.content {
@@ -65,6 +37,10 @@
 			width: 80%;
 		}
 
+		@media screen and (max-width: 500px) {
+			height: 100%;
+		}
+
 		.title-box {
 			width: 1000px;
 			position: absolute;
@@ -79,6 +55,16 @@
 				0.5rem 0.5rem 3rem black;
 
 			color: var(--gray1);
+
+			@media screen and (max-width: 500px) {
+				position: absolute;
+				top: 40%;
+
+				width: 100%;
+				height: 100%;
+				font-size: 3rem;
+				white-space: normal;
+			}
 		}
 
 		.definition {
@@ -92,18 +78,31 @@
 				font-family: var(--font-fredericka-the-great);
 				font-size: 4.5rem;
 				font-weight: 400;
+
+				@media screen and (max-width: 500px) {
+					font-size: 2.5rem;
+				}
 			}
 
 			.h3 {
 				font-size: 2rem;
 				font-weight: 500;
 				font-family: var(--font-roboto);
+
+				@media screen and (max-width: 500px) {
+					font-size: 1.25rem;
+				}
 			}
 
 			.p {
 				margin-left: 1ch;
 				font-size: 1.5rem;
 				font-family: var(--font-roboto);
+				text-wrap: pretty;
+
+				@media screen and (max-width: 500px) {
+					font-size: 1.125rem;
+				}
 			}
 		}
 	}

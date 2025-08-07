@@ -20,7 +20,7 @@ function BackgroundEffect() {
 		const throttle = 20; // milliseconds
 		const MAX_EFFECTS = 20; // Maximum number of effects to show
 
-		const moveEffect = (event: MouseEvent) => {
+		const showEffect = (x: number, y: number) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
 			const hue = (Date.now() / 10) % 360;
 			document.body.style.setProperty('--effect-hue', `${hue}`);
@@ -44,8 +44,8 @@ function BackgroundEffect() {
 			i.classList.add(styles['mouse-effect']);
 
 			// Set the position of the effect element relative to the hero element using the mouse coordinates
-			i.style.left = `${event.clientX}px`;
-			i.style.top = `${event.clientY}px`;
+			i.style.left = `${x}px`;
+			i.style.top = `${y}px`;
 
 			// Add the effect element to the background element
 			backgroundElement.appendChild(i);
@@ -56,10 +56,23 @@ function BackgroundEffect() {
 			}, 1000);
 		};
 
+		const moveEffect = (event: MouseEvent) => {
+			showEffect(event.clientX, event.clientY);
+		};
+
+		const touchEffect = (event: TouchEvent) => {
+			if (event.touches.length > 0) {
+				const touch = event.touches[0];
+				showEffect(touch.clientX, touch.clientY);
+			}
+		};
+
 		document.addEventListener('mousemove', moveEffect);
+		document.addEventListener('touchmove', touchEffect);
 
 		return () => {
 			document.removeEventListener('mousemove', moveEffect);
+			document.removeEventListener('touchmove', touchEffect);
 		};
 	}, []);
 

@@ -14,7 +14,7 @@ import Hamburger from '../hamburger/Hamburger';
 import { useAppContext } from '@/app/context/AppContext';
 
 function Header() {
-	const { windowWidth, screenWidth } = useAppContext();
+	const { windowWidth } = useAppContext();
 
 	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
 	const [offset, setOffset] = useState(0);
