@@ -2,6 +2,7 @@
 
 // Libary imports
 import React from 'react';
+import Link from 'next/link';
 
 // Styles imports
 import styles from './footer.module.scss';
@@ -44,10 +45,31 @@ function Footer() {
 						</a>
 					)}
 					<div className={styles['social-icons']}>
-						<LinkedIn className={styles.icon} />
-						<Twitter className={styles.icon} />
-						<Facebook className={styles.icon} />
-						<Instagram className={styles.icon} />
+						<Link
+							href='https://www.linkedin.com/company/retcon-consulting'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Visit our LinkedIn page'
+						>
+							<LinkedIn className={styles.icon} />
+						</Link>
+						{/* <Twitter className={styles.icon} /> */}
+						<Link
+							href='https://www.facebook.com/retconconsulting'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Visit our Facebook page'
+						>
+							<Facebook className={styles.icon} />
+						</Link>
+						<Link
+							href='https://www.instagram.com/retconconsulting'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Visit our Instagram page'
+						>
+							<Instagram className={styles.icon} />
+						</Link>
 					</div>
 				</div>
 			</div>
