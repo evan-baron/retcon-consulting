@@ -27,6 +27,10 @@
 			gap: 2rem;
 			font-size: 1.5rem;
 
+			@media screen and (max-width: 1050px) and (orientation: portrait) {
+				gap: 1rem;
+			}
+
 			.logo {
 				display: flex;
 				align-items: center;
@@ -36,7 +40,11 @@
 				color: var(--gray1);
 				margin-left: 0.5rem;
 
-				@media screen and (max-width: 500px) and (orientation: portrait) {
+				@media screen and (max-width: 950px) and (orientation: portrait) {
+					font-size: 1.75rem;
+				}
+
+				@media screen and (max-width: 850px) and (orientation: portrait) {
 					font-size: 1.5rem;
 					width: 50px;
 				}

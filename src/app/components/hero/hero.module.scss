@@ -56,8 +56,17 @@
 
 			color: var(--gray1);
 
+			@media screen and (max-width: 1200px) {
+				white-space: normal;
+				width: 550px;
+				right: 10%;
+				height: 100%;
+				top: 40%;
+			}
+
 			@media screen and (max-width: 500px) {
 				position: absolute;
+				right: 0;
 				top: 40%;
 
 				width: 100%;
