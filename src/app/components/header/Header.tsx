@@ -2,6 +2,8 @@
 
 // Library imports
 import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Styles imports
 import styles from './header.module.scss';
@@ -52,9 +54,15 @@ function Header() {
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>
-					<li className={styles.logo}>
-						<a href='#top'>Retcon Consulting</a>
-					</li>
+					<Link href='#top' className={styles.logo}>
+						<Image
+							src='/logo.webp'
+							alt='Retcon Consulting'
+							width={40}
+							height={40}
+						/>
+						<span>Retcon Consulting</span>
+					</Link>
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
