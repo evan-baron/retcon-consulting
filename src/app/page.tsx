@@ -27,7 +27,6 @@ export default function Home() {
 					{/* <Process /> */}
 					{/* <About id='about' /> */}
 					{/* <section className={styles['previous-work']}>Previous Work</section> */}
-					<section id='contact' className={styles['contact-form']}></section>
 					<Footer />
 				</div>
 			</main>

@@ -25,6 +25,7 @@ function Hamburger() {
 					className={`${styles['hamburger-content']} ${
 						active ? styles.active : ''
 					}`}
+					onClick={() => setActive(false)}
 				>
 					<ul className={styles.menu}>
 						<li>

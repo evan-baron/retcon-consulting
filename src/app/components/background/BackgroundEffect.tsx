@@ -56,10 +56,12 @@ function BackgroundEffect() {
 			}, 1000);
 		};
 
+		// For desktop
 		const moveEffect = (event: MouseEvent) => {
 			showEffect(event.clientX, event.clientY);
 		};
 
+		// For touch devices
 		const touchEffect = (event: TouchEvent) => {
 			if (event.touches.length > 0) {
 				const touch = event.touches[0];

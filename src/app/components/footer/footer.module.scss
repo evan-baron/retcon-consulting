@@ -7,6 +7,13 @@
 
 	user-select: none;
 
+	@media screen and (max-width: 500px) {
+		height: auto;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+	}
+
 	.footer {
 		width: 100%;
 		position: relative;
@@ -19,6 +26,10 @@
 		gap: 3rem;
 		border-top: 2px solid var(--main-gray);
 
+		@media screen and (max-width: 500px) {
+			padding: 1rem 0;
+		}
+
 		.footer-content {
 			display: flex;
 			align-items: center;
@@ -28,9 +39,19 @@
 			gap: 2rem;
 			font-size: 1.125rem;
 
+			@media screen and (max-width: 500px) {
+				flex-direction: column;
+				gap: 1rem;
+				font-size: 1rem;
+				text-wrap: pretty;
+				text-align: center;
+			}
+
 			.to-top {
-				&:hover {
-					color: var(--gray1);
+				&.hover-enabled {
+					&:hover {
+						color: var(--gray1);
+					}
 				}
 			}
 

@@ -16,18 +16,20 @@ function Summary() {
 				aria-label="Summary of why you're here"
 			>
 				<div className={styles.content}>
-					<div className={styles.wrapper}>
-						<div className={styles['image-background']}></div>
-					</div>
 					<div className={styles['image-wrapper']}>
-						<Image
-							src='/data-extraction-cuate.svg'
-							alt='Illustration representing startup innovation, outreach improvement, and data-driven design and growth strategy'
-							className={styles['data-image']}
-							width={600}
-							height={600}
-							priority={true}
-						/>
+						<div className={styles.wrapper}>
+							<div className={styles['image-background']}></div>
+						</div>
+						<div className={styles.image}>
+							<Image
+								src='/data-extraction-cuate.svg'
+								alt='Illustration representing startup innovation, outreach improvement, and data-driven design and growth strategy'
+								className={styles['data-image']}
+								width={600}
+								height={600}
+								priority={true}
+							/>
+						</div>
 					</div>
 					<div className={styles['text-wrapper']}>
 						<h2 className={styles['summary-highlight']}>

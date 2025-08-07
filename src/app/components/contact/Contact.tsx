@@ -181,8 +181,8 @@ function Contact({ id }: { id: string }) {
 
 						<fieldset className={styles['services-wrapper']}>
 							<legend className={styles.h3}>
-								Service(s) Needed{' '}
-								<span className={styles.required}>(Choose at least one)</span>
+								Service(s) Needed:{' '}
+								<span className={styles.required}>(Select at least one)</span>
 							</legend>
 							<div id='services' className={styles['services-checkboxes']}>
 								<label>
@@ -239,7 +239,8 @@ function Contact({ id }: { id: string }) {
 
 						<div className={styles['message-wrapper']}>
 							<label htmlFor='message'>
-								Message: <span className={styles.required}>(Required)</span>
+								Add a brief description:{' '}
+								<span className={styles.required}>(Required)</span>
 							</label>
 							<textarea
 								id='message'
