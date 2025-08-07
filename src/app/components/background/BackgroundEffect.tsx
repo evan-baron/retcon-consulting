@@ -6,7 +6,12 @@ import React, { useEffect, useRef } from 'react';
 // Styles imports
 import styles from './backgroundEffect.module.scss';
 
+// Context
+import { useAppContext } from '@/app/context/AppContext';
+
 function BackgroundEffect() {
+	const { isTouchDevice } = useAppContext();
+
 	// Effect to handle mouse movement and create effects under the mouse
 	const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -18,7 +23,7 @@ function BackgroundEffect() {
 
 		let lastTime = 0;
 		const throttle = 20; // milliseconds
-		const MAX_EFFECTS = 20; // Maximum number of effects to show
+		const MAX_EFFECTS = isTouchDevice ? 100 : 20; // Maximum number of effects to show
 
 		const showEffect = (x: number, y: number) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
