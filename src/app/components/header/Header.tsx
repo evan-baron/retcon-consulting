@@ -8,8 +8,14 @@ import styles from './header.module.scss';
 
 // Component imports
 import CTA from '../ctaButton/CTA';
+import Hamburger from '../hamburger/Hamburger';
+
+// Context
+import { useAppContext } from '@/app/context/AppContext';
 
 function Header() {
+	const { windowWidth, screenWidth } = useAppContext();
+
 	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
 	const [offset, setOffset] = useState(0);
 	const lastScrollY = useRef(0);
@@ -41,19 +47,28 @@ function Header() {
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>
-					<li>
+					<li className={styles.logo}>
 						<a href='#top'>Retcon Consulting</a>
 					</li>
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
-					<li>
-						<a href='#services'>Services</a>
-					</li>
-					<li>
-						<a href='#contact'>Contact</a>
-					</li>
-					<CTA content='Book Now' />
+					{!screenWidth ||
+					!windowWidth ||
+					screenWidth > 700 ||
+					windowWidth > 700 ? (
+						<>
+							<li>
+								<a href='#services'>Services</a>
+							</li>
+							<li>
+								<a href='#contact'>Contact</a>
+							</li>
+							<CTA content='Book Now' />
+						</>
+					) : (
+						<Hamburger />
+					)}
 				</ul>
 			</nav>
 		</header>

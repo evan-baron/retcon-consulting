@@ -3,6 +3,9 @@ import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
 import './globals.scss';
 
+// Context
+import { ContextProvider } from './context/AppContext';
+
 const ibmPlexMono = IBM_Plex_Mono({
 	variable: '--font-ibm-plex-mono',
 	weight: ['400', '500', '600', '700'],
@@ -36,7 +39,7 @@ export default function RootLayout({
 			<body
 				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
 			>
-				{children}
+				<ContextProvider>{children}</ContextProvider>
 			</body>
 		</html>
 	);
