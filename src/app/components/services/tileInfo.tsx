@@ -57,13 +57,13 @@ export const tileData: TileData[] = [
 		summary: 'Optimize your discovery to get the most out of your meetings.',
 		details: [
 			"Master <span style='font-weight:bold;'>discovery</span> to surface buyer pain, urgency, and decision-making drivers",
-			"Craft <span style='font-weight:bold;'>interview frameworks</span> to uncover unspoken needs and objections early",
+			"Craft <span style='font-weight:bold;'>interview frameworks</span> to uncover unspoken needs and objections early on",
 			"Improve cross-functional alignment with <span style='font-weight:bold;'>clarity-focused questioning</span> that drives next steps",
 			"Coach teams on how to <span style='font-weight:bold;'>ask better questions</span>, <span style='font-weight:bold;'>listen actively</span>, and <span style='font-weight:bold;'>drive momentum</span>",
 		],
 	},
 	{
-		title: 'Personal Coaching',
+		title: 'Career Coaching',
 		image: '/coaching-scaled.webp',
 		alt: 'Coaching services',
 		summary: '1-on-1 guidance to sharpen your thinking and achieve your goals.',

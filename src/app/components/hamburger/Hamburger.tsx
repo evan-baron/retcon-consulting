@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState } from 'react';
+import React from 'react';
 
 // Styles imports
 import styles from './hamburger.module.scss';
