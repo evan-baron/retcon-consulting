@@ -81,7 +81,7 @@ function BackgroundEffect() {
 			document.removeEventListener('mousemove', moveEffect);
 			document.removeEventListener('touchmove', touchEffect);
 		};
-	}, []);
+	}, [isTouchDevice]);
 
 	return (
 		<div className={styles.hero}>
