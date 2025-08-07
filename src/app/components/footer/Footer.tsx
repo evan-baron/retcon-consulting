@@ -30,10 +30,10 @@ function Footer() {
 			)}
 			<div className={styles.footer}>
 				<div className={styles['footer-content']}>
-					<span>
-						&copy; {new Date().getFullYear()} Retcon Consulting. All rights
-						reserved.
-					</span>
+					<div className={styles.copyright}>
+						<span>&copy; {new Date().getFullYear()} Retcon Consulting.</span>{' '}
+						<span>All rights reserved.</span>
+					</div>
 					{windowWidth && windowWidth > 500 && (
 						<a
 							href='#'
