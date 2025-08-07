@@ -81,7 +81,10 @@ function Header() {
 							<CTA content='Book Now' />
 						</>
 					) : (
-						<Hamburger setHamburgerActive={setHamburgerActive} />
+						<Hamburger
+							hamburgerActive={hamburgerActive}
+							setHamburgerActive={setHamburgerActive}
+						/>
 					)}
 				</ul>
 			</nav>

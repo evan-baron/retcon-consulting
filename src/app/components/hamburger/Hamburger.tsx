@@ -8,14 +8,13 @@ import styles from './hamburger.module.scss';
 
 function Hamburger({
 	setHamburgerActive,
+	hamburgerActive,
 }: {
 	setHamburgerActive: (hamburgerActive: boolean) => void;
+	hamburgerActive: boolean;
 }) {
-	const [active, setActive] = useState(false);
-
 	const handleClick = () => {
-		const newActiveState = !active;
-		setActive(newActiveState);
+		const newActiveState = !hamburgerActive;
 		setHamburgerActive(newActiveState);
 	};
 
@@ -23,18 +22,15 @@ function Hamburger({
 		<div className={styles['hamburger-wrapper']}>
 			<div className={styles.hamburger}>
 				<div
-					className={`${styles.icon} ${active ? styles.active : ''}`}
-					onClick={() => {
-						setActive(!active);
-						setHamburgerActive(!active);
-					}}
+					className={`${styles.icon} ${hamburgerActive ? styles.active : ''}`}
+					onClick={handleClick}
 				>
 					<span className={styles.line}></span>
 				</div>
 
 				<div
 					className={`${styles['hamburger-content']} ${
-						active ? styles.active : ''
+						hamburgerActive ? styles.active : ''
 					}`}
 					onClick={handleClick}
 				>
