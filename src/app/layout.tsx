@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 	metadataBase: new URL('https://www.retconconsulting.com'),
 	title: 'Retcon Consulting',
 	description: 'Tech-focused consulting services for your business needs',
-	manifest: '/manifest.json',
 
 	openGraph: {
 		title: 'Retcon Consulting - Tech-Focused Business Solutions',
