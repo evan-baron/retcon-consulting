@@ -6,8 +6,18 @@ import React, { useState } from 'react';
 // Styles imports
 import styles from './hamburger.module.scss';
 
-function Hamburger() {
+function Hamburger({
+	setHamburgerActive,
+}: {
+	setHamburgerActive: (hamburgerActive: boolean) => void;
+}) {
 	const [active, setActive] = useState(false);
+
+	const handleClick = () => {
+		const newActiveState = !active;
+		setActive(newActiveState);
+		setHamburgerActive(newActiveState);
+	};
 
 	return (
 		<div className={styles['hamburger-wrapper']}>
@@ -16,6 +26,7 @@ function Hamburger() {
 					className={`${styles.icon} ${active ? styles.active : ''}`}
 					onClick={() => {
 						setActive(!active);
+						setHamburgerActive(!active);
 					}}
 				>
 					<span className={styles.line}></span>
@@ -25,21 +36,21 @@ function Hamburger() {
 					className={`${styles['hamburger-content']} ${
 						active ? styles.active : ''
 					}`}
-					onClick={() => setActive(false)}
+					onClick={handleClick}
 				>
 					<ul className={styles.menu}>
 						<li>
-							<a href='#top' onClick={() => setActive(false)}>
+							<a href='#top' onClick={handleClick}>
 								Home
 							</a>
 						</li>
 						<li>
-							<a href='#services' onClick={() => setActive(false)}>
+							<a href='#services' onClick={handleClick}>
 								Services
 							</a>
 						</li>
 						<li>
-							<a href='#contact' onClick={() => setActive(false)}>
+							<a href='#contact' onClick={handleClick}>
 								Contact
 							</a>
 						</li>

@@ -18,6 +18,9 @@ import { useAppContext } from '@/app/context/AppContext';
 function Header() {
 	const { windowWidth } = useAppContext();
 
+	// Hamburger menu state
+	const [hamburgerActive, setHamburgerActive] = useState(false);
+
 	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
 	const [offset, setOffset] = useState(0);
 	const lastScrollY = useRef(0);
@@ -25,6 +28,7 @@ function Header() {
 
 	useEffect(() => {
 		const handleScroll = () => {
+			if (hamburgerActive) return; // Don't adjust offset if hamburger is active
 			const currentY = window.scrollY;
 			const delta = currentY - lastScrollY.current;
 
@@ -40,7 +44,7 @@ function Header() {
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [hamburgerActive]);
 
 	// Delay rendering the header until windowWidth is defined
 	if (typeof windowWidth !== 'number') {
@@ -77,7 +81,7 @@ function Header() {
 							<CTA content='Book Now' />
 						</>
 					) : (
-						<Hamburger />
+						<Hamburger setHamburgerActive={setHamburgerActive} />
 					)}
 				</ul>
 			</nav>
