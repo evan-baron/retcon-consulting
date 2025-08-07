@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
 import './globals.scss';
@@ -27,10 +27,6 @@ const roboto = Roboto({
 export const metadata: Metadata = {
 	title: 'Retcon Consulting',
 	description: 'Tech-focused consulting services for your business needs',
-	viewport: {
-		width: 'device-width',
-		initialScale: 1,
-	},
 	manifest: '/manifest.json',
 	icons: [
 		{
@@ -58,6 +54,11 @@ export const metadata: Metadata = {
 			sizes: '512x512',
 		},
 	],
+};
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
 };
 
 export default function RootLayout({

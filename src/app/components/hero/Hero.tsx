@@ -13,7 +13,7 @@ import CTA from '../ctaButton/CTA';
 import { useAppContext } from '@/app/context/AppContext';
 
 // Words for the typing effect
-const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your hurdles.'];
+const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles.'];
 
 function Hero() {
 	const { isTouchDevice } = useAppContext();
