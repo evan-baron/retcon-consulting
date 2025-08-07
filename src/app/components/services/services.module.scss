@@ -18,6 +18,18 @@
 		gap: 3rem;
 		z-index: 5;
 
+		@media screen and (max-width: 1700px) {
+			padding: 0 2rem;
+		}
+
+		@media screen and (max-width: 1400px) {
+			padding: 0 2rem;
+		}
+
+		@media screen and (max-width: 500px) {
+			padding: 0 10%;
+		}
+
 		.h2 {
 			font-size: 4rem;
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
@@ -38,6 +50,10 @@
 			justify-content: center;
 			gap: 4rem;
 			margin-bottom: 4rem;
+
+			@media screen and (max-width: 1400px) {
+				gap: 4rem;
+			}
 
 			@media screen and (max-width: 500px) {
 				gap: 0.5rem;

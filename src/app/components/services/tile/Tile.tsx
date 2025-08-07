@@ -43,7 +43,13 @@ function Tile({
 								></div>
 							</div>
 						)}
-						<Image src={image} alt={alt} width={400} height={400} />
+						<Image
+							className={styles.image}
+							src={image}
+							alt={alt}
+							width={400}
+							height={400}
+						/>
 					</figure>
 					<header>
 						<h3 className={styles.h3}>{title}</h3>

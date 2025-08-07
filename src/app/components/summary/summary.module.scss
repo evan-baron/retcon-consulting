@@ -58,8 +58,12 @@
 			max-width: 550px;
 			height: 650px;
 
+			@media screen and (max-width: 1400px) {
+				max-width: 400px;
+				height: 400px;
+			}
+
 			@media screen and (max-width: 500px) {
-				width: 100%;
 				max-width: 400px;
 				height: 400px;
 				top: -25px;
@@ -80,6 +84,12 @@
 				transform: rotate(60deg);
 				background-color: var(--gray4);
 
+				@media screen and (max-width: 1400px) {
+					width: 450px;
+					height: 550px;
+					clip-path: ellipse(35% 50% at 50% 50%);
+				}
+
 				@media screen and (max-width: 500px) {
 					width: 350px;
 					height: 400px;
@@ -99,6 +109,11 @@
 			}
 
 			.data-image {
+				@media screen and (max-width: 1400px) {
+					width: 500px;
+					height: 500px;
+				}
+
 				@media screen and (max-width: 500px) {
 					width: 400px;
 					height: 400px;
@@ -113,6 +128,10 @@
 			gap: 1.5rem;
 			right: 10%;
 			width: 575px;
+
+			@media screen and (max-width: 1400px) {
+				right: 5%;
+			}
 
 			@media screen and (max-width: 500px) {
 				right: 0;
