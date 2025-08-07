@@ -56,7 +56,7 @@ function Header() {
 				<ul className={styles.ul}>
 					<Link href='#top' className={styles.logo}>
 						<Image
-							src='/logo.webp'
+							src='/logo.svg'
 							alt='Retcon Consulting'
 							width={40}
 							height={40}
