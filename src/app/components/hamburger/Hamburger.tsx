@@ -6,6 +6,9 @@ import React from 'react';
 // Styles imports
 import styles from './hamburger.module.scss';
 
+// Components imports
+import CTA from '../ctaButton/CTA';
+
 function Hamburger({
 	setHamburgerActive,
 	hamburgerActive,
@@ -48,6 +51,11 @@ function Hamburger({
 						<li>
 							<a href='#contact' onClick={handleClick}>
 								Contact
+							</a>
+						</li>
+						<li>
+							<a href='#contact' onClick={handleClick}>
+								Book Now
 							</a>
 						</li>
 					</ul>

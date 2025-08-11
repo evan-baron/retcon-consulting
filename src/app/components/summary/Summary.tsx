@@ -25,8 +25,7 @@ function Summary() {
 								src='/data-extraction-cuate.svg'
 								alt='Illustration representing startup innovation, outreach improvement, and data-driven design and growth strategy'
 								className={styles['data-image']}
-								width={600}
-								height={600}
+								fill
 								priority={true}
 							/>
 						</div>
@@ -44,7 +43,7 @@ function Summary() {
 						<p className={styles['summary-text']}>
 							It&#39;s time to rewrite your narrative.
 						</p>
-						<CTA content='Book Now' />
+						<CTA content='Book Now' parent='summary' />
 					</div>
 				</div>
 			</section>

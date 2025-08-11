@@ -40,8 +40,12 @@
 				color: var(--gray1);
 				margin-left: 0.5rem;
 
-				@media screen and (max-width: 950px) and (orientation: portrait) {
+				@media screen and (max-width: 950px) {
 					font-size: 1.75rem;
+				}
+
+				@media screen and (max-width: 900px) {
+					font-size: 1.5rem;
 				}
 
 				@media screen and (max-width: 850px) and (orientation: portrait) {

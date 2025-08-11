@@ -2,6 +2,14 @@
 	width: 400px;
 	height: 525px;
 
+	&.hover-enabled {
+		transition: transform 0.3s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
 	@media screen and (max-width: 1400px) {
 		width: 350px;
 	}

@@ -1,6 +1,21 @@
+@property --hue {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@keyframes hue-rotate {
+	0% {
+		--hue: 0deg;
+	}
+	100% {
+		--hue: 360deg;
+	}
+}
+
 .cta {
 	all: unset;
-	border: 2px solid var(--main-gray);
+	box-shadow: 0 0 0 2px hsla(var(--hue), 100%, 50%, 1);
 	width: fit-content;
 	font-size: 1.75rem;
 	padding: 0.5rem 1.5rem;
@@ -8,6 +23,13 @@
 	text-shadow: none;
 	opacity: 0;
 	color: var(--main-gray);
+	animation: hue-rotate 15s linear infinite;
+
+	&.hover-enabled {
+		&:hover {
+			box-shadow: 0 0 0 2px white;
+		}
+	}
 
 	@media screen and (max-width: 500px) {
 		font-size: 1.25rem;
@@ -21,9 +43,27 @@
 	}
 
 	&.hero {
-		box-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
-			0.5rem 0.5rem 3rem black;
+		will-change: border-color;
+		position: relative;
+
 		background-color: var(--background);
+		border: none;
+		box-shadow: 0 0 0 2px hsla(var(--hue), 100%, 50%, 1),
+			0 0 0.5rem hsla(var(--hue), 100%, 50%, 1),
+			0 0 1rem hsla(var(--hue), 100%, 50%, 1);
+		animation: hue-rotate 15s linear infinite;
+
+		&.hover-enabled {
+			&:hover {
+				box-shadow: 0 0 0 2px white, 0 0 0.5rem white, 0 0 1rem white;
+			}
+		}
+	}
+
+	&.summary {
+		@media screen and (max-width: 500px) {
+			font-size: 1.5rem;
+		}
 	}
 
 	&.hover-enabled {

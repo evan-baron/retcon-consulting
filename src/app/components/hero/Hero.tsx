@@ -95,7 +95,6 @@ function Hero() {
 						disabled={phase !== 'done'}
 						content='Book a free consultation'
 						parent='hero'
-						touchDevice={isTouchDevice}
 					/>
 				</div>
 
