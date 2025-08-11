@@ -16,7 +16,7 @@ import Hamburger from '../hamburger/Hamburger';
 import { useAppContext } from '@/app/context/AppContext';
 
 function Header() {
-	const { isTouchDevice, windowWidth } = useAppContext();
+	const { windowWidth } = useAppContext();
 
 	// Hamburger menu state
 	const [hamburgerActive, setHamburgerActive] = useState(false);

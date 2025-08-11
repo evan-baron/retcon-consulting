@@ -9,9 +9,6 @@ import styles from './services.module.scss';
 // Component imports
 import Tile from './tile/Tile';
 
-// Context
-import { useAppContext } from '@/app/context/AppContext';
-
 // Data imports
 import { tileData } from './tileInfo';
 

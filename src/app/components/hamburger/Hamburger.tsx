@@ -6,9 +6,6 @@ import React from 'react';
 // Styles imports
 import styles from './hamburger.module.scss';
 
-// Components imports
-import CTA from '../ctaButton/CTA';
-
 function Hamburger({
 	setHamburgerActive,
 	hamburgerActive,

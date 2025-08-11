@@ -9,15 +9,10 @@ import styles from './hero.module.scss';
 // Component Imports
 import CTA from '../ctaButton/CTA';
 
-// Context
-import { useAppContext } from '@/app/context/AppContext';
-
 // Words for the typing effect
 const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles.'];
 
 function Hero() {
-	const { isTouchDevice } = useAppContext();
-
 	// Typewriter effect for the title
 	const [displayed, setDisplayed] = useState('');
 	const [wordIndex, setWordIndex] = useState(0);
