@@ -27,8 +27,8 @@ function BackgroundEffect() {
 
 		const showEffect = (x: number, y: number) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
-			const hue = (Date.now() / 10) % 360;
-			document.body.style.setProperty('--effect-hue', `${hue}`);
+			// const hue = (Date.now() / 10) % 360;
+			// document.body.style.setProperty('--effect-hue', `${hue}`);
 
 			// Throttle the mouse move event to keep performance smooth and reduce load on the browser
 			const now = Date.now();

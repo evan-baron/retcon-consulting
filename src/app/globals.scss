@@ -1,3 +1,18 @@
+@property --hue {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: true;
+}
+
+@keyframes hue-rotate {
+	0% {
+		--hue: 0deg;
+	}
+	100% {
+		--hue: 360deg;
+	}
+}
+
 :root {
 	--gray1: hsl(0, 0%, 98%);
 	--gray2: hsl(0, 0%, 80%);
@@ -18,6 +33,8 @@
 	--main-teal: hsl(180, 100%, 50%);
 
 	--background: hsl(0, 0%, 5%);
+
+	--hue: 0deg;
 }
 
 html,
@@ -39,6 +56,8 @@ body {
 	background: var(--background);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	animation: hue-rotate 5s linear infinite;
 }
 
 * {

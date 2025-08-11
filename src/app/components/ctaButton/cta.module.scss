@@ -1,17 +1,11 @@
-@property --hue {
-	syntax: '<angle>';
-	initial-value: 0deg;
-	inherits: false;
-}
-
-@keyframes hue-rotate {
-	0% {
-		--hue: 0deg;
-	}
-	100% {
-		--hue: 360deg;
-	}
-}
+// @keyframes hue-rotate {
+// 	0% {
+// 		--hue: 0deg;
+// 	}
+// 	100% {
+// 		--hue: 360deg;
+// 	}
+// }
 
 .cta {
 	all: unset;
@@ -51,7 +45,7 @@
 		box-shadow: 0 0 0 2px hsla(var(--hue), 100%, 50%, 1),
 			0 0 0.5rem hsla(var(--hue), 100%, 50%, 1),
 			0 0 1rem hsla(var(--hue), 100%, 50%, 1);
-		animation: hue-rotate 15s linear infinite;
+		// animation: hue-rotate 15s linear infinite;
 
 		&.hover-enabled {
 			&:hover {
