@@ -44,8 +44,8 @@
 		border: none;
 		box-shadow: 0 0 0 2px hsla(var(--hue), 100%, 50%, 1),
 			0 0 0.5rem hsla(var(--hue), 100%, 50%, 1),
-			0 0 1rem hsla(var(--hue), 100%, 50%, 1);
-		// animation: hue-rotate 15s linear infinite;
+			0 0 1rem hsla(var(--hue), 100%, 50%, 1), 0.5rem 0.5rem 1rem black,
+			0.5rem 0.5rem 2rem black;
 
 		&.hover-enabled {
 			&:hover {
