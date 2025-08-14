@@ -23,7 +23,7 @@ function BackgroundEffect() {
 
 		let lastTime = 0;
 		const throttle = isTouchDevice ? 1 : 20; // milliseconds
-		const MAX_EFFECTS = 50; // Maximum number of effects to show
+		const MAX_EFFECTS = 20; // Maximum number of effects to show
 
 		const showEffect = (x: number, y: number) => {
 			// Change the hue of the mouse effect based on time, adds a cool color change effect
