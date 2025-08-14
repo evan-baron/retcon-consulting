@@ -31,10 +31,10 @@ export const metadata: Metadata = {
 
 	openGraph: {
 		title: 'Retcon Consulting - Tech-Focused Business Solutions',
-		description:
-			'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		// description:
-		// 	'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
+		description:
+			"We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		url: 'https://www.retconconsulting.com',
 		siteName: 'Retcon Consulting',
 		images: [
@@ -52,10 +52,10 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Retcon Consulting - Tech-Focused Business Solutions',
-		description:
-			'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		// description:
-		// 	'We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving.',
+		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
+		description:
+			"We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		images: ['/og-image.jpg'],
 	},
 
