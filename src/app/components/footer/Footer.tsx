@@ -19,14 +19,14 @@ function Footer() {
 	return (
 		<div className={styles['footer-wrapper']}>
 			{(!windowWidth || windowWidth <= 500) && (
-				<a
-					href='#'
+				<Link
+					href='/'
 					className={`${styles['to-top']} ${
 						!isTouchDevice && styles['hover-enabled']
 					}`}
 				>
 					&uarr; To the top &uarr;
-				</a>
+				</Link>
 			)}
 			<div className={styles.footer}>
 				<div className={styles['footer-content']}>
@@ -35,14 +35,14 @@ function Footer() {
 						<span>All rights reserved.</span>
 					</div>
 					{windowWidth && windowWidth > 500 && (
-						<a
-							href='#'
+						<Link
+							href='/'
 							className={`${styles['to-top']} ${
 								!isTouchDevice && styles['hover-enabled']
 							}`}
 						>
 							&uarr; To the top &uarr;
-						</a>
+						</Link>
 					)}
 					<div className={styles['social-icons']}>
 						<Link
