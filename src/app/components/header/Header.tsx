@@ -58,7 +58,7 @@ function Header() {
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>
-					<Link href='#top' className={styles.logo}>
+					<Link href='/' className={styles.logo}>
 						<Image
 							src='/logo.svg'
 							alt='Retcon Consulting'
