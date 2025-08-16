@@ -58,15 +58,17 @@ function Header() {
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>
-					<Link href='/' className={styles.logo}>
-						<Image
-							src='/logo.svg'
-							alt='Retcon Consulting'
-							width={40}
-							height={40}
-						/>
-						<span>Retcon Consulting</span>
-					</Link>
+					<li>
+						<Link href='/' className={styles.logo}>
+							<Image
+								src='/logo.svg'
+								alt='Retcon Consulting'
+								width={40}
+								height={40}
+							/>
+							<span>Retcon Consulting</span>
+						</Link>
+					</li>
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
@@ -81,10 +83,12 @@ function Header() {
 							<CTA content='Book Now' />
 						</>
 					) : (
-						<Hamburger
-							hamburgerActive={hamburgerActive}
-							setHamburgerActive={setHamburgerActive}
-						/>
+						<li>
+							<Hamburger
+								hamburgerActive={hamburgerActive}
+								setHamburgerActive={setHamburgerActive}
+							/>
+						</li>
 					)}
 				</ul>
 			</nav>

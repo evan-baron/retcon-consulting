@@ -150,23 +150,23 @@ export default function RootLayout({
 				{/* Preloaded fonts are new */}
 				<link
 					rel='preload'
-					href='/fonts/ibm-plex-mono-latin-400.woff2'
+					href='/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf'
 					as='font'
-					type='font/woff2'
+					type='font/ttf'
 					crossOrigin='anonymous'
 				/>
 				<link
 					rel='preload'
-					href='/fonts/roboto-latin-400.woff2'
+					href='/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf'
 					as='font'
-					type='font/woff2'
+					type='font/ttf'
 					crossOrigin='anonymous'
 				/>
 				<link
 					rel='preload'
-					href='/fonts/fredericka-the-great-latin-400.woff2'
+					href='/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf'
 					as='font'
-					type='font/woff2'
+					type='font/ttf'
 					crossOrigin='anonymous'
 				/>
 				<script
