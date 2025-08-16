@@ -58,7 +58,7 @@ function Header() {
 		>
 			<nav className={styles.nav}>
 				<ul className={styles.ul}>
-					<li>
+					<li className={styles['logo-wrapper']}>
 						<Link href='/' className={styles.logo}>
 							<Image src='/logo.svg' alt='Logo Image' width={40} height={40} />
 							<span>Retcon Consulting</span>
@@ -75,7 +75,9 @@ function Header() {
 							<li>
 								<a href='#contact'>Contact</a>
 							</li>
-							<CTA content='Book Now' />
+							<li>
+								<CTA content='Book Now' />
+							</li>
 						</>
 					) : (
 						<li>
