@@ -39,6 +39,17 @@
 			height: 100%;
 		}
 
+		.h1 {
+			position: absolute;
+			font-size: 1px;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(1px, 1px, 1px, 1px);
+			white-space: nowrap;
+			opacity: 0;
+		}
+
 		.title-box {
 			width: 1000px;
 			position: absolute;
