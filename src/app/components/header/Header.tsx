@@ -60,12 +60,7 @@ function Header() {
 				<ul className={styles.ul}>
 					<li>
 						<Link href='/' className={styles.logo}>
-							<Image
-								src='/logo.svg'
-								alt='Retcon Consulting'
-								width={40}
-								height={40}
-							/>
+							<Image src='/logo.svg' alt='Logo Image' width={40} height={40} />
 							<span>Retcon Consulting</span>
 						</Link>
 					</li>
