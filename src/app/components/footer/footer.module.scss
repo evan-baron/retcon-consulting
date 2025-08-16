@@ -60,7 +60,7 @@
 			}
 
 			.to-top {
-				&.hover-enabled {
+				@media (hover: hover) and (pointer: fine) {
 					&:hover {
 						color: var(--gray1);
 					}

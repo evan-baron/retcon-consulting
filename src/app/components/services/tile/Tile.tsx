@@ -5,9 +5,6 @@ import Image from 'next/image';
 // Styles imports
 import styles from './tile.module.scss';
 
-// Context
-import { useAppContext } from '@/app/context/AppContext';
-
 type TileProps = {
 	title: string;
 	image: string;
@@ -25,13 +22,11 @@ function Tile({
 	summary,
 	details,
 }: TileProps) {
-	const { isTouchDevice } = useAppContext();
-
 	const [flipped, setFlipped] = useState(false);
 
 	return (
 		<div
-			className={`${styles.tile} ${!isTouchDevice && styles['hover-enabled']}`}
+			className={styles.tile}
 			onClick={() => setFlipped((prev) => !prev)}
 			aria-label={`Details for ${title}`}
 		>

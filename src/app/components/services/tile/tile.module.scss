@@ -2,7 +2,7 @@
 	width: 400px;
 	height: 525px;
 
-	&.hover-enabled {
+	@media (hover: hover) and (pointer: fine) {
 		transition: transform 0.3s ease-in-out;
 
 		&:hover {

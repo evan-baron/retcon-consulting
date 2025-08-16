@@ -147,6 +147,28 @@ export default function RootLayout({
 					name='google-site-verification'
 					content='CiK0ImrkZ7i1sXmFFoupE_cg-gqJQgdWnOVt9n7LOzM'
 				/>
+				{/* Preloaded fonts are new */}
+				<link
+					rel='preload'
+					href='/fonts/ibm-plex-mono-latin-400.woff2'
+					as='font'
+					type='font/woff2'
+					crossOrigin='anonymous'
+				/>
+				<link
+					rel='preload'
+					href='/fonts/roboto-latin-400.woff2'
+					as='font'
+					type='font/woff2'
+					crossOrigin='anonymous'
+				/>
+				<link
+					rel='preload'
+					href='/fonts/fredericka-the-great-latin-400.woff2'
+					as='font'
+					type='font/woff2'
+					crossOrigin='anonymous'
+				/>
 				<script
 					type='application/ld+json'
 					dangerouslySetInnerHTML={{

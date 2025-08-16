@@ -14,17 +14,12 @@ import { useAppContext } from '@/app/context/AppContext';
 import { LinkedIn, Instagram, Facebook, Twitter } from '@mui/icons-material';
 
 function Footer() {
-	const { isTouchDevice, windowWidth } = useAppContext();
+	const { windowWidth } = useAppContext();
 
 	return (
 		<div className={styles['footer-wrapper']}>
 			{(!windowWidth || windowWidth <= 500) && (
-				<Link
-					href='/'
-					className={`${styles['to-top']} ${
-						!isTouchDevice && styles['hover-enabled']
-					}`}
-				>
+				<Link href='/' className={styles['to-top']}>
 					&uarr; To the top &uarr;
 				</Link>
 			)}
@@ -35,12 +30,7 @@ function Footer() {
 						<span>All rights reserved.</span>
 					</div>
 					{windowWidth && windowWidth > 500 && (
-						<Link
-							href='/'
-							className={`${styles['to-top']} ${
-								!isTouchDevice && styles['hover-enabled']
-							}`}
-						>
+						<Link href='/' className={styles['to-top']}>
 							&uarr; To the top &uarr;
 						</Link>
 					)}
