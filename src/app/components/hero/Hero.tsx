@@ -83,8 +83,12 @@ function Hero() {
 		//heroRef used to go in section div styles.hero, backgroundRef used to go in div styles.background
 		<section className={styles.hero}>
 			<div className={styles.content}>
+				<h1>
+					Retcon Consulting – Tech Consulting for Startups, Entrepreneurs, and
+					Innovators
+				</h1>
 				<div className={styles['title-box']}>
-					<h1 className={styles.title}>{displayed}</h1>
+					<span className={styles.title}>{displayed}</span>
 					<CTA
 						className={`${phase === 'done' ? styles.done : ''} `}
 						disabled={phase !== 'done'}
