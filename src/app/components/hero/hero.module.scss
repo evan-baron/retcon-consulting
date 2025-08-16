@@ -71,15 +71,15 @@
 				width: 100%;
 				height: fit-content;
 			}
-		}
 
-		.title {
-			font-size: 5rem;
-			white-space: nowrap;
+			.title {
+				font-size: 5rem;
+				white-space: nowrap;
 
-			@media screen and (max-width: 500px) {
-				font-size: 3rem;
-				white-space: normal;
+				@media screen and (max-width: 500px) {
+					font-size: 3rem;
+					white-space: normal;
+				}
 			}
 		}
 
