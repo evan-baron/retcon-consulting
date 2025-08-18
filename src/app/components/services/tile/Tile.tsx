@@ -55,7 +55,7 @@ function Tile({
 						<h3 className={styles.h3}>{title}</h3>
 					</header>
 					<p className={styles.p}>{summary}</p>
-					<span>Read More</span>
+					<span className={styles.more}>Read More</span>
 				</div>
 
 				<div className={styles['tile-back']} aria-hidden={!flipped}>
