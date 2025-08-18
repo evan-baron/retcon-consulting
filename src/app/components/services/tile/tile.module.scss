@@ -201,6 +201,11 @@
 
 	.more {
 		text-decoration: underline;
-		color: var(--gray1);
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: var(--gray1);
+			}
+		}
 	}
 }
