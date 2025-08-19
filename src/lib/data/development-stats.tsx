@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 // Styles imports
-import styles from '../../app/components/timeline/animatedBall/animatedBall.module.scss';
+import styles from '../../app/components/timeline/timeline.module.scss';
 
 // MUI Icons
 import {

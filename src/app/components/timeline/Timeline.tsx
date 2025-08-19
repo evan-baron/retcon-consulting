@@ -16,86 +16,129 @@ import AnimatedBall from './animatedBall/AnimatedBall';
 // Data imports
 import { DevelopmentStats } from '@/lib/data/development-stats';
 
-const Timeline = () => {
+interface TimelineProps {
+	parentRef: React.RefObject<HTMLDivElement | null>;
+}
+
+const Timeline = ({ parentRef }: TimelineProps) => {
 	const timelineRef = useRef<HTMLDivElement | null>(null);
-	const ballRefs = useMemo(
+	const textRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
 		[]
 	);
-	const lineRefs = useMemo(
-		() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
-		[]
-	);
-	const [ballProgressArray, setBallProgressArray] = useState<number[]>(
-		DevelopmentStats.map(() => 0)
-	);
-	const [lineProgressArray, setLineProgressArray] = useState<number[]>(
-		DevelopmentStats.map(() => 0)
-	);
+	const [textProgressArray, setTextProgressArray] = useState<number[]>([]);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const windowHeight = window.innerHeight;
-			const thresholdY = windowHeight * 0.8; // 20% from bottom
+			if (!parentRef.current) return;
+			const parentRect = parentRef.current.getBoundingClientRect();
+			const thresholdY = parentRect.height * 0.8;
 
-			const newProgress = ballRefs.map((ref, index) => {
-				const ball = ref.current;
-				if (!ball) return 0;
+			const textProgress = textRefs.map((ref, index) => {
+				const textBox = ref.current;
+				if (!textBox) return 0;
 
-				const rect = ball.getBoundingClientRect();
-				const ballHeight = rect.height;
+				const rect = textBox.getBoundingClientRect();
 
-				// Ball is fully filled if above threshold
 				if (rect.top >= thresholdY) return 0;
 
-				// Ball is empty if below threshold
 				if (rect.bottom <= thresholdY) return 1;
 
-				// Otherwise, partially filled
-				const visible = Math.min(ballHeight, rect.bottom - thresholdY);
-				const percent = 1 - Math.max(0, Math.min(1, visible / ballHeight));
-				return percent;
+				// If the text box is partially visible, calculate the progress
+				const visibleHeight = Math.min(rect.height, thresholdY - rect.top);
+				return Math.max(0, visibleHeight / rect.height);
 			});
 
-			setBallProgressArray(newProgress);
+			setTextProgressArray(textProgress);
 		};
 
-		window.addEventListener('scroll', handleScroll);
-		handleScroll();
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [ballRefs]);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			const windowHeight = window.innerHeight;
-			const thresholdY = windowHeight * 0.8; // 20% from bottom
-
-			const newProgress = lineRefs.map((ref, index) => {
-				const line = ref.current;
-				if (!line) return 0;
-
-				const rect = line.getBoundingClientRect();
-				const lineHeight = rect.height;
-
-				// line is fully filled if above threshold
-				if (rect.top >= thresholdY) return 0;
-
-				// line is empty if below threshold
-				if (rect.bottom <= thresholdY) return 1;
-
-				// Otherwise, partially filled
-				const visible = Math.min(lineHeight, rect.bottom - thresholdY);
-				const percent = 1 - Math.max(0, Math.min(1, visible / lineHeight));
-				return percent;
-			});
-
-			setLineProgressArray(newProgress);
+		const parent = parentRef.current;
+		if (parent) {
+			parent.addEventListener('scroll', handleScroll);
+			handleScroll();
+		}
+		return () => {
+			if (parent) parent.removeEventListener('scroll', handleScroll);
 		};
+	}, []);
+	// const ballRefs = useMemo(
+	// 	() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
+	// 	[]
+	// );
+	// const lineRefs = useMemo(
+	// 	() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
+	// 	[]
+	// );
+	// const [ballProgressArray, setBallProgressArray] = useState<number[]>(
+	// 	DevelopmentStats.map(() => 0)
+	// );
+	// const [lineProgressArray, setLineProgressArray] = useState<number[]>(
+	// 	DevelopmentStats.map(() => 0)
+	// );
 
-		window.addEventListener('scroll', handleScroll);
-		handleScroll();
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [lineRefs]);
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		const windowHeight = window.innerHeight;
+	// 		const thresholdY = windowHeight * 0.8; // 20% from bottom
+
+	// 		const newProgress = ballRefs.map((ref, index) => {
+	// 			const ball = ref.current;
+	// 			if (!ball) return 0;
+
+	// 			const rect = ball.getBoundingClientRect();
+	// 			const ballHeight = rect.height;
+
+	// 			// Ball is fully filled if above threshold
+	// 			if (rect.top >= thresholdY) return 0;
+
+	// 			// Ball is empty if below threshold
+	// 			if (rect.bottom <= thresholdY) return 1;
+
+	// 			// Otherwise, partially filled
+	// 			const visible = Math.min(ballHeight, rect.bottom - thresholdY);
+	// 			const percent = 1 - Math.max(0, Math.min(1, visible / ballHeight));
+	// 			return percent;
+	// 		});
+
+	// 		setBallProgressArray(newProgress);
+	// 	};
+
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	handleScroll();
+	// 	return () => window.removeEventListener('scroll', handleScroll);
+	// }, [ballRefs]);
+
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		const windowHeight = window.innerHeight;
+	// 		const thresholdY = windowHeight * 0.8; // 20% from bottom
+
+	// 		const newProgress = lineRefs.map((ref, index) => {
+	// 			const line = ref.current;
+	// 			if (!line) return 0;
+
+	// 			const rect = line.getBoundingClientRect();
+	// 			const lineHeight = rect.height;
+
+	// 			// line is fully filled if above threshold
+	// 			if (rect.top >= thresholdY) return 0;
+
+	// 			// line is empty if below threshold
+	// 			if (rect.bottom <= thresholdY) return 1;
+
+	// 			// Otherwise, partially filled
+	// 			const visible = Math.min(lineHeight, rect.bottom - thresholdY);
+	// 			const percent = 1 - Math.max(0, Math.min(1, visible / lineHeight));
+	// 			return percent;
+	// 		});
+
+	// 		setLineProgressArray(newProgress);
+	// 	};
+
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	handleScroll();
+	// 	return () => window.removeEventListener('scroll', handleScroll);
+	// }, [lineRefs]);
 
 	return (
 		<div className={styles.timeline} ref={timelineRef}>
@@ -103,30 +146,44 @@ const Timeline = () => {
 				return (
 					<React.Fragment key={index}>
 						<div className={styles.row}>
-							<AnimatedBall
-								progress={ballProgressArray[index]}
-								ref={ballRefs[index]}
-								icon={stat.image}
-							/>
+							<div className={styles.ball}>
+								<div className={styles['icon-wrapper']}>{stat.image}</div>
+							</div>
 							<div
+								ref={textRefs[index]}
 								className={`${styles.text} ${
 									index % 2 === 0 ? styles.left : styles.right
 								}`}
 								style={{
-									opacity: ballProgressArray[index],
+									opacity: textProgressArray[index],
 
 									...(index % 2 === 0
 										? {
 												transform: `translateX(${
-													-50 + ballProgressArray[index] * 50
+													-50 + textProgressArray[index] * 50
 												}%)`,
 										  }
 										: {
 												transform: `translateX(${
-													50 - ballProgressArray[index] * 50
+													50 - textProgressArray[index] * 50
 												}%)`,
 										  }),
 								}}
+								// style={{
+								// 	opacity: ballProgressArray[index],
+
+								// 	...(index % 2 === 0
+								// 		? {
+								// 				transform: `translateX(${
+								// 					-50 + ballProgressArray[index] * 50
+								// 				}%)`,
+								// 		  }
+								// 		: {
+								// 				transform: `translateX(${
+								// 					50 - ballProgressArray[index] * 50
+								// 				}%)`,
+								// 		  }),
+								// }}
 							>
 								<h3>{stat.stat1}</h3>
 								<p>{stat.stat2}</p>
@@ -136,10 +193,10 @@ const Timeline = () => {
 							<div
 								className={styles.line}
 								key={'line' + index}
-								ref={lineRefs[index]}
-								style={{
-									['--fill-progress' as string]: lineProgressArray[index],
-								}}
+								// ref={lineRefs[index]}
+								// style={{
+								// 	['--fill-progress' as string]: lineProgressArray[index],
+								// }}
 							/>
 						)}
 					</React.Fragment>

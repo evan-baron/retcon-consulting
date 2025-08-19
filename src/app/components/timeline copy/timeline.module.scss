@@ -20,23 +20,6 @@
 			border-radius: 50%;
 			border: 0.25rem solid var(--gray1);
 			overflow: hidden;
-
-			.icon-wrapper {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				color: var(--gray1);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				.icon {
-					font-size: 5rem;
-				}
-			}
 		}
 
 		.text {
@@ -74,16 +57,15 @@
 		position: relative;
 		width: 0.25rem;
 		height: 10rem;
-		background: var(--gray1);
-		// background: #444;
+		background: #444;
 
-		// &::after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	top: -2px;
-		// 	height: calc(var(--fill-progress, 0) * calc(10rem + 4px));
-		// 	background: var(--gray1);
-		// 	width: 0.25rem;
-		// }
+		&::after {
+			content: '';
+			position: absolute;
+			top: -2px;
+			height: calc(var(--fill-progress, 0) * calc(10rem + 4px));
+			background: var(--gray1);
+			width: 0.25rem;
+		}
 	}
 }
