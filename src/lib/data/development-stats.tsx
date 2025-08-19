@@ -1,12 +1,15 @@
 import { ReactNode } from 'react';
 
+// Styles imports
+import styles from '../../app/components/timeline/animatedBall/animatedBall.module.scss';
+
 // MUI Icons
 import {
-	ImageOutlined,
-	RemoveShoppingCartOutlined,
-	Language,
-	TrafficOutlined,
-	HandshakeOutlined,
+	QuestionAnswerOutlined,
+	SchemaOutlined,
+	CreateOutlined,
+	CodeOutlined,
+	RocketLaunchOutlined,
 } from '@mui/icons-material';
 
 export interface DevelopmentStat {
@@ -18,36 +21,38 @@ export interface DevelopmentStat {
 
 export const DevelopmentStats: DevelopmentStat[] = [
 	{
-		stat1: '25.8% of users discover brands directly via their websites',
+		stat1: 'Discovery & Needs Assessment',
 		stat2:
-			'Your website remains one of the top first impressionable touchpoints between your customers and your brand.',
-		image: <Language />,
+			'Meet with the client to understand their business, goals, target audience, and specific requirements for the website.',
+		image: <QuestionAnswerOutlined className={styles.icon} />,
 		alt: 'Website',
 	},
 	{
-		stat1: '76% of consumers view business-made assets when researching',
+		stat1: 'Planning & Strategy',
 		stat2:
-			'A polished online presence with brand images and assets makes you more credible.',
-		image: <ImageOutlined />,
+			'Develop a project plan, sitemap, and content strategy. Define the website’s structure, features, and user experience.',
+		image: <SchemaOutlined className={styles.icon} />,
 		alt: 'Chart',
 	},
 	{
-		stat1: 'Trust ≈ Price/Quality',
-		stat2: 'A clean, professional website builds trust when it counts.',
-		image: '/assets/development/handshake-white-thick.svg',
-		alt: 'Handshake',
+		stat1: 'Design & Prototyping',
+		stat2:
+			'Create wireframes and visual designs that reflect the client’s brand. Review and refine designs with client feedback.',
+		image: <CreateOutlined className={styles.icon} />,
+		alt: 'Create',
 	},
 	{
-		stat1: '71% of B2B marketers track their website traffic',
-		stat2: 'Your site is the performance hub of all your marketing efforts.',
-		image: <TrafficOutlined />,
+		stat1: 'Development & Testing',
+		stat2:
+			'Build the website, integrate content and functionality, and rigorously test for usability, performance, and responsiveness.',
+		image: <CodeOutlined className={styles.icon} />,
 		alt: 'Traffic',
 	},
 	{
-		stat1: 'Approximately 70% of all carts/websites are abandoned',
+		stat1: 'Launch & Post-Launch Support',
 		stat2:
-			'UX mistakes on your website cost you real opportunities and revenue.',
-		image: <RemoveShoppingCartOutlined />,
+			'Deploy the website, monitor for issues, and provide ongoing support, updates, and optimization as needed.',
+		image: <RocketLaunchOutlined className={styles.icon} />,
 		alt: 'Empty Cart',
 	},
 ];
