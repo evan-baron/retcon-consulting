@@ -187,7 +187,10 @@ export default function RootLayout({
 				<ContextProvider>
 					<BackgroundEffect />
 					<Header />
-					{children}
+					<div id='top'></div>
+					<main className='main'>
+						<div className='main-content'>{children}</div>
+					</main>
 					<Footer />
 				</ContextProvider>
 			</body>

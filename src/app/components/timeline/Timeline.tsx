@@ -31,7 +31,7 @@ const Timeline = ({ parentRef }: TimelineProps) => {
 		const handleScroll = () => {
 			if (!parentRef.current) return;
 			const windowHeight = window.innerHeight;
-			const parentRect = parentRef.current.getBoundingClientRect();
+			// const parentRect = parentRef.current.getBoundingClientRect();
 			const thresholdY = windowHeight * 0.8;
 			// const thresholdY = parentRect.height * 0.8;
 

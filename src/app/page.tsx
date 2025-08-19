@@ -12,18 +12,13 @@ import Contact from './components/contact/Contact';
 export default function Home() {
 	return (
 		<>
-			<div id='top'></div>
-			<main className={styles.main}>
-				<div className={styles['main-content']}>
-					<Hero />
-					<Summary />
-					<Services id='services' />
-					<Contact id='contact' />
-					{/* <Process /> */}
-					{/* <About id='about' /> */}
-					{/* <section className={styles['previous-work']}>Previous Work</section> */}
-				</div>
-			</main>
+			<Hero />
+			<Summary />
+			<Services id='services' />
+			<Contact id='contact' />
+			{/* <Process /> */}
+			{/* <About id='about' /> */}
+			{/* <section className={styles['previous-work']}>Previous Work</section> */}
 		</>
 	);
 }
