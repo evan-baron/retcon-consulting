@@ -41,11 +41,14 @@ const Timeline = ({ parentRef }: TimelineProps) => {
 
 				if (rect.top >= thresholdY) return 0;
 
-				if (rect.bottom <= thresholdY) return 1;
+				// if (rect.bottom <= thresholdY) return 1;
 
 				// If the text box is partially visible, calculate the progress
-				const visibleHeight = Math.min(rect.height, thresholdY - rect.top);
-				return Math.max(0, visibleHeight / rect.height);
+				const visibleHeight = Math.min(
+					rect.height * 1.5, // The 1.5 just makes the rectangle taller, extending the animation effects longer
+					thresholdY - rect.top
+				);
+				return Math.max(0, visibleHeight / (rect.height * 1.5));
 			});
 
 			setTextProgressArray(textProgress);
