@@ -30,8 +30,10 @@ const Timeline = ({ parentRef }: TimelineProps) => {
 	useEffect(() => {
 		const handleScroll = () => {
 			if (!parentRef.current) return;
+			const windowHeight = window.innerHeight;
 			const parentRect = parentRef.current.getBoundingClientRect();
-			const thresholdY = parentRect.height * 0.8;
+			const thresholdY = windowHeight * 0.8;
+			// const thresholdY = parentRect.height * 0.8;
 
 			const textProgress = textRefs.map((ref, index) => {
 				const textBox = ref.current;
@@ -54,14 +56,19 @@ const Timeline = ({ parentRef }: TimelineProps) => {
 			setTextProgressArray(textProgress);
 		};
 
-		const parent = parentRef.current;
-		if (parent) {
-			parent.addEventListener('scroll', handleScroll);
-			handleScroll();
-		}
+		window.addEventListener('scroll', handleScroll);
 		return () => {
-			if (parent) parent.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('scroll', handleScroll);
 		};
+
+		// const parent = parentRef.current;
+		// if (parent) {
+		// 	parent.addEventListener('scroll', handleScroll);
+		// 	handleScroll();
+		// }
+		// return () => {
+		// 	if (parent) parent.removeEventListener('scroll', handleScroll);
+		// };
 	}, []);
 
 	return (

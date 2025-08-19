@@ -6,6 +6,7 @@ import './globals.scss';
 // Components
 import BackgroundEffect from './components/background/BackgroundEffect';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 // Context
 import { ContextProvider } from './context/AppContext';
@@ -187,6 +188,7 @@ export default function RootLayout({
 					<BackgroundEffect />
 					<Header />
 					{children}
+					<Footer />
 				</ContextProvider>
 			</body>
 		</html>

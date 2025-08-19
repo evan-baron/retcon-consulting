@@ -84,10 +84,18 @@
 			}
 
 			.required {
-				font-size: 1.125rem;
+				position: relative;
+				// font-size: 1.125rem;
 
 				@media screen and (max-width: 500px) {
 					font-size: 0.875rem;
+				}
+
+				&::after {
+					position: absolute;
+					content: '*';
+					color: hsl(180, 100%, 50%);
+					transform: translateY(-0.5rem);
 				}
 			}
 

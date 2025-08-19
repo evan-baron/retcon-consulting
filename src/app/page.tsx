@@ -2,9 +2,6 @@
 import styles from './page.module.scss';
 
 // Component imports
-// import BackgroundEffect from './components/background/BackgroundEffect';
-// import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Summary from './components/summary/Summary';
 import Services from './components/services/Services';
@@ -17,9 +14,7 @@ export default function Home() {
 		<>
 			<div id='top'></div>
 			<main className={styles.main}>
-				{/* <BackgroundEffect /> */}
 				<div className={styles['main-content']}>
-					{/* <Header /> */}
 					<Hero />
 					<Summary />
 					<Services id='services' />
@@ -27,7 +22,6 @@ export default function Home() {
 					{/* <Process /> */}
 					{/* <About id='about' /> */}
 					{/* <section className={styles['previous-work']}>Previous Work</section> */}
-					<Footer />
 				</div>
 			</main>
 		</>
