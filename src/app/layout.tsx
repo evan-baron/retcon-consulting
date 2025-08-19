@@ -3,6 +3,10 @@ import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
 import './globals.scss';
 
+// Components
+import BackgroundEffect from './components/background/BackgroundEffect';
+import Header from './components/header/Header';
+
 // Context
 import { ContextProvider } from './context/AppContext';
 
@@ -179,7 +183,11 @@ export default function RootLayout({
 			<body
 				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
 			>
-				<ContextProvider>{children}</ContextProvider>
+				<ContextProvider>
+					<BackgroundEffect />
+					<Header />
+					{children}
+				</ContextProvider>
 			</body>
 		</html>
 	);

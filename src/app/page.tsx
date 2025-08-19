@@ -2,8 +2,8 @@
 import styles from './page.module.scss';
 
 // Component imports
-import BackgroundEffect from './components/background/BackgroundEffect';
-import Header from './components/header/Header';
+// import BackgroundEffect from './components/background/BackgroundEffect';
+// import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Summary from './components/summary/Summary';
@@ -17,9 +17,9 @@ export default function Home() {
 		<>
 			<div id='top'></div>
 			<main className={styles.main}>
-				<BackgroundEffect />
+				{/* <BackgroundEffect /> */}
 				<div className={styles['main-content']}>
-					<Header />
+					{/* <Header /> */}
 					<Hero />
 					<Summary />
 					<Services id='services' />
