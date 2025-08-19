@@ -23,7 +23,7 @@ export const DevelopmentStats: DevelopmentStat[] = [
 	{
 		stat1: 'Discovery & Needs Assessment',
 		stat2:
-			'The first step in our process is to meet with you to understand your business, goals, target audience, and specific requirements for your website.',
+			'The first step in our process is to meet with you to understand your business goals, target audience, and specific requirements for your website.',
 		image: <QuestionAnswerOutlined className={styles.icon} />,
 		alt: 'Discovery',
 	},
