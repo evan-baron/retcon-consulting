@@ -10,6 +10,13 @@
 	gap: 3rem;
 	box-sizing: border-box !important;
 
+	h2 {
+		color: var(--gray1);
+		font-size: 5rem;
+		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+			0.5rem 0.5rem 3rem black;
+	}
+
 	.description {
 		width: 100%;
 		height: calc(100vh - 7rem);
@@ -18,14 +25,6 @@
 		align-items: center;
 		justify-content: center;
 		gap: 3rem;
-		border: 1px solid red;
-
-		h2 {
-			color: var(--gray1);
-			font-size: 5rem;
-			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
-				0.5rem 0.5rem 3rem black;
-		}
 
 		.development-description {
 			width: 90%;
@@ -39,10 +38,12 @@
 		}
 	}
 
-	.statistics {
+	.process {
 		position: relative;
 		width: 100%;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		gap: 6rem;
+		align-items: center;
 	}
 }

@@ -23,36 +23,36 @@ export const DevelopmentStats: DevelopmentStat[] = [
 	{
 		stat1: 'Discovery & Needs Assessment',
 		stat2:
-			'Meet with the client to understand their business, goals, target audience, and specific requirements for the website.',
+			'The first step in our process is to meet with you to understand your business, goals, target audience, and specific requirements for your website.',
 		image: <QuestionAnswerOutlined className={styles.icon} />,
-		alt: 'Website',
+		alt: 'Discovery',
 	},
 	{
 		stat1: 'Planning & Strategy',
 		stat2:
-			'Develop a project plan, sitemap, and content strategy. Define the website’s structure, features, and user experience.',
+			"Next, we'll develop a project plan, sitemap, and content strategy. We'll also define the website's structure, features, and user experience.",
 		image: <SchemaOutlined className={styles.icon} />,
-		alt: 'Chart',
+		alt: 'Planning',
 	},
 	{
 		stat1: 'Design & Prototyping',
 		stat2:
-			'Create wireframes and visual designs that reflect the client’s brand. Review and refine designs with client feedback.',
+			"Once we've outlined the project, we'll start on building wireframes and visual designs that reflect your brand. We'll review and refine these designs with you and make the necessary changes until we get it right.",
 		image: <CreateOutlined className={styles.icon} />,
-		alt: 'Create',
+		alt: 'Design',
 	},
 	{
 		stat1: 'Development & Testing',
 		stat2:
-			'Build the website, integrate content and functionality, and rigorously test for usability, performance, and responsiveness.',
+			"Once you've approved the final design, we'll begin building the website, integrating content and functionality, and rigorously testing for usability, performance, and responsiveness.",
 		image: <CodeOutlined className={styles.icon} />,
-		alt: 'Traffic',
+		alt: 'Development',
 	},
 	{
 		stat1: 'Launch & Post-Launch Support',
 		stat2:
-			'Deploy the website, monitor for issues, and provide ongoing support, updates, and optimization as needed.',
+			'The final step in our process is to deploy the website, continuously monitor it for issues, and provide ongoing support, updates, and optimization as needed.',
 		image: <RocketLaunchOutlined className={styles.icon} />,
-		alt: 'Empty Cart',
+		alt: 'Launch',
 	},
 ];

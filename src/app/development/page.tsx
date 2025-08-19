@@ -40,7 +40,8 @@ const Development = () => {
 					through the complexities of web development.
 				</p>
 			</section>
-			<section className={styles.statistics}>
+			<section className={styles.process}>
+				<h2>Our Process</h2>
 				<Timeline />
 			</section>
 		</div>

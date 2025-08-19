@@ -1,12 +1,12 @@
 'use client';
 
 // Libraries imports
-import React, { ReactNode, useId } from 'react';
+import React, { useId } from 'react';
 
 // Styles
 import styles from './animatedBall.module.scss';
 
-const radius = 80;
+const radius = 72;
 const stroke = 4;
 const size = radius * 2 + stroke;
 
