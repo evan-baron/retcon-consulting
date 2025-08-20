@@ -31,9 +31,9 @@ function Summary() {
 						</div>
 					</div>
 					<div className={styles['text-wrapper']}>
-						<h2 className={styles['summary-highlight']}>
+						<span className={styles['summary-highlight']}>
 							Growth shouldn&#39;t feel like guesswork.
-						</h2>
+						</span>
 						<p className={styles['summary-text']}>
 							If you&#39;re stuck, circling the same challenges, or unsure
 							what&#39;s next, it&#39;s time to break that cycle. We help

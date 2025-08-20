@@ -31,15 +31,21 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.retconconsulting.com'),
-	title: 'Retcon Consulting',
-	description: 'Tech-focused consulting services for your business needs',
+	title:
+		'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+	description:
+		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
+	// description: 'Tech-focused consulting services for your business needs',
 
 	openGraph: {
-		title: 'Retcon Consulting - Tech-Focused Business Solutions',
+		title:
+			'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		// description:
 		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		description:
-			"We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
+			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
+		// "We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		url: 'https://www.retconconsulting.com',
 		siteName: 'Retcon Consulting',
 		images: [
@@ -56,11 +62,14 @@ export const metadata: Metadata = {
 
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Retcon Consulting - Tech-Focused Business Solutions',
+		title:
+			'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		// description:
 		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		description:
-			"We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
+			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
+		// "We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		images: ['/og-image.jpg'],
 	},
 
@@ -121,8 +130,15 @@ const structuredData = {
 	'@type': 'ProfessionalService',
 	name: 'Retcon Consulting',
 	description:
-		'Tech-focused consulting services for startups, entrepreneurs, and innovators.',
+		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
+	// 'Tech-focused consulting services for startups, entrepreneurs, and innovators.',
 	url: 'https://www.retconconsulting.com',
+	email: 'evan@retconconsulting.com',
+	telephone: '720-727-7834',
+	founder: {
+		'@type': 'Person',
+		name: 'Evan Baron',
+	},
 	address: {
 		'@type': 'PostalAddress',
 		addressCountry: 'USA',
@@ -188,7 +204,7 @@ export default function RootLayout({
 					<BackgroundEffect />
 					<Header />
 					<div id='top'></div>
-					<main className='main'>
+					<main className='main' role='main'>
 						<div className='main-content'>{children}</div>
 					</main>
 					<Footer />
