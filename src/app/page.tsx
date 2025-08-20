@@ -1,6 +1,3 @@
-// Styles imports
-import styles from './page.module.scss';
-
 // Component imports
 import Hero from './components/hero/Hero';
 import Summary from './components/summary/Summary';
