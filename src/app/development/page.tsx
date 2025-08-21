@@ -1,7 +1,5 @@
-'use client';
-
 // Library imports
-import React, { useRef } from 'react';
+import React from 'react';
 
 // Hooks imports
 
@@ -15,12 +13,10 @@ import Contact from '../components/contact/Contact';
 // Context imports
 
 const Development = () => {
-	const parentRef = useRef<HTMLDivElement>(null);
-
 	return (
 		// <div className={styles.overlay}>
 		<>
-			<div className={styles['development-wrapper']} ref={parentRef}>
+			<div className={styles['development-wrapper']}>
 				<section className={styles.description}>
 					<h2>Web Development</h2>
 					<p className={styles['development-description']}>
@@ -37,7 +33,7 @@ const Development = () => {
 				</section>
 				<section className={`${styles.process} ${styles['masked-section']}`}>
 					<h2>Our Process</h2>
-					<Timeline parentRef={parentRef} />
+					<Timeline />
 				</section>
 			</div>
 			<Contact id={'contact'} />

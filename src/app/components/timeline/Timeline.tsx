@@ -15,74 +15,88 @@ import styles from './timeline.module.scss';
 // Data imports
 import { DevelopmentStats } from '@/lib/data/development-stats';
 
-interface TimelineProps {
-	parentRef: React.RefObject<HTMLDivElement | null>;
+interface RowRefs {
+	index: number;
+	visible: boolean;
 }
 
-const Timeline = ({ parentRef }: TimelineProps) => {
+const Timeline = () => {
 	const timelineRef = useRef<HTMLDivElement | null>(null);
-	const textRefs = useMemo(
+	const rowRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
 		[]
 	);
-	const [textProgressArray, setTextProgressArray] = useState<number[]>([]);
+
+	const [rowRefsVisible, setRowRefsVisible] = useState<RowRefs[]>(
+		rowRefs.map((_, index) => ({
+			index,
+			visible: false,
+		}))
+	);
 
 	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.intersectionRatio > 0.5) {
+						const index = rowRefs.findIndex(
+							(ref) => ref.current === entry.target
+						);
+						setRowRefsVisible((prev) =>
+							prev.map((item) =>
+								item.index === index
+									? { ...item, visible: entry.isIntersecting }
+									: item
+							)
+						);
+					}
+				});
+			},
+			{ threshold: [0, 0.5, 1] }
+		);
+
+		rowRefs.forEach((ref) => {
+			if (ref.current) {
+				observer.observe(ref.current);
+			}
+		});
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
+
+	// Resets the animations for the text boxes
+	useEffect(() => {
 		const handleScroll = () => {
-			if (!parentRef.current) return;
-			const windowHeight = window.innerHeight;
-			// const parentRect = parentRef.current.getBoundingClientRect();
-			const thresholdY = windowHeight * 0.8;
-			// const thresholdY = parentRect.height * 0.8;
+			if (!timelineRef.current) return;
 
-			const textProgress = textRefs.map((ref, index) => {
-				const textBox = ref.current;
-				if (!textBox) return 0;
+			const rect = timelineRef.current.getBoundingClientRect();
 
-				const rect = textBox.getBoundingClientRect();
-
-				if (rect.top >= thresholdY) return 0;
-
-				// if (rect.bottom <= thresholdY) return 1;
-
-				// If the text box is partially visible, calculate the progress
-				const visibleHeight = Math.min(
-					rect.height * 1.5, // The 1.5 just makes the rectangle taller, extending the animation effects longer
-					thresholdY - rect.top
+			if (rect.top > window.innerHeight) {
+				// Timeline is below the viewport, reset visibility
+				setRowRefsVisible(
+					rowRefsVisible.map((item) => ({ ...item, visible: false }))
 				);
-				return Math.max(0, visibleHeight / (rect.height * 1.5));
-			});
-
-			setTextProgressArray(textProgress);
+			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-
-		// const parent = parentRef.current;
-		// if (parent) {
-		// 	parent.addEventListener('scroll', handleScroll);
-		// 	handleScroll();
-		// }
-		// return () => {
-		// 	if (parent) parent.removeEventListener('scroll', handleScroll);
-		// };
-	}, []);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [rowRefsVisible]);
 
 	return (
 		<div className={styles.timeline} ref={timelineRef}>
 			{DevelopmentStats.map((stat, index) => {
 				return (
 					<React.Fragment key={index}>
-						<div className={styles.row}>
+						<div className={styles.row} ref={rowRefs[index]}>
 							<div className={styles.ball}>
 								<div
-									className={styles['icon-wrapper']}
+									className={`${styles['icon-wrapper']} ${
+										rowRefsVisible[index].visible ? styles.visible : ''
+									}`}
 									style={{
-										opacity: textProgressArray[index],
-
 										color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
 									}}
 								>
@@ -90,25 +104,9 @@ const Timeline = ({ parentRef }: TimelineProps) => {
 								</div>
 							</div>
 							<div
-								ref={textRefs[index]}
 								className={`${styles.text} ${
 									index % 2 === 0 ? styles.left : styles.right
-								}`}
-								style={{
-									opacity: textProgressArray[index],
-
-									...(index % 2 === 0
-										? {
-												transform: `translateX(${
-													-50 + textProgressArray[index] * 50
-												}%)`,
-										  }
-										: {
-												transform: `translateX(${
-													50 - textProgressArray[index] * 50
-												}%)`,
-										  }),
-								}}
+								} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
 							>
 								<h3
 									style={{
