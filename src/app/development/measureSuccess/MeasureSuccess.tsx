@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, createRef } from 'react';
 
 // Hooks imports
 
@@ -18,26 +18,81 @@ const MeasureSuccess = () => {
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 	const fireworksRef = useRef<HTMLDivElement | null>(null);
 
+	interface DefinitionRefs {
+		index: number;
+		visible: boolean;
+	}
+	const definitionsRefs = useMemo(
+		() => Array.from({ length: 7 }).map(() => createRef<HTMLDivElement>()),
+		[]
+	);
+	const [definitionsRefsVisible, setDefinitionsRefsVisible] = useState<
+		DefinitionRefs[]
+	>(
+		definitionsRefs.map((_, index) => ({
+			index,
+			visible: false,
+		}))
+	);
 	const [fireworksActive, setFireworksActive] = useState(false);
 	const [hasAnimated, setHasAnimated] = useState(false);
 
 	useEffect(() => {
-		const observer = new window.IntersectionObserver(([entry]) => {
-			// When entering viewport from below, animate
-			if (entry.intersectionRatio > 0 && !hasAnimated) {
-				setHasAnimated(true);
-			}
-			// When leaving viewport at the bottom, reset
-			if (
-				!entry.isIntersecting &&
-				entry.boundingClientRect.top > window.innerHeight
-			) {
-				setHasAnimated(false);
-			}
-			setFireworksActive(entry.isIntersecting);
+		const observer = new window.IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				// Only trigger animation logic for wrapperRef
+				if (entry.target === wrapperRef.current) {
+					// When entering viewport from below, animate
+					if (entry.intersectionRatio > 0 && !hasAnimated) {
+						setHasAnimated(true);
+					}
+					// When leaving viewport at the bottom, reset
+					if (
+						!entry.isIntersecting &&
+						entry.boundingClientRect.top > window.innerHeight
+					) {
+						setHasAnimated(false);
+					}
+					setFireworksActive(entry.isIntersecting);
+				}
+
+				// Definitions visibility logic
+				const index = definitionsRefs.findIndex(
+					(ref) => ref.current === entry.target
+				);
+
+				if (entry.target === definitionsRefs[index]?.current) {
+					if (
+						entry.intersectionRatio > 0 &&
+						definitionsRefsVisible[index].visible === false
+					) {
+						setDefinitionsRefsVisible((prev) =>
+							prev.map((item) =>
+								item.index === index ? { ...item, visible: true } : item
+							)
+						);
+					} else if (
+						!entry.isIntersecting &&
+						entry.boundingClientRect.top > window.innerHeight
+					) {
+						setDefinitionsRefsVisible((prev) =>
+							prev.map((item) =>
+								item.index === index ? { ...item, visible: false } : item
+							)
+						);
+					}
+				}
+			});
 		});
+
 		if (fireworksRef.current) observer.observe(fireworksRef.current);
-		observer.observe(wrapperRef.current!);
+
+		if (wrapperRef.current) observer.observe(wrapperRef.current);
+
+		definitionsRefs.forEach((ref) => {
+			if (ref.current) observer.observe(ref.current);
+		});
+
 		return () => observer.disconnect();
 	}, []);
 
@@ -65,11 +120,21 @@ const MeasureSuccess = () => {
 				</div>
 			</div>
 			<div className={styles.definitions}>
-				<h4>
+				<h4
+					className={`${
+						definitionsRefsVisible[0].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[0]}
+				>
 					When we measure success at launch, our process extends beyond simply
 					“the site is live.”
 				</h4>
-				<div className={styles.definition}>
+				<div
+					className={`${styles.definition} ${
+						definitionsRefsVisible[1].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[1]}
+				>
 					<h5>Performance</h5>
 					<p>
 						We benchmark performance with Lighthouse and verify Core Web Vitals
@@ -89,7 +154,12 @@ const MeasureSuccess = () => {
 						performance under different network conditions.
 					</p>
 				</div>
-				<div className={styles.definition}>
+				<div
+					className={`${styles.definition} ${
+						definitionsRefsVisible[2].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[2]}
+				>
 					<h5>Accessibility</h5>
 					<p>
 						Accessibility is checked against WCAG 2.1 AA standards with Axe,
@@ -101,7 +171,12 @@ const MeasureSuccess = () => {
 						to ensure usability for all audiences.
 					</p>
 				</div>
-				<div className={styles.definition}>
+				<div
+					className={`${styles.definition} ${
+						definitionsRefsVisible[3].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[3]}
+				>
 					<h5>Best Practices</h5>
 					<p>
 						Technical reliability is verified through SSL validation,
@@ -113,7 +188,12 @@ const MeasureSuccess = () => {
 						, with HTTPS enforced site-wide.
 					</p>
 				</div>
-				<div className={styles.definition}>
+				<div
+					className={`${styles.definition} ${
+						definitionsRefsVisible[4].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[4]}
+				>
 					<h5>SEO</h5>
 					<p>
 						We confirm correct use of structured data (schema.org), validate
@@ -122,7 +202,12 @@ const MeasureSuccess = () => {
 						for Lighthouse SEO scores of 90+ at launch.
 					</p>
 				</div>
-				<div className={styles.definition}>
+				<div
+					className={`${styles.definition} ${
+						definitionsRefsVisible[5].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[5]}
+				>
 					<h5>Mobile Responsiveness</h5>
 					<p>
 						We test layouts across multiple screen sizes and devices using
@@ -132,7 +217,12 @@ const MeasureSuccess = () => {
 						Mobile-Friendly Test.
 					</p>
 				</div>
-				<p className={styles.summary}>
+				<p
+					className={`${styles.summary} ${
+						definitionsRefsVisible[6].visible ? styles.visible : ''
+					}`}
+					ref={definitionsRefs[6]}
+				>
 					Success at launch means the website is fast (meeting Core Web Vitals
 					thresholds), accessible (WCAG 2.1 AA compliance), optimized for search
 					(90+ SEO score), and technically sound across devices—ready to support

@@ -14,7 +14,7 @@
 		padding: 3rem 0;
 		opacity: 0;
 		transition: opacity 0.5s ease-in-out, transform 0.5s;
-		transform: translateY(50%);
+		transform: translateY(25%);
 
 		&.animate {
 			opacity: 1;
@@ -197,6 +197,14 @@
 			text-align: center;
 			text-wrap: pretty;
 			font-weight: 500;
+			opacity: 0;
+			transform: translateY(100%);
+			transition: opacity 0.5s ease-in-out, transform 0.5s;
+
+			&.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 
 		.definition {
@@ -205,6 +213,14 @@
 			flex-direction: column;
 			align-items: center;
 			gap: 1rem;
+			opacity: 0;
+			transform: translateY(100%);
+			transition: opacity 0.5s ease-in-out, transform 0.5s;
+
+			&.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 
 			h5 {
 				font-size: 2rem;
@@ -230,6 +246,14 @@
 			line-height: 1.25;
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;
+			opacity: 0;
+			transform: translateY(100%);
+			transition: opacity 0.5s ease-in-out, transform 0.5s;
+
+			&.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 	}
 }
