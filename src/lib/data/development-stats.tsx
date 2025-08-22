@@ -21,7 +21,7 @@ export interface DevelopmentStat {
 
 export const DevelopmentStats: DevelopmentStat[] = [
 	{
-		stat1: 'Discovery & Needs Assessment',
+		stat1: 'Discovery &\nNeeds Assessment',
 		stat2:
 			'The first step in our process is to meet with you to understand your business goals, target audience, and specific requirements for your website.',
 		image: <QuestionAnswerOutlined className={styles.icon} />,
@@ -49,7 +49,7 @@ export const DevelopmentStats: DevelopmentStat[] = [
 		alt: 'Development',
 	},
 	{
-		stat1: 'Launch & Post-Launch Support',
+		stat1: 'Launch &\nPost-Launch Support',
 		stat2:
 			'The final step in our process is to deploy the website, continuously monitor it for issues, and provide ongoing support, updates, and optimization as needed.',
 		image: <RocketLaunchOutlined className={styles.icon} />,

@@ -43,7 +43,7 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 						}}
 						className={styles.more}
 					>
-						More
+						Read More
 					</button>
 				</div>
 
