@@ -7,7 +7,7 @@ import React from 'react';
 import styles from './services.module.scss';
 
 // Component imports
-import Tile from './tile/Tile';
+import Tile from './servicesTile/Tile';
 
 // Data imports
 import { tileData } from './tileInfo';

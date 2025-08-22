@@ -108,13 +108,13 @@ const Timeline = () => {
 									index % 2 === 0 ? styles.left : styles.right
 								} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
 							>
-								<h3
+								<h4
 									style={{
 										color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
 									}}
 								>
 									{stat.stat1}
-								</h3>
+								</h4>
 								<p>{stat.stat2}</p>
 							</div>
 						</div>
