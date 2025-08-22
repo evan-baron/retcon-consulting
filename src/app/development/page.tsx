@@ -10,6 +10,7 @@ import styles from './development.module.scss';
 import Timeline from './timeline/Timeline';
 import Contact from '../components/contact/Contact';
 import CustomTiles from './customTiles/CustomTiles';
+import MeasureSuccess from './measureSuccess/MeasureSuccess';
 
 // Context imports
 
@@ -38,6 +39,13 @@ const Development = () => {
 				<section className={styles.custom}>
 					<h3>Why Choose Custom?</h3>
 					<CustomTiles />
+				</section>
+				<section className={styles.measure}>
+					<h3>How We Measure Success</h3>
+					<MeasureSuccess />
+				</section>
+				<section className={styles.commitment}>
+					<h3>Our Commitment to Excellence</h3>
 				</section>
 			</div>
 			<Contact id={'contact'} />
