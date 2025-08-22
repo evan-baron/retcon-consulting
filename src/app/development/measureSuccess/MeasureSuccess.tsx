@@ -40,6 +40,10 @@ const MeasureSuccess = () => {
 	useEffect(() => {
 		const observer = new window.IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
+				if (entry.target === fireworksRef.current) {
+					setFireworksActive(entry.isIntersecting);
+				}
+
 				// Only trigger animation logic for wrapperRef
 				if (entry.target === wrapperRef.current) {
 					// When entering viewport from below, animate
@@ -53,7 +57,6 @@ const MeasureSuccess = () => {
 					) {
 						setHasAnimated(false);
 					}
-					setFireworksActive(entry.isIntersecting);
 				}
 
 				// Definitions visibility logic
@@ -112,12 +115,12 @@ const MeasureSuccess = () => {
 						</div>
 					))}
 				</div>
-				<div
-					className={`${styles.pyro} ${fireworksActive ? styles.active : ''}`}
-				>
-					<div className={styles.before}></div>
-					<div className={styles.after}></div>
-				</div>
+				{fireworksActive ? (
+					<div className={styles.pyro}>
+						<div className={styles.before}></div>
+						<div className={styles.after}></div>
+					</div>
+				) : null}
 			</div>
 			<div className={styles.definitions}>
 				<h4
