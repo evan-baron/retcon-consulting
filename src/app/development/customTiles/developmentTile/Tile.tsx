@@ -51,7 +51,7 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 					<div className={styles['back-content']}>
 						<div className={styles.h4}>
 							<h4 className={styles.h4}>{title}</h4>
-						</div>{' '}
+						</div>
 						<div className={styles.stats}>
 							<p className={styles.stat1}>{stat1}</p>
 							{stat2 && (

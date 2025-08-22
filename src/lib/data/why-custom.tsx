@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 // Styles
-import styles from '../../app/development/developmentTile/tile.module.scss';
+import styles from '../../app/development/customTiles/developmentTile/tile.module.scss';
 
 // MUI Icons
 import {
