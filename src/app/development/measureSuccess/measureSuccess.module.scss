@@ -1,5 +1,8 @@
 .measureSuccess-wrapper {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
 
 	.lighthouse-wrapper {
 		width: 100%;
@@ -161,6 +164,56 @@
 					margin-left: 80%;
 				}
 			}
+		}
+	}
+
+	.definitions {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+
+		h4 {
+			width: 80%;
+			font-size: 2.25rem;
+			color: var(--gray1);
+			text-align: center;
+			text-wrap: pretty;
+			font-weight: 500;
+		}
+
+		.definition {
+			width: 90%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+
+			h5 {
+				font-size: 2rem;
+				color: var(--gray1);
+				text-decoration: underline;
+				text-underline-offset: 0.25rem;
+			}
+
+			p {
+				width: 75%;
+				font-size: 1.125rem;
+				color: var(--gray2);
+				line-height: 1.25;
+				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+					0.5rem 0.5rem 3rem black;
+			}
+		}
+
+		.summary {
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: var(--gray1);
+			text-align: center;
+			line-height: 1.25;
+			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+				0.5rem 0.5rem 3rem black;
 		}
 	}
 }

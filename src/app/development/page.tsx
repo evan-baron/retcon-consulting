@@ -47,6 +47,12 @@ const Development = () => {
 				<section className={styles.commitment}>
 					<h3>Our Commitment to Excellence</h3>
 				</section>
+				<section className={styles.commitment}>
+					<h3>Ongoing Support</h3>
+				</section>
+				<section className={styles.commitment}>
+					<h3>FAQs</h3>
+				</section>
 			</div>
 			<Contact id={'contact'} />
 		</>
