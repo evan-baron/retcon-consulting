@@ -36,6 +36,7 @@
 			font-size: 2rem;
 			color: var(--gray1);
 			white-space: pre-line;
+			text-shadow: none;
 
 			@media screen and (max-width: 1400px) {
 				// font-size: 1.5rem;
@@ -68,7 +69,11 @@
 			padding: 2rem;
 			text-align: center;
 			// background-color: var(--gray6);
-			background-color: hsla(0, 0%, 20%, 0.45);
+			background-image: linear-gradient(
+				135deg,
+				hsla(0, 0%, 30%, 0.45),
+				hsla(0, 0%, 10%, 0.45) 75%
+			); // background-color: hsla(0, 0%, 20%, 0.45);
 			backdrop-filter: blur(10px);
 
 			box-shadow: 0.5rem 0.5rem 1rem black;
