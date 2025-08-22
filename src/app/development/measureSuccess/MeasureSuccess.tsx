@@ -16,23 +16,39 @@ const MeasureSuccess = () => {
 	const scores = ['Performance', 'Accessibility', 'Best Practices', 'SEO'];
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
+	const fireworksRef = useRef<HTMLDivElement | null>(null);
 
 	const [fireworksActive, setFireworksActive] = useState(false);
+	const [hasAnimated, setHasAnimated] = useState(false);
 
 	useEffect(() => {
-		const observer = new window.IntersectionObserver(
-			([entry]) => {
-				setFireworksActive(entry.isIntersecting);
-			},
-			{ threshold: 0.1 }
-		);
-		if (wrapperRef.current) observer.observe(wrapperRef.current);
+		const observer = new window.IntersectionObserver(([entry]) => {
+			// When entering viewport from below, animate
+			if (entry.intersectionRatio > 0 && !hasAnimated) {
+				setHasAnimated(true);
+			}
+			// When leaving viewport at the bottom, reset
+			if (
+				!entry.isIntersecting &&
+				entry.boundingClientRect.top > window.innerHeight
+			) {
+				setHasAnimated(false);
+			}
+			setFireworksActive(entry.isIntersecting);
+		});
+		if (fireworksRef.current) observer.observe(fireworksRef.current);
+		observer.observe(wrapperRef.current!);
 		return () => observer.disconnect();
 	}, []);
 
 	return (
-		<div className={styles['measureSuccess-wrapper']}>
-			<div className={styles['lighthouse-wrapper']} ref={wrapperRef}>
+		<div className={styles['measureSuccess-wrapper']} ref={wrapperRef}>
+			<div
+				className={`${styles['lighthouse-wrapper']} ${
+					hasAnimated ? styles.animate : ''
+				}`}
+				ref={fireworksRef}
+			>
 				<div className={styles['scores']}>
 					{scores.map((score) => (
 						<div key={score} className={styles['score-box']}>
