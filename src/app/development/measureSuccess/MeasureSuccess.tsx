@@ -1,5 +1,7 @@
+'use client';
+
 // Library imports
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Hooks imports
 
@@ -13,9 +15,24 @@ import styles from './measureSuccess.module.scss';
 const MeasureSuccess = () => {
 	const scores = ['Performance', 'Accessibility', 'Best Practices', 'SEO'];
 
+	const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+	const [fireworksActive, setFireworksActive] = useState(false);
+
+	useEffect(() => {
+		const observer = new window.IntersectionObserver(
+			([entry]) => {
+				setFireworksActive(entry.isIntersecting);
+			},
+			{ threshold: 0.1 }
+		);
+		if (wrapperRef.current) observer.observe(wrapperRef.current);
+		return () => observer.disconnect();
+	}, []);
+
 	return (
 		<div className={styles['measureSuccess-wrapper']}>
-			<div className={styles['lighthouse-wrapper']}>
+			<div className={styles['lighthouse-wrapper']} ref={wrapperRef}>
 				<div className={styles['scores']}>
 					{scores.map((score) => (
 						<div key={score} className={styles['score-box']}>
@@ -24,7 +41,9 @@ const MeasureSuccess = () => {
 						</div>
 					))}
 				</div>
-				<div className={styles.pyro}>
+				<div
+					className={`${styles.pyro} ${fireworksActive ? styles.active : ''}`}
+				>
 					<div className={styles.before}></div>
 					<div className={styles.after}></div>
 				</div>

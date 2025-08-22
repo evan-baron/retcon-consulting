@@ -115,8 +115,17 @@
 				height: 7px;
 				border-radius: 50%;
 				box-shadow: $box-shadow2;
-				animation: 1s bang ease-out infinite, 1s gravity ease-in infinite,
-					5s position linear infinite;
+				animation: none !important;
+				// animation: 1s bang ease-out infinite, 1s gravity ease-in infinite,
+				// 	5s position linear infinite;
+			}
+
+			&.active {
+				.before,
+				.after {
+					animation: 1s bang ease-out infinite, 1s gravity ease-in infinite,
+						5s position linear infinite !important;
+				}
 			}
 
 			.after {
