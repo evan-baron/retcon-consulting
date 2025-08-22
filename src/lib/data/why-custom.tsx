@@ -39,7 +39,7 @@ export const ReasonTiles: ReasonTile[] = [
 		summary:
 			'Clean structure, proper headings, and schema ensure your site is built for search engines.',
 		stat1:
-			'Search engines reward clean structure. Custom development ensures proper use of headings, titles, schema, and accessibility... all things that templates often overlook. This sets your business up for long-term visibility and stronger rankings.',
+			'Search engines reward clean structure. Custom development ensures proper use of headings, titles, schema, and accessibility, all of which are critical details that templates often overlook. This sets your business up for long-term visibility and stronger rankings.',
 		stat2: `53% of mobile users leave a site if it takes more than <span style='font-weight:bold; color: var(--gray1)'>3 seconds</span> to load, directly hurting SEO performance.`,
 		icon: <Search className={styles.icon} />,
 	},
