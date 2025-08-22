@@ -8,14 +8,6 @@
 	justify-content: center;
 	align-items: center;
 
-	@media (hover: hover) and (pointer: fine) {
-		// transition: transform 0.3s ease-in-out;
-
-		&:hover {
-			// transform: scale(1.1);
-		}
-	}
-
 	@media screen and (max-width: 1400px) {
 		// width: 350px;
 	}
@@ -34,14 +26,6 @@
 		transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1),
 			box-shadow 0.3s ease-in-out;
 		transform-style: preserve-3d;
-
-		// @media (hover: hover) and (pointer: fine) {
-		// 	&:hover {
-		// 		box-shadow: 0.5rem 0.5rem 1rem black,
-		// 			0.5rem 0.5rem 2rem hsla(180, 100%, 10%, 0.5),
-		// 			0 0 4rem hsla(180, 100%, 10%, 0.5);
-		// 	}
-		// }
 
 		&.flipped {
 			transform: rotateY(180deg);
