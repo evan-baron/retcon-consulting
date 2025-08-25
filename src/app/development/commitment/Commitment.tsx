@@ -22,7 +22,11 @@ const Commitment = () => {
 	}
 
 	const commitmentRefs = useMemo(
-		() => Array.from({ length: 7 }).map(() => createRef<HTMLDivElement>()),
+		// length is intro + closing + length of CommitmentPillars
+		() =>
+			Array.from({ length: 2 + CommitmentPillars.length }).map(() =>
+				createRef<HTMLDivElement>()
+			),
 		[]
 	);
 
@@ -106,9 +110,11 @@ const Commitment = () => {
 
 			<p
 				className={`${styles.closing} ${
-					commitmentRefsVisible[6].visible ? styles.visible : ''
+					commitmentRefsVisible[1 + CommitmentPillars.length].visible
+						? styles.visible
+						: ''
 				}`}
-				ref={commitmentRefs[6]}
+				ref={commitmentRefs[1 + CommitmentPillars.length]}
 			>
 				Our commitment to excellence isn't a tagline, it's the standard we hold
 				ourselves to in every decision, every deliverable, and every interaction
