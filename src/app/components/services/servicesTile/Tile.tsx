@@ -29,6 +29,7 @@ function Tile({
 			className={styles.tile}
 			onClick={() => setFlipped((prev) => !prev)}
 			aria-label={`Details for ${title}`}
+			aria-live='polite'
 		>
 			<div
 				className={`${styles['tile-content']} ${flipped ? styles.flipped : ''}`}

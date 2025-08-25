@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, ReactNode } from 'react';
+import React, { useState, useEffect, useRef, ReactNode } from 'react';
 
 // Styles imports
 import styles from './tile.module.scss';
@@ -20,23 +20,51 @@ type TileProps = {
 function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 	const [flipped, setFlipped] = useState(false);
 
+	const tileRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		if (!tileRef.current) return;
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.intersectionRatio > 0) {
+					tileRef.current?.classList.add(styles.visible);
+				}
+
+				if (entry.boundingClientRect.top > window.innerHeight) {
+					tileRef.current?.classList.remove(styles.visible);
+				}
+			});
+		});
+
+		if (tileRef.current) observer.observe(tileRef.current);
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
+
 	return (
-		<div
+		<article
 			className={styles.tile}
+			ref={tileRef}
 			onClick={() => setFlipped((prev) => !prev)}
 			aria-label={`Details for ${title}`}
+			aria-live='polite'
 		>
 			<div
 				className={`${styles['tile-content']} ${flipped ? styles.flipped : ''}`}
 			>
 				<div className={styles['tile-front']} aria-hidden={flipped}>
 					<div className={styles['icon-box']}>{icon}</div>
-					<div className={styles.h4}>
-						<h4 className={styles.h4}>{title}</h4>
+					<div className={styles.h3}>
+						<h3 className={styles.h3}>{title}</h3>
 					</div>
 					<p className={styles.p}>{summary}</p>
 					<button
 						type='button'
+						aria-pressed={flipped}
+						aria-label={`Read more about ${title}`}
 						onClick={(e) => {
 							e.stopPropagation();
 							setFlipped((prev) => !prev);
@@ -49,8 +77,8 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 
 				<div className={styles['tile-back']} aria-hidden={!flipped}>
 					<div className={styles['back-content']}>
-						<div className={styles.h4}>
-							<h4 className={styles.h4}>{title}</h4>
+						<div className={styles.h3}>
+							<h3>{title}</h3>
 						</div>
 						<div className={styles.stats}>
 							<p className={styles.stat1}>{stat1}</p>
@@ -66,6 +94,8 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 						</div>
 						<button
 							type='button'
+							aria-pressed={!flipped}
+							aria-label={`Back to summary for ${title}`}
 							onClick={(e) => {
 								e.stopPropagation();
 								setFlipped((prev) => !prev);
@@ -77,7 +107,7 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 }
 

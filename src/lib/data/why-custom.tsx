@@ -30,7 +30,9 @@ export const ReasonTiles: ReasonTile[] = [
 		summary:
 			'Custom websites eliminate template bloat, delivering faster load times and smoother performance.',
 		stat1:
-			"A fast website isn't just nice, it's critical for business. Custom sites are lean, with only the features you need, which means better performance scores and smoother user experiences. By optimizing every detail, you're not stuck with the extra scripts and plugins that slow sites down.",
+			"A fast website is critical for business. Custom sites are lean, with only the features you need, which means better performance scores and smoother user experiences. By optimizing every detail, you're not stuck with the extra scripts and plugins that slow sites down.",
+		// stat1:
+		// 	"A fast website isn't just nice, it's critical for business. Custom sites are lean, with only the features you need, which means better performance scores and smoother user experiences. By optimizing every detail, you're not stuck with the extra scripts and plugins that slow sites down.",
 		stat2: `A 1-second delay can reduce conversions by <span style='font-weight:bold; color: var(--gray1)'>7%</span>. Pages slower than 3 seconds risk losing <span style='font-weight:bold; color: var(--gray1)'>40% of visitors</span>.`,
 		icon: <Speed className={styles.icon} />,
 	},
@@ -39,7 +41,7 @@ export const ReasonTiles: ReasonTile[] = [
 		summary:
 			'Clean structure, proper headings, and schema ensure your site is built for search engines.',
 		stat1:
-			'Search engines reward clean structure. Custom development ensures proper use of headings, titles, schema, and accessibility, all of which are critical details that templates often overlook. This sets your business up for long-term visibility and stronger rankings.',
+			'Search engines reward clean structure. Custom development ensures proper use of headings, titles, schema, and accessibility, all of which are critical details that templates often overlook. This sets your website up for long-term visibility and stronger rankings.',
 		stat2: `53% of mobile users leave a site if it takes more than <span style='font-weight:bold; color: var(--gray1)'>3 seconds</span> to load, directly hurting SEO performance.`,
 		icon: <Search className={styles.icon} />,
 	},

@@ -8,27 +8,16 @@
 	@media (min-width: 1400px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
-
-	.tile {
-		transform: translateY(5rem);
-		opacity: 0;
-		transition: opacity 1s, transform 0.5s;
-
-		&.visible {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 }
 
 @keyframes drawerIn {
 	from {
-		opacity: 0;
+		// opacity: 0;
 		max-height: 0;
 	}
 
 	to {
-		opacity: 1;
+		// opacity: 1;
 		max-height: 32rem;
 		overflow: visible;
 	}
@@ -36,35 +25,39 @@
 
 @keyframes drawerOut {
 	from {
-		opacity: 1;
+		// opacity: 1;
 		max-height: 32rem;
 	}
 
 	to {
-		opacity: 0;
+		// opacity: 0;
 		max-height: 0;
 	}
 }
 
 .drawer {
-	will-change: max-height, opacity;
 	width: 100%;
 	position: relative;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-	gap: 3rem;
-	overflow: hidden;
-	max-height: 0;
-	opacity: 0;
-	transition: max-height 0.5s, opacity 0.5s;
-	backdrop-filter: blur(10px);
 
-	&.open {
-		animation: drawerIn 0.5s forwards;
-	}
+	ul {
+		will-change: max-height;
+		width: 100%;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 3rem;
+		overflow: hidden;
+		max-height: 0;
+		// opacity: 0;
+		transition: max-height 0.5s, opacity 0.5s;
 
-	&.animate {
-		animation: drawerOut 0.5s forwards;
+		&.open {
+			animation: drawerIn 0.5s forwards;
+		}
+
+		&.animate {
+			animation: drawerOut 0.5s forwards;
+		}
 	}
 }
 
