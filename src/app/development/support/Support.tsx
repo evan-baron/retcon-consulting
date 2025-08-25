@@ -257,7 +257,8 @@ const Support = () => {
 							All tiers allow you the option to own or lease your site and code.
 							Ownership is a one-time purchase; leasing is a monthly
 							subscription. If you lease, access is provided while your
-							subscription is active.
+							subscription is active. If leasing, you will always have the
+							option to buy out your code.
 						</span>
 					</p>
 				</div>

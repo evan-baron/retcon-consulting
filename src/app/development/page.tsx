@@ -54,9 +54,9 @@ const Development = () => {
 					<h3>Ongoing Support</h3>
 					<Support />
 				</section>
-				<section className={styles.section}>
+				{/* <section className={styles.section}>
 					<h3>FAQs</h3>
-				</section>
+				</section> */}
 			</div>
 			<Contact id={'contact'} />
 		</>
