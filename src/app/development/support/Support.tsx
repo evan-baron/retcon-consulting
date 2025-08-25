@@ -149,7 +149,9 @@ const Support = () => {
 					</colgroup>
 					<thead>
 						<tr>
-							<th scope='col'>Support</th>
+							<th scope='col' style={{ backgroundColor: 'var(--gray7)' }}>
+								Support
+							</th>
 							{supportTiers.map((tier, idx) => (
 								<th
 									scope='col'
