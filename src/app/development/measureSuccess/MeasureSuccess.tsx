@@ -107,14 +107,14 @@ const MeasureSuccess = () => {
 				}`}
 				ref={fireworksRef}
 			>
-				<div className={styles['scores']}>
+				<ul className={styles['scores']} aria-label='Lighthouse Scores'>
 					{scores.map((score) => (
-						<div key={score} className={styles['score-box']}>
+						<li key={score} className={styles['score-box']}>
 							<div className={styles.score}>100</div>
 							<div className={styles.label}>{score}</div>
-						</div>
+						</li>
 					))}
-				</div>
+				</ul>
 				{fireworksActive ? (
 					<div className={styles.pyro}>
 						<div className={styles.before}></div>
@@ -123,7 +123,7 @@ const MeasureSuccess = () => {
 				) : null}
 			</div>
 			<div className={styles.definitions}>
-				<h4
+				<h3
 					className={`${
 						definitionsRefsVisible[0].visible ? styles.visible : ''
 					}`}
@@ -131,15 +131,15 @@ const MeasureSuccess = () => {
 				>
 					When we measure success at launch, our process extends beyond simply
 					“the site is live.”
-				</h4>
+				</h3>
 				<div
 					className={`${styles.definition} ${
 						definitionsRefsVisible[1].visible ? styles.visible : ''
 					}`}
 					ref={definitionsRefs[1]}
 				>
-					<h5>Performance</h5>
-					<p>
+					<dt>Performance</dt>
+					<dd>
 						We benchmark performance with Lighthouse and verify Core Web Vitals
 						across both desktop and mobile. Largest Contentful Paint (LCP) under{' '}
 						<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
@@ -155,7 +155,7 @@ const MeasureSuccess = () => {
 						</span>
 						. We run audits in PageSpeed Insights and WebPageTest to capture
 						performance under different network conditions.
-					</p>
+					</dd>
 				</div>
 				<div
 					className={`${styles.definition} ${
@@ -163,8 +163,8 @@ const MeasureSuccess = () => {
 					}`}
 					ref={definitionsRefs[2]}
 				>
-					<h5>Accessibility</h5>
-					<p>
+					<dt>Accessibility</dt>
+					<dd>
 						Accessibility is checked against WCAG 2.1 AA standards with Axe,
 						Wave, and Lighthouse Accessibility audits. We target a Lighthouse
 						Accessibility score of{' '}
@@ -172,7 +172,7 @@ const MeasureSuccess = () => {
 							90+
 						</span>{' '}
 						to ensure usability for all audiences.
-					</p>
+					</dd>
 				</div>
 				<div
 					className={`${styles.definition} ${
@@ -180,8 +180,8 @@ const MeasureSuccess = () => {
 					}`}
 					ref={definitionsRefs[3]}
 				>
-					<h5>Best Practices</h5>
-					<p>
+					<dt>Best Practices</dt>
+					<dd>
 						Technical reliability is verified through SSL validation,
 						browser/device testing with BrowserStack, and deployment logs to
 						ensure error-free builds. Lighthouse Best Practices score should be{' '}
@@ -189,7 +189,7 @@ const MeasureSuccess = () => {
 							90+
 						</span>
 						, with HTTPS enforced site-wide.
-					</p>
+					</dd>
 				</div>
 				<div
 					className={`${styles.definition} ${
@@ -197,13 +197,13 @@ const MeasureSuccess = () => {
 					}`}
 					ref={definitionsRefs[4]}
 				>
-					<h5>SEO</h5>
-					<p>
+					<dt>SEO</dt>
+					<dd>
 						We confirm correct use of structured data (schema.org), validate
 						metadata and heading structure, and crawl the site with Screaming
 						Frog to ensure full indexability and eliminate broken links. We aim
 						for Lighthouse SEO scores of 90+ at launch.
-					</p>
+					</dd>
 				</div>
 				<div
 					className={`${styles.definition} ${
@@ -211,14 +211,14 @@ const MeasureSuccess = () => {
 					}`}
 					ref={definitionsRefs[5]}
 				>
-					<h5>Mobile Responsiveness</h5>
-					<p>
+					<dt>Mobile Responsiveness</dt>
+					<dd>
 						We test layouts across multiple screen sizes and devices using
 						BrowserStack and Chrome DevTools. Success means a fully responsive
 						experience, with no horizontal scrolling, properly scaled
 						text/images, and interactive elements passing Google's
 						Mobile-Friendly Test.
-					</p>
+					</dd>
 				</div>
 				<p
 					className={`${styles.summary} ${
