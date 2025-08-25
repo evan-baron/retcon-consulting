@@ -21,7 +21,7 @@ const Development = () => {
 		<>
 			<div className={styles['development-wrapper']}>
 				<section className={styles.description}>
-					<h2>Web Development</h2>
+					<h1 id='web-development-heading'>Web Development</h1>
 					<p className={styles['development-description']}>
 						<span>Your website matters</span>: It's the first impression people
 						have of your business, the place they decide whether to trust you,
@@ -34,28 +34,37 @@ const Development = () => {
 						you through the complexities of custom web development.
 					</p>
 				</section>
-				<section className={`${styles.process} ${styles.section}`}>
-					<h3>Our Process</h3>
+				<section
+					className={`${styles.process} ${styles.section}`}
+					aria-labelledby='process-heading'
+				>
+					<h2 id='process-heading'>Our Process</h2>
 					<Timeline />
 				</section>
-				<section className={styles.section}>
-					<h3>Why Choose Custom?</h3>
+				<section className={styles.section} aria-labelledby='custom-heading'>
+					<h2 id='custom-heading'>Why Choose Custom?</h2>
 					<CustomTiles />
 				</section>
-				<section className={styles.section}>
-					<h3>How We Measure Success</h3>
+				<section
+					className={styles.section}
+					aria-labelledby='measure-success-heading'
+				>
+					<h2 id='measure-success-heading'>How We Measure Success</h2>
 					<MeasureSuccess />
 				</section>
-				<section className={styles.section}>
-					<h3>Our Commitment to Excellence</h3>
+				<section
+					className={styles.section}
+					aria-labelledby='commitment-heading'
+				>
+					<h2 id='commitment-heading'>Our Commitment to Excellence</h2>
 					<Commitment />
 				</section>
-				<section className={styles.section}>
-					<h3>Ongoing Support</h3>
+				<section className={styles.section} aria-labelledby='support-heading'>
+					<h2 id='support-heading'>Ongoing Support</h2>
 					<Support />
 				</section>
 				{/* <section className={styles.section}>
-					<h3>FAQs</h3>
+					<h2>FAQs</h2>
 				</section> */}
 			</div>
 			<Contact id={'contact'} page={'development'} />

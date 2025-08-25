@@ -23,7 +23,7 @@ interface RowRefs {
 const Timeline = () => {
 	const timelineRef = useRef<HTMLDivElement | null>(null);
 	const rowRefs = useMemo(
-		() => DevelopmentStats.map(() => React.createRef<HTMLDivElement>()),
+		() => DevelopmentStats.map(() => React.createRef<HTMLLIElement>()),
 		[]
 	);
 
@@ -38,7 +38,8 @@ const Timeline = () => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					if (entry.intersectionRatio > 0.5) {
+					// Change the 0 to 0.5 if you want to delay it a bit
+					if (entry.intersectionRatio > 0) {
 						const index = rowRefs.findIndex(
 							(ref) => ref.current === entry.target
 						);
@@ -86,44 +87,64 @@ const Timeline = () => {
 	}, [rowRefsVisible]);
 
 	return (
-		<div className={styles.timeline} ref={timelineRef}>
-			{DevelopmentStats.map((stat, index) => {
-				return (
-					<React.Fragment key={index}>
-						<div className={styles.row} ref={rowRefs[index]}>
-							<div className={styles.ball}>
+		<div
+			className={styles.timeline}
+			ref={timelineRef}
+			aria-label='Project Timeline'
+			role='list'
+		>
+			<ol className={styles['timeline-list']}>
+				{DevelopmentStats.map((stat, index) => {
+					return (
+						<li
+							key={index}
+							className={styles.row}
+							ref={rowRefs[index]}
+							aria-current={rowRefsVisible[index].visible ? 'step' : undefined}
+						>
+							<div className={styles.row}>
+								<div className={styles.ball}>
+									<div
+										className={`${styles['icon-wrapper']} ${
+											rowRefsVisible[index].visible ? styles.visible : ''
+										}`}
+										style={{
+											color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
+										}}
+										aria-hidden={
+											rowRefsVisible[index].visible ? 'false' : 'true'
+										}
+									>
+										{stat.image}
+									</div>
+								</div>
 								<div
-									className={`${styles['icon-wrapper']} ${
-										rowRefsVisible[index].visible ? styles.visible : ''
-									}`}
-									style={{
-										color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
-									}}
+									className={`${styles.text} ${
+										index % 2 === 0 ? styles.left : styles.right
+									} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
 								>
-									{stat.image}
+									<h3
+										style={{
+											color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
+										}}
+										id={`timeline-step-${index}`}
+									>
+										{stat.stat1}
+									</h3>
+									<p>{stat.stat2}</p>
 								</div>
 							</div>
-							<div
-								className={`${styles.text} ${
-									index % 2 === 0 ? styles.left : styles.right
-								} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
-							>
-								<h4
-									style={{
-										color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
-									}}
-								>
-									{stat.stat1}
-								</h4>
-								<p>{stat.stat2}</p>
-							</div>
-						</div>
-						{index < DevelopmentStats.length - 1 && (
-							<div className={styles.line} key={'line' + index} />
-						)}
-					</React.Fragment>
-				);
-			})}
+							{index < DevelopmentStats.length - 1 && (
+								<div
+									className={styles.line}
+									key={'line' + index}
+									aria-hidden='true'
+								/>
+							)}
+						</li>
+					);
+				})}
+			</ol>
 		</div>
 	);
 };
