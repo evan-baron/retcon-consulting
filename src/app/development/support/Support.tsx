@@ -138,7 +138,7 @@ const Support = () => {
 				aria-labelledby='support-table-heading'
 				ref={supportRefs[1]}
 			>
-				<h3 id='support-table-heading'>Support Tier Comparison</h3>
+				<h3 id='support-table-heading'>Support Tiers Comparison:</h3>
 				<table>
 					<colgroup>
 						<col style={{ width: 'auto' }} />
@@ -246,7 +246,7 @@ const Support = () => {
 						))}
 					</tbody>
 				</table>
-				<div className={styles.description}>
+				<div className={styles.description} ref={supportRefs[2]}>
 					<p>
 						<span
 							className={styles.asterisk}
