@@ -135,8 +135,10 @@ const Support = () => {
 					supportRefsVisible[1].visible ? styles.visible : ''
 				}`}
 				role='table'
+				aria-labelledby='support-table-heading'
 				ref={supportRefs[1]}
 			>
+				<h3 id='support-table-heading'>Support Tier Comparison</h3>
 				<table>
 					<colgroup>
 						<col style={{ width: 'auto' }} />
