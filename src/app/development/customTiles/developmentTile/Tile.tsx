@@ -57,9 +57,7 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 			>
 				<div className={styles['tile-front']} aria-hidden={flipped}>
 					<div className={styles['icon-box']}>{icon}</div>
-					<div className={styles.h3}>
-						<h3 className={styles.h3}>{title}</h3>
-					</div>
+					<h3 className={styles.h3}>{title}</h3>
 					<p className={styles.p}>{summary}</p>
 					<button
 						type='button'
@@ -77,9 +75,7 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 
 				<div className={styles['tile-back']} aria-hidden={!flipped}>
 					<div className={styles['back-content']}>
-						<div className={styles.h3}>
-							<h3>{title}</h3>
-						</div>
+						<h3 className={styles.h3}>{title}</h3>
 						<div className={styles.stats}>
 							<p className={styles.stat1}>{stat1}</p>
 							{stat2 && (
