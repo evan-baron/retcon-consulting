@@ -12,6 +12,7 @@ import Contact from '../components/contact/Contact';
 import CustomTiles from './customTiles/CustomTiles';
 import MeasureSuccess from './measureSuccess/MeasureSuccess';
 import Commitment from './commitment/Commitment';
+import Support from './support/Support';
 
 // Context imports
 
@@ -33,26 +34,27 @@ const Development = () => {
 						you through the complexities of custom web development.
 					</p>
 				</section>
-				<section className={styles.process}>
+				<section className={`${styles.process} ${styles.section}`}>
 					<h3>Our Process</h3>
 					<Timeline />
 				</section>
-				<section className={styles.custom}>
+				<section className={styles.section}>
 					<h3>Why Choose Custom?</h3>
 					<CustomTiles />
 				</section>
-				<section className={styles.measure}>
+				<section className={styles.section}>
 					<h3>How We Measure Success</h3>
 					<MeasureSuccess />
 				</section>
-				<section className={styles.commitment}>
+				<section className={styles.section}>
 					<h3>Our Commitment to Excellence</h3>
 					<Commitment />
 				</section>
-				<section className={styles.commitment}>
+				<section className={styles.section}>
 					<h3>Ongoing Support</h3>
+					<Support />
 				</section>
-				<section className={styles.commitment}>
+				<section className={styles.section}>
 					<h3>FAQs</h3>
 				</section>
 			</div>
