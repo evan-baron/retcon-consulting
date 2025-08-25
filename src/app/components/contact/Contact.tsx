@@ -10,7 +10,7 @@ import axiosInstance from '@/lib/utils/axios';
 // Styles imports
 import styles from './contact.module.scss';
 
-function Contact({ id }: { id: string }) {
+function Contact({ id, page }: { id: string; page?: string }) {
 	type ContactFormData = {
 		firstName: string;
 		lastName: string;
@@ -118,7 +118,9 @@ function Contact({ id }: { id: string }) {
 				className={styles.contact}
 				aria-label='Schedule a consultation to discuss your needs'
 			>
-				<h2 className={styles.h2}>Get in Touch</h2>
+				<h2 className={`${styles.h2} ${page && styles[page]}`}>
+					{page !== 'development' ? 'Get in Touch' : 'Ready to Get Started?'}
+				</h2>
 				{!formComplete ? (
 					<form onSubmit={handleSubmit} className={styles['contact-form']}>
 						<fieldset className={styles['names-wrapper']}>

@@ -58,7 +58,7 @@ const Development = () => {
 					<h3>FAQs</h3>
 				</section> */}
 			</div>
-			<Contact id={'contact'} />
+			<Contact id={'contact'} page={'development'} />
 		</>
 	);
 };
