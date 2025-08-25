@@ -12,6 +12,9 @@ import styles from './commitment.module.scss';
 
 // Context imports
 
+// Data imports
+import { CommitmentPillars } from '../../../lib/data/commitment-pillars';
+
 const Commitment = () => {
 	interface CommitmentRef {
 		index: number;
@@ -86,72 +89,19 @@ const Commitment = () => {
 			</p>
 
 			<ul className={styles.pillars} role='list'>
-				<li>
-					<div
-						className={`${styles.li} ${
-							commitmentRefsVisible[1].visible ? styles.visible : ''
-						}`}
-						ref={commitmentRefs[1]}
-					>
-						<h4>Clear Communication</h4>
-						<p>Transparent updates, open collaboration, and no surprises.</p>
-					</div>
-				</li>
-				<li>
-					<div
-						className={`${styles.li} ${
-							commitmentRefsVisible[2].visible ? styles.visible : ''
-						}`}
-						ref={commitmentRefs[2]}
-					>
-						<h4>Thoughtful Design &amp; Development</h4>
-						<p>
-							Solutions tailored to your business, not off-the-shelf templates.
-						</p>
-					</div>
-				</li>
-				<li>
-					<div
-						className={`${styles.li} ${
-							commitmentRefsVisible[3].visible ? styles.visible : ''
-						}`}
-						ref={commitmentRefs[3]}
-					>
-						<h4>Attention to Detail</h4>
-						<p>
-							Every interaction, line of code, and design element delivered with
-							precision.
-						</p>
-					</div>
-				</li>
-				<li>
-					<div
-						className={`${styles.li} ${
-							commitmentRefsVisible[4].visible ? styles.visible : ''
-						}`}
-						ref={commitmentRefs[4]}
-					>
-						<h4>Reliability</h4>
-						<p>
-							We don't just launch and walk away. We deliver stable, dependable
-							solutions from day one.
-						</p>
-					</div>
-				</li>
-				<li>
-					<div
-						className={`${styles.li} ${
-							commitmentRefsVisible[5].visible ? styles.visible : ''
-						}`}
-						ref={commitmentRefs[5]}
-					>
-						<h4>Partnership</h4>
-						<p>
-							Your success is our success—every project is the start of a
-							long-term relationship.
-						</p>
-					</div>
-				</li>
+				{CommitmentPillars.map((pillar, index) => (
+					<li key={index}>
+						<div
+							className={`${styles.li} ${
+								commitmentRefsVisible[index + 1]?.visible ? styles.visible : ''
+							}`}
+							ref={commitmentRefs[index + 1]}
+						>
+							<h3>{pillar.title}</h3>
+							<p>{pillar.description}</p>
+						</div>
+					</li>
+				))}
 			</ul>
 
 			<p

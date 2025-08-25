@@ -69,7 +69,7 @@
 			}
 		}
 
-		h4 {
+		h3 {
 			font-size: 1.5rem;
 			font-weight: 500;
 			color: var(--gray1);
@@ -78,6 +78,7 @@
 
 		p {
 			font-size: 1.25rem;
+			text-wrap: pretty;
 		}
 	}
 }
