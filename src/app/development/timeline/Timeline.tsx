@@ -22,7 +22,8 @@ interface RowRefs {
 }
 
 const Timeline = () => {
-	const isMobile = useMediaQuery('(max-width: 500px)');
+	const isMobile =
+		useMediaQuery('(max-width: 500px)') || useMediaQuery('(max-height: 500px)');
 
 	const timelineRef = useRef<HTMLDivElement | null>(null);
 	const rowRefs = useMemo(
