@@ -1,12 +1,16 @@
 'use client';
 
 // Library imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Hooks imports
+import { useMediaQuery } from '@mui/material';
 
 // Styles imports
 import styles from './customTiles.module.scss';
+
+// MUI imports
+import { Leaderboard } from '@mui/icons-material';
 
 // Components imports
 import Tile from './developmentTile/Tile';
@@ -17,12 +21,98 @@ import Tile from './developmentTile/Tile';
 import { ReasonTiles } from '@/lib/data/why-custom';
 
 const CustomTiles = () => {
+	interface DrawerOpen {
+		[index: number]: boolean;
+	}
+
+	const [loading, setLoading] = useState(true);
 	const [showMore, setShowMore] = useState(false);
 	const [isAnimating, setIsAnimating] = useState(false);
 	const visibleReasons = ReasonTiles.slice(0, 6);
 	const hiddenReasons = ReasonTiles.slice(6);
+	const [drawerOpen, setDrawerOpen] = useState<DrawerOpen>(
+		ReasonTiles.reduce((acc, _, index) => {
+			acc[index] = false;
+			return acc;
+		}, {} as DrawerOpen)
+	);
 
-	return (
+	const isMobileWidth = useMediaQuery(
+		'(max-width: 500px) and (orientation: portrait)'
+	);
+	const isMobileHeight = useMediaQuery(
+		'(max-height: 500px) and (orientation: landscape)'
+	);
+
+	useEffect(() => {
+		if (
+			typeof isMobileWidth === 'boolean' &&
+			typeof isMobileHeight === 'boolean'
+		) {
+			setLoading(false);
+		}
+	}, [isMobileWidth, isMobileHeight]);
+
+	const isMobile = isMobileWidth || isMobileHeight;
+
+	const handleClick = (index: number) => {
+		setDrawerOpen((prev) => {
+			const newState = Object.fromEntries(
+				Object.entries(prev).map(([key, value]) => [
+					key,
+					Number(key) === index ? !value : false,
+				])
+			);
+			return newState;
+		});
+	};
+
+	if (loading) return null;
+
+	return isMobile ? (
+		<ul className={styles['drawer-wrapper']}>
+			{ReasonTiles.map((reason, index) => (
+				<li className={styles.drawer} key={'drawer' + index}>
+					<div
+						className={`${styles.lid} ${
+							drawerOpen[index] ? styles.open : styles.closed
+						}`}
+						onClick={() => handleClick(index)}
+					>
+						<div
+							className={`${styles['icon-box']} ${
+								drawerOpen[index] ? styles.open : styles.closed
+							}`}
+						>
+							{reason.icon}
+						</div>
+						<h3>{reason.title}</h3>
+						<div className={styles.dropdown}>
+							<div className={styles.line}></div>
+						</div>
+					</div>
+					<div
+						className={`${styles.content} ${
+							drawerOpen[index] ? styles.open : styles.closed
+						}`}
+					>
+						<div className={styles.stats}>
+							<p className={styles.stat1}>{reason.stat1}</p>
+							{reason.stat2 && (
+								<div className={styles.stat2}>
+									<Leaderboard className={styles.icon} />
+									<p
+										className={styles.stat}
+										dangerouslySetInnerHTML={{ __html: reason.stat2 }}
+									></p>
+								</div>
+							)}
+						</div>
+					</div>
+				</li>
+			))}
+		</ul>
+	) : (
 		<>
 			<ul className={styles.tiles}>
 				{visibleReasons.map((reason, index) => (

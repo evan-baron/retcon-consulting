@@ -46,7 +46,10 @@ const Development = () => {
 					</p>
 					<Timeline />
 				</section>
-				<section className={styles.section} aria-labelledby='custom-heading'>
+				<section
+					className={`${styles.custom} ${styles.section}`}
+					aria-labelledby='custom-heading'
+				>
 					<h2 id='custom-heading'>Why Choose Custom?</h2>
 					<CustomTiles />
 				</section>

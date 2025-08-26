@@ -22,19 +22,31 @@ interface RowRefs {
 }
 
 const Timeline = () => {
+	const [loading, setLoading] = useState(true);
+
 	const isMobileWidth = useMediaQuery(
 		'(max-width: 500px) and (orientation: portrait)'
 	);
 	const isMobileHeight = useMediaQuery(
 		'(max-height: 500px) and (orientation: landscape)'
 	);
+
+	useEffect(() => {
+		if (
+			typeof isMobileWidth === 'boolean' &&
+			typeof isMobileHeight === 'boolean'
+		) {
+			setLoading(false);
+		}
+	}, [isMobileWidth, isMobileHeight]);
+
 	const isMobile = isMobileWidth || isMobileHeight;
 
 	const timelineRef = useRef<HTMLDivElement | null>(null);
 
 	const rowRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLLIElement>()),
-		[]
+		[loading]
 	);
 
 	const [rowRefsVisible, setRowRefsVisible] = useState<RowRefs[]>(
@@ -75,7 +87,7 @@ const Timeline = () => {
 		return () => {
 			observer.disconnect();
 		};
-	}, []);
+	}, [loading]);
 
 	// Resets the animations for the text boxes
 	useEffect(() => {
@@ -94,7 +106,10 @@ const Timeline = () => {
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [rowRefsVisible]);
+	}, [rowRefsVisible, loading]);
+
+	// Allows for mobile check to run first
+	if (loading) return null;
 
 	return (
 		<div

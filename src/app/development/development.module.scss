@@ -68,7 +68,6 @@
 		font-size: 1.5rem;
 		line-height: 1.25;
 		text-align: center;
-		text-wrap: pretty;
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 			0.5rem 0.5rem 3rem black;
 
@@ -121,6 +120,13 @@
 			span {
 				font-style: normal;
 			}
+		}
+	}
+
+	.custom {
+		@media screen and (max-width: 500px) and (orientation: portrait),
+			screen and (max-height: 500px) and (orientation: landscape) {
+			gap: 1rem !important;
 		}
 	}
 }
