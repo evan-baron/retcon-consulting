@@ -73,42 +73,12 @@ const CustomTiles = () => {
 		<ul className={styles['drawer-wrapper']}>
 			{ReasonTiles.map((reason, index) => (
 				<li className={styles.drawer} key={'drawer' + index}>
-					<div
-						className={`${styles.lid} ${
-							drawerOpen[index] ? styles.open : styles.closed
-						}`}
-						onClick={() => handleClick(index)}
-					>
-						<div
-							className={`${styles['icon-box']} ${
-								drawerOpen[index] ? styles.open : styles.closed
-							}`}
-						>
-							{reason.icon}
-						</div>
-						<h3>{reason.title}</h3>
-						<div className={styles.dropdown}>
-							<div className={styles.line}></div>
-						</div>
-					</div>
-					<div
-						className={`${styles.content} ${
-							drawerOpen[index] ? styles.open : styles.closed
-						}`}
-					>
-						<div className={styles.stats}>
-							<p className={styles.stat1}>{reason.stat1}</p>
-							{reason.stat2 && (
-								<div className={styles.stat2}>
-									<Leaderboard className={styles.icon} />
-									<p
-										className={styles.stat}
-										dangerouslySetInnerHTML={{ __html: reason.stat2 }}
-									></p>
-								</div>
-							)}
-						</div>
-					</div>
+					<Tile
+						{...reason}
+						drawerOpen={drawerOpen[index]}
+						handleClick={handleClick}
+						index={index}
+					/>
 				</li>
 			))}
 		</ul>

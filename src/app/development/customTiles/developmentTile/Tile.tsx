@@ -3,6 +3,9 @@
 // Library imports
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 
+// Hooks imports
+import { useMediaQuery } from '@mui/material';
+
 // Styles imports
 import styles from './tile.module.scss';
 
@@ -15,9 +18,41 @@ type TileProps = {
 	stat1: string;
 	stat2?: string;
 	icon: ReactNode;
+	drawerOpen?: boolean;
+	handleClick?: (index: number) => void;
+	index?: number;
 };
 
-function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
+function Tile({
+	title,
+	summary,
+	stat1,
+	stat2,
+	icon,
+	drawerOpen,
+	handleClick,
+	index,
+}: TileProps) {
+	const [loading, setLoading] = useState(true);
+
+	const isMobileWidth = useMediaQuery(
+		'(max-width: 500px) and (orientation: portrait)'
+	);
+	const isMobileHeight = useMediaQuery(
+		'(max-height: 500px) and (orientation: landscape)'
+	);
+
+	useEffect(() => {
+		if (
+			typeof isMobileWidth === 'boolean' &&
+			typeof isMobileHeight === 'boolean'
+		) {
+			setLoading(false);
+		}
+	}, [isMobileWidth, isMobileHeight]);
+
+	const isMobile = isMobileWidth || isMobileHeight;
+
 	const [flipped, setFlipped] = useState(false);
 
 	const tileRef = useRef<HTMLDivElement | null>(null);
@@ -37,14 +72,63 @@ function Tile({ title, summary, stat1, stat2, icon }: TileProps) {
 			});
 		});
 
-		if (tileRef.current) observer.observe(tileRef.current);
+		observer.observe(tileRef.current);
 
 		return () => {
 			observer.disconnect();
 		};
-	}, []);
+	}, [loading]);
 
-	return (
+	if (loading) return null;
+
+	return isMobile ? (
+		<article
+			className={styles['tile-drawer']}
+			ref={tileRef}
+			onClick={() => setFlipped((prev) => !prev)}
+			aria-label={`Details for ${title}`}
+			aria-live='polite'
+		>
+			<div
+				className={`${styles.lid} ${drawerOpen ? styles.open : styles.closed}`}
+				onClick={() =>
+					typeof handleClick === 'function' &&
+					typeof index === 'number' &&
+					handleClick(index)
+				}
+			>
+				<div
+					className={`${styles['icon-box']} ${
+						drawerOpen ? styles.open : styles.closed
+					}`}
+				>
+					{icon}
+				</div>
+				<h3>{title}</h3>
+				<div className={styles.dropdown}>
+					<div className={styles.line}></div>
+				</div>
+			</div>
+			<div
+				className={`${styles.content} ${
+					drawerOpen ? styles.open : styles.closed
+				}`}
+			>
+				<div className={styles.stats}>
+					<p className={styles.stat1}>{stat1}</p>
+					{stat2 && (
+						<div className={styles.stat2}>
+							<Leaderboard className={styles.icon} />
+							<p
+								className={styles.stat}
+								dangerouslySetInnerHTML={{ __html: stat2 }}
+							></p>
+						</div>
+					)}
+				</div>
+			</div>
+		</article>
+	) : (
 		<article
 			className={styles.tile}
 			ref={tileRef}

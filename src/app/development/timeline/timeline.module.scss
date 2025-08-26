@@ -136,8 +136,7 @@
 		.timeline-list {
 			display: block;
 			position: relative;
-			padding-top: 3rem;
-			padding-bottom: 0;
+			padding: 2rem 1rem 0 1rem;
 
 			.row-wrapper {
 				align-items: flex-start;
@@ -206,8 +205,8 @@
 						position: relative;
 
 						justify-content: flex-start;
-						padding: 1rem 1rem 2rem 1rem;
-						font-size: 1.125rem;
+						padding: 1rem 0 2rem 1rem;
+						font-size: 1rem;
 						line-height: 1.25;
 
 						color: var(--gray1);
