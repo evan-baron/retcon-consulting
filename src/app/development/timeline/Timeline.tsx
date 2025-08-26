@@ -22,10 +22,16 @@ interface RowRefs {
 }
 
 const Timeline = () => {
-	const isMobile =
-		useMediaQuery('(max-width: 500px)') || useMediaQuery('(max-height: 500px)');
+	const isMobileWidth = useMediaQuery(
+		'(max-width: 500px) and (orientation: portrait)'
+	);
+	const isMobileHeight = useMediaQuery(
+		'(max-height: 500px) and (orientation: landscape)'
+	);
+	const isMobile = isMobileWidth || isMobileHeight;
 
 	const timelineRef = useRef<HTMLDivElement | null>(null);
+
 	const rowRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLLIElement>()),
 		[]
