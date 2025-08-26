@@ -12,6 +12,10 @@ import styles from './tile.module.scss';
 // MUI Icons
 import { Leaderboard } from '@mui/icons-material';
 
+interface DrawerOpen {
+	[index: number]: boolean;
+}
+
 type TileProps = {
 	title: string;
 	summary: string;
@@ -21,6 +25,7 @@ type TileProps = {
 	drawerOpen?: boolean;
 	handleClick?: (index: number) => void;
 	index?: number;
+	setDrawerOpen?: React.Dispatch<React.SetStateAction<DrawerOpen>>;
 };
 
 function Tile({
@@ -32,6 +37,7 @@ function Tile({
 	drawerOpen,
 	handleClick,
 	index,
+	setDrawerOpen,
 }: TileProps) {
 	const [loading, setLoading] = useState(true);
 
@@ -68,6 +74,17 @@ function Tile({
 
 				if (entry.boundingClientRect.top > window.innerHeight) {
 					tileRef.current?.classList.remove(styles.visible);
+
+					// Close tile when below the viewport (scrolled down)
+					if (
+						typeof setDrawerOpen === 'function' &&
+						entry.boundingClientRect.top > window.innerHeight
+					) {
+						setDrawerOpen((prev) => ({
+							...prev,
+							[index!]: false,
+						}));
+					}
 				}
 			});
 		});

@@ -78,6 +78,7 @@ const CustomTiles = () => {
 						drawerOpen={drawerOpen[index]}
 						handleClick={handleClick}
 						index={index}
+						setDrawerOpen={setDrawerOpen}
 					/>
 				</li>
 			))}

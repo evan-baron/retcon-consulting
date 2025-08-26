@@ -116,7 +116,10 @@ const MeasureSuccess = () => {
 					))}
 				</ul>
 				{fireworksActive ? (
-					<div className={styles.pyro}>
+					<div
+						className={styles.pyro}
+						data-credit='CSS Fireworks. Originally by Eddie Lin https://codepen.io/paulirish/pen/yEVMbP'
+					>
 						<div className={styles.before}></div>
 						<div className={styles.after}></div>
 					</div>
