@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 
 // Hooks imports
+import { useMediaQuery } from '@mui/material';
 
 // Styles imports
 import styles from './timeline.module.scss';
@@ -21,6 +22,8 @@ interface RowRefs {
 }
 
 const Timeline = () => {
+	const isMobile = useMediaQuery('(max-width: 500px)');
+
 	const timelineRef = useRef<HTMLDivElement | null>(null);
 	const rowRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLLIElement>()),
@@ -93,58 +96,140 @@ const Timeline = () => {
 			aria-label='Project Timeline'
 			role='list'
 		>
-			<ol className={styles['timeline-list']}>
-				{DevelopmentStats.map((stat, index) => {
-					return (
-						<li
-							key={index}
-							className={styles.row}
-							ref={rowRefs[index]}
-							aria-current={rowRefsVisible[index].visible ? 'step' : undefined}
-						>
-							<div className={styles.row}>
-								<div className={styles.ball}>
+			{!isMobile ? (
+				<ol className={styles['timeline-list']}>
+					{DevelopmentStats.map((stat, index) => {
+						return (
+							<li
+								key={index}
+								className={styles['row-wrapper']}
+								ref={rowRefs[index]}
+								aria-current={
+									rowRefsVisible[index].visible ? 'step' : undefined
+								}
+								style={
+									{
+										'--ball-hue': `${180 - index * (180 / 5)}`,
+									} as React.CSSProperties & Record<string, string>
+								}
+							>
+								<div className={styles.row}>
 									<div
-										className={`${styles['icon-wrapper']} ${
-											rowRefsVisible[index].visible ? styles.visible : ''
-										}`}
-										style={{
-											color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
-										}}
-										aria-hidden={
-											rowRefsVisible[index].visible ? 'false' : 'true'
-										}
+										className={`${styles.ball} ${
+											index % 2 === 0 ? styles.left : styles.right
+										} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
 									>
-										{stat.image}
+										<div
+											className={`${styles['icon-wrapper']} ${
+												rowRefsVisible[index].visible ? styles.visible : ''
+											}`}
+											style={{
+												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
+											}}
+											aria-hidden={
+												rowRefsVisible[index].visible ? 'false' : 'true'
+											}
+										>
+											{stat.image}
+										</div>
+									</div>
+									<div
+										className={`${styles.text} ${
+											index % 2 === 0 ? styles.left : styles.right
+										} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
+									>
+										<h3
+											style={{
+												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
+											}}
+											data-step={index + 1}
+											id={`timeline-step-${index}`}
+										>
+											{isMobile ? stat.stat1.split(' ')[0] : stat.stat1}
+										</h3>
+										<p>{stat.stat2}</p>
 									</div>
 								</div>
-								<div
-									className={`${styles.text} ${
-										index % 2 === 0 ? styles.left : styles.right
-									} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
-								>
+								{index < DevelopmentStats.length - 1 && (
+									<div
+										className={styles.line}
+										key={'line' + index}
+										aria-hidden='true'
+									/>
+								)}
+							</li>
+						);
+					})}
+				</ol>
+			) : (
+				<ol className={styles['timeline-list']}>
+					{DevelopmentStats.map((stat, index) => {
+						return (
+							<li
+								key={index}
+								className={styles['row-wrapper']}
+								ref={rowRefs[index]}
+								aria-current={
+									rowRefsVisible[index].visible ? 'step' : undefined
+								}
+								style={
+									{
+										'--ball-hue': `${180 - index * (180 / 5)}`,
+									} as React.CSSProperties & Record<string, string>
+								}
+							>
+								<div className={styles.row}>
+									<div
+										className={`${styles.ball}  ${
+											rowRefsVisible[index].visible ? styles.visible : ''
+										}`}
+									>
+										<div
+											className={`${styles['icon-wrapper']} ${
+												rowRefsVisible[index].visible ? styles.visible : ''
+											}`}
+											style={{
+												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
+											}}
+											aria-hidden={
+												rowRefsVisible[index].visible ? 'false' : 'true'
+											}
+										>
+											{stat.image}
+										</div>
+									</div>
 									<h3
+										className={
+											rowRefsVisible[index].visible ? styles.visible : ''
+										}
 										style={{
 											color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
 										}}
+										data-step={index + 1}
 										id={`timeline-step-${index}`}
 									>
-										{stat.stat1}
+										{isMobile ? stat.stat1.split(' ')[0] : stat.stat1}
 									</h3>
-									<p>{stat.stat2}</p>
+									<p
+										className={`${styles.text} ${
+											index % 2 === 0 ? styles.left : styles.right
+										} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
+									>
+										{stat.stat2}
+									</p>
+									<div
+										className={`${styles.line} ${
+											rowRefsVisible[index].visible ? styles.visible : ''
+										}`}
+										key={'line' + index}
+										aria-hidden='true'
+									></div>
 								</div>
-							</div>
-							{index < DevelopmentStats.length - 1 && (
-								<div
-									className={styles.line}
-									key={'line' + index}
-									aria-hidden='true'
-								/>
-							)}
-						</li>
-					);
-				})}
-			</ol>
+							</li>
+						);
+					})}
+				</ol>
+			)}
 		</div>
 	);
 };

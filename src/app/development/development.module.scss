@@ -12,8 +12,7 @@
 	h1,
 	h2,
 	h3,
-	h4,
-	h5 {
+	h4 {
 		color: var(--gray1);
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 			0.5rem 0.5rem 3rem black;
@@ -22,6 +21,18 @@
 	h1,
 	h2 {
 		font-size: 5rem;
+	}
+
+	h1 {
+		@media screen and (max-width: 500px) and (orientation: portrait) {
+			font-size: 2.5rem;
+		}
+	}
+
+	h2 {
+		@media screen and (max-width: 500px) and (orientation: portrait) {
+			font-size: 2rem;
+		}
 	}
 
 	.description {
@@ -34,21 +45,30 @@
 		gap: 3rem;
 		padding: 0 10%;
 
-		.development-description {
-			width: 90%;
-			color: var(--gray1);
-			font-size: 1.5rem;
-			line-height: 1.25;
-			text-align: center;
-			text-wrap: pretty;
-			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
-				0.5rem 0.5rem 3rem black;
+		@media screen and (max-width: 500px) and (orientation: portrait) {
+			padding: 0 1rem;
+		}
+	}
 
-			span {
-				font-weight: bold;
-				color: var(--gray1);
-				font-style: italic;
-			}
+	.development-description {
+		width: 90%;
+		color: var(--gray1);
+		font-size: 1.5rem;
+		line-height: 1.25;
+		text-align: center;
+		text-wrap: pretty;
+		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+			0.5rem 0.5rem 3rem black;
+
+		@media screen and (max-width: 500px) and (orientation: portrait) {
+			width: 100%;
+			font-size: 1.125rem;
+		}
+
+		span {
+			font-weight: bold;
+			color: var(--gray1);
+			font-style: italic;
 		}
 	}
 
@@ -61,8 +81,17 @@
 		padding: 0 10%;
 		gap: 3rem;
 
+		@media screen and (max-width: 500px) and (orientation: portrait) {
+			padding: 0 1rem;
+		}
+
 		h2 {
+			text-align: center;
 			margin-top: 6rem;
+
+			@media screen and (max-width: 500px) and (orientation: portrait) {
+				margin-top: 0 !important;
+			}
 		}
 	}
 
@@ -72,6 +101,12 @@
 		h2 {
 			margin-bottom: 2rem;
 			margin-top: 0 !important;
+		}
+
+		.development-description {
+			span {
+				font-style: normal;
+			}
 		}
 	}
 }

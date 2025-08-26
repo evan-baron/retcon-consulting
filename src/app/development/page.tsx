@@ -39,6 +39,11 @@ const Development = () => {
 					aria-labelledby='process-heading'
 				>
 					<h2 id='process-heading'>Our Process</h2>
+					<p className={styles['development-description']}>
+						We take a comprehensive, <span>collaborative</span> approach to
+						ensure your project's success, working closely with you so every
+						detail reflects your vision and goals.
+					</p>
 					<Timeline />
 				</section>
 				<section className={styles.section} aria-labelledby='custom-heading'>

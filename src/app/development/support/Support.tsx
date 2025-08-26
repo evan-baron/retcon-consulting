@@ -123,11 +123,11 @@ const Support = () => {
 				ref={supportRefs[0]}
 			>
 				Launching your website is just the beginning. We offer a range of
-				support options—from complete independence to proactive care and ongoing
-				feature enhancements—so you can choose the level of partnership that
-				fits your needs. Whether you prefer to manage your site yourself or want
-				dedicated technical assistance and continuous improvement, our team is
-				here to help your business thrive.
+				support options from complete independence to proactive care and ongoing
+				feature enhancements so you can choose the level of partnership that
+				fits your needs. Whether you prefer to manage your site yourself, or if
+				you want dedicated technical assistance and continuous improvement,
+				we're here to help your business thrive.
 			</p>
 
 			<div
