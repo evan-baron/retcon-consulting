@@ -59,7 +59,7 @@ export const ReasonTiles: ReasonTile[] = [
 			'Custom sites are built to grow with your business, from e-commerce to member portals.',
 		stat1:
 			'Templates are fine for starters, but businesses quickly outgrow them. Custom sites are built for the future, whether you need a member portal, e-commerce checkout, or reporting dashboard, you can expand without hitting a wall.',
-		stat2: `Businesses that invest early in scalable digital infrastructure save an average of <span style='font-weight:bold; color: var(--gray1) color: var(--gray1)'>30% in replatforming costs</span> later.`,
+		stat2: `Businesses that invest early in scalable digital infrastructure save an average of <span style='font-weight:bold; color: var(--gray1)'>30% in replatforming costs</span> later.`,
 		icon: <TrendingUp className={`${stylesA.icon} ${stylesB.icon}`} />,
 	},
 	{

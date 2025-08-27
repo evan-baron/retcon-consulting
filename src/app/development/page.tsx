@@ -21,14 +21,23 @@ const Development = () => {
 		<>
 			<div className={styles['development-wrapper']}>
 				<section className={styles.description}>
-					<h1 id='web-development-heading'>Web Development</h1>
+					<h1 id='web-development-heading'>Retcon Web Development</h1>
 					<p className={styles['development-description']}>
-						<span>Your website matters</span>: It's the first impression people
-						have of your business, the place they decide whether to trust you,
-						and the hub where all your marketing efforts come together. A clean,
-						professional online presence turns attention into confidence, and
-						confidence into lasting relationships.
+						<span className={styles['h1-span']}>Your website matters.</span>{' '}
+						It's the first impression people have of your business, the place
+						they decide whether to trust you, and the hub where all your
+						marketing efforts come together. A clean, professional online
+						presence turns attention into confidence, and confidence into
+						lasting relationships.
 					</p>
+					{/* <h1 id='web-development-heading'>Your Website Matters.</h1>
+					<p className={styles['development-description']}>
+						It's the first impression people have of your business, the place
+						they decide whether to trust you, and the hub where all your
+						marketing efforts come together. A clean, professional online
+						presence turns attention into confidence, and confidence into
+						lasting relationships.
+					</p> */}
 					<p className={styles['development-description']}>
 						At Retcon Consulting, we take a structured approach to help guide
 						you through the complexities of custom web development.
