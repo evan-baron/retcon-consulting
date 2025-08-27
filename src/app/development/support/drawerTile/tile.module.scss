@@ -12,6 +12,8 @@
 	}
 
 	.lid {
+		all: unset;
+		width: 100%;
 		position: relative;
 		height: 3rem;
 		display: flex;

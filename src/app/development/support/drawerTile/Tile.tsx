@@ -71,6 +71,10 @@ function Tile({
 		};
 	}, []);
 
+	// accessibility ids
+	const headerId = `tier-header-${index}`;
+	const panelId = `tier-panel-${index}`;
+
 	return (
 		<article
 			className={styles['tile-drawer']}
@@ -78,7 +82,9 @@ function Tile({
 			aria-label={`Details for ${tier} support tier`}
 			aria-live='polite'
 		>
-			<div
+			<button
+				type='button'
+				id={headerId}
 				className={`${styles.lid} ${drawerOpen ? styles.open : styles.closed} ${
 					index > 0 ? styles.highlight : ''
 				}`}
@@ -87,6 +93,8 @@ function Tile({
 					typeof index === 'number' &&
 					handleClick(index)
 				}
+				aria-expanded={drawerOpen}
+				aria-controls={panelId}
 			>
 				<h3
 					style={
@@ -99,45 +107,80 @@ function Tile({
 				>
 					{tier}
 				</h3>
-				<div className={styles.dropdown}>
+				<div className={styles.dropdown} aria-hidden='true'>
 					<div className={styles.line} style={{ backgroundColor: color }}></div>
 				</div>
-			</div>
+			</button>
 			<div
+				id={panelId}
+				role='region'
+				aria-labelledby={headerId}
+				aria-hidden={!drawerOpen}
 				className={`${styles.content} ${
 					drawerOpen ? styles.open : styles.closed
 				}`}
 			>
 				<ul className={styles['tiers-table']}>
-					{features.map((feature, i) => (
-						<li key={i} className={styles.row}>
+					{features.map((feature, idx) => (
+						<li key={idx} className={styles.row}>
 							<span
 								className={styles.feature}
 								style={{
-									color: tierFeatures[i] ? 'var(--gray1)' : 'inherit',
-									fontWeight: tierFeatures[i] ? 'bold' : 'none',
+									color: tierFeatures[idx] ? 'var(--gray1)' : 'inherit',
+									fontWeight: tierFeatures[idx] ? 'bold' : 'none',
 								}}
 							>
-								{i === 0 ? (
+								{idx === 0 ? (
 									<>
 										{feature}
-										<span className={styles.asterisk}>*</span>
+										<span className={styles.asterisk} aria-hidden='true'>
+											*
+										</span>
 									</>
 								) : (
 									feature
 								)}
 							</span>
-							<span className={styles.included}>
-								{tierFeatures[i] ? (
-									<Check
-										className={`${styles.icon} ${styles.check}`}
-										aria-label='Included'
-									/>
+							<span className={styles.included} aria-hidden='false'>
+								{tierFeatures[idx] ? (
+									<>
+										<Check
+											className={`${styles.icon} ${styles.check}`}
+											aria-hidden='true'
+										/>
+										<span
+											// minimal visually-hidden text for screen readers
+											style={{
+												position: 'absolute',
+												left: '-10000px',
+												width: '1px',
+												height: '1px',
+												overflow: 'hidden',
+											}}
+											aria-live='polite'
+										>
+											Included
+										</span>
+									</>
 								) : (
-									<Close
-										className={`${styles.icon} ${styles.close}`}
-										aria-label='Not included'
-									/>
+									<>
+										<Close
+											className={`${styles.icon} ${styles.close}`}
+											aria-hidden='true'
+										/>
+										<span
+											style={{
+												position: 'absolute',
+												left: '-10000px',
+												width: '1px',
+												height: '1px',
+												overflow: 'hidden',
+											}}
+											aria-live='polite'
+										>
+											Not included
+										</span>
+									</>
 								)}
 							</span>
 						</li>
