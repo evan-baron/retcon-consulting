@@ -31,6 +31,9 @@ const Timeline = () => {
 		'(max-height: 500px) and (orientation: landscape)'
 	);
 
+	// Respect reduces-motion preference for accessibility
+	const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+
 	useEffect(() => {
 		if (
 			typeof isMobileWidth === 'boolean' &&
@@ -98,8 +101,8 @@ const Timeline = () => {
 
 			if (rect.top > window.innerHeight) {
 				// Timeline is below the viewport, reset visibility
-				setRowRefsVisible(
-					rowRefsVisible.map((item) => ({ ...item, visible: false }))
+				setRowRefsVisible((prev) =>
+					prev.map((item) => ({ ...item, visible: false }))
 				);
 			}
 		};
@@ -116,11 +119,13 @@ const Timeline = () => {
 			className={styles.timeline}
 			ref={timelineRef}
 			aria-label='Project Timeline'
-			role='list'
 		>
 			{!isMobile ? (
-				<ol className={styles['timeline-list']}>
+				<ol className={styles['timeline-list']} role='list'>
 					{DevelopmentStats.map((stat, index) => {
+						const visible = rowRefsVisible[index]?.visible ?? false;
+						const stepId = `timeline-step-${index}`;
+
 						return (
 							<li
 								key={index}
@@ -135,7 +140,12 @@ const Timeline = () => {
 									} as React.CSSProperties & Record<string, string>
 								}
 							>
-								<div className={styles.row}>
+								<div
+									className={styles.row}
+									role='region'
+									aria-labelledby={stepId}
+									aria-live={visible ? 'polite' : undefined}
+								>
 									<div
 										className={`${styles.ball} ${
 											index % 2 === 0 ? styles.left : styles.right
@@ -148,9 +158,7 @@ const Timeline = () => {
 											style={{
 												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
 											}}
-											aria-hidden={
-												rowRefsVisible[index].visible ? 'false' : 'true'
-											}
+											aria-hidden='true'
 										>
 											{stat.image}
 										</div>
@@ -158,14 +166,18 @@ const Timeline = () => {
 									<div
 										className={`${styles.text} ${
 											index % 2 === 0 ? styles.left : styles.right
-										} ${rowRefsVisible[index].visible ? styles.visible : ''}`}
+										} ${
+											rowRefsVisible[index].visible && !reduceMotion
+												? styles.visible
+												: ''
+										}`}
 									>
 										<h3
 											style={{
 												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
 											}}
 											data-step={index + 1}
-											id={`timeline-step-${index}`}
+											id={stepId}
 										>
 											{isMobile ? stat.stat1.split(' ')[0] : stat.stat1}
 										</h3>
