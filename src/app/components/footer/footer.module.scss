@@ -59,17 +59,6 @@
 				text-align: center;
 			}
 
-			.to-top {
-				all: unset;
-				cursor: pointer;
-
-				@media (hover: hover) and (pointer: fine) {
-					&:hover {
-						color: var(--gray1);
-					}
-				}
-			}
-
 			.social-icons {
 				display: flex;
 				align-items: center;
@@ -86,6 +75,17 @@
 						color: var(--main-teal);
 					}
 				}
+			}
+		}
+	}
+
+	.to-top {
+		all: unset;
+		cursor: pointer;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: var(--gray1);
 			}
 		}
 	}

@@ -20,11 +20,20 @@ function Footer() {
 
 	return (
 		<div className={styles['footer-wrapper']}>
-			{(!windowWidth || windowWidth <= 500) && (
-				<Link href='/' className={styles['to-top']}>
-					&uarr; To the top &uarr;
-				</Link>
-			)}
+			{(!windowWidth || windowWidth <= 500) &&
+				(pathname === '/' ? (
+					<Link href='/' className={styles['to-top']}>
+						&uarr; To the top &uarr;
+					</Link>
+				) : (
+					<button
+						className={styles['to-top']}
+						type='button'
+						onClick={() => window.scrollTo({ top: 0 })}
+					>
+						&uarr; To the top &uarr;
+					</button>
+				))}
 			<div className={styles.footer}>
 				<div className={styles['footer-content']}>
 					<div className={styles.copyright}>

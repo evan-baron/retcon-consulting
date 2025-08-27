@@ -102,7 +102,6 @@ function Tile({
 		<article
 			className={styles['tile-drawer']}
 			ref={tileRef}
-			onClick={() => setFlipped((prev) => !prev)}
 			aria-label={`Details for ${title}`}
 			aria-live='polite'
 		>
