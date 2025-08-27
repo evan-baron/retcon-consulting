@@ -22,18 +22,31 @@ const MeasureSuccess = () => {
 		index: number;
 		visible: boolean;
 	}
+
+	// Intro paragraph ref
+	const introRef = useRef<HTMLParagraphElement>(null);
+
+	// Definitions refs
 	const definitionsRefs = useMemo(
-		() => Array.from({ length: 7 }).map(() => createRef<HTMLDivElement>()),
+		() => Array.from({ length: 5 }).map(() => createRef<HTMLDListElement>()),
 		[]
 	);
+
+	// Summary paragraph ref
+	const summaryRef = useRef<HTMLParagraphElement>(null);
+
+	// Combine all definition refs for easier observation
+	const allRefs = [introRef, ...definitionsRefs, summaryRef];
+
 	const [definitionsRefsVisible, setDefinitionsRefsVisible] = useState<
 		DefinitionRefs[]
 	>(
-		definitionsRefs.map((_, index) => ({
+		allRefs.map((_, index) => ({
 			index,
 			visible: false,
 		}))
 	);
+
 	const [fireworksActive, setFireworksActive] = useState(false);
 	const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -60,11 +73,9 @@ const MeasureSuccess = () => {
 				}
 
 				// Definitions visibility logic
-				const index = definitionsRefs.findIndex(
-					(ref) => ref.current === entry.target
-				);
+				const index = allRefs.findIndex((ref) => ref.current === entry.target);
 
-				if (entry.target === definitionsRefs[index]?.current) {
+				if (entry.target === allRefs[index]?.current) {
 					if (
 						entry.intersectionRatio > 0 &&
 						definitionsRefsVisible[index].visible === false
@@ -92,12 +103,12 @@ const MeasureSuccess = () => {
 
 		if (wrapperRef.current) observer.observe(wrapperRef.current);
 
-		definitionsRefs.forEach((ref) => {
+		allRefs.forEach((ref) => {
 			if (ref.current) observer.observe(ref.current);
 		});
 
 		return () => observer.disconnect();
-	}, [definitionsRefs, definitionsRefsVisible, hasAnimated]);
+	}, [allRefs, definitionsRefs, definitionsRefsVisible, hasAnimated]);
 
 	return (
 		<div className={styles['measureSuccess-wrapper']} ref={wrapperRef}>
@@ -130,16 +141,16 @@ const MeasureSuccess = () => {
 					className={`${styles.intro} ${
 						definitionsRefsVisible[0].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[0]}
+					ref={introRef}
 				>
 					When we measure success at launch, our process extends beyond simply
 					“the site is live.”
 				</p>
-				<div
+				<dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[1].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[1]}
+					ref={definitionsRefs[0]}
 				>
 					<dt>Performance</dt>
 					<dd>
@@ -159,12 +170,12 @@ const MeasureSuccess = () => {
 						. We run audits in PageSpeed Insights and WebPageTest to capture
 						performance under different network conditions.
 					</dd>
-				</div>
-				<div
+				</dl>
+				<dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[2].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[2]}
+					ref={definitionsRefs[1]}
 				>
 					<dt>Accessibility</dt>
 					<dd>
@@ -176,12 +187,12 @@ const MeasureSuccess = () => {
 						</span>{' '}
 						to ensure usability for all audiences.
 					</dd>
-				</div>
-				<div
+				</dl>
+				<dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[3].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[3]}
+					ref={definitionsRefs[2]}
 				>
 					<dt>Best Practices</dt>
 					<dd>
@@ -193,12 +204,12 @@ const MeasureSuccess = () => {
 						</span>
 						, with HTTPS enforced site-wide.
 					</dd>
-				</div>
-				<div
+				</dl>
+				<dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[4].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[4]}
+					ref={definitionsRefs[3]}
 				>
 					<dt>SEO</dt>
 					<dd>
@@ -207,12 +218,12 @@ const MeasureSuccess = () => {
 						Frog to ensure full indexability and eliminate broken links. We aim
 						for Lighthouse SEO scores of 90+ at launch.
 					</dd>
-				</div>
-				<div
+				</dl>
+				<dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[5].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[5]}
+					ref={definitionsRefs[4]}
 				>
 					<dt>Mobile Responsiveness</dt>
 					<dd>
@@ -222,12 +233,12 @@ const MeasureSuccess = () => {
 						text/images, and interactive elements passing Google&apos;s
 						Mobile-Friendly Test.
 					</dd>
-				</div>
+				</dl>
 				<p
 					className={`${styles.summary} ${
 						definitionsRefsVisible[6].visible ? styles.visible : ''
 					}`}
-					ref={definitionsRefs[6]}
+					ref={summaryRef}
 				>
 					Success at launch means your website is fast (meeting Core Web Vitals
 					thresholds), accessible (WCAG 2.1 AA compliance), optimized for search
