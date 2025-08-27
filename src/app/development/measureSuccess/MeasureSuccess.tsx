@@ -36,7 +36,10 @@ const MeasureSuccess = () => {
 	const summaryRef = useRef<HTMLParagraphElement>(null);
 
 	// Combine all definition refs for easier observation
-	const allRefs = [introRef, ...definitionsRefs, summaryRef];
+	const allRefs = useMemo(
+		() => [introRef, ...definitionsRefs, summaryRef],
+		[introRef, definitionsRefs, summaryRef]
+	);
 
 	const [definitionsRefsVisible, setDefinitionsRefsVisible] = useState<
 		DefinitionRefs[]
