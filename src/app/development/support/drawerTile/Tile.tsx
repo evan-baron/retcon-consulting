@@ -76,7 +76,7 @@ function Tile({
 	const panelId = `tier-panel-${index}`;
 
 	return (
-		<article
+		<div
 			className={styles['tile-drawer']}
 			ref={tileRef}
 			aria-label={`Details for ${tier} support tier`}
@@ -187,7 +187,7 @@ function Tile({
 					))}
 				</ul>
 			</div>
-		</article>
+		</div>
 	);
 }
 

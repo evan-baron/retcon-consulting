@@ -129,7 +129,7 @@ function Tile({
 	};
 
 	return isMobile ? (
-		<article
+		<div
 			className={styles['tile-drawer']}
 			ref={tileRef}
 			aria-label={`Details for ${title}`}
@@ -184,9 +184,9 @@ function Tile({
 					)}
 				</div>
 			</div>
-		</article>
+		</div>
 	) : (
-		<article
+		<div
 			className={styles.tile}
 			ref={tileRef}
 			onClick={() => setFlipped((prev) => !prev)}
@@ -255,7 +255,7 @@ function Tile({
 					</div>
 				</div>
 			</div>
-		</article>
+		</div>
 	);
 }
 
