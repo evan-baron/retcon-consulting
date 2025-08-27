@@ -145,16 +145,9 @@
 				height: 7px;
 				border-radius: 50%;
 				box-shadow: $box-shadow2;
-				animation: 1s bang ease-out infinite, 1s gravity ease-in infinite,
-					5s position linear infinite;
-
-				@media screen and (max-width: 500px) and (orientation: portrait),
-					screen and (max-height: 500px) and (orientation: landscape) {
-					width: 5px;
-					height: 5px;
-					animation: 1s bang ease-out infinite,
-						1s gravity-mobile ease-in infinite, 5s position linear infinite;
-				}
+				animation: 1s bang ease-out infinite backwards,
+					1s gravity ease-in infinite backwards,
+					5s position linear infinite backwards;
 			}
 
 			@media screen and (max-width: 500px) and (orientation: portrait),
@@ -164,14 +157,16 @@
 					width: 5px;
 					height: 5px;
 					box-shadow: $box-shadow2-mobile;
-					animation: 1s bang-mobile ease-out infinite,
-						1s gravity-mobile ease-in infinite, 5s position linear infinite;
+					animation: 1s bang-mobile ease-out infinite backwards,
+						1s gravity-mobile ease-in infinite backwards,
+						5s position linear infinite backwards;
 				}
 			}
 
 			.after {
 				animation-delay: 1.25s, 1.25s, 1.25s;
 				animation-duration: 1.25s, 1.25s, 6.25s;
+				animation-fill-mode: backwards;
 			}
 
 			@include keyframes(bang) {
