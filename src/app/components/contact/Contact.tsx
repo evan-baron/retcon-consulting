@@ -10,7 +10,7 @@ import axiosInstance from '@/lib/utils/axios';
 // Styles imports
 import styles from './contact.module.scss';
 
-function Contact({ id }: { id: string }) {
+function Contact({ id, page }: { id: string; page?: string }) {
 	type ContactFormData = {
 		firstName: string;
 		lastName: string;
@@ -118,15 +118,16 @@ function Contact({ id }: { id: string }) {
 				className={styles.contact}
 				aria-label='Schedule a consultation to discuss your needs'
 			>
-				<h2 className={styles.h2}>Get in Touch</h2>
+				<h2 className={`${styles.h2} ${page && styles[page]}`}>
+					{page !== 'development' ? 'Get in Touch' : 'Ready to Get Started?'}
+				</h2>
 				{!formComplete ? (
 					<form onSubmit={handleSubmit} className={styles['contact-form']}>
 						<fieldset className={styles['names-wrapper']}>
 							<legend className={styles.legend}>Name</legend>
 							<div className={styles['name-input']}>
-								<label htmlFor='firstName'>
-									First Name:{' '}
-									<span className={styles.required}>(Required)</span>
+								<label className={styles.required} htmlFor='firstName'>
+									First Name:
 								</label>
 								<input
 									type='text'
@@ -137,8 +138,8 @@ function Contact({ id }: { id: string }) {
 								/>
 							</div>
 							<div className={styles['name-input']}>
-								<label htmlFor='lastName'>
-									Last Name: <span className={styles.required}>(Required)</span>
+								<label className={styles.required} htmlFor='lastName'>
+									Last Name:
 								</label>
 								<input
 									type='text'
@@ -153,8 +154,8 @@ function Contact({ id }: { id: string }) {
 						<fieldset className={styles['communication-wrapper']}>
 							<legend className={styles.legend}>Contact Information</legend>
 							<div className={styles['communication-input']}>
-								<label htmlFor='email'>
-									Email: <span className={styles.required}>(Required)</span>
+								<label className={styles.required} htmlFor='email'>
+									Email:
 								</label>
 								<input
 									type='email'
@@ -180,9 +181,8 @@ function Contact({ id }: { id: string }) {
 						</fieldset>
 
 						<fieldset className={styles['services-wrapper']}>
-							<legend className={styles.h3}>
-								Service(s) Needed:{' '}
-								<span className={styles.required}>(Select at least one)</span>
+							<legend className={`${styles.h3} ${styles.required}`}>
+								Service(s) Needed:
 							</legend>
 							<div id='services' className={styles['services-checkboxes']}>
 								<label>
@@ -238,9 +238,8 @@ function Contact({ id }: { id: string }) {
 						</fieldset>
 
 						<div className={styles['message-wrapper']}>
-							<label htmlFor='message'>
-								Add a brief description:{' '}
-								<span className={styles.required}>(Required)</span>
+							<label className={styles.required} htmlFor='message'>
+								Add a brief description:
 							</label>
 							<textarea
 								id='message'

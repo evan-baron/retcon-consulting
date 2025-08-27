@@ -1,0 +1,10 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+	<title>traffic-white</title>
+	<style>
+		.s0 { fill: #ffffff } 
+		.s1 { fill: none;stroke: #ffffff;stroke-miterlimit:100;stroke-width: 15 } 
+	</style>
+	<path id="Layer 2" class="s0" d="m378.5-170.1l10.6 10.6-561.5 560.9-10.6-10.6zm206.7 179.4l10.6 10.6-587 586.4-10.6-10.6z"/>
+	<path id="Layer 3" fill-rule="evenodd" class="s1" d="m455.7-13.3l-138.7 138.5-31.1-31.1 138.7-138.5z"/>
+	<path id="Layer 3 copy" fill-rule="evenodd" class="s1" d="m195.3 246.8l-138.6 138.5-31.1-31.1 138.7-138.6z"/>
+</svg>

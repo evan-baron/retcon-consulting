@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
+import {
+	IBM_Plex_Mono,
+	Fredericka_the_Great,
+	Roboto,
+	Roboto_Mono,
+} from 'next/font/google';
 import './reset.css';
 import './globals.scss';
 
@@ -25,6 +30,12 @@ const frederickaTheGreat = Fredericka_the_Great({
 
 const roboto = Roboto({
 	variable: '--font-roboto',
+	weight: ['400', '500', '700'],
+	subsets: ['latin'],
+});
+
+const robotoMono = Roboto_Mono({
+	variable: '--font-roboto-mono',
 	weight: ['400', '500', '700'],
 	subsets: ['latin'],
 });
@@ -198,7 +209,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
+				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable} ${robotoMono.variable}`}
 			>
 				<ContextProvider>
 					<BackgroundEffect />
@@ -207,6 +218,16 @@ export default function RootLayout({
 					<main className='main' role='main'>
 						<div className='main-content'>{children}</div>
 					</main>
+
+					{/* Skip link targets the main below */}
+					<a href='#maincontent' className='skip-link'>
+						Skip to content
+					</a>
+
+					<main id='maincontent' className='main' role='main'>
+						<div className='main-content'>{children}</div>
+					</main>
+
 					<Footer />
 				</ContextProvider>
 			</body>

@@ -58,7 +58,7 @@
 		box-shadow: 0 0 0 2px white;
 	}
 
-	&:focus {
+	&:focus-visible {
 		outline: 2px solid var(--main-teal);
 		outline-offset: 2px;
 		box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.2); // optional glow
