@@ -214,6 +214,9 @@ function Tile({
 							setFlipped((prev) => !prev);
 						}}
 						className={styles.more}
+						// ensure it's not focusable when the front is hidden
+						tabIndex={flipped ? -1 : 0}
+						aria-hidden={flipped}
 					>
 						Read More
 					</button>
@@ -243,6 +246,9 @@ function Tile({
 								setFlipped((prev) => !prev);
 							}}
 							className={styles.back}
+							// only tabbable when back is visible
+							tabIndex={flipped ? 0 : -1}
+							aria-hidden={!flipped}
 						>
 							Back
 						</button>

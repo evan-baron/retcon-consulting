@@ -141,7 +141,7 @@
 						padding: 0.5rem;
 						font-size: 1.25rem;
 
-						&:focus {
+						&:focus-visible {
 							outline: 2px solid var(--main-teal) !important;
 						}
 					}
@@ -176,7 +176,7 @@
 						padding: 0.5rem;
 						font-size: 1.25rem;
 
-						&:focus {
+						&:focus-visible {
 							outline: 2px solid var(--main-teal) !important;
 						}
 					}
@@ -209,7 +209,7 @@
 						margin-right: 0.75rem;
 						transform: scale(1.5);
 
-						&:focus {
+						&:focus-visible {
 							outline: 1px solid var(--main-teal) !important;
 						}
 
@@ -242,7 +242,7 @@
 
 					border-color: var(--gray5);
 
-					&:focus {
+					&:focus-visible {
 						outline: 2px solid var(--main-teal) !important;
 					}
 				}
@@ -265,7 +265,7 @@
 					color: var(--gray3);
 				}
 
-				&:focus {
+				&:focus-visible {
 					outline: 2px solid var(--main-teal) !important;
 				}
 			}
@@ -329,7 +329,7 @@
 					padding: 0.5rem 1rem;
 				}
 
-				&:focus {
+				&:focus-visible {
 					outline: 2px solid var(--main-teal) !important;
 				}
 

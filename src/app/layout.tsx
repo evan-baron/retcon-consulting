@@ -214,9 +214,16 @@ export default function RootLayout({
 				<ContextProvider>
 					<BackgroundEffect />
 					<Header />
-					<main className='main' role='main'>
+
+					{/* Skip link targets the main below */}
+					<a href='#maincontent' className='skip-link'>
+						Skip to content
+					</a>
+
+					<main id='maincontent' className='main' role='main'>
 						<div className='main-content'>{children}</div>
 					</main>
+
 					<Footer />
 				</ContextProvider>
 			</body>
