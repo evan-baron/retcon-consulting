@@ -62,6 +62,7 @@ function Tile({
 	const [flipped, setFlipped] = useState(false);
 
 	const tileRef = useRef<HTMLDivElement | null>(null);
+	const contentRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		if (!tileRef.current) return;
@@ -96,7 +97,36 @@ function Tile({
 		};
 	}, [loading]);
 
+	// focus panel when it opens on mobile for screen reader users
+	useEffect(() => {
+		if (isMobile && drawerOpen && contentRef.current) {
+			contentRef.current.focus();
+		}
+	}, [isMobile, drawerOpen]);
+
 	if (loading) return null;
+
+	// accessibility ids
+	const headerId = `tile-header-${index ?? 'noindex'}`;
+	const panelId = `tile-panel-${index ?? 'noindex'}`;
+
+	// keyboard handler for desktop article (toggle via Enter/Space)
+	const handleArticleKey = (e: React.KeyboardEvent) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			setFlipped((prev) => !prev);
+		}
+	};
+
+	// handle escape to close mobile panel
+	const handlePanelKey = (e: React.KeyboardEvent) => {
+		if (e.key === 'Escape') {
+			e.stopPropagation();
+			if (typeof handleClick === 'function' && typeof index === 'number') {
+				handleClick(index);
+			}
+		}
+	};
 
 	return isMobile ? (
 		<article
@@ -105,36 +135,47 @@ function Tile({
 			aria-label={`Details for ${title}`}
 			aria-live='polite'
 		>
-			<div
+			<button
 				className={`${styles.lid} ${drawerOpen ? styles.open : styles.closed}`}
+				id={headerId}
 				onClick={() =>
 					typeof handleClick === 'function' &&
 					typeof index === 'number' &&
 					handleClick(index)
 				}
+				aria-expanded={drawerOpen}
+				aria-controls={panelId}
 			>
 				<div
 					className={`${styles['icon-box']} ${
 						drawerOpen ? styles.open : styles.closed
 					}`}
+					aria-hidden='true'
 				>
 					{icon}
 				</div>
 				<h3>{title}</h3>
-				<div className={styles.dropdown}>
+				<div className={styles.dropdown} aria-hidden='true'>
 					<div className={styles.line}></div>
 				</div>
-			</div>
+			</button>
 			<div
+				id={panelId}
+				role='region'
+				aria-labelledby={headerId}
+				aria-hidden={!drawerOpen}
 				className={`${styles.content} ${
 					drawerOpen ? styles.open : styles.closed
 				}`}
+				ref={contentRef}
+				tabIndex={-1}
+				onKeyDown={handlePanelKey}
 			>
 				<div className={styles.stats}>
 					<p className={styles.stat1}>{stat1}</p>
 					{stat2 && (
 						<div className={styles.stat2}>
-							<Leaderboard className={styles.icon} />
+							<Leaderboard className={styles.icon} aria-hidden='true' />
 							<p
 								className={styles.stat}
 								dangerouslySetInnerHTML={{ __html: stat2 }}
@@ -151,12 +192,17 @@ function Tile({
 			onClick={() => setFlipped((prev) => !prev)}
 			aria-label={`Details for ${title}`}
 			aria-live='polite'
+			role='button'
+			tabIndex={0}
+			onKeyDown={handleArticleKey}
 		>
 			<div
 				className={`${styles['tile-content']} ${flipped ? styles.flipped : ''}`}
 			>
 				<div className={styles['tile-front']} aria-hidden={flipped}>
-					<div className={styles['icon-box']}>{icon}</div>
+					<div className={styles['icon-box']} aria-hidden='true'>
+						{icon}
+					</div>
 					<h3 className={styles.h3}>{title}</h3>
 					<p className={styles.p}>{summary}</p>
 					<button
@@ -180,7 +226,7 @@ function Tile({
 							<p className={styles.stat1}>{stat1}</p>
 							{stat2 && (
 								<div className={styles.stat2}>
-									<Leaderboard className={styles.icon} />
+									<Leaderboard className={styles.icon} aria-hidden='true' />
 									<p
 										className={styles.stat}
 										dangerouslySetInnerHTML={{ __html: stat2 }}
