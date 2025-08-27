@@ -86,10 +86,11 @@ const Commitment = () => {
 				}`}
 				ref={commitmentRefs[0]}
 			>
-				Excellence, for us, starts with how we work with you. From the very
-				first conversation, we treat your goals as our own—listening carefully,
-				asking the right questions, and translating your vision into a digital
-				experience that feels both seamless and intentional.
+				We measure excellence by the way we work with our clients. From the very
+				first conversation, <span>your goals become ours</span>. We listen
+				closely, ask thoughtful questions, and transform your vision into a
+				polished digital experience that's intuitive, purposeful, and reliably
+				delivered.
 			</p>
 
 			<ul className={styles.pillars} role='list'>

@@ -18,6 +18,10 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
+
+		span {
+			font-weight: bold;
+		}
 	}
 
 	.pillars {
@@ -78,6 +82,44 @@
 
 		p {
 			font-size: 1.25rem;
+		}
+	}
+
+	@media screen and (max-width: 500px) and (orientation: portrait),
+		screen and (max-height: 500px) and (orientation: landscape) {
+		margin-bottom: 2rem;
+
+		.intro,
+		.closing {
+			font-size: 1.125rem;
+			text-align: center;
+		}
+
+		.intro {
+			@media screen and (max-width: 500px) and (orientation: portrait) {
+				margin-top: 1rem;
+			}
+		}
+
+		.pillars {
+			margin: 0;
+			gap: 1rem;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+			@media screen and (max-width: 500px) and (orientation: portrait) {
+				grid-template-columns: 1fr;
+				grid-template-rows: repeat(5, 1fr);
+			}
+
+			.li {
+				h3 {
+					font-size: 1.25rem;
+				}
+
+				p {
+					font-size: 1rem;
+				}
+			}
 		}
 	}
 }
