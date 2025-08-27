@@ -80,6 +80,9 @@ body {
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	color: var(--main-gray);
 	background: var(--background);
 	-webkit-font-smoothing: antialiased;
@@ -144,6 +147,7 @@ a {
 
 .main {
 	width: 100%;
+	max-width: 1800px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
