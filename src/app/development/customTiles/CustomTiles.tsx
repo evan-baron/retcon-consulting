@@ -10,7 +10,6 @@ import { useMediaQuery } from '@mui/material';
 import styles from './customTiles.module.scss';
 
 // MUI imports
-import { Leaderboard } from '@mui/icons-material';
 
 // Components imports
 import Tile from './developmentTile/Tile';

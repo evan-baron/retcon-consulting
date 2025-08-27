@@ -49,7 +49,7 @@ const Timeline = () => {
 
 	const rowRefs = useMemo(
 		() => DevelopmentStats.map(() => React.createRef<HTMLLIElement>()),
-		[loading]
+		[]
 	);
 
 	const [rowRefsVisible, setRowRefsVisible] = useState<RowRefs[]>(
@@ -90,7 +90,7 @@ const Timeline = () => {
 		return () => {
 			observer.disconnect();
 		};
-	}, [loading]);
+	}, [loading, rowRefs]);
 
 	// Resets the animations for the text boxes
 	useEffect(() => {

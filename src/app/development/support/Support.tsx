@@ -79,8 +79,6 @@ const Support = () => {
 		}
 	}, [isMobileWidth, isMobileHeight]);
 
-	const isMobile = isMobileWidth || isMobileHeight;
-
 	const [hoveredTier, setHoveredTier] = useState<number | null>(null);
 	const [drawerOpen, setDrawerOpen] = useState<DrawerOpen>(
 		supportTiers.reduce((acc, _, index) => {
@@ -143,7 +141,7 @@ const Support = () => {
 		});
 
 		return () => observer.disconnect();
-	}, [loading]);
+	}, [loading, supportRefs, supportRefsVisible]);
 
 	const handleClick = (index: number) => {
 		setDrawerOpen((prev) => {
@@ -175,7 +173,7 @@ const Support = () => {
 					Whether you prefer to manage your site yourself, or if you want
 					dedicated technical assistance and continuous improvement,{' '}
 					<span style={{ fontWeight: 'bold' }}>
-						we're here to help your business thrive
+						we&apos;re here to help your business thrive
 					</span>
 					.
 				</span>

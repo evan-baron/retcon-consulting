@@ -95,7 +95,7 @@ function Tile({
 		return () => {
 			observer.disconnect();
 		};
-	}, [loading]);
+	}, [loading, index, setDrawerOpen]);
 
 	// focus panel when it opens on mobile for screen reader users
 	useEffect(() => {

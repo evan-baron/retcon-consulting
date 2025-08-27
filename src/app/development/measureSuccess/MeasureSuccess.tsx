@@ -97,7 +97,7 @@ const MeasureSuccess = () => {
 		});
 
 		return () => observer.disconnect();
-	}, []);
+	}, [definitionsRefs, definitionsRefsVisible, hasAnimated]);
 
 	return (
 		<div className={styles['measureSuccess-wrapper']} ref={wrapperRef}>
@@ -219,7 +219,7 @@ const MeasureSuccess = () => {
 						We test layouts across multiple screen sizes and devices using
 						BrowserStack and Chrome DevTools. Success means a fully responsive
 						experience, with no horizontal scrolling, properly scaled
-						text/images, and interactive elements passing Google's
+						text/images, and interactive elements passing Google&apos;s
 						Mobile-Friendly Test.
 					</dd>
 				</div>

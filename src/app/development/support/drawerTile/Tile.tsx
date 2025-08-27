@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Hooks imports
 
@@ -69,7 +69,7 @@ function Tile({
 		return () => {
 			observer.disconnect();
 		};
-	}, []);
+	}, [index, setDrawerOpen]);
 
 	// accessibility ids
 	const headerId = `tier-header-${index}`;

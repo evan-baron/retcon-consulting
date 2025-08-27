@@ -12,7 +12,7 @@ import styles from './footer.module.scss';
 import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
-import { LinkedIn, Instagram, Facebook, Twitter } from '@mui/icons-material';
+import { LinkedIn, Instagram, Facebook } from '@mui/icons-material';
 
 function Footer() {
 	const { windowWidth } = useAppContext();
@@ -64,7 +64,6 @@ function Footer() {
 						>
 							<LinkedIn className={styles.icon} />
 						</Link>
-						{/* <Twitter className={styles.icon} /> */}
 						<Link
 							href='https://www.facebook.com/retconconsulting'
 							target='_blank'

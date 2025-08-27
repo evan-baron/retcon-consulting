@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, useEffect, useRef, useMemo, createRef } from 'react';
+import React, { useState, useEffect, useMemo, createRef } from 'react';
 
 // Hooks imports
 
@@ -76,7 +76,7 @@ const Commitment = () => {
 		});
 
 		return () => observer.disconnect();
-	}, []);
+	}, [commitmentRefs, commitmentRefsVisible]);
 
 	return (
 		<div className={styles['commitment-wrapper']}>
@@ -89,8 +89,8 @@ const Commitment = () => {
 				We measure excellence by the way we work with our clients. From the very
 				first conversation, <span>your goals become ours</span>. We listen
 				closely, ask thoughtful questions, and transform your vision into a
-				polished digital experience that's intuitive, purposeful, and reliably
-				delivered.
+				polished digital experience that&apos;s intuitive, purposeful, and
+				reliably delivered.
 			</p>
 
 			<ul className={styles.pillars} role='list'>
@@ -117,9 +117,9 @@ const Commitment = () => {
 				}`}
 				ref={commitmentRefs[1 + CommitmentPillars.length]}
 			>
-				Our commitment to excellence isn't a tagline, it's the standard we hold
-				ourselves to in every decision, every deliverable, and every interaction
-				with you.
+				Our commitment to excellence isn&apos;t a tagline, it&apos;s the
+				standard we hold ourselves to in every decision, every deliverable, and
+				every interaction with you.
 			</p>
 		</div>
 	);

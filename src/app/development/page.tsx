@@ -24,8 +24,8 @@ const Development = () => {
 					<h1 id='web-development-heading'>Retcon Web Development</h1>
 					<p className={styles['development-description']}>
 						<span className={styles['h1-span']}>Your website matters.</span>{' '}
-						It's the first impression people have of your business, the place
-						they decide whether to trust you, and the hub where all your
+						It&apos;s the first impression people have of your business, the
+						place they decide whether to trust you, and the hub where all your
 						marketing efforts come together. A clean, professional online
 						presence turns attention into confidence, and confidence into
 						lasting relationships.
@@ -50,8 +50,8 @@ const Development = () => {
 					<h2 id='process-heading'>Our Process</h2>
 					<p className={styles['development-description']}>
 						We take a comprehensive, <span>collaborative</span> approach to
-						ensure your project's success, working closely with you so every
-						detail reflects your vision and goals.
+						ensure your project&apos;s success, working closely with you so
+						every detail reflects your vision and goals.
 					</p>
 					<Timeline />
 				</section>
