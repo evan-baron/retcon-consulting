@@ -10,7 +10,7 @@
 	user-select: none;
 
 	@media screen and (max-width: 500px) and (orientation: portrait) {
-		height: 100vh;
+		height: calc(100vh - 4rem);
 	}
 
 	.content {
@@ -36,6 +36,7 @@
 		}
 
 		@media screen and (max-width: 500px) {
+			top: 0;
 			height: 100%;
 		}
 

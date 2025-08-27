@@ -214,7 +214,6 @@ export default function RootLayout({
 				<ContextProvider>
 					<BackgroundEffect />
 					<Header />
-					<div id='top'></div>
 					<main className='main' role='main'>
 						<div className='main-content'>{children}</div>
 					</main>

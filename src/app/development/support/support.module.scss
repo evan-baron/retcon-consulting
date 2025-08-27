@@ -62,6 +62,10 @@
 
 			thead {
 				font-size: 1.5rem;
+
+				@media screen and (max-height: 500px) and (orientation: landscape) {
+					font-size: 1.25rem;
+				}
 			}
 
 			th,
@@ -69,45 +73,63 @@
 				height: 4rem;
 				// padding: 0.75rem 1rem;
 				border: 2px solid var(--main-gray);
+				align-content: center;
+				color: var(--gray1);
+
+				@media screen and (max-height: 500px) and (orientation: landscape) {
+					height: 3rem;
+				}
 
 				&:first-child {
 					width: 30%;
+
+					@media screen and (max-height: 500px) and (orientation: landscape) {
+						width: 35%;
+					}
 				}
 			}
 
-			th {
-				color: var(--gray1);
-				align-content: center;
-			}
+			tbody {
+				tr {
+					th {
+						@media screen and (max-height: 500px) and (orientation: landscape) {
+							font-size: 0.875rem;
+						}
+					}
 
-			td {
-				align-content: center;
-				// color: var(--gray1);
-				text-align: center;
-				justify-content: center;
+					td {
+						text-align: center;
+						align-content: center;
+						justify-content: center;
 
-				.asterisk {
-					transform: translateY(0);
-				}
+						.asterisk {
+							transform: translateY(0);
+						}
 
-				.icon {
-					font-size: 2.25rem;
-				}
+						.icon {
+							font-size: 2.25rem;
 
-				.check {
-					color: hsl(120, 100%, 50%);
-				}
+							@media screen and (max-height: 500px) and (orientation: landscape) {
+								font-size: 1.75rem;
+							}
+						}
 
-				.close {
-					color: hsl(0, 100%, 50%);
-				}
+						.check {
+							color: hsl(120, 100%, 50%);
+						}
 
-				.both {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					font-size: 1.5rem;
-					font-weight: bold;
+						.close {
+							color: hsl(0, 100%, 50%);
+						}
+
+						.both {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							font-size: 1.5rem;
+							font-weight: bold;
+						}
+					}
 				}
 			}
 		}
@@ -128,6 +150,10 @@
 		.closing {
 			font-size: 1rem;
 			text-align: center;
+
+			@media screen and (max-height: 500px) and (orientation: landscape) {
+				font-size: 1.25rem;
+			}
 		}
 
 		.tiersTable {
@@ -135,6 +161,10 @@
 
 			h3 {
 				font-size: 1.25rem;
+
+				@media screen and (max-height: 500px) and (orientation: landscape) {
+					font-size: 1.5rem;
+				}
 			}
 
 			.drawer-wrapper {

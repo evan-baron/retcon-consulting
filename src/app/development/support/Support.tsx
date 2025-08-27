@@ -190,7 +190,7 @@ const Support = () => {
 				ref={supportRefs[1]}
 			>
 				<h3 id='support-table-heading'>Support Tiers Comparison:</h3>
-				{isMobile ? (
+				{isMobileWidth ? (
 					<ul className={styles['drawer-wrapper']}>
 						{supportTiers.map((tier, index) => (
 							<li className={styles.drawer} key={'drawer' + index}>
@@ -229,7 +229,7 @@ const Support = () => {
 										key={tier.name}
 										style={{
 											color: tier.color,
-											fontWeight: idx === 2 || idx === 3 ? 'bold' : '400',
+											fontWeight: idx > 1 ? 'bold' : '400',
 											background:
 												hoveredTier === idx ? 'var(--gray6)' : 'var(--gray7)',
 										}}
@@ -331,7 +331,8 @@ const Support = () => {
 				ref={supportRefs[2]}
 			>
 				With ongoing support, you can focus on growing your business while we
-				ensure your website remains a reliable, high-performing digital asset.
+				ensure your website remains a reliable, high-performing digital
+				resource.
 			</p>
 		</div>
 	);
