@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Hooks imports
 import { useMediaQuery } from '@mui/material';
@@ -55,6 +55,10 @@ const CustomTiles = () => {
 
 	const isMobile = isMobileWidth || isMobileHeight;
 
+	// refs for accessibility focus management
+	const moreButtonRef = useRef<HTMLButtonElement | null>(null);
+	const moreDrawerRef = useRef<HTMLUListElement | null>(null);
+
 	const handleClick = (index: number) => {
 		setDrawerOpen((prev) => {
 			const newState = Object.fromEntries(
@@ -67,10 +71,33 @@ const CustomTiles = () => {
 		});
 	};
 
+	// When showMore opens, move focus into the expanded content; when it closes, return focus to the button.
+	useEffect(() => {
+		if (showMore) {
+			// after render and (possible) animation, move focus to the first interactive element inside the drawer
+			const t = setTimeout(() => {
+				const container = moreDrawerRef.current;
+				if (!container) return;
+				const firstFocusable = container.querySelector<HTMLElement>(
+					'button, a, [tabindex]:not([tabindex="-1"])'
+				);
+				firstFocusable?.focus();
+			}, 250); // slightly after open to accommodate animation
+			return () => clearTimeout(t);
+		} else {
+			// when closed, ensure focus returns to the toggle button
+			moreButtonRef.current?.focus();
+		}
+	}, [showMore]);
+
 	if (loading) return null;
 
 	return isMobile ? (
-		<ul className={styles['drawer-wrapper']}>
+		<ul
+			className={styles['drawer-wrapper']}
+			role='list'
+			aria-labelledby='why-custom-heading'
+		>
 			{ReasonTiles.map((reason, index) => (
 				<li className={styles.drawer} key={'drawer' + index}>
 					<Tile
@@ -85,13 +112,33 @@ const CustomTiles = () => {
 		</ul>
 	) : (
 		<>
-			<ul className={styles.tiles}>
+			<h3
+				id='why-custom-heading'
+				// minimal visually-hidden text for screen readers
+				style={{
+					position: 'absolute',
+					left: '-10000px',
+					width: '1px',
+					height: '1px',
+					overflow: 'hidden',
+				}}
+				aria-live='polite'
+			>
+				Why Choose Custom? — Reasons
+			</h3>
+
+			<ul
+				className={styles.tiles}
+				role='list'
+				aria-labelledby='why-custom-heading'
+			>
 				{visibleReasons.map((reason, index) => (
 					<li key={index} className={styles.tile}>
 						<Tile {...reason} />
 					</li>
 				))}
 			</ul>
+
 			{showMore && (
 				<div
 					className={styles.drawer}
@@ -99,10 +146,12 @@ const CustomTiles = () => {
 					id='custom-tiles-drawer'
 				>
 					<ul
+						ref={moreDrawerRef}
 						className={`${showMore && styles.open} ${
 							isAnimating && styles.animate
 						}`}
 						aria-label='More reasons to choose custom'
+						role='list'
 					>
 						{hiddenReasons.map((reason, index) => (
 							<li key={index + 6}>
@@ -113,6 +162,7 @@ const CustomTiles = () => {
 				</div>
 			)}
 			<button
+				ref={moreButtonRef}
 				className={`${styles.more} ${showMore && styles.up}`}
 				type='button'
 				aria-expanded={showMore}
