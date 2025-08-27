@@ -21,7 +21,7 @@
 			padding: 0 2rem;
 		}
 
-		@media screen and (max-width: 500px) {
+		@media screen and (max-width: 500px) and (orientation: portrait) {
 			padding: 0 1rem;
 			margin-top: 2rem;
 			gap: 2rem;
@@ -35,7 +35,8 @@
 			color: var(--gray1);
 			text-align: center;
 
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: 500px) and (orientation: portrait),
+				screen and (max-height: 500px) and (orientation: landscape) {
 				font-size: 2.5rem;
 				padding-top: 0;
 			}
@@ -43,7 +44,8 @@
 			&.development {
 				font-size: 5rem;
 
-				@media screen and (max-width: 500px) {
+				@media screen and (max-width: 500px) and (orientation: portrait),
+					screen and (max-height: 500px) and (orientation: landscape) {
 					font-size: 2.5rem;
 					padding-top: 0;
 				}
@@ -56,8 +58,11 @@
 			font-weight: 500;
 			color: var(--gray1);
 
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: 500px) and (orientation: portrait) {
 				font-size: 1.125rem;
+			}
+			@media screen and (max-height: 500px) and (orientation: landscape) {
+				font-size: 1.25rem;
 			}
 		}
 
@@ -70,8 +75,12 @@
 			margin-bottom: 0.5rem;
 			color: var(--gray1);
 
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: 500px) and (orientation: portrait) {
 				font-size: 1.5rem;
+			}
+
+			@media screen and (max-height: 500px) and (orientation: landscape) {
+				font-size: 2rem;
 			}
 		}
 

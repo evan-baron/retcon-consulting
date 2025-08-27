@@ -7,11 +7,15 @@
 
 	user-select: none;
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 500px) and (orientation: portrait) {
 		height: auto;
 		flex-direction: column;
 		gap: 1rem;
 		align-items: center;
+	}
+
+	@media screen and (max-height: 500px) and (orientation: landscape) {
+		height: 4rem;
 	}
 
 	.footer {
