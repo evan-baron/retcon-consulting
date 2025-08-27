@@ -73,6 +73,7 @@
 					font-size: 2rem;
 					font-weight: 500;
 					color: hsl(0, 0%, 96%);
+					text-align: center;
 				}
 			}
 		}
@@ -81,6 +82,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+
 			height: 100%;
 			width: 100%;
 			pointer-events: none;
@@ -88,8 +90,10 @@
 			$particles: 35;
 			$width: 300;
 			$height: 300;
+			$widthMobile: 150;
+			$heightMobile: 150;
 
-			// Create the explosion...
+			// Create the explosion for desktop...
 			$box-shadow: ();
 			$box-shadow2: ();
 
@@ -112,6 +116,22 @@
 				$box-shadow2: $box-shadow2, 0 0 #fff;
 			}
 
+			// Create the explosion for mobile...
+			$box-shadow-mobile: ();
+			$box-shadow2-mobile: ();
+
+			@for $i from 0 through $particles {
+				$box-shadow-mobile: $box-shadow-mobile,
+					math.random($widthMobile) -
+						math.div($widthMobile, 2) +
+						px
+						math.random($heightMobile) -
+						math.div($heightMobile, 1.2) +
+						px
+						hsl(math.random(360), 100%, 50%);
+				$box-shadow2-mobile: $box-shadow2-mobile, 0 0 #fff;
+			}
+
 			@mixin keyframes($animationName) {
 				@keyframes #{$animationName} {
 					@content;
@@ -127,6 +147,26 @@
 				box-shadow: $box-shadow2;
 				animation: 1s bang ease-out infinite, 1s gravity ease-in infinite,
 					5s position linear infinite;
+
+				@media screen and (max-width: 500px) and (orientation: portrait),
+					screen and (max-height: 500px) and (orientation: landscape) {
+					width: 5px;
+					height: 5px;
+					animation: 1s bang ease-out infinite,
+						1s gravity-mobile ease-in infinite, 5s position linear infinite;
+				}
+			}
+
+			@media screen and (max-width: 500px) and (orientation: portrait),
+				screen and (max-height: 500px) and (orientation: landscape) {
+				.before,
+				.after {
+					width: 5px;
+					height: 5px;
+					box-shadow: $box-shadow2-mobile;
+					animation: 1s bang-mobile ease-out infinite,
+						1s gravity-mobile ease-in infinite, 5s position linear infinite;
+				}
 			}
 
 			.after {
@@ -143,6 +183,19 @@
 			@include keyframes(gravity) {
 				to {
 					transform: translateY(200px);
+					opacity: 0;
+				}
+			}
+
+			@include keyframes(bang-mobile) {
+				to {
+					box-shadow: $box-shadow-mobile;
+				}
+			}
+
+			@include keyframes(gravity-mobile) {
+				to {
+					transform: translateY(100px);
 					opacity: 0;
 				}
 			}
@@ -183,9 +236,10 @@
 		align-items: center;
 		gap: 3rem;
 
-		h3 {
+		.intro {
 			width: 80%;
 			font-size: 2.25rem;
+			line-height: 1.125;
 			color: var(--gray1);
 			text-align: center;
 			text-wrap: pretty;
@@ -220,6 +274,8 @@
 				color: var(--gray1);
 				text-decoration: underline;
 				text-underline-offset: 0.25rem;
+				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+					0.5rem 0.5rem 3rem black;
 			}
 
 			dd {
@@ -246,6 +302,83 @@
 			&.visible {
 				opacity: 1;
 				transform: translateY(0);
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) and (orientation: portrait),
+		screen and (max-height: 500px) and (orientation: landscape) {
+		gap: 1rem;
+
+		.lighthouse-wrapper {
+			padding: 1rem 0;
+
+			.scores {
+				gap: 1rem;
+
+				.score-box {
+					gap: 1rem;
+
+					.score {
+						height: calc((100vw - 5rem) / 4);
+						border-width: 5px;
+						font-size: 1.5rem;
+					}
+
+					.label {
+						font-size: 0.875rem;
+					}
+				}
+
+				@media screen and (max-height: 500px) and (orientation: landscape) {
+					gap: 1.5rem;
+
+					.score-box {
+						.score {
+							height: 10rem;
+							border-width: 0.5rem;
+							font-size: 2.5rem;
+						}
+
+						.label {
+							font-size: 1.5rem;
+						}
+					}
+				}
+			}
+		}
+
+		.definitions {
+			gap: 2rem;
+
+			.intro {
+				width: 90%;
+				font-size: 1.25rem;
+			}
+
+			.definition {
+				width: 100%;
+				gap: 1rem;
+				transform: translateY(50%);
+
+				dt {
+					font-size: 1.5rem;
+					color: var(--gray1);
+					text-decoration: underline;
+					text-underline-offset: 0.25rem;
+				}
+
+				dd {
+					width: 90%;
+					font-size: 1rem;
+					color: var(--gray2);
+				}
+			}
+
+			.summary {
+				font-size: 1.125rem;
+				transform: translateY(50%);
+				text-align: center;
 			}
 		}
 	}

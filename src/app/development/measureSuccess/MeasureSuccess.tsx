@@ -126,15 +126,15 @@ const MeasureSuccess = () => {
 				) : null}
 			</div>
 			<div className={styles.definitions}>
-				<h3
-					className={`${
+				<p
+					className={`${styles.intro} ${
 						definitionsRefsVisible[0].visible ? styles.visible : ''
 					}`}
 					ref={definitionsRefs[0]}
 				>
 					When we measure success at launch, our process extends beyond simply
 					“the site is live.”
-				</h3>
+				</p>
 				<div
 					className={`${styles.definition} ${
 						definitionsRefsVisible[1].visible ? styles.visible : ''
@@ -229,10 +229,10 @@ const MeasureSuccess = () => {
 					}`}
 					ref={definitionsRefs[6]}
 				>
-					Success at launch means the website is fast (meeting Core Web Vitals
+					Success at launch means your website is fast (meeting Core Web Vitals
 					thresholds), accessible (WCAG 2.1 AA compliance), optimized for search
-					(90+ SEO score), and technically sound across devices—ready to support
-					the client's business from day one.
+					(90+ SEO score), and technically sound across all devices from day
+					one.
 				</p>
 			</div>
 		</div>
