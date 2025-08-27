@@ -57,7 +57,7 @@
 						align-items: center;
 						justify-content: center;
 						opacity: 0;
-						transition: opacity 0.6s ease-in-out;
+						transition: opacity 0.5s ease-in-out;
 
 						&.visible {
 							opacity: 1;
@@ -99,7 +99,7 @@
 				.text.left {
 					transform: translateX(-120%);
 					text-align: right;
-					transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+					transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 					opacity: 0;
 
 					&.visible {
@@ -110,7 +110,7 @@
 
 				.text.right {
 					transform: translateX(120%);
-					transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+					transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 					opacity: 0;
 
 					&.visible {
@@ -148,14 +148,6 @@
 						grid-column: 1;
 						grid-row: 1;
 						border-color: hsl(var(--ball-hue), 100%, 50%);
-
-						.icon-wrapper {
-							&.visible {
-							}
-
-							.icon {
-							}
-						}
 					}
 
 					h3 {
@@ -168,9 +160,11 @@
 						font-weight: 500;
 						left: 2.5ch;
 						opacity: 0;
-						transition: opacity 0.6s ease-in-out;
+						transform: translateY(50%);
+						transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
 						&.visible {
+							transform: translateY(0);
 							opacity: 1;
 						}
 
@@ -214,7 +208,7 @@
 					.text.right {
 						text-align: left;
 						transform: translateY(50%);
-						transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+						transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 
 						&.visible {
 							opacity: 1;

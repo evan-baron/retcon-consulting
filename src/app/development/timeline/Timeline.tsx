@@ -78,7 +78,7 @@ const Timeline = () => {
 					}
 				});
 			},
-			{ threshold: [0, 0.5, 1] }
+			{ threshold: [0, 1] }
 		);
 
 		rowRefs.forEach((ref) => {
