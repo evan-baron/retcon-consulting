@@ -1,4 +1,4 @@
-:root {
+.timeline {
 	--ball-width: 10rem;
 	--icon-size: 5rem;
 
@@ -7,9 +7,7 @@
 		--ball-width: 4rem;
 		--icon-size: 2rem;
 	}
-}
 
-.timeline {
 	width: 100%;
 
 	@media screen and (max-height: 500px) and (orientation: landscape) {
