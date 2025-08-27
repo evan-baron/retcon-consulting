@@ -255,7 +255,6 @@ const Support = () => {
 												hoveredTier !== null && tierFeatures[hoveredTier][i]
 													? 'var(--gray6)'
 													: 'var(--gray7)',
-											transition: 'background 0.1s ease-in-out',
 										}}
 									>
 										{feature}
@@ -279,7 +278,6 @@ const Support = () => {
 													hoveredTier === j
 														? 'rgba(255, 255, 255, 0.1)'
 														: undefined,
-												transition: 'background 0.1s ease-in-out',
 											}}
 											onMouseEnter={() => setHoveredTier(j)}
 											onMouseLeave={() => setHoveredTier(null)}
