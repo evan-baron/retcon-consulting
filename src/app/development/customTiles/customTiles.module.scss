@@ -56,38 +56,18 @@
 	}
 }
 
-// .drawer {
-// 	width: 100%;
-// 	position: relative;
-
-// 	ul {
-// 		will-change: max-height;
-// 		width: 100%;
-// 		position: relative;
-// 		display: grid;
-// 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-// 		gap: 3rem;
-// 		overflow: hidden;
-// 		max-height: 0;
-// 		// opacity: 0;
-// 		transition: max-height 0.5s, opacity 0.5s;
-
-// 		&.open {
-// 			animation: drawerIn 0.5s forwards;
-// 		}
-
-// 		&.animate {
-// 			animation: drawerOut 0.5s forwards;
-// 		}
-// 	}
-// }
-
 .more {
 	all: unset;
 	position: relative;
 	text-decoration: underline;
 	text-underline-offset: 2px;
 	cursor: pointer;
+
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			color: var(--gray1);
+		}
+	}
 
 	&:focus-visible {
 		border-radius: 0.25rem;
