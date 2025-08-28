@@ -25,6 +25,12 @@
 		color: var(--gray1);
 		overflow: hidden;
 
+		&:focus-visible {
+			border-radius: 0.5rem;
+			outline: 2px solid aqua !important;
+			outline-offset: -2px;
+		}
+
 		&.open {
 			.dropdown {
 				.line {

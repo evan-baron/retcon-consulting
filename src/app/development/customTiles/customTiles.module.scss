@@ -4,6 +4,27 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 	gap: 3rem;
+	max-height: 73rem;
+	transition: max-height 0.5s ease-in-out;
+	padding: 3rem;
+	overflow: hidden;
+
+	&.open {
+		max-height: 108rem;
+
+		.tile.hidden {
+			opacity: 1;
+		}
+	}
+
+	.tile {
+		opacity: 1;
+		transition: opacity 0.5s ease-in-out;
+
+		&.hidden {
+			opacity: 0;
+		}
+	}
 
 	@media (min-width: 1400px) {
 		grid-template-columns: repeat(3, 1fr);
@@ -35,31 +56,31 @@
 	}
 }
 
-.drawer {
-	width: 100%;
-	position: relative;
+// .drawer {
+// 	width: 100%;
+// 	position: relative;
 
-	ul {
-		will-change: max-height;
-		width: 100%;
-		position: relative;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-		gap: 3rem;
-		overflow: hidden;
-		max-height: 0;
-		// opacity: 0;
-		transition: max-height 0.5s, opacity 0.5s;
+// 	ul {
+// 		will-change: max-height;
+// 		width: 100%;
+// 		position: relative;
+// 		display: grid;
+// 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+// 		gap: 3rem;
+// 		overflow: hidden;
+// 		max-height: 0;
+// 		// opacity: 0;
+// 		transition: max-height 0.5s, opacity 0.5s;
 
-		&.open {
-			animation: drawerIn 0.5s forwards;
-		}
+// 		&.open {
+// 			animation: drawerIn 0.5s forwards;
+// 		}
 
-		&.animate {
-			animation: drawerOut 0.5s forwards;
-		}
-	}
-}
+// 		&.animate {
+// 			animation: drawerOut 0.5s forwards;
+// 		}
+// 	}
+// }
 
 .more {
 	all: unset;

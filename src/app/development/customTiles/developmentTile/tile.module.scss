@@ -63,7 +63,7 @@
 			flex-direction: column;
 			align-items: center;
 			border-radius: 0.5rem;
-			padding: 2rem;
+			padding: 1.5rem 2rem;
 			text-align: center;
 			border: 2px solid var(--gray2);
 			background-image: linear-gradient(
@@ -79,7 +79,7 @@
 		}
 
 		.tile-front {
-			gap: 2rem;
+			gap: 1.5rem;
 			transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
 			@media (hover: hover) and (pointer: fine) {
@@ -144,7 +144,7 @@
 				align-items: center;
 
 				.h3 {
-					margin-bottom: 2rem;
+					margin-bottom: 1.5rem;
 				}
 
 				.stats {
@@ -225,6 +225,12 @@
 		transition: color 0.3s ease-in-out;
 		box-shadow: 0 0 0.5rem black;
 		color: var(--gray1);
+
+		&:focus-visible {
+			border-radius: 0.5rem;
+			outline: 2px solid aqua !important;
+			outline-offset: -2px;
+		}
 
 		&.open {
 			color: aqua;
@@ -313,6 +319,10 @@
 		overflow: hidden;
 		background-color: var(--gray5) !important;
 		transition: max-height 0.5s ease-in-out;
+
+		&:focus-visible {
+			outline: none;
+		}
 
 		@media screen and (max-height: 500px) and (orientation: landscape) {
 			height: 11rem;

@@ -138,6 +138,12 @@ body {
 	padding: 0;
 	margin: 0;
 	// outline: 1px solid red;
+
+	// &:focus-visible {
+	// 	border-radius: 0.5rem;
+	// 	outline: 2px solid aqua !important;
+	// 	outline-offset: 0.25rem;
+	// }
 }
 
 a {
@@ -163,28 +169,6 @@ a {
 
 		@media screen and (max-width: 500px) {
 			overflow-x: hidden;
-		}
-	}
-}
-
-.main {
-	width: 100%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-
-	.main-content {
-		position: relative;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: 4rem;
-		padding: 4rem 0;
-
-		@media screen and (max-width: 500px) {
-			overflow-x: hidden;
-			padding-bottom: 2rem;
 		}
 	}
 }

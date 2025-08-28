@@ -71,23 +71,23 @@ const CustomTiles = () => {
 	};
 
 	// When showMore opens, move focus into the expanded content; when it closes, return focus to the button.
-	useEffect(() => {
-		if (showMore) {
-			// after render and (possible) animation, move focus to the first interactive element inside the drawer
-			const t = setTimeout(() => {
-				const container = moreDrawerRef.current;
-				if (!container) return;
-				const firstFocusable = container.querySelector<HTMLElement>(
-					'button, a, [tabindex]:not([tabindex="-1"])'
-				);
-				firstFocusable?.focus();
-			}, 250); // slightly after open to accommodate animation
-			return () => clearTimeout(t);
-		} else {
-			// when closed, ensure focus returns to the toggle button
-			moreButtonRef.current?.focus();
-		}
-	}, [showMore]);
+	// useEffect(() => {
+	// 	if (showMore) {
+	// 		// after render and (possible) animation, move focus to the first interactive element inside the drawer
+	// 		const t = setTimeout(() => {
+	// 			const container = moreDrawerRef.current;
+	// 			if (!container) return;
+	// 			const firstFocusable = container.querySelector<HTMLElement>(
+	// 				'button, a, [tabindex]:not([tabindex="-1"])'
+	// 			);
+	// 			firstFocusable?.focus();
+	// 		}, 250); // slightly after open to accommodate animation
+	// 		return () => clearTimeout(t);
+	// 	} else {
+	// 		// when closed, ensure focus returns to the toggle button
+	// 		moreButtonRef.current?.focus();
+	// 	}
+	// }, [showMore]);
 
 	if (loading) return null;
 
@@ -127,18 +127,21 @@ const CustomTiles = () => {
 			</h3>
 
 			<ul
-				className={styles.tiles}
+				className={`${styles.tiles} ${showMore ? styles.open : ''}`}
 				role='list'
 				aria-labelledby='why-custom-heading'
 			>
-				{visibleReasons.map((reason, index) => (
-					<li key={index} className={styles.tile}>
-						<Tile {...reason} />
+				{ReasonTiles.map((reason, index) => (
+					<li
+						key={index}
+						className={`${styles.tile} ${index > 5 ? styles.hidden : ''}`}
+					>
+						<Tile {...reason} showMore={showMore} index={index} />
 					</li>
 				))}
 			</ul>
 
-			{showMore && (
+			{/* {showMore && (
 				<div
 					className={styles.drawer}
 					aria-hidden={!showMore}
@@ -159,24 +162,14 @@ const CustomTiles = () => {
 						))}
 					</ul>
 				</div>
-			)}
+			)} */}
 			<button
 				ref={moreButtonRef}
 				className={`${styles.more} ${showMore && styles.up}`}
 				type='button'
 				aria-expanded={showMore}
 				aria-controls='custom-tiles-drawer'
-				onClick={() => {
-					if (!showMore) {
-						setShowMore(true);
-					} else {
-						setIsAnimating(true);
-						setTimeout(() => {
-							setShowMore(false);
-							setIsAnimating(false);
-						}, 350);
-					}
-				}}
+				onClick={() => setShowMore((prev) => !prev)}
 			>
 				{showMore ? 'Show Less' : 'View More Reasons'}
 			</button>

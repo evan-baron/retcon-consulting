@@ -50,7 +50,7 @@ export const ReasonTiles: ReasonTile[] = [
 			"Custom development allows interactive features and unique designs that templates can't match.",
 		stat1:
 			"Templates are limited and often make websites feel repetitive. Custom development lets your brand shine with tailored features: animations, interactive carousels, dashboards, and unique layouts designed to match your identity. It's the difference between blending in and standing out.",
-		stat2: `Sites with unique interactive features see <span style='font-weight:bold; color: var(--gray1)'>up to 3x longer</span> average user engagement compared to template-based sites.`,
+		stat2: `Sites with interactive features see <span style='font-weight:bold; color: var(--gray1)'>up to 3x longer</span> average user engagement compared to template-based sites.`,
 		icon: <AutoFixHigh className={`${stylesA.icon} ${stylesB.icon}`} />,
 	},
 	{

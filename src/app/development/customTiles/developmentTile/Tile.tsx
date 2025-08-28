@@ -24,8 +24,9 @@ type TileProps = {
 	icon: ReactNode;
 	drawerOpen?: boolean;
 	handleClick?: (index: number) => void;
-	index?: number;
+	index: number;
 	setDrawerOpen?: React.Dispatch<React.SetStateAction<DrawerOpen>>;
+	showMore?: boolean;
 };
 
 function Tile({
@@ -38,6 +39,7 @@ function Tile({
 	handleClick,
 	index,
 	setDrawerOpen,
+	showMore,
 }: TileProps) {
 	const [loading, setLoading] = useState(true);
 
@@ -148,6 +150,7 @@ function Tile({
 				}
 				aria-expanded={drawerOpen}
 				aria-controls={panelId}
+				type='button'
 			>
 				<div
 					className={`${styles['icon-box']} ${
@@ -196,13 +199,14 @@ function Tile({
 			aria-label={`Details for ${title}`}
 			aria-live='polite'
 			role='button'
-			tabIndex={0}
 			onKeyDown={handleArticleKey}
+			aria-hidden={index > 5 && !showMore ? 'true' : undefined}
+			tabIndex={index > 5 && !showMore ? -1 : 0}
 		>
 			<div
 				className={`${styles['tile-content']} ${flipped ? styles.flipped : ''}`}
 			>
-				<div className={styles['tile-front']} aria-hidden={flipped}>
+				<div className={styles['tile-front']}>
 					<div className={styles['icon-box']} aria-hidden='true'>
 						{icon}
 					</div>
@@ -218,14 +222,14 @@ function Tile({
 						}}
 						className={styles.more}
 						// ensure it's not focusable when the front is hidden
-						tabIndex={flipped ? -1 : 0}
-						aria-hidden={flipped}
+						tabIndex={flipped || (index > 5 && !showMore) ? -1 : 0}
+						aria-hidden={flipped || (index > 5 && !showMore)}
 					>
 						Read More
 					</button>
 				</div>
 
-				<div className={styles['tile-back']} aria-hidden={!flipped}>
+				<div className={styles['tile-back']}>
 					<div className={styles['back-content']}>
 						<h3 className={styles.h3}>{title}</h3>
 						<div className={styles.stats}>
@@ -250,8 +254,8 @@ function Tile({
 							}}
 							className={styles.back}
 							// only tabbable when back is visible
-							tabIndex={flipped ? 0 : -1}
-							aria-hidden={!flipped}
+							tabIndex={!flipped || (index > 5 && !showMore) ? -1 : 0}
+							aria-hidden={!flipped || (index > 5 && !showMore)}
 						>
 							Back
 						</button>
