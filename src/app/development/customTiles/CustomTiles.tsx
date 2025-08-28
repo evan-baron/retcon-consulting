@@ -26,9 +26,6 @@ const CustomTiles = () => {
 
 	const [loading, setLoading] = useState(true);
 	const [showMore, setShowMore] = useState(false);
-	const [isAnimating, setIsAnimating] = useState(false);
-	const visibleReasons = ReasonTiles.slice(0, 6);
-	const hiddenReasons = ReasonTiles.slice(6);
 	const [drawerOpen, setDrawerOpen] = useState<DrawerOpen>(
 		ReasonTiles.reduce((acc, _, index) => {
 			acc[index] = false;
@@ -56,7 +53,6 @@ const CustomTiles = () => {
 
 	// refs for accessibility focus management
 	const moreButtonRef = useRef<HTMLButtonElement | null>(null);
-	const moreDrawerRef = useRef<HTMLUListElement | null>(null);
 
 	const handleClick = (index: number) => {
 		setDrawerOpen((prev) => {
@@ -69,25 +65,6 @@ const CustomTiles = () => {
 			return newState;
 		});
 	};
-
-	// When showMore opens, move focus into the expanded content; when it closes, return focus to the button.
-	// useEffect(() => {
-	// 	if (showMore) {
-	// 		// after render and (possible) animation, move focus to the first interactive element inside the drawer
-	// 		const t = setTimeout(() => {
-	// 			const container = moreDrawerRef.current;
-	// 			if (!container) return;
-	// 			const firstFocusable = container.querySelector<HTMLElement>(
-	// 				'button, a, [tabindex]:not([tabindex="-1"])'
-	// 			);
-	// 			firstFocusable?.focus();
-	// 		}, 250); // slightly after open to accommodate animation
-	// 		return () => clearTimeout(t);
-	// 	} else {
-	// 		// when closed, ensure focus returns to the toggle button
-	// 		moreButtonRef.current?.focus();
-	// 	}
-	// }, [showMore]);
 
 	if (loading) return null;
 
@@ -141,28 +118,6 @@ const CustomTiles = () => {
 				))}
 			</ul>
 
-			{/* {showMore && (
-				<div
-					className={styles.drawer}
-					aria-hidden={!showMore}
-					id='custom-tiles-drawer'
-				>
-					<ul
-						ref={moreDrawerRef}
-						className={`${showMore && styles.open} ${
-							isAnimating && styles.animate
-						}`}
-						aria-label='More reasons to choose custom'
-						role='list'
-					>
-						{hiddenReasons.map((reason, index) => (
-							<li key={index + 6}>
-								<Tile {...reason} />
-							</li>
-						))}
-					</ul>
-				</div>
-			)} */}
 			<button
 				ref={moreButtonRef}
 				className={`${styles.more} ${showMore && styles.up}`}
