@@ -54,6 +54,25 @@ const MeasureSuccess = () => {
 	const [hasAnimated, setHasAnimated] = useState(false);
 
 	useEffect(() => {
+		const checkVisibility = (
+			entry: IntersectionObserverEntry,
+			index: number
+		) => {
+			const rect = entry.boundingClientRect;
+			const inViewport =
+				rect.top < window.innerHeight &&
+				rect.bottom > 0 &&
+				rect.left < window.innerWidth &&
+				rect.right > 0;
+			if (inViewport) {
+				setDefinitionsRefsVisible((prev) =>
+					prev.map((item) =>
+						item.index === index ? { ...item, visible: true } : item
+					)
+				);
+			}
+		};
+
 		const observer = new window.IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.target === fireworksRef.current) {
@@ -99,6 +118,9 @@ const MeasureSuccess = () => {
 						);
 					}
 				}
+
+				// Double check if item is on screen
+				checkVisibility(entry, index);
 			});
 		});
 

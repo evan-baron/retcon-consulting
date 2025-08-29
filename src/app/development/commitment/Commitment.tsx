@@ -40,6 +40,25 @@ const Commitment = () => {
 	);
 
 	useEffect(() => {
+		const checkVisibility = (
+			entry: IntersectionObserverEntry,
+			index: number
+		) => {
+			const rect = entry.boundingClientRect;
+			const inViewport =
+				rect.top < window.innerHeight &&
+				rect.bottom > 0 &&
+				rect.left < window.innerWidth &&
+				rect.right > 0;
+			if (inViewport) {
+				setCommitmentRefsVisible((prev) =>
+					prev.map((item) =>
+						item.index === index ? { ...item, visible: true } : item
+					)
+				);
+			}
+		};
+
 		const observer = new window.IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				// Definitions visibility logic
@@ -68,6 +87,9 @@ const Commitment = () => {
 						);
 					}
 				}
+
+				// Double check if item is on screen
+				checkVisibility(entry, index);
 			});
 		});
 

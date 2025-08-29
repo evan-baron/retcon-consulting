@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Hooks imports
 
@@ -36,19 +36,33 @@ function Tile({
 	features,
 	tierFeatures,
 }: TileProps) {
+	const [tileVisible, setTileVisible] = useState(false);
+
 	const tileRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		if (!tileRef.current) return;
 
+		const checkVisibility = (entry: IntersectionObserverEntry) => {
+			const rect = entry.boundingClientRect;
+			const inViewport =
+				rect.top < window.innerHeight &&
+				rect.bottom > 0 &&
+				rect.left < window.innerWidth &&
+				rect.right > 0;
+			if (inViewport) {
+				setTileVisible(true);
+			}
+		};
+
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.intersectionRatio > 0) {
-					tileRef.current?.classList.add(styles.visible);
+					tileRef.current && setTileVisible(true);
 				}
 
 				if (entry.boundingClientRect.top > window.innerHeight) {
-					tileRef.current?.classList.remove(styles.visible);
+					tileRef.current && setTileVisible(false);
 
 					// Close tile when below the viewport (scrolled down)
 					if (
@@ -61,6 +75,9 @@ function Tile({
 						}));
 					}
 				}
+
+				// Confirm visibility in case observer missed it
+				checkVisibility(entry);
 			});
 		});
 
@@ -77,7 +94,9 @@ function Tile({
 
 	return (
 		<div
-			className={styles['tile-drawer']}
+			className={`${styles['tile-drawer']} ${
+				tileVisible ? styles.visible : ''
+			}`}
 			ref={tileRef}
 			aria-label={`Details for ${tier} support tier`}
 			aria-live='polite'

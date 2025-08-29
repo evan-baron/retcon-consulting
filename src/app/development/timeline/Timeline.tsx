@@ -60,56 +60,63 @@ const Timeline = () => {
 	);
 
 	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					// Change the 0 to 0.5 if you want to delay it a bit
-					if (entry.intersectionRatio > 0) {
-						const index = rowRefs.findIndex(
-							(ref) => ref.current === entry.target
-						);
-						setRowRefsVisible((prev) =>
-							prev.map((item) =>
-								item.index === index
-									? { ...item, visible: entry.isIntersecting }
-									: item
-							)
-						);
-					}
-				});
-			},
-			{ threshold: [0, 1] }
-		);
-
-		rowRefs.forEach((ref) => {
-			if (ref.current) {
-				observer.observe(ref.current);
-			}
-		});
-
-		return () => {
-			observer.disconnect();
-		};
-	}, [loading, rowRefs]);
-
-	// Resets the animations for the text boxes
-	useEffect(() => {
-		const handleScroll = () => {
-			if (!timelineRef.current) return;
-
-			const rect = timelineRef.current.getBoundingClientRect();
-
-			if (rect.top > window.innerHeight) {
-				// Timeline is below the viewport, reset visibility
+		const checkVisibility = (
+			entry: IntersectionObserverEntry,
+			index: number
+		) => {
+			const rect = entry.boundingClientRect;
+			const inViewport =
+				rect.top < window.innerHeight &&
+				rect.bottom > 0 &&
+				rect.left < window.innerWidth &&
+				rect.right > 0;
+			if (inViewport) {
 				setRowRefsVisible((prev) =>
-					prev.map((item) => ({ ...item, visible: false }))
+					prev.map((item) =>
+						item.index === index ? { ...item, visible: true } : item
+					)
 				);
 			}
 		};
 
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [rowRefsVisible, loading]);
+		const observer = new window.IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				// Definitions visibility logic
+				const index = rowRefs.findIndex((ref) => ref.current === entry.target);
+
+				if (entry.target === rowRefs[index]?.current) {
+					if (
+						entry.intersectionRatio > 0 &&
+						rowRefsVisible[index].visible === false
+					) {
+						setRowRefsVisible((prev) =>
+							prev.map((item) =>
+								item.index === index ? { ...item, visible: true } : item
+							)
+						);
+					} else if (
+						!entry.isIntersecting &&
+						entry.boundingClientRect.top > window.innerHeight
+					) {
+						setRowRefsVisible((prev) =>
+							prev.map((item) =>
+								item.index === index ? { ...item, visible: false } : item
+							)
+						);
+					}
+				}
+
+				// Double check if item is on screen
+				checkVisibility(entry, index);
+			});
+		});
+
+		rowRefs.forEach((ref) => {
+			if (ref.current) observer.observe(ref.current);
+		});
+
+		return () => observer.disconnect();
+	}, [loading, rowRefs, rowRefsVisible]);
 
 	// Allows for mobile check to run first
 	if (loading) return null;
