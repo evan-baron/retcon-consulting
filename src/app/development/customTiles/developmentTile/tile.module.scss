@@ -324,12 +324,28 @@
 			outline: none;
 		}
 
+		@media screen and (max-width: 380px) and (orientation: portrait) {
+			height: 20.5rem;
+		}
+
+		@media screen and (max-width: 360px) and (orientation: portrait) {
+			height: 21.5rem;
+		}
+
 		@media screen and (max-height: 500px) and (orientation: landscape) {
 			height: 11rem;
 		}
 
 		&.open {
 			max-height: 18rem;
+
+			@media screen and (max-width: 380px) and (orientation: portrait) {
+				max-height: 20.5rem;
+			}
+
+			@media screen and (max-width: 360px) and (orientation: portrait) {
+				max-height: 21.5rem;
+			}
 
 			@media screen and (max-height: 500px) and (orientation: landscape) {
 				max-height: 11rem;

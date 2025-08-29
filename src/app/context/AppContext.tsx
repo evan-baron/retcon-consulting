@@ -9,6 +9,9 @@ import {
 	ReactNode,
 } from 'react';
 
+// Hooks imports
+import { useMediaQuery } from '@mui/material';
+
 // Define the context value type
 interface AppContextType {
 	isTouchDevice: boolean | undefined;
@@ -16,6 +19,7 @@ interface AppContextType {
 	screenHeight: number | undefined;
 	windowHeight: number | null;
 	windowWidth: number | null;
+	isMobile: boolean | undefined;
 }
 
 // Create Context
@@ -77,6 +81,16 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		return () => mq.removeEventListener('change', handler);
 	}, []);
 
+	// the BETTER way to determine if mobile
+	const isMobileWidth = useMediaQuery(
+		'(max-width: 500px) and (orientation: portrait)'
+	);
+	const isMobileHeight = useMediaQuery(
+		'(max-height: 500px) and (orientation: landscape)'
+	);
+
+	const isMobile = isMobileWidth || isMobileHeight;
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -85,6 +99,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 				screenWidth,
 				windowHeight,
 				windowWidth,
+				isMobile,
 			}}
 		>
 			{children}

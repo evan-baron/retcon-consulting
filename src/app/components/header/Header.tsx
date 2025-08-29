@@ -16,7 +16,7 @@ import Hamburger from '../hamburger/Hamburger';
 import { useAppContext } from '@/app/context/AppContext';
 
 function Header() {
-	const { windowWidth } = useAppContext();
+	const { isMobile } = useAppContext();
 
 	// Hamburger menu state
 	const [hamburgerActive, setHamburgerActive] = useState(false);
@@ -46,8 +46,8 @@ function Header() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [hamburgerActive]);
 
-	// Delay rendering the header until windowWidth is defined
-	if (typeof windowWidth !== 'number') {
+	// Delay rendering the header until isMobile is defined
+	if (typeof isMobile !== 'boolean') {
 		return null;
 	}
 
@@ -67,7 +67,7 @@ function Header() {
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
-					{!windowWidth || windowWidth > 700 ? (
+					{!isMobile ? (
 						<>
 							<li>
 								<a href='#services'>Services</a>
