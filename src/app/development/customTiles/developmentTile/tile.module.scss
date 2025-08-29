@@ -207,6 +207,10 @@
 			.h3 {
 				height: 4rem;
 				font-size: 1.5rem !important;
+
+				@media screen and (max-width: 950px) and (orientation: portrait) {
+					font-size: 1.25rem !important;
+				}
 			}
 
 			p {
@@ -244,6 +248,10 @@
 						.stat1 {
 							font-size: 0.875rem;
 							line-height: 1.125;
+
+							@media screen and (max-width: 950px) and (orientation: portrait) {
+								font-size: 0.75rem !important;
+							}
 						}
 
 						.stat2 {
@@ -423,7 +431,7 @@
 		&.open {
 			max-height: 11rem;
 
-			@media screen and (max-width: 380px) and (orientation: portrait) {
+			@media screen and (max-width: 550px) and (orientation: portrait) {
 				max-height: 18rem;
 			}
 
