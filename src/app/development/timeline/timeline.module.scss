@@ -2,6 +2,12 @@
 	--ball-width: 10rem;
 	--icon-size: 5rem;
 
+	@media screen and (max-width: 1200px) and (orientation: portrait),
+		screen and (max-height: 1200px) and (orientation: landscape) {
+		--ball-width: 8rem;
+		--icon-size: 4rem;
+	}
+
 	@media screen and (max-width: 850px) and (orientation: portrait),
 		screen and (max-height: 850px) and (orientation: landscape) {
 		--ball-width: 6rem;
@@ -28,6 +34,11 @@
 
 		align-items: center;
 		padding: 3.5rem 0;
+
+		@media screen and (max-width: 1200px) and (orientation: portrait),
+			screen and (max-height: 1200px) and (orientation: landscape) {
+			padding-top: 5.5rem;
+		}
 
 		.row-wrapper {
 			width: 100%;
@@ -85,6 +96,11 @@
 					font-size: 1.5rem;
 					gap: 1rem;
 
+					@media screen and (max-width: 1200px) and (orientation: portrait),
+						screen and (max-height: 1200px) and (orientation: landscape) {
+						width: 40%;
+					}
+
 					h3 {
 						font-size: 2.5rem;
 						font-weight: bold;
@@ -92,6 +108,11 @@
 						text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 							0.5rem 0.5rem 3rem black;
 						white-space: pre-line;
+
+						@media screen and (max-width: 1200px) and (orientation: portrait),
+							screen and (max-height: 1200px) and (orientation: landscape) {
+							font-size: 1.75rem;
+						}
 					}
 
 					p {
@@ -99,6 +120,11 @@
 						text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 							0.5rem 0.5rem 3rem black;
 						line-height: 1.25;
+
+						@media screen and (max-width: 1200px) and (orientation: portrait),
+							screen and (max-height: 1200px) and (orientation: landscape) {
+							font-size: 1.25rem;
+						}
 					}
 				}
 
@@ -111,6 +137,11 @@
 					&.visible {
 						transform: translateX(-70%);
 						opacity: 1;
+
+						@media screen and (max-width: 1200px) and (orientation: portrait),
+							screen and (max-height: 1200px) and (orientation: landscape) {
+							transform: translateX(-80%);
+						}
 					}
 				}
 
@@ -122,6 +153,11 @@
 					&.visible {
 						transform: translateX(70%);
 						opacity: 1;
+
+						@media screen and (max-width: 1200px) and (orientation: portrait),
+							screen and (max-height: 1200px) and (orientation: landscape) {
+							transform: translateX(80%);
+						}
 					}
 				}
 			}

@@ -199,7 +199,8 @@
 		}
 	}
 
-	@media screen and (max-height: 850px) and (orientation: landscape) {
+	@media screen and (max-width: 1200px) and (orientation: portrait),
+		screen and (max-height: 1200px) and (orientation: landscape) {
 		height: 24rem;
 
 		.tile-content {
@@ -215,6 +216,10 @@
 			.tile-front,
 			.tile-back {
 				padding: 1rem;
+
+				@media screen and (max-height: 1200px) and (orientation: landscape) {
+					padding: 1.25rem 1.75rem;
+				}
 			}
 
 			.tile-front {

@@ -22,7 +22,7 @@
 	h2 {
 		font-size: 5rem;
 
-		@media screen and (max-width: 850px) and (orientation: portrait),
+		@media screen and (max-width: 1200px) and (orientation: portrait),
 			screen and (max-height: 850px) and (orientation: landscape) {
 			font-size: 4rem;
 		}
@@ -162,12 +162,13 @@
 	.custom {
 		gap: 0;
 
-		@media screen and (max-width: 850px) and (orientation: portrait) {
-			gap: 3rem !important;
+		@media screen and (max-width: 1200px) and (orientation: portrait),
+			screen and (max-height: 800px) and (orientation: landscape) {
+			padding: 0 3rem;
 		}
 
-		@media screen and (max-height: 800px) and (orientation: landscape) {
-			padding: 0 3rem;
+		@media screen and (max-width: 850px) and (orientation: portrait) {
+			gap: 3rem !important;
 		}
 
 		@media screen and (max-height: 550px) and (orientation: landscape) {
