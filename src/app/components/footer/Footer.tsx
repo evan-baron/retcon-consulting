@@ -15,12 +15,12 @@ import { useAppContext } from '@/app/context/AppContext';
 import { LinkedIn, Instagram, Facebook } from '@mui/icons-material';
 
 function Footer() {
-	const { windowWidth } = useAppContext();
+	const { isMobileWidth } = useAppContext();
 	const pathname = usePathname();
 
 	return (
 		<div className={styles['footer-wrapper']}>
-			{(!windowWidth || windowWidth <= 500) &&
+			{isMobileWidth &&
 				(pathname === '/' ? (
 					<Link href='/' className={styles['to-top']}>
 						&uarr; To the top &uarr;
@@ -40,8 +40,7 @@ function Footer() {
 						<span>&copy; {new Date().getFullYear()} Retcon Consulting.</span>{' '}
 						<span>All rights reserved.</span>
 					</div>
-					{windowWidth &&
-						windowWidth > 500 &&
+					{!isMobileWidth &&
 						(pathname === '/' ? (
 							<Link href='/' className={styles['to-top']}>
 								&uarr; To the top &uarr;

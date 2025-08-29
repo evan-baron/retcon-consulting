@@ -15,11 +15,8 @@ import { useMediaQuery } from '@mui/material';
 // Define the context value type
 interface AppContextType {
 	isTouchDevice: boolean | undefined;
-	screenWidth: number | undefined;
-	screenHeight: number | undefined;
-	windowHeight: number | null;
-	windowWidth: number | null;
 	isMobile: boolean | undefined;
+	isMobileWidth: boolean | undefined;
 }
 
 // Create Context
@@ -35,40 +32,6 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 	const [isTouchDevice, setIsTouchDevice] = useState<boolean | undefined>(
 		undefined
 	);
-	const [screenWidth, setScreenWidth] = useState<number | undefined>(undefined);
-	const [screenHeight, setScreenHeight] = useState<number | undefined>(
-		undefined
-	);
-	const [windowHeight, setWindowHeight] = useState<number | null>(null);
-	const [windowWidth, setWindowWidth] = useState<number | null>(null);
-
-	// Set screenWidth and screenHeight on page load
-	useEffect(() => {
-		setScreenHeight(screen.height);
-		setScreenWidth(screen.width);
-		setWindowHeight(window.innerHeight);
-		setWindowWidth(window.innerWidth);
-	}, []);
-
-	// Set screenWidth and screenHeight on resize
-	useEffect(() => {
-		if (typeof window === 'undefined') return;
-
-		const handleResize = () => {
-			setScreenHeight(screen.height);
-			setScreenWidth(screen.width);
-			setWindowHeight(window.innerHeight);
-			setWindowWidth(window.innerWidth);
-		};
-
-		window.addEventListener('resize', handleResize);
-		window.addEventListener('orientationchange', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('orientationchange', handleResize);
-		};
-	}, []);
 
 	// Determine if touch device or not
 	useEffect(() => {
@@ -81,7 +44,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		return () => mq.removeEventListener('change', handler);
 	}, []);
 
-	// the BETTER way to determine if mobile
+	// Screen Dimensions + is it Mobile or not
 	const isMobileWidth = useMediaQuery(
 		'(max-width: 500px) and (orientation: portrait)'
 	);
@@ -95,11 +58,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		<AppContext.Provider
 			value={{
 				isTouchDevice,
-				screenHeight,
-				screenWidth,
-				windowHeight,
-				windowWidth,
 				isMobile,
+				isMobileWidth,
 			}}
 		>
 			{children}
