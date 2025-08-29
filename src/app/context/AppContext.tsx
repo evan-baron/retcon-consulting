@@ -17,6 +17,7 @@ interface AppContextType {
 	isTouchDevice: boolean | undefined;
 	isMobile: boolean | undefined;
 	isMobileWidth: boolean | undefined;
+	isSmallTablet: boolean | undefined;
 	isTablet: boolean | undefined;
 	isTabletWidth: boolean | undefined;
 }
@@ -60,10 +61,14 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		'(max-height: 550px) and (orientation: landscape)'
 	);
 	const rawTabletWidth = useMediaQuery(
-		'(max-width: 820px) and (orientation: portrait)'
+		'(max-width: 850px) and (orientation: portrait)'
 	);
 	const rawTabletHeight = useMediaQuery(
-		'(max-height: 820px) and (orientation: landscape)'
+		'(max-height: 850px) and (orientation: landscape)'
+	);
+
+	const rawSmallTablet = useMediaQuery(
+		'(max-height: 850px) and (max-width: 850px)'
 	);
 
 	const isMobileWidth = hydrated ? rawMobileWidth : undefined;
@@ -72,6 +77,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 	const isTabletHeight = hydrated ? rawTabletHeight : undefined;
 
 	const isMobile = isMobileWidth || isMobileHeight;
+	const isSmallTablet = hydrated ? rawSmallTablet : undefined;
 	const isTablet = isTabletWidth || isTabletHeight;
 
 	return (
@@ -82,6 +88,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 				isMobileWidth,
 				isTablet,
 				isTabletWidth,
+				isSmallTablet,
 			}}
 		>
 			{children}

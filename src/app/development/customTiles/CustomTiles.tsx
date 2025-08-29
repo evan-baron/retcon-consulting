@@ -21,7 +21,11 @@ import { useAppContext } from '@/app/context/AppContext';
 import { ReasonTiles } from '@/lib/data/why-custom';
 
 const CustomTiles = () => {
-	const { isMobile, isTabletWidth } = useAppContext();
+	const { isMobile, isSmallTablet, isTabletWidth } = useAppContext();
+
+	const edgeCaseSize = useMediaQuery(
+		'(max-width: 860px) and (min-height: 1200px) and (orientation: portrait)'
+	);
 
 	interface DrawerOpen {
 		[index: number]: boolean;
@@ -59,7 +63,7 @@ const CustomTiles = () => {
 
 	if (loading) return null;
 
-	return isMobile || isTabletWidth ? (
+	return isMobile || isSmallTablet || isTabletWidth || edgeCaseSize ? (
 		<ul
 			className={styles['drawer-wrapper']}
 			role='list'

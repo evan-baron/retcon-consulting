@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 
 // Hooks imports
+import { useMediaQuery } from '@mui/material';
 
 // Styles imports
 import styles from './tile.module.scss';
@@ -43,7 +44,11 @@ function Tile({
 	setDrawerOpen,
 	showMore,
 }: TileProps) {
-	const { isMobile, isTabletWidth } = useAppContext();
+	const { isMobile, isSmallTablet, isTabletWidth } = useAppContext();
+
+	const edgeCaseSize = useMediaQuery(
+		'(max-width: 860px) and (min-height: 1200px) and (orientation: portrait)'
+	);
 
 	const [loading, setLoading] = useState(true);
 	const [tileVisible, setTileVisible] = useState(false);
@@ -114,11 +119,12 @@ function Tile({
 	useEffect(() => {
 		if (
 			(isMobile && drawerOpen && contentRef.current) ||
+			(isSmallTablet && drawerOpen && contentRef.current) ||
 			(isTabletWidth && drawerOpen && contentRef.current)
 		) {
 			contentRef.current.focus();
 		}
-	}, [isMobile, isTabletWidth, drawerOpen]);
+	}, [isMobile, isSmallTablet, isTabletWidth, drawerOpen]);
 
 	if (loading) return null;
 
@@ -144,7 +150,7 @@ function Tile({
 		}
 	};
 
-	return isMobile || isTabletWidth ? (
+	return isMobile || isSmallTablet || isTabletWidth || edgeCaseSize ? (
 		<div
 			className={`${styles['tile-drawer']} ${
 				tileVisible ? styles.visible : ''

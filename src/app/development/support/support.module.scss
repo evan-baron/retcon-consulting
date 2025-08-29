@@ -63,7 +63,7 @@
 			thead {
 				font-size: 1.5rem;
 
-				@media screen and (max-height: 550px) and (orientation: landscape) {
+				@media screen and (max-height: 800px) and (orientation: landscape) {
 					font-size: 1.25rem;
 				}
 			}
@@ -76,14 +76,14 @@
 				align-content: center;
 				color: var(--gray1);
 
-				@media screen and (max-height: 550px) and (orientation: landscape) {
+				@media screen and (max-height: 800px) and (orientation: landscape) {
 					height: 3rem;
 				}
 
 				&:first-child {
 					width: 30%;
 
-					@media screen and (max-height: 550px) and (orientation: landscape) {
+					@media screen and (max-height: 800px) and (orientation: landscape) {
 						width: 35%;
 					}
 				}
@@ -92,7 +92,11 @@
 			tbody {
 				tr {
 					th {
-						@media screen and (max-height: 550px) and (orientation: landscape) {
+						@media screen and (max-height: 800px) and (orientation: landscape) {
+							font-size: 1rem;
+						}
+
+						@media screen and (max-height: 700px) and (orientation: landscape) {
 							font-size: 0.875rem;
 						}
 					}
@@ -109,7 +113,7 @@
 						.icon {
 							font-size: 2.25rem;
 
-							@media screen and (max-height: 550px) and (orientation: landscape) {
+							@media screen and (max-height: 800px) and (orientation: landscape) {
 								font-size: 1.75rem;
 							}
 						}
@@ -137,8 +141,37 @@
 		.description {
 			color: var(--gray1);
 
+			@media screen and (max-height: 800px) and (orientation: landscape) {
+				line-height: 0.75;
+
+				.asterisk {
+					font-size: 0.75rem;
+					transform: translateY(-0.125rem);
+
+					@media screen and (max-height: 700px) and (orientation: landscape) {
+						transform: translateY(0.125rem) !important;
+					}
+
+					@media screen and (min-width: 1000px) and (max-height: 800px) and (orientation: landscape) {
+						transform: translateY(0) !important;
+					}
+				}
+			}
+
 			.note {
 				margin-left: 1ch;
+
+				@media screen and (max-height: 800px) and (orientation: landscape) {
+					font-size: 0.75rem;
+				}
+
+				@media screen and (max-height: 700px) and (orientation: landscape) {
+					font-size: 0.6125rem;
+				}
+
+				@media screen and (min-width: 1000px) and (max-height: 800px) and (orientation: landscape) {
+					font-size: 0.75rem;
+				}
 			}
 		}
 	}
@@ -146,6 +179,7 @@
 	@media screen and (max-width: 550px) and (orientation: portrait),
 		screen and (max-height: 550px) and (orientation: landscape) {
 		gap: 2rem;
+
 		.intro,
 		.closing {
 			font-size: 1rem;
@@ -184,14 +218,12 @@
 			line-height: 0.75;
 
 			.asterisk {
-				font-size: 0.6125rem;
-				transform: translateY(0.125rem);
+				font-size: 0.6125rem !important;
+				transform: translateY(0.125rem) !important;
 			}
 
 			.note {
-				font-size: 0.6125rem;
-				margin-left: 1ch;
-				line-height: 0 !important;
+				font-size: 0.6125rem !important;
 			}
 		}
 	}
