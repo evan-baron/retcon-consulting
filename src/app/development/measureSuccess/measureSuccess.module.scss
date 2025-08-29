@@ -336,6 +336,20 @@
 						}
 					}
 				}
+
+				@media screen and (max-height: 400px) and (orientation: landscape) {
+					.score-box {
+						.score {
+							height: 8rem;
+							border-width: 0.375rem;
+							font-size: 2.5rem;
+						}
+
+						.label {
+							font-size: 1.5rem;
+						}
+					}
+				}
 			}
 		}
 
@@ -344,7 +358,7 @@
 
 			.intro {
 				width: 90%;
-				font-size: 1.25rem;
+				font-size: 1.125rem;
 			}
 
 			.definition {

@@ -79,6 +79,10 @@
 			font-size: 1.125rem;
 		}
 
+		@media screen and (max-height: 400px) and (orientation: landscape) {
+			font-size: 1rem;
+		}
+
 		span {
 			font-weight: bold;
 			color: var(--gray1);
