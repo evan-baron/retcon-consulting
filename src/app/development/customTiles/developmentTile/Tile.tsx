@@ -4,13 +4,15 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 
 // Hooks imports
-import { useMediaQuery } from '@mui/material';
 
 // Styles imports
 import styles from './tile.module.scss';
 
 // MUI Icons
 import { Leaderboard } from '@mui/icons-material';
+
+// Context
+import { useAppContext } from '@/app/context/AppContext';
 
 interface DrawerOpen {
 	[index: number]: boolean;
@@ -41,26 +43,16 @@ function Tile({
 	setDrawerOpen,
 	showMore,
 }: TileProps) {
+	const { isMobile, isTabletWidth } = useAppContext();
+
 	const [loading, setLoading] = useState(true);
 	const [tileVisible, setTileVisible] = useState(false);
 
-	const isMobileWidth = useMediaQuery(
-		'(max-width: 550px) and (orientation: portrait)'
-	);
-	const isMobileHeight = useMediaQuery(
-		'(max-height: 550px) and (orientation: landscape)'
-	);
-
 	useEffect(() => {
-		if (
-			typeof isMobileWidth === 'boolean' &&
-			typeof isMobileHeight === 'boolean'
-		) {
+		if (typeof isMobile === 'boolean') {
 			setLoading(false);
 		}
-	}, [isMobileWidth, isMobileHeight]);
-
-	const isMobile = isMobileWidth || isMobileHeight;
+	}, [isMobile]);
 
 	const [flipped, setFlipped] = useState(false);
 
@@ -120,10 +112,13 @@ function Tile({
 
 	// focus panel when it opens on mobile for screen reader users
 	useEffect(() => {
-		if (isMobile && drawerOpen && contentRef.current) {
+		if (
+			(isMobile && drawerOpen && contentRef.current) ||
+			(isTabletWidth && drawerOpen && contentRef.current)
+		) {
 			contentRef.current.focus();
 		}
-	}, [isMobile, drawerOpen]);
+	}, [isMobile, isTabletWidth, drawerOpen]);
 
 	if (loading) return null;
 
@@ -149,7 +144,7 @@ function Tile({
 		}
 	};
 
-	return isMobile ? (
+	return isMobile || isTabletWidth ? (
 		<div
 			className={`${styles['tile-drawer']} ${
 				tileVisible ? styles.visible : ''

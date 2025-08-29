@@ -15,11 +15,14 @@ import styles from './customTiles.module.scss';
 import Tile from './developmentTile/Tile';
 
 // Context imports
+import { useAppContext } from '@/app/context/AppContext';
 
 // Data imports
 import { ReasonTiles } from '@/lib/data/why-custom';
 
 const CustomTiles = () => {
+	const { isMobile, isTabletWidth } = useAppContext();
+
 	interface DrawerOpen {
 		[index: number]: boolean;
 	}
@@ -33,23 +36,11 @@ const CustomTiles = () => {
 		}, {} as DrawerOpen)
 	);
 
-	const isMobileWidth = useMediaQuery(
-		'(max-width: 550px) and (orientation: portrait)'
-	);
-	const isMobileHeight = useMediaQuery(
-		'(max-height: 550px) and (orientation: landscape)'
-	);
-
 	useEffect(() => {
-		if (
-			typeof isMobileWidth === 'boolean' &&
-			typeof isMobileHeight === 'boolean'
-		) {
+		if (typeof isMobile === 'boolean') {
 			setLoading(false);
 		}
-	}, [isMobileWidth, isMobileHeight]);
-
-	const isMobile = isMobileWidth || isMobileHeight;
+	}, [isMobile]);
 
 	// refs for accessibility focus management
 	const moreButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -68,7 +59,7 @@ const CustomTiles = () => {
 
 	if (loading) return null;
 
-	return isMobile ? (
+	return isMobile || isTabletWidth ? (
 		<ul
 			className={styles['drawer-wrapper']}
 			role='list'

@@ -16,7 +16,7 @@ import Hamburger from '../hamburger/Hamburger';
 import { useAppContext } from '@/app/context/AppContext';
 
 function Header() {
-	const { isMobile } = useAppContext();
+	const { isMobile, isTablet } = useAppContext();
 
 	// Hamburger menu state
 	const [hamburgerActive, setHamburgerActive] = useState(false);
@@ -67,7 +67,7 @@ function Header() {
 					{/* <li>
 						<a href='#about'>About</a>
 					</li> */}
-					{!isMobile ? (
+					{!isMobile && !isTablet ? (
 						<>
 							<li>
 								<a href='#services'>Services</a>

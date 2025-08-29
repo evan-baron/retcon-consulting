@@ -35,6 +35,14 @@
 	--background: hsl(0, 0%, 5%);
 
 	--hue: 0deg;
+
+	/* Font Sizes */
+	--descriptor: 1.5rem;
+
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
+		--descriptor: 1.125rem;
+	}
 }
 
 /* IBM Plex Mono Regular */

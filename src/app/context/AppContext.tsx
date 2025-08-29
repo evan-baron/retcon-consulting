@@ -17,6 +17,8 @@ interface AppContextType {
 	isTouchDevice: boolean | undefined;
 	isMobile: boolean | undefined;
 	isMobileWidth: boolean | undefined;
+	isTablet: boolean | undefined;
+	isTabletWidth: boolean | undefined;
 }
 
 // Create Context
@@ -44,15 +46,33 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		return () => mq.removeEventListener('change', handler);
 	}, []);
 
-	// Screen Dimensions + is it Mobile or not
-	const isMobileWidth = useMediaQuery(
+	const [hydrated, setHydrated] = useState(false);
+
+	useEffect(() => {
+		setHydrated(true);
+	}, []);
+
+	// Screen Dimensions + is it Mobile, Tablet, or not
+	const rawMobileWidth = useMediaQuery(
 		'(max-width: 550px) and (orientation: portrait)'
 	);
-	const isMobileHeight = useMediaQuery(
+	const rawMobileHeight = useMediaQuery(
 		'(max-height: 550px) and (orientation: landscape)'
 	);
+	const rawTabletWidth = useMediaQuery(
+		'(max-width: 820px) and (orientation: portrait)'
+	);
+	const rawTabletHeight = useMediaQuery(
+		'(max-height: 820px) and (orientation: landscape)'
+	);
+
+	const isMobileWidth = hydrated ? rawMobileWidth : undefined;
+	const isMobileHeight = hydrated ? rawMobileHeight : undefined;
+	const isTabletWidth = hydrated ? rawTabletWidth : undefined;
+	const isTabletHeight = hydrated ? rawTabletHeight : undefined;
 
 	const isMobile = isMobileWidth || isMobileHeight;
+	const isTablet = isTabletWidth || isTabletHeight;
 
 	return (
 		<AppContext.Provider
@@ -60,6 +80,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 				isTouchDevice,
 				isMobile,
 				isMobileWidth,
+				isTablet,
+				isTabletWidth,
 			}}
 		>
 			{children}

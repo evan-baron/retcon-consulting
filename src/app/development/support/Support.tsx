@@ -16,6 +16,7 @@ import { Check, Close } from '@mui/icons-material';
 import Tile from './drawerTile/Tile';
 
 // Context imports
+import { useAppContext } from '@/app/context/AppContext';
 
 // Support Data
 const supportTiers = [
@@ -58,26 +59,18 @@ const tierFeatures = [
 ];
 
 const Support = () => {
+	const { isMobileWidth } = useAppContext();
 	interface DrawerOpen {
 		[index: number]: boolean;
 	}
 
 	const [loading, setLoading] = useState(true);
-	const isMobileWidth = useMediaQuery(
-		'(max-width: 550px) and (orientation: portrait)'
-	);
-	const isMobileHeight = useMediaQuery(
-		'(max-height: 550px) and (orientation: landscape)'
-	);
 
 	useEffect(() => {
-		if (
-			typeof isMobileWidth === 'boolean' &&
-			typeof isMobileHeight === 'boolean'
-		) {
+		if (typeof isMobileWidth === 'boolean') {
 			setLoading(false);
 		}
-	}, [isMobileWidth, isMobileHeight]);
+	}, [isMobileWidth]);
 
 	const [hoveredTier, setHoveredTier] = useState<number | null>(null);
 	const [drawerOpen, setDrawerOpen] = useState<DrawerOpen>(

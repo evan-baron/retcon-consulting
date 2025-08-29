@@ -29,6 +29,17 @@
 	@media (min-width: 1400px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
+	@media screen and (max-height: 850px) and (orientation: landscape) {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		padding: 3rem 0;
+		max-height: 54rem;
+
+		&.open {
+			max-height: 80rem;
+		}
+	}
 }
 
 @keyframes drawerIn {

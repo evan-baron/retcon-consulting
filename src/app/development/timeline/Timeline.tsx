@@ -12,6 +12,7 @@ import styles from './timeline.module.scss';
 // Components imports
 
 // Context imports
+import { useAppContext } from '@/app/context/AppContext';
 
 // Data imports
 import { DevelopmentStats } from '@/lib/data/development-stats';
@@ -22,28 +23,17 @@ interface RowRefs {
 }
 
 const Timeline = () => {
+	const { isMobile, isTablet } = useAppContext();
 	const [loading, setLoading] = useState(true);
-
-	const isMobileWidth = useMediaQuery(
-		'(max-width: 550px) and (orientation: portrait)'
-	);
-	const isMobileHeight = useMediaQuery(
-		'(max-height: 550px) and (orientation: landscape)'
-	);
 
 	// Respect reduces-motion preference for accessibility
 	const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
 	useEffect(() => {
-		if (
-			typeof isMobileWidth === 'boolean' &&
-			typeof isMobileHeight === 'boolean'
-		) {
+		if (typeof isMobile === 'boolean') {
 			setLoading(false);
 		}
-	}, [isMobileWidth, isMobileHeight]);
-
-	const isMobile = isMobileWidth || isMobileHeight;
+	}, [isMobile]);
 
 	const timelineRef = useRef<HTMLDivElement | null>(null);
 
@@ -127,7 +117,7 @@ const Timeline = () => {
 			ref={timelineRef}
 			aria-label='Project Timeline'
 		>
-			{!isMobile ? (
+			{!isMobile && !isTablet ? (
 				<ol className={styles['timeline-list']} role='list'>
 					{DevelopmentStats.map((stat, index) => {
 						const visible = rowRefsVisible[index]?.visible ?? false;

@@ -260,7 +260,7 @@ const MeasureSuccess = () => {
 					</dd>
 				</dl>
 				<p
-					className={`${styles.summary} ${
+					className={`${styles.summary} ${'descriptor'} ${
 						definitionsRefsVisible[6].visible ? styles.visible : ''
 					}`}
 					ref={summaryRef}
