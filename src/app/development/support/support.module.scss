@@ -63,7 +63,7 @@
 			thead {
 				font-size: 1.5rem;
 
-				@media screen and (max-height: 500px) and (orientation: landscape) {
+				@media screen and (max-height: 550px) and (orientation: landscape) {
 					font-size: 1.25rem;
 				}
 			}
@@ -76,14 +76,14 @@
 				align-content: center;
 				color: var(--gray1);
 
-				@media screen and (max-height: 500px) and (orientation: landscape) {
+				@media screen and (max-height: 550px) and (orientation: landscape) {
 					height: 3rem;
 				}
 
 				&:first-child {
 					width: 30%;
 
-					@media screen and (max-height: 500px) and (orientation: landscape) {
+					@media screen and (max-height: 550px) and (orientation: landscape) {
 						width: 35%;
 					}
 				}
@@ -92,7 +92,7 @@
 			tbody {
 				tr {
 					th {
-						@media screen and (max-height: 500px) and (orientation: landscape) {
+						@media screen and (max-height: 550px) and (orientation: landscape) {
 							font-size: 0.875rem;
 						}
 					}
@@ -109,7 +109,7 @@
 						.icon {
 							font-size: 2.25rem;
 
-							@media screen and (max-height: 500px) and (orientation: landscape) {
+							@media screen and (max-height: 550px) and (orientation: landscape) {
 								font-size: 1.75rem;
 							}
 						}
@@ -143,15 +143,15 @@
 		}
 	}
 
-	@media screen and (max-width: 500px) and (orientation: portrait),
-		screen and (max-height: 500px) and (orientation: landscape) {
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
 		gap: 2rem;
 		.intro,
 		.closing {
 			font-size: 1rem;
 			text-align: center;
 
-			@media screen and (max-height: 500px) and (orientation: landscape) {
+			@media screen and (max-height: 550px) and (orientation: landscape) {
 				font-size: 1.125rem;
 			}
 		}
@@ -162,7 +162,7 @@
 			h3 {
 				font-size: 1.25rem;
 
-				@media screen and (max-height: 500px) and (orientation: landscape) {
+				@media screen and (max-height: 550px) and (orientation: landscape) {
 					font-size: 1.5rem;
 				}
 			}

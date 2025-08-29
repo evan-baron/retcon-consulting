@@ -150,8 +150,8 @@
 					5s position linear infinite backwards;
 			}
 
-			@media screen and (max-width: 500px) and (orientation: portrait),
-				screen and (max-height: 500px) and (orientation: landscape) {
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				.before,
 				.after {
 					width: 5px;
@@ -296,8 +296,8 @@
 		}
 	}
 
-	@media screen and (max-width: 500px) and (orientation: portrait),
-		screen and (max-height: 500px) and (orientation: landscape) {
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
 		gap: 1rem;
 		margin-bottom: 2rem;
 
@@ -321,7 +321,7 @@
 					}
 				}
 
-				@media screen and (max-height: 500px) and (orientation: landscape) {
+				@media screen and (max-height: 550px) and (orientation: landscape) {
 					gap: 1.5rem;
 
 					.score-box {

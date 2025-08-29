@@ -64,10 +64,10 @@ const Support = () => {
 
 	const [loading, setLoading] = useState(true);
 	const isMobileWidth = useMediaQuery(
-		'(max-width: 500px) and (orientation: portrait)'
+		'(max-width: 550px) and (orientation: portrait)'
 	);
 	const isMobileHeight = useMediaQuery(
-		'(max-height: 500px) and (orientation: landscape)'
+		'(max-height: 550px) and (orientation: landscape)'
 	);
 
 	useEffect(() => {

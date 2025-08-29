@@ -2,15 +2,15 @@
 	--ball-width: 10rem;
 	--icon-size: 5rem;
 
-	@media screen and (max-width: 500px) and (orientation: portrait),
-		screen and (max-height: 500px) and (orientation: landscape) {
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
 		--ball-width: 4rem;
 		--icon-size: 2rem;
 	}
 
 	width: 100%;
 
-	@media screen and (max-height: 500px) and (orientation: landscape) {
+	@media screen and (max-height: 550px) and (orientation: landscape) {
 		width: 80%;
 	}
 
@@ -129,8 +129,8 @@
 		}
 	}
 
-	@media screen and (max-width: 500px) and (orientation: portrait),
-		screen and (max-height: 500px) and (orientation: landscape) {
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
 		.timeline-list {
 			display: block;
 			position: relative;

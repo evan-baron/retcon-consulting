@@ -26,21 +26,21 @@
 	h1 {
 		text-align: center;
 
-		@media screen and (max-width: 500px) and (orientation: portrait) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			font-size: 2.5rem;
 		}
 
-		@media screen and (max-height: 500px) and (orientation: landscape) {
+		@media screen and (max-height: 550px) and (orientation: landscape) {
 			font-size: 2.5rem;
 		}
 	}
 
 	h2 {
-		@media screen and (max-width: 500px) and (orientation: portrait) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			font-size: 2rem;
 		}
 
-		@media screen and (max-height: 500px) and (orientation: landscape) {
+		@media screen and (max-height: 550px) and (orientation: landscape) {
 			font-size: 2.5rem;
 		}
 	}
@@ -55,11 +55,11 @@
 		gap: 3rem;
 		padding: 0 10%;
 
-		@media screen and (max-width: 500px) and (orientation: portrait) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			padding: 0 1rem;
 		}
 
-		@media screen and (max-height: 500px) and (orientation: landscape) {
+		@media screen and (max-height: 550px) and (orientation: landscape) {
 			gap: 2rem;
 		}
 	}
@@ -73,10 +73,14 @@
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 			0.5rem 0.5rem 3rem black;
 
+		@media screen and (max-width: 550px) and (orientation: portrait),
+			screen and (max-height: 550px) and (orientation: landscape) {
+			font-size: 1.125rem;
+		}
+
 		@media screen and (max-width: 500px) and (orientation: portrait),
 			screen and (max-height: 500px) and (orientation: landscape) {
 			width: 100%;
-			font-size: 1.125rem;
 		}
 
 		@media screen and (max-height: 400px) and (orientation: landscape) {
@@ -103,12 +107,12 @@
 		padding: 0 10%;
 		gap: 3rem;
 
-		@media screen and (max-width: 500px) and (orientation: portrait) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			padding: 0 1rem;
 			gap: 1rem;
 		}
 
-		@media screen and (max-height: 500px) and (orientation: landscape) {
+		@media screen and (max-height: 550px) and (orientation: landscape) {
 			gap: 2rem;
 		}
 
@@ -116,8 +120,8 @@
 			text-align: center;
 			margin-top: 6rem;
 
-			@media screen and (max-width: 500px) and (orientation: portrait),
-				screen and (max-height: 500px) and (orientation: landscape) {
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				margin-top: 0 !important;
 			}
 		}
@@ -140,8 +144,8 @@
 
 	.custom {
 		gap: 0;
-		@media screen and (max-width: 500px) and (orientation: portrait),
-			screen and (max-height: 500px) and (orientation: landscape) {
+		@media screen and (max-width: 550px) and (orientation: portrait),
+			screen and (max-height: 550px) and (orientation: landscape) {
 			gap: 1rem !important;
 		}
 	}
