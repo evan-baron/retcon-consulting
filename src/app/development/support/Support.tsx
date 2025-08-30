@@ -197,7 +197,7 @@ const Support = () => {
 				className={`${styles.tiersTable} ${
 					supportRefsVisible[1].visible ? styles.visible : ''
 				}`}
-				role={isMobileWidth ? 'drawer' : ''}
+				role={isMobileWidth ? 'region' : ''}
 				aria-labelledby='support-table-heading'
 				ref={supportRefs[1]}
 			>
