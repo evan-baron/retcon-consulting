@@ -2,6 +2,8 @@
 	--ball-width: 10rem;
 	--icon-size: 5rem;
 
+	width: 100%;
+
 	@media screen and (max-width: 1200px) and (orientation: portrait),
 		screen and (max-height: 1200px) and (orientation: landscape) {
 		--ball-width: 8rem;
@@ -19,8 +21,6 @@
 		--ball-width: 4rem;
 		--icon-size: 2rem;
 	}
-
-	width: 100%;
 
 	@media screen and (max-height: 550px) and (orientation: landscape) {
 		width: 80%;

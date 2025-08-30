@@ -79,9 +79,9 @@ function Tile({
 			}
 		};
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(
-				(entry) => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
 					if (entry.intersectionRatio > 0) {
 						tileRef.current && setTileVisible(true);
 					}
@@ -103,10 +103,10 @@ function Tile({
 
 					// Confirm visibility in case observer missed it
 					checkVisibility(entry);
-				},
-				{ threshold: [0] }
-			);
-		});
+				});
+			},
+			{ threshold: [0] }
+		);
 
 		observer.observe(tileRef.current);
 
