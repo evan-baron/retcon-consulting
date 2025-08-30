@@ -58,11 +58,11 @@ function Tile({
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.intersectionRatio > 0) {
-					tileRef.current && setTileVisible(true);
+					if (tileRef.current) setTileVisible(true);
 				}
 
 				if (entry.boundingClientRect.top > window.innerHeight) {
-					tileRef.current && setTileVisible(false);
+					if (tileRef.current) setTileVisible(false);
 
 					// Close tile when below the viewport (scrolled down)
 					if (

@@ -4,7 +4,6 @@
 import React, { useState, useEffect, useMemo, createRef } from 'react';
 
 // Hooks imports
-import { useMediaQuery } from '@mui/material';
 
 // Styles imports
 import styles from './support.module.scss';
