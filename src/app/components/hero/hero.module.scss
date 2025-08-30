@@ -1,22 +1,3 @@
-/* Fredericka the Great Regular */
-@font-face {
-	font-family: 'Fredericka the Great';
-	src: url('/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf')
-		format('truetype');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-/* Roboto Regular */
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
-	font-weight: 400, 500, 600, 700;
-	font-style: normal;
-	font-display: swap;
-}
-
 .hero {
 	position: relative;
 	display: flex;
@@ -28,7 +9,7 @@
 
 	user-select: none;
 
-	@media screen and (max-width: 550px) and (orientation: portrait) {
+	@media screen and (max-width: 500px) and (orientation: portrait) {
 		height: calc(100vh - 4rem);
 	}
 
@@ -54,7 +35,7 @@
 			width: 80%;
 		}
 
-		@media screen and (max-width: 550px) {
+		@media screen and (max-width: 500px) {
 			top: 0;
 			height: 100%;
 		}
@@ -91,7 +72,7 @@
 				top: 40%;
 			}
 
-			@media screen and (max-width: 550px) {
+			@media screen and (max-width: 500px) {
 				position: absolute;
 				right: 0;
 				top: 40%;
@@ -107,7 +88,7 @@
 				font-size: 5rem;
 				white-space: nowrap;
 
-				@media screen and (max-width: 550px) {
+				@media screen and (max-width: 500px) {
 					font-size: 3rem;
 					white-space: normal;
 				}
@@ -121,16 +102,16 @@
 				0.5rem 0.5rem 3rem black;
 			color: var(--main-gray);
 
-			@media screen and (max-width: 550px) {
+			@media screen and (max-width: 500px) {
 				margin-bottom: 1rem;
 			}
 
 			.h2 {
-				font-family: 'Fredericka the Great';
+				font-family: var(--font-fredericka-the-great);
 				font-size: 4.5rem;
 				font-weight: 400;
 
-				@media screen and (max-width: 550px) {
+				@media screen and (max-width: 500px) {
 					font-size: 2.5rem;
 				}
 			}
@@ -138,9 +119,9 @@
 			.h3 {
 				font-size: 2rem;
 				font-weight: 500;
-				font-family: 'Roboto';
+				font-family: var(--font-roboto);
 
-				@media screen and (max-width: 550px) {
+				@media screen and (max-width: 500px) {
 					font-size: 1.25rem;
 				}
 			}
@@ -148,10 +129,10 @@
 			.p {
 				margin-left: 1ch;
 				font-size: 1.5rem;
-				font-family: 'Roboto';
+				font-family: var(--font-roboto);
 				text-wrap: pretty;
 
-				@media screen and (max-width: 550px) {
+				@media screen and (max-width: 500px) {
 					font-size: 1.125rem;
 				}
 			}
