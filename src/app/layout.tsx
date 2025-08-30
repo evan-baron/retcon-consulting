@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-// import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
+import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
 import './reset.css';
 import './globals.scss';
 
@@ -11,23 +11,23 @@ import Footer from './components/footer/Footer';
 // Context
 import { ContextProvider } from './context/AppContext';
 
-// const ibmPlexMono = IBM_Plex_Mono({
-// 	variable: '--font-ibm-plex-mono',
-// 	weight: ['400', '500', '600', '700'],
-// 	subsets: ['latin'],
-// });
+const ibmPlexMono = IBM_Plex_Mono({
+	variable: '--font-ibm-plex-mono',
+	weight: ['400', '500', '600', '700'],
+	subsets: ['latin'],
+});
 
-// const frederickaTheGreat = Fredericka_the_Great({
-// 	variable: '--font-fredericka-the-great',
-// 	weight: '400',
-// 	subsets: ['latin'],
-// });
+const frederickaTheGreat = Fredericka_the_Great({
+	variable: '--font-fredericka-the-great',
+	weight: '400',
+	subsets: ['latin'],
+});
 
-// const roboto = Roboto({
-// 	variable: '--font-roboto',
-// 	weight: ['400', '500', '700'],
-// 	subsets: ['latin'],
-// });
+const roboto = Roboto({
+	variable: '--font-roboto',
+	weight: ['400', '500', '700'],
+	subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.retconconsulting.com'),
@@ -154,18 +154,6 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head>
-				<link
-					href='https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap'
-					rel='stylesheet'
-				/>
-				<link
-					href='https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,600,700&display=swap'
-					rel='stylesheet'
-				/>
-				<link
-					href='https://fonts.googleapis.com/css?family=Fredericka+the+Great:400&display=swap'
-					rel='stylesheet'
-				/>
 				<meta
 					name='google-site-verification'
 					content='CiK0ImrkZ7i1sXmFFoupE_cg-gqJQgdWnOVt9n7LOzM'
@@ -174,6 +162,20 @@ export default function RootLayout({
 				{/* <link
 					rel='preload'
 					href='/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf'
+					as='font'
+					type='font/ttf'
+					crossOrigin='anonymous'
+				/>
+				<link
+					rel='preload'
+					href='/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf'
+					as='font'
+					type='font/ttf'
+					crossOrigin='anonymous'
+				/>
+				<link
+					rel='preload'
+					href='/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf'
 					as='font'
 					type='font/ttf'
 					crossOrigin='anonymous'
@@ -200,7 +202,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-			// className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
+				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
 			>
 				<ContextProvider>
 					<BackgroundEffect />
