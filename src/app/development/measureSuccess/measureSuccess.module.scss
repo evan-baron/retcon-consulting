@@ -397,6 +397,7 @@
 					width: 90%;
 					font-size: 1.125rem;
 					color: var(--gray2);
+					text-wrap: pretty;
 
 					@media screen and (max-height: 700px) and (orientation: landscape) {
 						font-size: 1rem;
