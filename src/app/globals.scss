@@ -94,7 +94,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	font-family: var(--font-ibm-plex-mono), var(--font-roboto);
+	font-family: 'IBM Plex Mono', 'Roboto', 'Fredericka the Great', Arial,
+		Helvetica, sans-serif;
+	// font-family: var(--font-ibm-plex-mono), var(--font-roboto);
 	color: var(--main-gray);
 	background: var(--background);
 	-webkit-font-smoothing: antialiased;
