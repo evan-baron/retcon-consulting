@@ -67,8 +67,8 @@ function Tile({
 	useEffect(() => {
 		if (!tileRef.current) return;
 
-		const checkVisibility = (entry: IntersectionObserverEntry) => {
-			const rect = entry.boundingClientRect;
+		const checkVisibility = () => {
+			const rect = tileRef.current!.getBoundingClientRect();
 			const inViewport =
 				rect.top < window.innerHeight &&
 				rect.bottom > 0 &&
@@ -83,11 +83,11 @@ function Tile({
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.intersectionRatio > 0) {
-						if (tileRef.current) setTileVisible(true);
+						setTileVisible(true);
 					}
 
 					if (entry.boundingClientRect.top > window.innerHeight) {
-						if (tileRef.current) setTileVisible(false);
+						setTileVisible(false);
 
 						// Close tile when below the viewport (scrolled down)
 						if (
@@ -102,10 +102,10 @@ function Tile({
 					}
 
 					// Confirm visibility in case observer missed it
-					checkVisibility(entry);
+					checkVisibility();
 				});
 			},
-			{ threshold: [0] }
+			{ threshold: [0, 0.25, 0.5, 0.75, 1] }
 		);
 
 		observer.observe(tileRef.current);

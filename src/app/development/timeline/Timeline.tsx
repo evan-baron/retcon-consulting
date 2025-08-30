@@ -69,37 +69,42 @@ const Timeline = () => {
 			}
 		};
 
-		const observer = new window.IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				// Definitions visibility logic
-				const index = rowRefs.findIndex((ref) => ref.current === entry.target);
+		const observer = new window.IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					// Definitions visibility logic
+					const index = rowRefs.findIndex(
+						(ref) => ref.current === entry.target
+					);
 
-				if (entry.target === rowRefs[index]?.current) {
-					if (
-						entry.intersectionRatio > 0 &&
-						rowRefsVisible[index].visible === false
-					) {
-						setRowRefsVisible((prev) =>
-							prev.map((item) =>
-								item.index === index ? { ...item, visible: true } : item
-							)
-						);
-					} else if (
-						!entry.isIntersecting &&
-						entry.boundingClientRect.top > window.innerHeight
-					) {
-						setRowRefsVisible((prev) =>
-							prev.map((item) =>
-								item.index === index ? { ...item, visible: false } : item
-							)
-						);
+					if (entry.target === rowRefs[index]?.current) {
+						if (
+							entry.intersectionRatio > 0 &&
+							rowRefsVisible[index].visible === false
+						) {
+							setRowRefsVisible((prev) =>
+								prev.map((item) =>
+									item.index === index ? { ...item, visible: true } : item
+								)
+							);
+						} else if (
+							!entry.isIntersecting &&
+							entry.boundingClientRect.top > window.innerHeight
+						) {
+							setRowRefsVisible((prev) =>
+								prev.map((item) =>
+									item.index === index ? { ...item, visible: false } : item
+								)
+							);
+						}
 					}
-				}
 
-				// Double check if item is on screen
-				checkVisibility(entry, index);
-			});
-		});
+					// Double check if item is on screen
+					checkVisibility(entry, index);
+				});
+			},
+			{ threshold: [0, 0.25, 0.5, 0.75, 1] }
+		);
 
 		rowRefs.forEach((ref) => {
 			if (ref.current) observer.observe(ref.current);

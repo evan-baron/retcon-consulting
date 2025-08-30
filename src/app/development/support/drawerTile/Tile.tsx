@@ -55,31 +55,34 @@ function Tile({
 			}
 		};
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.intersectionRatio > 0) {
-					if (tileRef.current) setTileVisible(true);
-				}
-
-				if (entry.boundingClientRect.top > window.innerHeight) {
-					if (tileRef.current) setTileVisible(false);
-
-					// Close tile when below the viewport (scrolled down)
-					if (
-						typeof setDrawerOpen === 'function' &&
-						entry.boundingClientRect.top > window.innerHeight
-					) {
-						setDrawerOpen((prev) => ({
-							...prev,
-							[index!]: false,
-						}));
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.intersectionRatio > 0) {
+						setTileVisible(true);
 					}
-				}
 
-				// Confirm visibility in case observer missed it
-				checkVisibility(entry);
-			});
-		});
+					if (entry.boundingClientRect.top > window.innerHeight) {
+						setTileVisible(false);
+
+						// Close tile when below the viewport (scrolled down)
+						if (
+							typeof setDrawerOpen === 'function' &&
+							entry.boundingClientRect.top > window.innerHeight
+						) {
+							setDrawerOpen((prev) => ({
+								...prev,
+								[index!]: false,
+							}));
+						}
+					}
+
+					// Confirm visibility in case observer missed it
+					checkVisibility(entry);
+				});
+			},
+			{ threshold: [0, 0.25, 0.5, 0.75, 1] }
+		);
 
 		observer.observe(tileRef.current);
 
