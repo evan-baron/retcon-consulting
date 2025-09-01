@@ -265,11 +265,24 @@ const MeasureSuccess = () => {
 					}`}
 					ref={summaryRef}
 				>
+					Success at launch means your website is{' '}
+					<span style={{ fontWeight: 'bold' }}>
+						fast, accessible, optimized for search
+					</span>
+					, and <span style={{ fontWeight: 'bold' }}>responsive</span> across
+					all devices from day one.
+				</p>
+				{/* <p
+					className={`${styles.summary} ${'descriptor'} ${
+						definitionsRefsVisible[6].visible ? styles.visible : ''
+					}`}
+					ref={summaryRef}
+				>
 					Success at launch means your website is fast (meeting Core Web Vitals
 					thresholds), accessible (WCAG 2.1 AA compliance), optimized for search
 					(90+ SEO score), and technically sound across all devices from day
 					one.
-				</p>
+				</p> */}
 			</div>
 		</div>
 	);

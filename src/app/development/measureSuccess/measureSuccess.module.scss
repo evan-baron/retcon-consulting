@@ -378,8 +378,7 @@
 				font-size: var(--descriptor);
 
 				@media screen and (max-width: 550px) and (orientation: portrait) {
-					width: 90%;
-					font-size: 1.125rem;
+					width: 95%;
 				}
 			}
 
@@ -420,8 +419,8 @@
 				transform: translateY(50%);
 
 				@media screen and (max-width: 550px) and (orientation: portrait) {
-					font-size: 1.125rem;
 					text-align: center;
+					width: 95%;
 				}
 			}
 		}

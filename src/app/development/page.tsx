@@ -21,27 +21,36 @@ const Development = () => {
 		<>
 			<div className={styles['development-wrapper']}>
 				<section className={styles.description}>
-					<h1 id='web-development-heading'>Retcon Web Development</h1>
-					<p className={styles['development-description']}>
-						<span className={styles['h1-span']}>Your website matters.</span>{' '}
-						It&apos;s the first impression people have of your business, the
-						place they decide whether to trust you, and the hub where all your
+					{/* <h1 id='web-development-heading'>Retcon Web Development</h1> */}
+					{/* <p className={styles['development-description']}>
+						<span className={styles['hero-span']}>Your website matters.</span>{' '}
+						It&apos;s the first impression people have of your brand, the place
+						they decide whether to trust you or not, and the hub where all your
 						marketing efforts come together. A clean, professional online
 						presence turns attention into confidence, and confidence into
-						lasting relationships.
-					</p>
-					{/* <h1 id='web-development-heading'>Your Website Matters.</h1>
-					<p className={styles['development-description']}>
-						It's the first impression people have of your business, the place
-						they decide whether to trust you, and the hub where all your
-						marketing efforts come together. A clean, professional online
-						presence turns attention into confidence, and confidence into
-						lasting relationships.
+						lifelong customers.
 					</p> */}
+					<h1 id='web-development-heading' className={styles['hero-h1']}>
+						Your Website Matters.
+					</h1>
 					<p className={styles['development-description']}>
+						It&apos;s the first impression people have of your brand, the place
+						they decide whether to trust you or not, and the hub where all your
+						marketing efforts come together. A clean, professional online
+						presence turns attention into confidence, and confidence into
+						lifelong customers.
+					</p>
+					<p className={styles['development-description']}>
+						At Retcon Consulting,{' '}
+						<span className={styles['hero-span']}>
+							your success is our success
+						</span>
+						. Let's build together.
+					</p>
+					{/* <p className={styles['development-description']}>
 						At Retcon Consulting, we take a structured approach to help guide
 						you through the complexities of custom web development.
-					</p>
+					</p> */}
 				</section>
 				<section
 					className={`${styles.custom} ${styles.section}`}
@@ -49,9 +58,13 @@ const Development = () => {
 				>
 					<h2 id='custom-heading'>Why Choose Custom?</h2>
 					<p className={styles['development-description']}>
-						Custom websites deliver faster performance, stronger SEO, and unique
-						features tailored to your brand, helping you stand out, scale, and
-						succeed in today&apos;s competitive digital landscape.
+						Custom websites deliver{' '}
+						<span style={{ fontWeight: 'bold' }}>
+							better performance, stronger SEO
+						</span>
+						, and <span style={{ fontWeight: 'bold' }}>limitless features</span>
+						, helping you stand out in today&apos;s competitive digital
+						landscape.
 					</p>
 					<CustomTiles />
 				</section>

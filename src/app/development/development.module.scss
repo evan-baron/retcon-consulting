@@ -31,6 +31,13 @@
 	h1 {
 		text-align: center;
 
+		&.hero-h1 {
+			font-weight: bold;
+			color: hsl(150, 100%, 50%);
+			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+				0.5rem 0.5rem 3rem black, 0 0 1rem hsla(150, 100%, 50%, 0.5);
+		}
+
 		@media screen and (max-width: 550px) and (orientation: portrait) {
 			font-size: 2.5rem;
 		}
@@ -100,10 +107,11 @@
 		span {
 			font-weight: bold;
 			color: var(--gray1);
-			font-style: italic;
 
-			&.h1-span {
-				color: hsl(40, 100%, 50%);
+			&.hero-span {
+				color: hsl(150, 100%, 50%);
+				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+					0.5rem 0.5rem 3rem black, 0 0 1rem hsla(150, 100%, 50%, 0.5);
 			}
 		}
 	}
