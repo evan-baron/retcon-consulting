@@ -150,13 +150,6 @@
 	}
 
 	.process {
-		gap: 0 !important;
-
-		h2 {
-			margin-bottom: 2rem;
-			margin-top: 0 !important;
-		}
-
 		.development-description {
 			span {
 				font-style: normal;
@@ -165,7 +158,9 @@
 	}
 
 	.custom {
-		gap: 0;
+		h2 {
+			margin-top: 0 !important;
+		}
 
 		@media screen and (min-width: 850px) and (max-width: 1650px) and (min-height: 600px) and (orientation: landscape),
 			screen and (min-height: 1000px) and (min-width: 860px) and (orientation: portrait) {

@@ -44,6 +44,18 @@ const Development = () => {
 					</p>
 				</section>
 				<section
+					className={`${styles.custom} ${styles.section}`}
+					aria-labelledby='custom-heading'
+				>
+					<h2 id='custom-heading'>Why Choose Custom?</h2>
+					<p className={styles['development-description']}>
+						Custom websites deliver faster performance, stronger SEO, and unique
+						features tailored to your brand, helping you stand out, scale, and
+						succeed in today&apos;s competitive digital landscape.
+					</p>
+					<CustomTiles />
+				</section>
+				<section
 					className={`${styles.process} ${styles.section}`}
 					aria-labelledby='process-heading'
 				>
@@ -54,13 +66,6 @@ const Development = () => {
 						every detail reflects your vision and goals.
 					</p>
 					<Timeline />
-				</section>
-				<section
-					className={`${styles.custom} ${styles.section}`}
-					aria-labelledby='custom-heading'
-				>
-					<h2 id='custom-heading'>Why Choose Custom?</h2>
-					<CustomTiles />
 				</section>
 				<section
 					className={styles.section}
