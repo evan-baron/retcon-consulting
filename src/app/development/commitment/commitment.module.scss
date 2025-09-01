@@ -13,6 +13,8 @@
 		transform: translateY(50%);
 		transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 		line-height: 1.25;
+		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+			0.5rem 0.5rem 3rem black;
 
 		&.visible {
 			opacity: 1;
