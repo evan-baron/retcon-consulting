@@ -45,7 +45,7 @@ const Development = () => {
 						<span className={styles['hero-span']}>
 							your success is our success
 						</span>
-						. Let's build together.
+						. Let&apos;s build together.
 					</p>
 					{/* <p className={styles['development-description']}>
 						At Retcon Consulting, we take a structured approach to help guide
