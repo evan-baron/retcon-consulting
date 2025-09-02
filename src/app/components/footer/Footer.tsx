@@ -12,7 +12,7 @@ import styles from './footer.module.scss';
 import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
-import { LinkedIn, Instagram, Facebook } from '@mui/icons-material';
+import { LinkedIn, Facebook } from '@mui/icons-material';
 
 function Footer() {
 	const { isMobileWidth } = useAppContext();
@@ -71,14 +71,14 @@ function Footer() {
 						>
 							<Facebook className={styles.icon} />
 						</Link>
-						<Link
+						{/* <Link
 							href='https://www.instagram.com/retconconsulting'
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Visit our Instagram page'
 						>
 							<Instagram className={styles.icon} />
-						</Link>
+						</Link> */}
 					</div>
 				</div>
 			</div>
