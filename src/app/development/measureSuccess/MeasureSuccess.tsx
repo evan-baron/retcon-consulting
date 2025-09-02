@@ -179,11 +179,9 @@ const MeasureSuccess = () => {
 							e.stopPropagation();
 							handleChange();
 						}}
-						aria-labelledby='fireworks-label'
 					/>
 					<label
-						aria-label='Toggle Fireworks'
-						htmlFor='fireworks-label'
+						htmlFor='fireworks-toggle'
 						onClick={(e) => {
 							e.stopPropagation();
 							handleChange();
