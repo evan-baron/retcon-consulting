@@ -12,7 +12,7 @@ import styles from './footer.module.scss';
 import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
-import { LinkedIn, Facebook } from '@mui/icons-material';
+import { LinkedIn, Instagram, Facebook } from '@mui/icons-material';
 
 function Footer() {
 	const { isMobileWidth } = useAppContext();

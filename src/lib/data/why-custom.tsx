@@ -29,7 +29,7 @@ export const ReasonTiles: ReasonTile[] = [
 	{
 		title: 'Performance &\nSpeed',
 		summary:
-			'Custom websites eliminate template bloat, delivering faster load times and smoother performance.',
+			'Custom websites eliminate bloat, delivering faster load times and smoother performance.',
 		stat1:
 			"A fast website is critical for business. Custom sites are lean, with only the features you need, which means better performance scores and smoother user experiences. By optimizing every detail, you're not stuck with the extra scripts and plugins that slow sites down.",
 		stat2: `A 1-second delay can reduce conversions by <span style='font-weight:bold; color: var(--gray1)'>7%</span>. Pages slower than 3 seconds risk losing <span style='font-weight:bold; color: var(--gray1)'>40% of visitors</span>.`,
@@ -56,9 +56,9 @@ export const ReasonTiles: ReasonTile[] = [
 	{
 		title: 'Scalability &\nFuture-Proofing',
 		summary:
-			'Custom sites are built to grow with your business, from e-commerce to member portals.',
+			'Custom websites are built to grow with your business, from e-commerce to member portals.',
 		stat1:
-			'Templates are fine for starters, but businesses quickly outgrow them. Custom sites are built for the future, whether you need a member portal, e-commerce checkout, or reporting dashboard, you can expand without hitting a wall.',
+			'Templates are fine for starters, but businesses quickly outgrow them. Custom websites are built for the future, whether you need a member portal, e-commerce checkout, or reporting dashboard, you can expand without hitting a wall.',
 		stat2: `Businesses that invest early in scalable digital infrastructure save an average of <span style='font-weight:bold; color: var(--gray1)'>30% in replatforming costs</span> later.`,
 		icon: <TrendingUp className={`${stylesA.icon} ${stylesB.icon}`} />,
 	},

@@ -11,8 +11,13 @@ import styles from './measureSuccess.module.scss';
 // Components imports
 
 // Context imports
+import { useAppContext } from '@/app/context/AppContext';
+
+// Data imports
+import { MeasureDefinitions } from '@/lib/data/measure-success';
 
 const MeasureSuccess = () => {
+	const { isMobile } = useAppContext();
 	const scores = ['Performance', 'Accessibility', 'Best Practices', 'SEO'];
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -28,7 +33,7 @@ const MeasureSuccess = () => {
 
 	// Definitions refs
 	const definitionsRefs = useMemo(
-		() => Array.from({ length: 5 }).map(() => createRef<HTMLDListElement>()),
+		() => Array.from({ length: 6 }).map(() => createRef<HTMLDListElement>()),
 		[]
 	);
 
@@ -51,6 +56,7 @@ const MeasureSuccess = () => {
 	);
 
 	const [fireworksActive, setFireworksActive] = useState(false);
+	const [showFireworks, setShowFireworks] = useState(true);
 	const [hasAnimated, setHasAnimated] = useState(false);
 
 	useEffect(() => {
@@ -135,6 +141,10 @@ const MeasureSuccess = () => {
 		return () => observer.disconnect();
 	}, [allRefs, definitionsRefs, definitionsRefsVisible, hasAnimated]);
 
+	const handleChange = () => {
+		setShowFireworks((prev) => !prev);
+	};
+
 	return (
 		<div className={styles['measureSuccess-wrapper']} ref={wrapperRef}>
 			<div
@@ -151,7 +161,7 @@ const MeasureSuccess = () => {
 						</li>
 					))}
 				</ul>
-				{fireworksActive ? (
+				{fireworksActive && showFireworks ? (
 					<div
 						className={styles.pyro}
 						data-credit='CSS Fireworks. Originally by Eddie Lin https://codepen.io/paulirish/pen/yEVMbP'
@@ -160,6 +170,28 @@ const MeasureSuccess = () => {
 						<div className={styles.after}></div>
 					</div>
 				) : null}
+				<div className={styles['fireworks-toggle']}>
+					<input
+						id='fireworks-toggle'
+						type='checkbox'
+						checked={!showFireworks}
+						onChange={(e) => {
+							e.stopPropagation();
+							handleChange();
+						}}
+						aria-labelledby='fireworks-label'
+					/>
+					<label
+						aria-label='Toggle Fireworks'
+						htmlFor='fireworks-label'
+						onClick={(e) => {
+							e.stopPropagation();
+							handleChange();
+						}}
+					>
+						Toggle Fireworks
+					</label>
+				</div>
 			</div>
 			<div className={styles.definitions}>
 				<p
@@ -171,7 +203,43 @@ const MeasureSuccess = () => {
 					When we measure success at launch, our process extends beyond simply
 					“the site is live.”
 				</p>
-				<dl
+				{!isMobile ? (
+					<div className={styles['definitions-grid']}>
+						{MeasureDefinitions.map((def, index) => (
+							<dl
+								className={`${styles.definition} ${
+									definitionsRefsVisible[index + 1].visible
+										? styles.visible
+										: ''
+								}`}
+								ref={definitionsRefs[index]}
+								key={def.title}
+							>
+								<div className={styles['icon-wrapper']}>{def.icon}</div>
+								<dt>{def.title}</dt>
+								<dd>{def.description}</dd>
+							</dl>
+						))}
+					</div>
+				) : (
+					<div className={styles['definitions-list']}>
+						{MeasureDefinitions.map((def, index) => (
+							<dl
+								className={`${styles.definition} ${
+									definitionsRefsVisible[index + 1].visible
+										? styles.visible
+										: ''
+								}`}
+								ref={definitionsRefs[index]}
+								key={def.title}
+							>
+								<dt>{def.title}</dt>
+								<dd>{def.description}</dd>
+							</dl>
+						))}
+					</div>
+				)}
+				{/* <dl
 					className={`${styles.definition} ${
 						definitionsRefsVisible[1].visible ? styles.visible : ''
 					}`}
@@ -258,10 +326,10 @@ const MeasureSuccess = () => {
 						text/images, and interactive elements passing Google&apos;s
 						Mobile-Friendly Test.
 					</dd>
-				</dl>
+				</dl> */}
 				<p
 					className={`${styles.summary} ${'descriptor'} ${
-						definitionsRefsVisible[6].visible ? styles.visible : ''
+						definitionsRefsVisible[7].visible ? styles.visible : ''
 					}`}
 					ref={summaryRef}
 				>
@@ -272,17 +340,6 @@ const MeasureSuccess = () => {
 					, and <span style={{ fontWeight: 'bold' }}>responsive</span> across
 					all devices from day one.
 				</p>
-				{/* <p
-					className={`${styles.summary} ${'descriptor'} ${
-						definitionsRefsVisible[6].visible ? styles.visible : ''
-					}`}
-					ref={summaryRef}
-				>
-					Success at launch means your website is fast (meeting Core Web Vitals
-					thresholds), accessible (WCAG 2.1 AA compliance), optimized for search
-					(90+ SEO score), and technically sound across all devices from day
-					one.
-				</p> */}
 			</div>
 		</div>
 	);

@@ -4,14 +4,14 @@
 	display: grid;
 	justify-content: center;
 	grid-template-columns: repeat(3, minmax(0, 25rem));
-	gap: 3rem;
-	max-height: 72rem;
+	gap: 2rem 3rem;
+	max-height: 71rem;
 	transition: max-height 0.5s ease-in-out;
 	padding: 3rem 2rem;
 	overflow: hidden;
 
 	&.open {
-		max-height: 107rem;
+		max-height: 105rem;
 
 		.tile.hidden {
 			opacity: 1;

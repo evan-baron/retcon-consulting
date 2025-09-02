@@ -157,9 +157,6 @@ const Timeline = () => {
 											className={`${styles['icon-wrapper']} ${
 												rowRefsVisible[index].visible ? styles.visible : ''
 											}`}
-											style={{
-												color: `hsl(${180 - index * (180 / 5)}, 100%, 50%)`,
-											}}
 											aria-hidden='true'
 										>
 											{stat.image}
@@ -191,6 +188,13 @@ const Timeline = () => {
 										className={styles.line}
 										key={'line' + index}
 										aria-hidden='true'
+										// style={{
+										// 	backgroundImage: `linear-gradient(
+										// 		to bottom,
+										// 		hsl(var(--ball-hue), 100%, 50%),
+										// 		hsl(calc(var(--ball-hue) - 36), 100%, 50%)
+										// 	)`,
+										// }}
 									/>
 								)}
 							</li>
