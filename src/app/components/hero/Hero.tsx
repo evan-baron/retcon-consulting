@@ -7,10 +7,10 @@ import React, { useEffect, useState } from 'react';
 import styles from './hero.module.scss';
 
 // Component Imports
-import CTA from '../ctaButton/CTA';
 
 // Words for the typing effect
-const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles.'];
+const words = ['Reimagine', 'Redefine', 'Remove your obstacles.'];
+// const words = ['Reimagine', 'Redefine', 'Rewrite', 'Remove your obstacles.'];
 
 function Hero() {
 	// Typewriter effect for the title
@@ -35,7 +35,7 @@ function Hero() {
 							: word.slice(0, charIndex + 2)
 					);
 					setCharIndex(charIndex + 1);
-				}, 60);
+				}, 50);
 			} else {
 				setPhase('blinking');
 			}
@@ -67,7 +67,7 @@ function Hero() {
 				timeout = setTimeout(() => {
 					setDisplayed(word.slice(0, charIndex - 1) + '_');
 					setCharIndex(charIndex - 1);
-				}, 60);
+				}, 50);
 			} else {
 				setWordIndex(wordIndex + 1);
 				setCharIndex(0);
@@ -79,28 +79,77 @@ function Hero() {
 		return () => clearTimeout(timeout);
 	}, [charIndex, phase, wordIndex, blinkCount]);
 
+	// Remove the title div
+	useEffect(() => {
+		if (phase === 'done') {
+			const titleDiv = document.querySelector(`.${styles.title}`);
+			if (titleDiv) {
+				const timeout = setTimeout(() => {
+					titleDiv.remove();
+				}, 2000);
+				return () => clearTimeout(timeout);
+			}
+		}
+	}, [phase]);
+
 	return (
-		//heroRef used to go in section div styles.hero, backgroundRef used to go in div styles.background
 		<section className={styles.hero}>
 			<div className={styles.content}>
-				<h1 className={styles.h1}>
-					Retcon Consulting – Tech Consulting for Startups, Entrepreneurs, and
-					Innovators
-				</h1>
-				<div className={styles['title-box']}>
-					<span className={styles.title}>{displayed}</span>
-					<CTA
-						className={`${phase === 'done' ? styles.done : ''} `}
-						disabled={phase !== 'done'}
-						content='Book a free consultation'
-						parent='hero'
-					/>
+				{/* <h1 className={styles.h1}>
+					Strategic Consulting, Custom Web Development, and Design for Startups,
+					Entrepreneurs, and Innovators
+				</h1> */}
+				{/* <h1 className={styles.h1}>
+					Retcon Consulting &ndash; Strategic Consulting, Custom Web Development, and Design for Startups,
+					Entrepreneurs, and Innovators
+				</h1> */}
+				{/* <h1 className={styles.h1}>
+					Strategic Consulting, Custom Web Development, and Design for Startups,
+					Entrepreneurs, and Innovators
+				</h1> */}
+				<div className={styles['h1-box']}>
+					<div className={styles['logo-box']}>
+						<div className={styles['image-outer']}>
+							<svg
+								className={styles.image}
+								version='1.2'
+								xmlns='http://www.w3.org/2000/svg'
+								viewBox='0 0 512 512'
+								width='512'
+								height='512'
+							>
+								<style>{`.s0 { fill: currentColor }`}</style>
+								<path
+									id='Path 0'
+									fillRule='evenodd'
+									className='s0'
+									d='m245.5 11.12c3.3-0.05 8.93 0.6 12.5 1.44 3.57 0.85 9.31 3.09 12.75 4.99 3.44 1.9 8.79 6.04 11.89 9.2 3.09 3.16 7.42 8.45 9.61 11.75 2.19 3.3 5.56 9.15 7.49 13 1.93 3.85 5.04 11.28 6.92 16.5 1.89 5.22 5.41 16.47 7.83 25 2.43 8.53 4.69 17.08 5.03 19 0.6 3.37 0.32 3.78-7.7 11.11-4.57 4.18-10.01 9.02-12.07 10.75q-3.75 3.14-5 2.25c-0.69-0.48-1.62-3.07-2.08-5.75-0.45-2.67-2.65-11.16-4.9-18.86-2.24-7.7-6.14-18.23-8.67-23.39-2.89-5.9-6.67-11.66-10.18-15.5-3.81-4.18-7.29-6.86-11-8.47-4.56-1.99-6.68-2.31-13.42-1.99-5.99 0.28-9.25 1-12.99 2.86-2.74 1.37-7.38 4.96-10.3 7.99-2.93 3.03-7.01 8.65-9.08 12.5-2.06 3.85-5.37 11.72-7.33 17.5-1.97 5.78-4.77 16.13-6.21 23-1.44 6.88-2.62 12.84-2.61 13.25 0.01 0.41 29.83 0.75 66.27 0.75 37.28 0 69.75 0.43 74.25 0.98 4.4 0.54 12.05 2.15 17 3.57 4.95 1.43 13.27 4.7 18.5 7.27 7.49 3.69 11.1 6.27 17.08 12.18 5.71 5.65 8.46 9.35 11.15 15 1.97 4.13 4.07 9.86 4.67 12.75 0.61 2.89 1.1 9.86 1.11 15.5 0.01 6.55-0.58 12.23-1.61 15.75-0.89 3.03-2.92 8.09-4.51 11.25-1.7 3.39-5.87 8.73-10.14 13-5.64 5.65-9.36 8.31-16.75 12-5.23 2.61-11.52 5.44-14 6.29-2.48 0.85-7.2 2.16-10.5 2.92-3.3 0.77-8.93 1.67-12.5 2-3.57 0.34-8.86 0.82-17 1.54l2.25 2.31c1.24 1.27 9.45 10.34 18.25 20.17 8.8 9.82 20.73 23.1 26.5 29.51 5.77 6.42 17.7 19.64 26.5 29.38 8.8 9.75 16.11 18.15 16.25 18.68 0.14 0.54-3.95 1.06-9.5 1.2-5.36 0.14-16.34 0.02-39.02-0.75l-8.37-9.59c-4.6-5.28-12.18-14.02-16.86-19.43-4.68-5.41-13.47-15.49-19.55-22.4-6.08-6.92-12.15-13.9-13.5-15.5-1.35-1.61-4.47-5.24-6.95-8.06-2.48-2.82-8.1-9.27-20.5-23.56l-83.5 0.04v23c0 12.65 0.7 32.79 1.56 44.75 1.12 15.61 2.53 26.69 5.02 39.25 1.9 9.62 5.07 22.23 7.05 28 1.97 5.77 5.51 14.1 7.87 18.5 2.79 5.21 6.32 9.93 10.14 13.54q5.86 5.54 11.86 7.85c4.84 1.86 7.35 2.22 13 1.86 4.89-0.3 8.51-1.21 12-3.01 2.75-1.41 6.62-4.29 8.61-6.4 1.98-2.11 4.93-5.86 6.55-8.34 1.61-2.48 4.37-7.65 6.12-11.5 1.75-3.85 4.97-13.07 7.16-20.5 2.2-7.43 4.34-15.91 4.77-18.86 0.44-2.95 1.35-5.76 2.04-6.25 0.86-0.61 3.36 1.06 8.01 5.36 3.72 3.44 9.17 8.27 12.1 10.75 5.16 4.36 5.31 4.63 4.71 8.5-0.35 2.2-2.63 10.98-5.07 19.5-2.44 8.52-5.76 19.1-7.37 23.5-1.61 4.4-4.79 11.82-7.07 16.5-2.29 4.68-6.27 11.61-8.86 15.42-2.58 3.8-7.56 9.43-11.06 12.5-3.49 3.07-7.54 6.28-9 7.13-1.45 0.85-4.66 2.3-7.14 3.23-2.48 0.92-7.42 2.1-11 2.62-4.08 0.6-9.11 0.6-13.5 0.01-3.85-0.52-9.02-1.6-11.5-2.41-2.47-0.81-7.2-3.08-10.5-5.05-3.3-1.97-7.3-4.79-8.88-6.27-1.59-1.47-5.43-5.83-8.54-9.68-3.22-3.99-8.18-12.16-11.53-19-3.23-6.6-7.61-17.4-9.74-24-2.12-6.6-5.62-20.1-7.76-30-2.14-9.9-4.18-20.7-4.53-24-0.36-3.3-1.29-10.73-2.08-16.5-0.79-5.77-2.1-17.48-2.9-26-0.8-8.52-1.82-26.41-3.04-64.01l-12.5 0.01v99l-18.75 0.25c-10.31 0.14-19.99 0.14-24.25-0.25v-233l62.5 0.02 0.79-6.76c0.44-3.72 1.66-10.81 2.7-15.76 1.05-4.95 2.84-13.28 3.98-18.5 1.14-5.22 3.6-14.22 5.47-20 1.87-5.78 5.08-14.32 7.14-19 2.06-4.67 5.65-11.65 7.99-15.5 2.33-3.85 7.13-10.15 10.66-14 3.53-3.85 8.64-8.48 11.35-10.29 2.7-1.8 7.4-4.2 10.42-5.33 3.03-1.13 7.3-2.42 9.5-2.86 2.2-0.44 6.7-0.84 10-0.9zm-99.5 237.88h13c0.04-25.96 0.48-41.6 1-51.5 0.53-9.9 1.31-21.27 1.73-25.26l0.77-7.26-16.5 0.02zm46.59-79.75c-0.32 2.34-0.93 21.28-1.34 42.09l-0.75 37.85c119.02-0.87 132.01-1.23 136.5-2.43 3.02-0.82 8.13-2.33 11.34-3.37 3.22-1.04 8.28-3.8 11.25-6.14 3.84-3.01 6.21-5.92 8.16-10 2.61-5.46 2.75-6.49 2.75-20.25 0-11.14-0.39-15.54-1.68-19-1.04-2.77-3.57-6.23-6.58-9-2.7-2.48-7.12-5.71-9.82-7.18-2.78-1.51-9.39-3.58-15.17-4.75-9.71-1.96-13.5-2.07-72.15-2.07h-61.91z'
+								/>
+							</svg>
+						</div>
+					</div>
+					<h1 className={`${styles.h1} ${phase === 'done' ? styles.done : ''}`}>
+						<span className={styles.brand}>Retcon Consulting</span>
+						<span className={styles.tagline}>
+							Custom Web Development & Strategic Consulting
+						</span>
+						<span className={styles.tagline}>for Startups and Innovators</span>
+					</h1>
+					<div
+						className={`${styles.slogan} ${
+							phase === 'done' ? styles.done : ''
+						}`}
+					>
+						{displayed}
+					</div>
 				</div>
 
 				<section className={styles.definition}>
 					<dl>
 						<dt className={styles.h2}>retcon</dt>
-						<dd className={styles.h3}>ret·con</dd>
+						<dd className={styles.h3}>
+							ret·con <span>&ndash; verb</span>
+						</dd>
 						<dd className={styles.p}>
 							: the act, practice, or result of changing an existing narrative
 							by introducing new information

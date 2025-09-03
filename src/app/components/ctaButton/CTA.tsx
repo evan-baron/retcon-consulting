@@ -30,7 +30,7 @@ const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => {
 			} ${className || ''}`}
 			onClick={handleClick}
 		>
-			<span className={styles['cta-text']}>{content}</span>
+			{content}
 		</a>
 	);
 };

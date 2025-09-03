@@ -26,7 +26,8 @@
 
 	&.done {
 		opacity: 1;
-		transition: opacity 0.2s ease-in-out;
+		transition: opacity 1s ease-in-out;
+		transition-delay: 2s;
 		cursor: pointer;
 	}
 
@@ -36,8 +37,13 @@
 		background-color: var(--background);
 		box-shadow: 0 0 0 2px hsla(var(--hue), 100%, 50%, 1),
 			0 0 0.5rem hsla(var(--hue), 100%, 50%, 1),
-			0 0 2rem hsla(var(--hue), 100%, 50%, 1), 0.5rem 0.5rem 1rem black,
+			0 0 2rem hsla(var(--hue), 100%, 50%, 0.5), 0.5rem 0.5rem 1rem black,
 			0.5rem 0.5rem 2rem black;
+
+		@media screen and (max-width: 550px) and (orientation: portrait) {
+			width: 100%;
+			justify-content: center;
+		}
 
 		@media (hover: hover) and (pointer: fine) {
 			&:hover {
@@ -47,7 +53,7 @@
 	}
 
 	&.summary {
-		@media screen and (max-width: 550px) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			font-size: 1.5rem;
 		}
 	}
