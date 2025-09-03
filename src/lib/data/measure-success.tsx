@@ -27,7 +27,7 @@ export const MeasureDefinitions: Definition[] = [
 	{
 		title: 'Accessibility',
 		description:
-			'Your website will be accessible for all people, regardless of their abilities or disabilities.',
+			'Your website will be accessible for all people, regardless of their abilities.',
 		icon: <AccessibilityNew className={styles.icon} />,
 	},
 	{
