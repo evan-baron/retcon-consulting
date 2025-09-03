@@ -13,6 +13,7 @@ import CustomTiles from './customTiles/CustomTiles';
 import MeasureSuccess from './measureSuccess/MeasureSuccess';
 import Commitment from './commitment/Commitment';
 import Support from './support/Support';
+import FAB from '../components/floatingActionButtons/FAB';
 
 // Context imports
 
@@ -103,6 +104,7 @@ const Development = () => {
 				</section> */}
 			</div>
 			<Contact id={'contact'} page={'development'} />
+			<FAB type='ttt' />
 		</>
 	);
 };

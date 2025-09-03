@@ -1,0 +1,85 @@
+.ttt-wrapper {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	animation: fadeIn 0.3s ease-in forwards;
+
+	&.mobile {
+		bottom: 1rem;
+		right: 1rem;
+
+		.ttt-button {
+			height: 2.25rem;
+
+			.icon {
+				font-size: 1.75rem;
+			}
+
+			&:active {
+				border-color: var(--gray1);
+
+				.icon {
+					color: var(--gray1);
+				}
+			}
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
+	.ttt-button {
+		all: unset;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid var(--gray3);
+		background-color: hsla(0, 0%, 10%, 0.75);
+		height: 2.75rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		cursor: pointer;
+		box-shadow: 0 0 1rem black;
+		transition: border-color 0.2s ease-in-out;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				border-color: var(--gray1);
+
+				.icon {
+					color: var(--gray1);
+				}
+			}
+		}
+
+		.icon {
+			color: var(--gray3);
+			font-size: 2rem;
+			transition: color 0.2s ease-in-out;
+		}
+	}
+
+	legend {
+		display: flex;
+		font-size: 0.75rem;
+		color: var(--gray1);
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+			0.5rem 0.5rem 3rem black;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+}

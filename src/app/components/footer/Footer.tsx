@@ -20,9 +20,14 @@ function Footer() {
 
 	return (
 		<div className={styles['footer-wrapper']}>
-			{isMobileWidth &&
+			{/* {isMobileWidth &&
 				(pathname === '/' ? (
-					<Link href='/' className={styles['to-top']}>
+					<Link
+						href='/'
+						className={styles['to-top']}
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+						aria-label='Scroll to top'
+					>
 						&uarr; To the top &uarr;
 					</Link>
 				) : (
@@ -30,30 +35,37 @@ function Footer() {
 						className={styles['to-top']}
 						type='button'
 						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+						aria-label='Scroll to top'
 					>
 						&uarr; To the top &uarr;
 					</button>
-				))}
+				))} */}
 			<div className={styles.footer}>
 				<div className={styles['footer-content']}>
 					<div className={styles.copyright}>
 						<span>&copy; {new Date().getFullYear()} Retcon Consulting.</span>{' '}
 						<span>All rights reserved.</span>
 					</div>
-					{!isMobileWidth &&
+					{/* {!isMobileWidth &&
 						(pathname === '/' ? (
-							<Link href='/' className={styles['to-top']}>
+							<Link
+								href='/'
+								className={styles['to-top']}
+								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+								aria-label='Scroll to top'
+							>
 								&uarr; To the top &uarr;
 							</Link>
 						) : (
 							<button
 								className={styles['to-top']}
 								type='button'
-								onClick={() => window.scrollTo({ top: 0 })}
+								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+								aria-label='Scroll to top'
 							>
 								&uarr; To the top &uarr;
 							</button>
-						))}
+						))} */}
 					<div className={styles['social-icons']}>
 						<Link
 							href='https://www.linkedin.com/company/retcon-consulting'

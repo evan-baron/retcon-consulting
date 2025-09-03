@@ -184,7 +184,7 @@ const MeasureSuccess = () => {
 						htmlFor='fireworks-toggle'
 						onClick={(e) => {
 							e.stopPropagation();
-							handleChange();
+							setFireworksActive((prev) => !prev);
 						}}
 					>
 						Toggle Fireworks
