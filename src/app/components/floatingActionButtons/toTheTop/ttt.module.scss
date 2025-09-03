@@ -13,9 +13,11 @@
 
 		.ttt-button {
 			height: 2.25rem;
+			transition: none;
 
 			.icon {
 				font-size: 1.75rem;
+				transition: none;
 			}
 
 			&:active {
