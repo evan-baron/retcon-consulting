@@ -72,6 +72,7 @@ function Footer() {
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Visit our LinkedIn page'
+							className={styles.link}
 						>
 							<LinkedIn className={styles.icon} />
 						</Link>
@@ -80,6 +81,7 @@ function Footer() {
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='Visit our Facebook page'
+							className={styles.link}
 						>
 							<Facebook className={styles.icon} />
 						</Link>

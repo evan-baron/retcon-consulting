@@ -22,15 +22,6 @@ const Development = () => {
 		<>
 			<div className={styles['development-wrapper']}>
 				<section className={styles.description}>
-					{/* <h1 id='web-development-heading'>Retcon Web Development</h1> */}
-					{/* <p className={styles['development-description']}>
-						<span className={styles['hero-span']}>Your website matters.</span>{' '}
-						It&apos;s the first impression people have of your brand, the place
-						they decide whether to trust you or not, and the hub where all your
-						marketing efforts come together. A clean, professional online
-						presence turns attention into confidence, and confidence into
-						lifelong customers.
-					</p> */}
 					<h1 id='web-development-heading' className={styles['hero-h1']}>
 						Your Website Matters.
 					</h1>
@@ -48,10 +39,6 @@ const Development = () => {
 						</span>
 						. Let&apos;s build together.
 					</p>
-					{/* <p className={styles['development-description']}>
-						At Retcon Consulting, we take a structured approach to help guide
-						you through the complexities of custom web development.
-					</p> */}
 				</section>
 				<section
 					className={`${styles.custom} ${styles.section}`}
@@ -99,9 +86,6 @@ const Development = () => {
 					<h2 id='support-heading'>Ongoing Support</h2>
 					<Support />
 				</section>
-				{/* <section className={styles.section}>
-					<h2>FAQs</h2>
-				</section> */}
 			</div>
 			<Contact id={'contact'} page={'development'} />
 			<FAB type='ttt' />

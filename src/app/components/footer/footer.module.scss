@@ -70,6 +70,14 @@
 				gap: 1rem;
 				cursor: pointer;
 
+				.link {
+					&:focus-visible {
+						outline: 2px solid var(--main-teal) !important;
+						outline-offset: 2px;
+						border-radius: 0.25rem;
+					}
+				}
+
 				.icon {
 					font-size: 1.75rem;
 					color: var(--main-gray);
