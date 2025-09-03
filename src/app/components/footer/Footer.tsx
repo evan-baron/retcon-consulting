@@ -12,7 +12,7 @@ import styles from './footer.module.scss';
 import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
-import { LinkedIn, Instagram, Facebook } from '@mui/icons-material';
+import { LinkedIn, Facebook } from '@mui/icons-material';
 
 function Footer() {
 	const { isMobileWidth } = useAppContext();
@@ -29,7 +29,7 @@ function Footer() {
 					<button
 						className={styles['to-top']}
 						type='button'
-						onClick={() => window.scrollTo({ top: 0 })}
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
 					>
 						&uarr; To the top &uarr;
 					</button>

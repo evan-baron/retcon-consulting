@@ -21,6 +21,8 @@ function Header() {
 	// Hamburger menu state
 	const [hamburgerActive, setHamburgerActive] = useState(false);
 
+	const hamburgerIconRef = useRef<HTMLDivElement>(null);
+
 	// Logic to handle header visibility on scroll: this will hide the header when scrolling down and show it when scrolling up
 	const [offset, setOffset] = useState(0);
 	const lastScrollY = useRef(0);
@@ -52,44 +54,64 @@ function Header() {
 	}
 
 	return (
-		<header
-			className={styles.header}
-			style={{ transform: `translateY(-${offset}px)` }}
-		>
-			<nav className={styles.nav}>
-				<ul className={styles.ul}>
-					<li className={styles['logo-wrapper']}>
-						<Link href='/' className={styles.logo}>
-							<Image src='/logo.svg' alt='Logo Image' width={40} height={40} />
-							<span>Retcon Consulting</span>
-						</Link>
-					</li>
-					{/* <li>
-						<a href='#about'>About</a>
-					</li> */}
-					{!isMobile && !isTablet ? (
-						<>
-							<li>
-								<a href='#services'>Services</a>
-							</li>
-							<li>
-								<a href='#contact'>Contact</a>
-							</li>
-							<li>
-								<CTA content='Book Now' />
-							</li>
-						</>
-					) : (
-						<li>
-							<Hamburger
-								hamburgerActive={hamburgerActive}
-								setHamburgerActive={setHamburgerActive}
-							/>
+		<>
+			<header
+				className={styles.header}
+				style={{ transform: `translateY(-${offset}px)` }}
+			>
+				<nav
+					className={`${styles.nav} ${
+						isMobile || isTablet ? styles.mobile : ''
+					}`}
+				>
+					<ul className={styles.ul}>
+						<li className={styles['logo-wrapper']}>
+							<Link href='/' className={styles.logo}>
+								<Image
+									src='/logo.svg'
+									alt='Logo Image'
+									width={40}
+									height={40}
+								/>
+								<span>Retcon Consulting</span>
+							</Link>
 						</li>
-					)}
-				</ul>
-			</nav>
-		</header>
+
+						{!isMobile && (
+							<li>
+								<CTA content='Get Started' parent='header' />
+							</li>
+						)}
+						<li>
+							<div
+								ref={hamburgerIconRef}
+								role='button'
+								tabIndex={0}
+								aria-label={hamburgerActive ? 'Close menu' : 'Open menu'}
+								className={`${styles.icon} ${
+									hamburgerActive ? styles.active : ''
+								}`}
+								onClick={() => setHamburgerActive((prev) => !prev)}
+								onKeyDown={(e) => {
+									if (e.key === 'Enter' || e.key === ' ') {
+										e.preventDefault();
+										setHamburgerActive((prev) => !prev);
+									}
+								}}
+							>
+								<span className={styles.line}></span>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<Hamburger
+				hamburgerActive={hamburgerActive}
+				setHamburgerActive={setHamburgerActive}
+				isMobile={isMobile}
+				iconRef={hamburgerIconRef}
+			/>
+		</>
 	);
 }
 

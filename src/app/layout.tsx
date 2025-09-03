@@ -158,42 +158,6 @@ export default function RootLayout({
 					name='google-site-verification'
 					content='CiK0ImrkZ7i1sXmFFoupE_cg-gqJQgdWnOVt9n7LOzM'
 				/>
-				{/* Preloaded fonts are new */}
-				{/* <link
-					rel='preload'
-					href='/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf'
-					as='font'
-					type='font/ttf'
-					crossOrigin='anonymous'
-				/>
-				<link
-					rel='preload'
-					href='/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf'
-					as='font'
-					type='font/ttf'
-					crossOrigin='anonymous'
-				/>
-				<link
-					rel='preload'
-					href='/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf'
-					as='font'
-					type='font/ttf'
-					crossOrigin='anonymous'
-				/>
-				<link
-					rel='preload'
-					href='/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf'
-					as='font'
-					type='font/ttf'
-					crossOrigin='anonymous'
-				/>
-				<link
-					rel='preload'
-					href='/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf'
-					as='font'
-					type='font/ttf'
-					crossOrigin='anonymous'
-				/> */}
 				<script
 					type='application/ld+json'
 					dangerouslySetInnerHTML={{

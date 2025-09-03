@@ -192,9 +192,8 @@ function Contact({ id, page }: { id: string; page?: string }) {
 										value='consulting'
 										onChange={handleChange}
 									/>
-									Consulting
+									Strategic Consulting
 								</label>
-								<br />
 								<label>
 									<input
 										type='checkbox'
@@ -204,7 +203,6 @@ function Contact({ id, page }: { id: string; page?: string }) {
 									/>
 									Web Development
 								</label>
-								<br />
 								<label>
 									<input
 										type='checkbox'
@@ -214,8 +212,16 @@ function Contact({ id, page }: { id: string; page?: string }) {
 									/>
 									Web Design
 								</label>
-								<br />
 								<label>
+									<input
+										type='checkbox'
+										name='services'
+										value='other'
+										onChange={handleChange}
+									/>
+									Other
+								</label>
+								{/* <label>
 									<input
 										type='checkbox'
 										name='services'
@@ -224,7 +230,6 @@ function Contact({ id, page }: { id: string; page?: string }) {
 									/>
 									Sales Methodology
 								</label>
-								<br />
 								<label>
 									<input
 										type='checkbox'
@@ -233,7 +238,7 @@ function Contact({ id, page }: { id: string; page?: string }) {
 										onChange={handleChange}
 									/>
 									Personal Coaching
-								</label>
+								</label> */}
 							</div>
 						</fieldset>
 

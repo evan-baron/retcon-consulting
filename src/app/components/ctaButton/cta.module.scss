@@ -52,6 +52,10 @@
 		}
 	}
 
+	&.header {
+		font-size: 1.5rem;
+	}
+
 	&:active {
 		background-color: var(--gray5);
 		color: var(--gray1);

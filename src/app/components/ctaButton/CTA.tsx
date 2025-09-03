@@ -9,6 +9,14 @@ interface CTAProps {
 }
 
 const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => {
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+		e.preventDefault();
+		const el = document.getElementById('contact');
+		if (el) {
+			el.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<a
 			href='#contact'
@@ -16,8 +24,9 @@ const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => {
 			tabIndex={0}
 			aria-label='Book a session'
 			className={`${styles.cta} ${!disabled ? styles.done : ''} ${
-				parent === 'hero' && styles.hero
-			} ${parent === 'summary' && styles.summary} ${className || ''}`}
+				parent && styles[parent]
+			} ${className || ''}`}
+			onClick={handleClick}
 		>
 			<span className={styles['cta-text']}>{content}</span>
 		</a>
