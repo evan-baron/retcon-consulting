@@ -77,6 +77,10 @@
 			.p {
 				font-size: 1.125rem;
 			}
+
+			span {
+				margin-top: auto;
+			}
 		}
 
 		.tile-back {
@@ -157,8 +161,8 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 400px;
-				height: 400px;
+				width: 350px;
+				height: 350px;
 				clip-path: ellipse(40% 45% at 50% 50%);
 				transform: rotate(-60deg);
 				background-color: var(--gray2);
@@ -169,8 +173,8 @@
 				}
 
 				@media screen and (max-width: 1250px) {
-					width: 400px;
-					height: 400px;
+					width: 350px;
+					height: 350px;
 				}
 			}
 		}
@@ -182,8 +186,8 @@
 			}
 
 			@media screen and (max-width: 1250px) {
-				width: 400px;
-				height: 400px;
+				width: 350px;
+				height: 350px;
 			}
 		}
 	}
