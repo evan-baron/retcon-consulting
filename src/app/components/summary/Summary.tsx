@@ -43,7 +43,7 @@ function Summary() {
 						<p className={styles['summary-text']}>
 							It&#39;s time to rewrite your narrative.
 						</p>
-						<CTA content='Book Now' parent='summary' />
+						<CTA content='Get Started' parent='summary' />
 					</div>
 				</div>
 			</section>
