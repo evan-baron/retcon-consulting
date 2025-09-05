@@ -31,19 +31,24 @@ function Summary() {
 						</div>
 					</div>
 					<div className={styles['text-wrapper']}>
-						<span className={styles['summary-highlight']}>
-							Growth shouldn&#39;t feel like guesswork.
-						</span>
-						<p className={styles['summary-text']}>
-							If you&#39;re stuck, circling the same challenges, or unsure
-							what&#39;s next, it&#39;s time to break that cycle. We help
-							startups, entrepreneurs, and innovators move forward with purpose
-							through design, product strategy, and creative problem-solving.
-						</p>
-						<p className={styles['summary-text']}>
-							It&#39;s time to rewrite your narrative.
-						</p>
-						<CTA content='Get Started' parent='summary' />
+						<div className={styles['text-block']}>
+							<span className={styles['summary-highlight']}>
+								Growth shouldn&#39;t feel like guesswork.
+							</span>
+							<p className={styles['summary-text']}>
+								If you&#39;re stuck, circling the same challenges, or unsure
+								what&#39;s next, it&#39;s time to break that cycle. We help
+								startups, entrepreneurs, and innovators{' '}
+								<span style={{ fontWeight: 'bold' }}>
+									move forward with purpose
+								</span>{' '}
+								through design, product strategy, and creative problem-solving.
+							</p>
+							<p className={styles['summary-text']}>
+								It&#39;s time to rewrite your narrative.
+							</p>
+							<CTA content='Get Started' parent='summary' />
+						</div>
 					</div>
 				</div>
 			</section>
