@@ -9,7 +9,7 @@ export interface TileData {
 
 export const tileData: TileData[] = [
 	{
-		title: 'Strategic Consulting',
+		title: 'Consulting',
 		image: '/consulting-rafiki.svg',
 		imageBackground: true,
 		alt: 'Consulting services',
