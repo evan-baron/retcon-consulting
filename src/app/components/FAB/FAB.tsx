@@ -12,6 +12,7 @@ import styles from './fab.module.scss';
 
 // Components imports
 import TTT from './toTheTop/TTT';
+import ScrollDown from './scrollDown/ScrollDown';
 
 // Context imports
 import { useAppContext } from '@/app/context/AppContext';
@@ -35,12 +36,14 @@ const FAB = ({ type }: { type: string }) => {
 		switch (type) {
 			case 'ttt':
 				return showFAB ? <TTT isMobile={isMobile ?? false} /> : null;
+			case 'scroll':
+				return <ScrollDown isMobile={isMobile ?? false} />;
 			default:
 				return null;
 		}
 	};
 
-	return <div className={styles['fab-wrapper']}>{FABContent(type)}</div>;
+	return FABContent(type);
 };
 
 export default FAB;

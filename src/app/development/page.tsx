@@ -13,7 +13,7 @@ import CustomTiles from './customTiles/CustomTiles';
 import MeasureSuccess from './measureSuccess/MeasureSuccess';
 import Commitment from './commitment/Commitment';
 import Support from './support/Support';
-import FAB from '../components/floatingActionButtons/FAB';
+import FAB from '../components/FAB/FAB';
 
 // Context imports
 

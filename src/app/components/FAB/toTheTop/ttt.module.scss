@@ -6,6 +6,7 @@
 	align-items: center;
 	gap: 1rem;
 	animation: fadeIn 0.3s ease-in forwards;
+	z-index: 10;
 
 	&.mobile {
 		bottom: 1rem;

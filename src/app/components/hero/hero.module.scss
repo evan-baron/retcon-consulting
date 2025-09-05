@@ -5,8 +5,7 @@
 	justify-content: center;
 	width: 100%;
 	height: calc(100vh - 4rem);
-	max-height: 850px;
-	overflow: hidden;
+	max-height: 1000px;
 
 	user-select: none;
 
@@ -104,7 +103,7 @@
 							fill: transparent;
 							stroke-dasharray: 2500;
 							stroke-dashoffset: 2500;
-							animation: svgAppear 5s ease-in-out forwards;
+							animation: svgAppear 3s ease-in-out forwards;
 
 							@keyframes svgAppear {
 								0% {
@@ -141,8 +140,8 @@
 				// transition: opacity 1s ease-in-out;
 				// transition-delay: 2s;
 				opacity: 0;
-				animation: fadeIn 2s ease-in-out forwards;
-				animation-delay: 5s;
+				animation: fadeIn 1s ease-in-out forwards;
+				animation-delay: 3s;
 
 				@keyframes fadeIn {
 					0% {
@@ -192,11 +191,11 @@
 			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;
 			margin-bottom: 2rem;
-			max-width: 50%;
+			max-width: 38rem;
 
 			opacity: 0;
-			animation: fadeIn 2s ease-in-out forwards;
-			animation-delay: 5s;
+			animation: fadeIn 1s ease-in-out forwards;
+			animation-delay: 3s;
 
 			@keyframes fadeIn {
 				0% {
@@ -218,7 +217,7 @@
 
 			.h2 {
 				font-family: var(--font-fredericka-the-great);
-				font-size: 4.5rem;
+				font-size: 3.5rem;
 				font-weight: 400;
 				color: var(--gray1);
 			}
@@ -232,7 +231,7 @@
 
 			.p {
 				margin-left: 1ch;
-				font-size: 1.5rem;
+				font-size: 1.25rem;
 				font-family: var(--font-roboto);
 				text-wrap: pretty;
 			}
@@ -240,15 +239,15 @@
 			@media screen and (max-width: 550px) and (orientation: portrait),
 				screen and (max-height: 550px) and (orientation: landscape) {
 				.h2 {
-					font-size: 2.5rem;
+					font-size: 2.25rem;
 				}
 
 				.h3 {
-					font-size: 1.25rem;
+					font-size: 1.125rem;
 				}
 
 				.p {
-					font-size: 1.125rem;
+					font-size: 1rem;
 				}
 			}
 		}

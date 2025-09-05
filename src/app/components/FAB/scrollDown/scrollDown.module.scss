@@ -1,0 +1,28 @@
+.scrolldown-wrapper {
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	filter: drop-shadow(0 0 1rem black);
+
+	.scrolldown-button {
+		all: unset;
+		width: 200px;
+		height: 40px;
+		clip-path: path('M0,40 L35,5 Q40,0 50,0 L155,0 Q160,0 165,5 L200,40 Z');
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: hsl(var(--hue), 100%, 50%);
+		cursor: pointer;
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0.5rem;
+		background-color: var(--gray7);
+		opacity: 1;
+		transition: opacity 0.2s ease-in-out;
+
+		&.hide {
+			opacity: 0;
+		}
+	}
+}

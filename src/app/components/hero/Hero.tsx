@@ -5,6 +5,7 @@ import React from 'react';
 import styles from './hero.module.scss';
 
 // Component Imports
+import FAB from '../FAB/FAB';
 
 function Hero() {
 	return (
@@ -62,6 +63,7 @@ function Hero() {
 					</dl>
 				</section>
 			</div>
+			<FAB type='scroll' />
 		</section>
 	);
 }
