@@ -6,11 +6,10 @@ import styles from './cta.module.scss';
 interface CTAProps {
 	content: string;
 	parent?: string; // Optional, used for styling or context
-	disabled?: boolean;
 	className?: string;
 }
 
-const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => {
+const CTA: React.FC<CTAProps> = ({ content, parent, className }) => {
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault();
 		const el = document.getElementById('contact');
@@ -25,9 +24,7 @@ const CTA: React.FC<CTAProps> = ({ content, parent, disabled, className }) => {
 			role='button'
 			tabIndex={0}
 			aria-label='Book a session'
-			className={`${styles.cta} ${!disabled ? styles.done : ''} ${
-				parent && styles[parent]
-			} ${className || ''}`}
+			className={`${styles.cta} ${parent && styles[parent]} ${className || ''}`}
 			onClick={handleClick}
 		>
 			{content}

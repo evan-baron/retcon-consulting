@@ -7,7 +7,7 @@
 	padding: 0.5rem 1.5rem;
 	border-radius: 0.5rem;
 	text-shadow: none;
-	opacity: 0;
+	// opacity: 0;
 	color: var(--main-gray);
 	animation: hue-rotate 15s linear infinite;
 
@@ -24,11 +24,11 @@
 		padding: 0.5rem 1rem;
 	}
 
-	&.done {
-		opacity: 1;
-		transition: opacity 1s ease-in-out;
-		cursor: pointer;
-	}
+	// &.done {
+	// 	opacity: 1;
+	// 	transition: opacity 1s ease-in-out;
+	// 	cursor: pointer;
+	// }
 
 	&.hero {
 		position: relative;
