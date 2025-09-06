@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 // Hooks imports
 
 // Styles imports
-import styles from './fab.module.scss';
 
 // MUI imports
 

@@ -3,20 +3,20 @@
 // Libary imports
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 // Styles imports
 import styles from './footer.module.scss';
 
 // Context
-import { useAppContext } from '@/app/context/AppContext';
+// import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
 import { LinkedIn, Facebook } from '@mui/icons-material';
 
 function Footer() {
-	const { isMobileWidth } = useAppContext();
-	const pathname = usePathname();
+	// const { isMobileWidth } = useAppContext();
+	// const pathname = usePathname();
 
 	return (
 		<div className={styles['footer-wrapper']}>
