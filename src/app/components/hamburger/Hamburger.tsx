@@ -63,7 +63,7 @@ function Hamburger({
 			document.removeEventListener('focusin', handleClickOutside);
 			document.removeEventListener('scroll', handleScroll);
 		};
-	}, [hamburgerRef.current, iconRef, isMouseInside, setHamburgerActive]);
+	}, [iconRef, isMouseInside, setHamburgerActive]);
 
 	const handleClick = () => {
 		const newActiveState = !hamburgerActive;
