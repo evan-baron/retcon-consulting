@@ -4,14 +4,14 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: calc(100vh - 4rem);
+	height: calc(100dvh - 4rem);
 	max-height: 1000px;
 
 	user-select: none;
 
 	@media screen and (max-width: 550px) and (orientation: portrait),
 		screen and (max-height: 550px) and (orientation: landscape) {
-		height: calc(100vh - 4rem);
+		height: calc(100dvh - 4rem);
 	}
 
 	.content {
@@ -74,7 +74,7 @@
 
 				@media screen and (max-height: 550px) and (orientation: landscape) {
 					padding: 1rem;
-					max-width: calc(100vh - 4rem);
+					max-width: calc(100dvh - 4rem);
 				}
 
 				.image-outer {
