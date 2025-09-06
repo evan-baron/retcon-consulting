@@ -11,6 +11,7 @@
 	// opacity: 0;
 	color: var(--main-gray);
 	animation: hue-rotate 15s linear infinite;
+	cursor: pointer;
 
 	@media (hover: hover) and (pointer: fine) {
 		&:hover {
