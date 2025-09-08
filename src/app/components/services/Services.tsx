@@ -2,6 +2,7 @@
 
 // Library imports
 import React from 'react';
+import Image from 'next/image';
 
 // Styles imports
 import styles from './services.module.scss';
@@ -31,7 +32,23 @@ function Services({ id }: { id: string }) {
 									<div className={styles.desktop}>
 										<div className={styles.monitor}>
 											<div className={styles.screen}>
-												<RGBLogo />
+												<div className={styles.navbar}>
+													<div className={styles.logo}>
+														<Image
+															src='/logo.svg'
+															alt='Logo Image'
+															width={9}
+															height={9}
+														/>
+													</div>
+													<div className={styles.brand}>Retcon Consulting</div>
+													<div className={styles.burger}>
+														<div className={styles.line}></div>
+													</div>
+												</div>
+												<div className={styles.bg}>
+													<RGBLogo />
+												</div>
 											</div>
 										</div>
 										<div className={styles.base}>
@@ -42,13 +59,45 @@ function Services({ id }: { id: string }) {
 
 									<div className={styles.tablet}>
 										<div className={styles.screen}>
-											<RGBLogo />
+											<div className={styles.navbar}>
+												<div className={styles.logo}>
+													<Image
+														src='/logo.svg'
+														alt='Logo Image'
+														width={9}
+														height={9}
+													/>
+												</div>
+												<div className={styles.brand}>Retcon Consulting</div>
+												<div className={styles.burger}>
+													<div className={styles.line}></div>
+												</div>
+											</div>
+											<div className={styles.bg}>
+												<RGBLogo />
+											</div>
 										</div>
 									</div>
 
 									<div className={styles.mobile}>
 										<div className={styles.screen}>
-											<RGBLogo />
+											<div className={styles.navbar}>
+												<div className={styles.logo}>
+													<Image
+														src='/logo.svg'
+														alt='Logo Image'
+														width={9}
+														height={9}
+													/>
+												</div>
+												<div className={styles.brand}>Retcon Consulting</div>
+												<div className={styles.burger}>
+													<div className={styles.line}></div>
+												</div>
+											</div>
+											<div className={styles.bg}>
+												<RGBLogo />
+											</div>
 										</div>
 									</div>
 								</div>
