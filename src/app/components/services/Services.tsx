@@ -17,11 +17,7 @@ import { RiNextjsFill } from 'react-icons/ri';
 import { AiOutlineHtml5 } from 'react-icons/ai';
 
 // Component imports
-import CTA from '../ctaButton/CTA';
 import RGBLogo from '../RGBLogo/RGBLogo';
-
-// Data imports
-import { tileData } from './tileInfo';
 
 function Services({ id }: { id: string }) {
 	return (
@@ -367,7 +363,7 @@ function Services({ id }: { id: string }) {
 							</div>
 						</div>
 						<Link href='/development' className={styles.cta}>
-							Learn More
+							<span>Learn More</span> &rarr;
 						</Link>
 					</div>
 				</div>
@@ -380,7 +376,9 @@ function Services({ id }: { id: string }) {
 							<div className={styles.text}></div>
 							<div className={styles.graphics}></div>
 						</div>
-						<CTA content='Get Started' />
+						<Link href='/consulting' className={styles.cta}>
+							<span>Learn More</span> &rarr;
+						</Link>
 					</div>
 				</div>
 
