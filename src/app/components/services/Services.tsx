@@ -7,21 +7,72 @@ import React from 'react';
 import styles from './services.module.scss';
 
 // Component imports
-import Tile from './servicesTile/Tile';
+import CTA from '../ctaButton/CTA';
+import RGBLogo from '../RGBLogo/RGBLogo';
 
 // Data imports
-import { tileData } from './tileInfo';
 
 function Services({ id }: { id: string }) {
 	return (
-		<div className={styles['services-wrapper']} id={id}>
-			<section
+		<section className={styles['services-wrapper']} id={id}>
+			<h2 className={styles.h2}>Services</h2>
+
+			<div
 				className={styles.services}
 				aria-label='The services we offer to help you grow your business'
 			>
-				<h2 className={styles.h2}>Services</h2>
+				{/* Development */}
+				<div className={styles['content-wrapper']}>
+					<div className={styles['content-container']}>
+						<h3>Web Development</h3>
+						<div className={styles.content}>
+							<div className={styles.graphics}>
+								<div className={styles.development}>
+									<div className={styles.desktop}>
+										<div className={styles.monitor}>
+											<div className={styles.screen}>
+												<RGBLogo />
+											</div>
+										</div>
+										<div className={styles.base}>
+											<div className={styles.stand}></div>
+											<div className={styles.platform}></div>
+										</div>
+									</div>
 
-				<div className={styles['services-tiles']}>
+									<div className={styles.tablet}>
+										<div className={styles.screen}>
+											<RGBLogo />
+										</div>
+									</div>
+
+									<div className={styles.mobile}>
+										<div className={styles.screen}>
+											<RGBLogo />
+										</div>
+									</div>
+								</div>
+								<div className={styles.design}></div>
+							</div>
+							<div className={styles.text}></div>
+						</div>
+						<CTA content='Get Started' />
+					</div>
+				</div>
+
+				{/* Consulting */}
+				<div className={styles['content-wrapper']}>
+					<div className={styles['content-container']}>
+						<h3>Consulting</h3>
+						<div className={styles.content}>
+							<div className={styles.text}></div>
+							<div className={styles.graphics}></div>
+						</div>
+						<CTA content='Get Started' />
+					</div>
+				</div>
+
+				{/* <div className={styles['services-tiles']}>
 					{tileData.map((tile) => (
 						<Tile
 							key={tile.title}
@@ -33,9 +84,9 @@ function Services({ id }: { id: string }) {
 							details={tile.details}
 						/>
 					))}
-				</div>
-			</section>
-		</div>
+				</div> */}
+			</div>
+		</section>
 	);
 }
 
