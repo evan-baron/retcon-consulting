@@ -6,8 +6,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 3rem;
-	user-select: none;
-	// transform: translateY(-100px);
+	// user-select: none;
 
 	.h2 {
 		font-size: 4rem;
@@ -744,23 +743,43 @@
 				}
 
 				.cta {
+					position: relative;
 					height: fit-content;
 					all: unset;
 					font-size: 1.125rem;
 					border-radius: 0.5rem;
 					color: var(--gray1);
-					transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 
 					cursor: pointer;
 
+					// span {
+					// 	text-decoration: underline;
+					// 	text-underline-offset: 0.25rem;
+					// }
+
 					span {
-						text-decoration: underline;
-						text-underline-offset: 0.25rem;
+						position: relative;
+
+						&::after {
+							content: '';
+							position: absolute;
+							top: 1px;
+							left: 50%;
+							transform: translateX(-50%);
+							height: 100%;
+							width: 0%;
+							border-bottom: 2px solid var(--gray1);
+							transition: width 0.3s ease-in-out;
+						}
 					}
 
 					@media (hover: hover) and (pointer: fine) {
 						&:hover {
 							font-weight: 500;
+
+							span::after {
+								width: 100%;
+							}
 						}
 					}
 
@@ -794,6 +813,14 @@
 		.content-wrapper:nth-child(even) {
 			transform: translateX(5vw);
 			justify-content: flex-start;
+
+			.content-container {
+				.text {
+					.text-content {
+						text-align: right;
+					}
+				}
+			}
 
 			.content-container > :first-child {
 				transform: translateX(-2.5vw);

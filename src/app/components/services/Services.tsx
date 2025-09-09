@@ -287,8 +287,8 @@ function Services({ id }: { id: string }) {
 								<div className={styles['text-content']}>
 									<h4>Web Development</h4>
 									<p>
-										We build responsive and modern websites that cater to your
-										business needs. Leveraging a combination of{' '}
+										We build responsive and modern websites tailored to your
+										business needs. Leveraging trusted frameworks like{' '}
 										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
 											React
 										</span>
@@ -296,18 +296,18 @@ function Services({ id }: { id: string }) {
 										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
 											Next.js
 										</span>
-										, and other cutting-edge technologies, we ensure your online
+										, and other modern technologies, we ensure your online
 										presence is{' '}
-										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
-											modern
-										</span>
-										,{' '}
 										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
 											robust
 										</span>
-										, and{' '}
+										,{' '}
 										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
 											scalable
+										</span>
+										, and{' '}
+										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
+											future-proof
 										</span>
 										.
 									</p>
@@ -371,14 +371,58 @@ function Services({ id }: { id: string }) {
 				{/* Consulting */}
 				<div className={styles['content-wrapper']}>
 					<div className={styles['content-container']}>
-						<h3>Consulting</h3>
+						<h3>Strategic Consulting</h3>
 						<div className={styles.content}>
-							<div className={styles.text}></div>
+							<div className={styles.text}>
+								<div className={styles['text-content']}>
+									<h4>Product-Market Fit</h4>
+									<p>
+										Changes to your branding, new product introduction, or
+										evolving market conditions can be disruptive to your
+										business, but they don&apos;t have to slow your momentum.
+										Finding the right product-market fit is often the
+										differentiator between a launch that stalls and a{' '}
+										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
+											launch that soars
+										</span>
+										.
+									</p>
+									<p>
+										Our team will work with you to uncover real customer needs,
+										validate assumptions, and position your brand where it will
+										have the greatest impact. Whether you&apos;re pivoting,
+										refining, or entering a new market, we&apos;ll bring{' '}
+										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
+											structure
+										</span>
+										,{' '}
+										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
+											insight
+										</span>
+										, and{' '}
+										<span style={{ fontWeight: 'bold', color: 'var(--gray1)' }}>
+											clarity
+										</span>{' '}
+										to the process so you can move forward with confidence.
+									</p>
+								</div>
+								<div className={styles['text-content']}>
+									<h4>Go-to-Market Strategy</h4>
+									<p>
+										We assist in developing effective go-to-market strategies
+										that resonate with your target audience and drive
+										engagement.
+									</p>
+								</div>
+							</div>
 							<div className={styles.graphics}></div>
 						</div>
-						<Link href='/consulting' className={styles.cta}>
-							<span>Learn More</span> &rarr;
-						</Link>
+						<div className={styles.cta}>
+							<Link href='/consulting'>
+								<span>Learn More</span>
+							</Link>
+							&rarr;
+						</div>
 					</div>
 				</div>
 
