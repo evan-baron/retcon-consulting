@@ -97,6 +97,36 @@
 						}
 
 						.development-graphics-container {
+							&::before {
+								content: '';
+								position: absolute;
+								inset: 0;
+								z-index: -1;
+								pointer-events: none;
+								background-image: linear-gradient(
+										to right,
+										var(--gray6) 1.5px,
+										transparent 1.5px
+									),
+									linear-gradient(
+										to bottom,
+										var(--gray6) 1.5px,
+										transparent 1.5px
+									);
+								background-size: 32px 32px;
+								background-position: 0 -1rem;
+								-webkit-mask-image: radial-gradient(
+									circle at 50% 50%,
+									#fff 50%,
+									transparent 90%
+								);
+								mask-image: radial-gradient(
+									circle at 50% 50%,
+									#fff 50%,
+									transparent 90%
+								);
+							}
+
 							.gear1 {
 								position: absolute;
 								top: 8%;
@@ -685,394 +715,80 @@
 						}
 
 						.consulting-graphics-container {
-							outline: 1px solid red;
+							position: relative;
 							display: flex;
+							// Remove background-image and mask-image from here!
 
-							.compass {
+							&::before {
+								content: '';
 								position: absolute;
-								top: 5%;
-								left: 5%;
-								width: 25%;
+								inset: 0;
+								z-index: -1;
+								pointer-events: none;
+								background-image: linear-gradient(
+										to right,
+										var(--gray6) 1.5px,
+										transparent 1.5px
+									),
+									linear-gradient(
+										to bottom,
+										var(--gray6) 1.5px,
+										transparent 1.5px
+									);
+								background-size: 32px 32px;
+								background-position: 0 -1rem;
+								-webkit-mask-image: radial-gradient(
+									circle at 50% 50%,
+									#fff 50%,
+									transparent 90%
+								);
+								mask-image: radial-gradient(
+									circle at 50% 50%,
+									#fff 50%,
+									transparent 90%
+								);
+							}
+
+							.lightbulb {
+								position: absolute;
+								top: 10%;
+								right: 5%;
+								width: 50%;
 								aspect-ratio: 1;
-								border-radius: 50%;
-								border: 0.375rem solid var(--gray3);
-								padding: 1rem;
-								animation: rotate 10s linear infinite;
-								filter: drop-shadow(5px 5px 5px black);
+								color: var(--gray5);
+								z-index: -1;
 
-								@keyframes rotate {
-									0% {
-										transform: rotate(-20deg);
-									}
-
-									5% {
-										transform: rotate(-10deg);
-									}
-
-									10% {
-										transform: rotate(-60deg);
-									}
-
-									20% {
-										transform: rotate(-50deg);
-									}
-
-									30% {
-										transform: rotate(-50deg);
-									}
-
-									40% {
-										transform: rotate(-80deg);
-									}
-
-									50% {
-										transform: rotate(-70deg);
-									}
-
-									60% {
-										transform: rotate(-80deg);
-									}
-
-									70% {
-										transform: rotate(-50deg);
-									}
-
-									80% {
-										transform: rotate(-60deg);
-									}
-
-									90% {
-										transform: rotate(-10deg);
-									}
-
-									100% {
-										transform: rotate(-20deg);
-									}
-								}
-
-								.compass-inner {
-									position: relative;
+								svg {
 									width: 100%;
 									height: 100%;
-								}
+									overflow: visible;
 
-								.compass-body,
-								.compass-needle {
-									position: absolute;
-									top: 0;
-									left: 0;
-									width: 100%;
-									height: 100%;
-								}
-
-								.compass-body {
 									path {
-										fill: var(--gray3);
-									}
-								}
-								.compass-needle {
-									path {
-										fill: hsl(var(--hue), 100%, 50%);
+										fill: none;
+										stroke: var(--gray5);
+										stroke-width: 0.5rem;
 									}
 								}
 							}
 
-							.process-diagram {
-								width: 60%;
-								aspect-ratio: 1;
+							.puzzle {
 								position: absolute;
-								left: 10%;
-								top: 10%;
-								outline: 1px solid blue;
+								bottom: 5%;
+								left: 0;
+								width: 50%;
+								aspect-ratio: 1;
+								color: var(--gray5);
+								z-index: -1;
 
-								.map {
-									position: relative;
+								svg {
 									width: 100%;
 									height: 100%;
-									outline: 1px solid red;
+									overflow: visible;
 
-									.start {
-										width: fit-content;
-										position: absolute;
-										top: 8%;
-										left: 0;
-										transform: translateX(calc(-100% - 0.5rem));
-										display: flex;
-										align-items: center;
-										gap: 0.25rem;
-
-										.icon {
-											width: 4.5rem;
-											height: 4.5rem;
-											color: var(--gray1);
-										}
-
-										.lines {
-											position: relative;
-											width: 2rem;
-											height: 0.25rem;
-											background-color: var(--gray1);
-											border-radius: 0.125rem;
-
-											&::before {
-												content: '';
-												position: absolute;
-
-												right: 0;
-												transform: translateY(-0.75rem);
-												width: 2.5rem;
-												height: 0.25rem;
-												background-color: var(--gray1);
-												border-radius: 0.125rem;
-											}
-
-											&::after {
-												content: '';
-												position: absolute;
-
-												right: 0;
-												transform: translateY(0.75rem);
-												width: 1.5rem;
-												height: 0.25rem;
-												background-color: var(--gray1);
-												border-radius: 0.125rem;
-											}
-										}
-									}
-
-									.chatbox {
-										width: 40%;
-										height: 30%;
-										position: absolute;
-										top: 5%;
-										right: -14%;
-
-										.phone {
-											position: absolute;
-											bottom: 0;
-											left: 0;
-
-											.lines {
-												width: 25%;
-												height: 25%;
-												position: absolute;
-												top: 10%;
-												right: 10%;
-												display: flex;
-												align-items: center;
-												justify-content: center;
-
-												transform: rotate(-45deg);
-
-												.line {
-													position: relative;
-													width: 100%;
-													height: 0.25rem;
-													background-color: var(--gray1);
-													border-radius: 0.125rem;
-
-													&::before {
-														content: '';
-														position: absolute;
-														transform: translate(-0.25rem, -0.875rem)
-															rotate(-30deg);
-
-														width: 100%;
-														height: 0.25rem;
-														background-color: var(--gray1);
-														border-radius: 0.125rem;
-													}
-
-													&::after {
-														content: '';
-														position: absolute;
-														transform: translate(-0.25rem, 0.875rem)
-															rotate(30deg);
-
-														width: 100%;
-														height: 0.25rem;
-														background-color: var(--gray1);
-														border-radius: 0.125rem;
-													}
-												}
-											}
-
-											.icon {
-												font-size: 5rem;
-												color: var(--gray1);
-											}
-										}
-
-										.chat {
-											position: absolute;
-											top: 0;
-											right: 0;
-
-											.ellipsis {
-												width: 98%;
-												height: 80%;
-												position: absolute;
-												right: 0;
-												top: 1%;
-												display: flex;
-												gap: 0.5rem;
-												align-items: center;
-												justify-content: center;
-
-												span {
-													width: 0.375rem;
-													height: 0.375rem;
-													background-color: var(--gray1);
-													opacity: 0;
-													transition: opacity 0.3s ease-in-out;
-
-													&.visible {
-														opacity: 1;
-													}
-												}
-											}
-
-											.icon {
-												font-size: 5rem;
-												color: var(--gray1);
-											}
-										}
-									}
-
-									.desktop {
-										position: absolute;
-										bottom: 20%;
-										left: 10%;
-										width: 25%;
-										height: 20%;
-										display: flex;
-										flex-direction: column;
-										z-index: 10;
-										filter: drop-shadow(0 0 1rem black);
-
-										.monitor {
-											width: 100%;
-											height: 80%;
-											display: flex;
-											justify-content: center;
-											background-color: var(--gray1);
-											border-radius: 4px;
-											padding: 0.25rem 0.125rem;
-
-											.screen {
-												position: relative;
-												height: 95%;
-												width: 100%;
-												display: flex;
-												align-items: center;
-												justify-content: center;
-												gap: 0.5rem;
-												background-color: var(--gray7);
-
-												.graph {
-													height: 60%;
-													aspect-ratio: 1;
-													border: 3px solid var(--gray1);
-
-													.icon {
-														width: 100%;
-														height: 100%;
-														color: var(--gray1);
-													}
-												}
-
-												.slide {
-													height: 60%;
-													aspect-ratio: 1;
-													display: flex;
-													flex-direction: column;
-													gap: 0.25rem;
-
-													.lines {
-														height: fit-content;
-														width: 100%;
-														display: flex;
-														flex-direction: column;
-														gap: 0.125rem;
-														opacity: 0;
-														transition: opacity 0.3s ease-in-out;
-
-														&.visible {
-															opacity: 1;
-														}
-
-														span {
-															height: 0.125rem;
-															width: 100%;
-															background-color: var(--gray1);
-														}
-													}
-												}
-											}
-										}
-
-										.base {
-											width: 100%;
-											height: 20%;
-											display: flex;
-											flex-direction: column;
-											justify-content: center;
-											align-items: center;
-
-											.stand {
-												width: 2rem;
-												height: 100%;
-												clip-path: polygon(0 100%, 10% 0, 90% 0, 100% 100%);
-												background-image: linear-gradient(
-													to bottom,
-													var(--gray5),
-													var(--gray4)
-												);
-											}
-
-											.platform {
-												width: 4rem;
-												height: 0.25rem;
-												background-color: var(--gray1);
-											}
-										}
-									}
-
-									.curved-path {
-										width: 100%;
-										height: 100%;
-
-										.line,
-										.arrowhead {
-											stroke: var(--gray3);
-											stroke-width: 0.375rem;
-											stroke-linecap: round;
-											stroke-linejoin: round;
-											fill: transparent;
-										}
-
-										.line {
-											stroke-dasharray: 1.5rem;
-											stroke-dashoffset: 0.75rem;
-										}
-									}
-
-									.handshake {
-										position: absolute;
-										width: 22.5%;
-										height: 22.5%;
-										bottom: -0.5rem;
-										right: 0;
-										transform: translateX(calc(100% + 0.5rem));
-
-										svg {
-											width: 100%;
-											height: 100%;
-
-											path {
-												fill: var(--gray1);
-											}
-										}
+									path {
+										fill: none;
+										stroke: var(--gray5);
+										stroke-width: 0.625rem;
 									}
 								}
 							}
