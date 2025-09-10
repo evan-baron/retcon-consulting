@@ -1,0 +1,5 @@
+{
+	"editor.hover.above": false,
+	"accessibility.verbosity.inlineCompletions": false,
+	"npm.scriptHover": true
+}
