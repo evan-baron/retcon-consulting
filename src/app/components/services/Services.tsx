@@ -200,71 +200,48 @@ function Services({ id }: { id: string }) {
 										<div className={styles.code}>{`</>`}</div>
 									</div>
 									<div className={styles.design}>
-										<div className={styles.palette1}>
-											{Array.from({ length: 5 }).map((_, index) => (
-												<div
-													key={index}
-													className={styles.pantone}
-													style={{
-														backgroundColor: `hsl(${280 - index * 15}, 0%, ${
-															50 + index * 10
-														}%)`,
-													}}
-												></div>
-											))}
+										<div className={styles.palettes}>
+											<div className={styles.palette1}>
+												{Array.from({ length: 5 }).map((_, index) => (
+													<div
+														key={index}
+														className={styles.pantone}
+														style={{
+															backgroundColor: `hsl(${280 - index * 15}, 0%, ${
+																50 + index * 10
+															}%)`,
+														}}
+													></div>
+												))}
+											</div>
+											<div className={styles.palette2}>
+												{Array.from({ length: 5 }).map((_, index) => (
+													<div
+														key={index}
+														className={styles.pantone}
+														style={{
+															backgroundColor: `hsl(${200 + index * 20}, 0%, ${
+																30 - index * 5
+															}%)`,
+														}}
+													></div>
+												))}
+											</div>
+											<div className={styles.palette3}>
+												{Array.from({ length: 5 }).map((_, index) => (
+													<div
+														key={index}
+														className={styles.pantone}
+														style={{
+															backgroundColor: `hsl(var(--hue), 100%, ${
+																80 - index * 15
+															}%)`,
+														}}
+													></div>
+												))}
+											</div>
 										</div>
-										<div className={styles.palette2}>
-											{Array.from({ length: 5 }).map((_, index) => (
-												<div
-													key={index}
-													className={styles.pantone}
-													style={{
-														backgroundColor: `hsl(${200 + index * 20}, 0%, ${
-															30 - index * 5
-														}%)`,
-													}}
-												></div>
-											))}
-										</div>
-										{/* <div className={styles.palette1}>
-										{Array.from({ length: 5 }).map((_, index) => (
-											<div
-												key={index}
-												className={styles.pantone}
-												style={{
-													backgroundColor: `hsl(${280 - index * 15}, 100%, ${
-														50 + index * 10
-													}%)`,
-												}}
-											></div>
-										))}
-									</div>
-									<div className={styles.palette2}>
-										{Array.from({ length: 5 }).map((_, index) => (
-											<div
-												key={index}
-												className={styles.pantone}
-												style={{
-													backgroundColor: `hsl(${200 + index * 20}, 100%, ${
-														50 - index * 5
-													}%)`,
-												}}
-											></div>
-										))}
-									</div> */}
-										<div className={styles.palette3}>
-											{Array.from({ length: 5 }).map((_, index) => (
-												<div
-													key={index}
-													className={styles.pantone}
-													style={{
-														backgroundColor: `hsl(var(--hue), 100%, ${
-															80 - index * 15
-														}%)`,
-													}}
-												></div>
-											))}
-										</div>
+
 										<div className={styles.rectangle}>
 											<div className={styles['icon-box']}>
 												<ContentCut className={styles.icon} />
