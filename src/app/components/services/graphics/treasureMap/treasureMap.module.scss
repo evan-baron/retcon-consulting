@@ -306,7 +306,7 @@
 				fill: none;
 				stroke-dasharray: 125rem;
 				stroke-dashoffset: 125rem;
-				animation: dashoffset 10s linear infinite;
+				animation: dashoffset 5s linear infinite;
 			}
 
 			@keyframes dashoffset {
@@ -315,7 +315,7 @@
 					stroke-dashoffset: 125rem;
 				}
 
-				50%,
+				90%,
 				100% {
 					stroke-dashoffset: 0;
 				}
