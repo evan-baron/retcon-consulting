@@ -362,7 +362,7 @@ const WebDev = () => {
 	) : (
 		<div className={mobileStyles['mobile-content']}>
 			<div className={mobileStyles['mobile-webdev']}>
-				<h4>Web Development</h4>
+				<h3>Web Development</h3>
 
 				<div className={mobileStyles['webdev-graphics']}>
 					<div className={mobileStyles.gear1}>
@@ -606,7 +606,7 @@ const WebDev = () => {
 				</div>
 			</div>
 			<div className={mobileStyles['mobile-webdesign']}>
-				<h4>Web Design</h4>
+				<h3>Web Design</h3>
 				<div className={mobileStyles['design-graphics']}>
 					<div className={mobileStyles.palettes}>
 						<div className={mobileStyles.palette1}>

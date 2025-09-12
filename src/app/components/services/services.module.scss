@@ -40,6 +40,7 @@
 		}
 
 		@media screen and (max-width: 550px) {
+			gap: 4rem;
 			padding: 0 10%;
 		}
 
@@ -69,7 +70,7 @@
 				justify-content: space-between;
 				gap: 2rem;
 
-				h3 {
+				.section-title {
 					font-size: 4rem;
 					color: var(--gray1);
 				}
@@ -162,7 +163,7 @@
 				.content-container {
 					width: 100%;
 
-					h3 {
+					.section-title {
 						display: none;
 						text-align: center;
 						font-size: 2rem;

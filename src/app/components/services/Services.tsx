@@ -23,7 +23,9 @@ function Services({ id }: { id: string }) {
 				{/* Development */}
 				<div className={styles['content-wrapper']}>
 					<div className={styles['content-container']}>
-						<h3>Web Development & Design</h3>
+						<h3 className={styles['section-title']}>
+							Web Development & Design
+						</h3>
 						<WebDev />
 						<div className={styles.cta}>
 							<Link href='/consulting'>
@@ -37,7 +39,7 @@ function Services({ id }: { id: string }) {
 				{/* Consulting */}
 				<div className={styles['content-wrapper']}>
 					<div className={styles['content-container']}>
-						<h3>Strategic Consulting</h3>
+						<h3 className={styles['section-title']}>Strategic Consulting</h3>
 						<Consulting />
 						<div className={styles.cta}>
 							<Link href='/consulting'>

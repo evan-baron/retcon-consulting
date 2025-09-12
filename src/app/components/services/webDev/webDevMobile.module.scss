@@ -3,7 +3,7 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	gap: 4rem;
 
 	.text-content {
 		width: 100%;
@@ -36,11 +36,21 @@
 				display: flex;
 				gap: 1rem;
 
+				p {
+					color: var(--gray1);
+				}
+
 				.arrow {
 					transform: scaleX(1);
 				}
 			}
 		}
+	}
+
+	h3 {
+		font-size: 2rem;
+		font-weight: 500;
+		color: var(--gray1);
 	}
 
 	.mobile-webdev {
@@ -52,11 +62,6 @@
 		gap: 1rem;
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 			0.5rem 0.5rem 3rem black;
-
-		h4 {
-			font-size: 2rem;
-			color: var(--gray1);
-		}
 
 		.webdev-graphics {
 			position: relative;
@@ -596,11 +601,6 @@
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 			0.5rem 0.5rem 3rem black;
 
-		h4 {
-			font-size: 2rem;
-			color: var(--gray1);
-		}
-
 		.design-graphics {
 			position: relative;
 			width: 100%;
@@ -755,7 +755,7 @@
 		position: relative;
 		height: fit-content;
 		all: unset;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		padding: 0.5rem 1rem;
 		color: var(--gray1);
 

@@ -37,15 +37,21 @@ function Summary() {
 							</span>
 							<p className={styles['summary-text']}>
 								If you&#39;re stuck, circling the same challenges, or unsure
-								what&#39;s next, it&#39;s time to break that cycle. We help
-								startups, entrepreneurs, and innovators{' '}
+								what&#39;s next, it&#39;s time to break that cycle.
+							</p>
+							<p className={styles['summary-text']}>
+								We help startups, entrepreneurs, and innovators{' '}
 								<span style={{ fontWeight: 'bold' }}>
 									move forward with purpose
 								</span>{' '}
 								through design, product strategy, and creative problem-solving.
 							</p>
 							<p className={styles['summary-text']}>
-								It&#39;s time to rewrite your narrative.
+								It&#39;s time to{' '}
+								<span style={{ fontWeight: 'bold' }}>
+									rewrite your narrative
+								</span>
+								.
 							</p>
 							<div className={styles.cta}>
 								<CTA content='Get Started' parent='summary' />

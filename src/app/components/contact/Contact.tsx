@@ -189,15 +189,6 @@ function Contact({ id, page }: { id: string; page?: string }) {
 									<input
 										type='checkbox'
 										name='services'
-										value='consulting'
-										onChange={handleChange}
-									/>
-									Strategic Consulting
-								</label>
-								<label>
-									<input
-										type='checkbox'
-										name='services'
 										value='web-development'
 										onChange={handleChange}
 									/>
@@ -211,6 +202,15 @@ function Contact({ id, page }: { id: string; page?: string }) {
 										onChange={handleChange}
 									/>
 									Web Design
+								</label>
+								<label>
+									<input
+										type='checkbox'
+										name='services'
+										value='consulting'
+										onChange={handleChange}
+									/>
+									Consulting
 								</label>
 								<label>
 									<input
@@ -243,8 +243,11 @@ function Contact({ id, page }: { id: string; page?: string }) {
 						</fieldset>
 
 						<div className={styles['message-wrapper']}>
-							<label className={styles.required} htmlFor='message'>
-								Add a brief description:
+							<label
+								className={`${styles.h3} ${styles.required}`}
+								htmlFor='message'
+							>
+								Please add a brief description:
 							</label>
 							<textarea
 								id='message'

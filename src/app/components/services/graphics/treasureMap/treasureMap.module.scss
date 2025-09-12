@@ -357,4 +357,123 @@
 			}
 		}
 	}
+
+	// Mobile Portrait
+	@media screen and (max-width: 550px) and (orientation: portrait) {
+		width: 65%;
+		height: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.map {
+			.start {
+				top: 18%;
+				left: 1%;
+				gap: 0;
+
+				.icon {
+					width: 2.75rem;
+					height: 2.75rem;
+				}
+
+				.lines {
+					width: 1.5rem;
+					height: 3px;
+					border-radius: 1.5px;
+
+					&::before {
+						transform: translateY(-0.5rem);
+						width: 2rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+
+					&::after {
+						transform: translateY(0.5rem);
+						width: 1rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+				}
+			}
+
+			.chatbox {
+				width: 50%;
+				height: 25%;
+				top: 15%;
+				right: -19%;
+
+				.phone {
+					.lines {
+						.line {
+							&::before {
+								transform: translate(-0.25rem, -0.75rem) rotate(-30deg);
+							}
+
+							&::after {
+								transform: translate(-0.25rem, 0.75rem) rotate(30deg);
+							}
+						}
+					}
+
+					.icon {
+						font-size: 3.5rem;
+					}
+				}
+
+				.chat {
+					.ellipsis {
+						gap: 5px;
+
+						span {
+							width: 5px;
+							height: 5px;
+						}
+					}
+
+					.icon {
+						font-size: 3.5rem;
+					}
+				}
+			}
+
+			.desktop {
+				bottom: 23%;
+				width: 42%;
+				height: 21%;
+
+				.monitor {
+					.screen {
+						.slide {
+							gap: 4px;
+
+							.lines {
+								gap: 2px;
+
+								span {
+									height: 2px;
+								}
+							}
+						}
+					}
+				}
+
+				// .base {
+				// 	.platform {
+				// 		height: 3px;
+				// 	}
+				// }
+			}
+
+			.curved-path {
+				transform: scaleY(1.2);
+			}
+
+			.handshake {
+				width: 27%;
+				height: 27%;
+				bottom: 4%;
+			}
+		}
+	}
 }
