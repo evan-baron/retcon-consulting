@@ -243,12 +243,7 @@
 			.message-wrapper {
 				display: flex;
 				flex-direction: column;
-				gap: 1rem;
 				margin-bottom: 1rem;
-
-				@media screen and (max-width: 550px) {
-					gap: 0;
-				}
 
 				.required {
 					@media screen and (max-width: 550px) {
