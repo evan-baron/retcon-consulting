@@ -47,7 +47,9 @@ function Summary() {
 							<p className={styles['summary-text']}>
 								It&#39;s time to rewrite your narrative.
 							</p>
-							<CTA content='Get Started' parent='summary' />
+							<div className={styles.cta}>
+								<CTA content='Get Started' parent='summary' />
+							</div>
 						</div>
 					</div>
 				</div>

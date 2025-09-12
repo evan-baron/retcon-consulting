@@ -62,7 +62,7 @@
 
 			@media screen and (max-width: 550px) {
 				gap: 0;
-				padding: 0 1.5rem;
+				padding: 0;
 				bottom: 2rem;
 			}
 		}
@@ -80,7 +80,7 @@
 			}
 
 			@media screen and (max-width: 550px) {
-				width: 100%;
+				width: calc(100% - 3rem);
 			}
 
 			.wrapper {
@@ -177,6 +177,13 @@
 
 					@media screen and (max-width: 550px) {
 						font-size: 1.25rem;
+					}
+				}
+
+				.cta {
+					@media screen and (max-width: 550px) {
+						display: flex;
+						justify-content: center;
 					}
 				}
 			}
