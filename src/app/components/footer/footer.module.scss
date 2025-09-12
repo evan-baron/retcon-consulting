@@ -70,6 +70,10 @@
 				gap: 1rem;
 				cursor: pointer;
 
+				@media screen and (max-width: 550px) {
+					gap: 0.5rem;
+				}
+
 				.link {
 					&:focus-visible {
 						outline: 2px solid var(--main-teal) !important;
