@@ -66,6 +66,7 @@
 		.webdev-graphics {
 			position: relative;
 			width: 100%;
+			max-width: 25rem;
 			aspect-ratio: 5 / 3;
 			display: flex;
 			align-items: center;
@@ -577,6 +578,10 @@
 			width: 5rem;
 			animation: glow 3s ease-in-out infinite;
 
+			@media screen and (max-width: 380px) {
+				bottom: 4%;
+			}
+
 			@keyframes glow {
 				0%,
 				100% {
@@ -604,6 +609,7 @@
 		.design-graphics {
 			position: relative;
 			width: 100%;
+			max-width: 25rem;
 			aspect-ratio: 5 / 3;
 			display: flex;
 			align-items: center;

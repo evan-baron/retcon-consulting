@@ -60,6 +60,7 @@
 	.graphics {
 		position: relative;
 		width: 100%;
+		max-width: 25rem;
 		aspect-ratio: 1;
 
 		.consulting-graphics-container {
