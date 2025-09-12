@@ -157,7 +157,6 @@
 				backdrop-filter: none;
 				border-radius: 0;
 				box-shadow: none;
-				outline: 1px solid red;
 				padding: 0 1rem;
 
 				.content-container {
@@ -168,6 +167,10 @@
 						text-align: center;
 						font-size: 2rem;
 						text-wrap: balance;
+					}
+
+					.cta {
+						display: none;
 					}
 				}
 			}
