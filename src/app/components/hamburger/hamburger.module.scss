@@ -19,6 +19,11 @@
 			transition: transform 0.5s, opacity 0.5s, visibility 0s 0.5s; // visibility hides after fade-out
 			box-shadow: 0 0 1rem black;
 
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
+				height: calc(100vh - 3.5rem);
+			}
+
 			&.mobile {
 				transform: translateX(0);
 
