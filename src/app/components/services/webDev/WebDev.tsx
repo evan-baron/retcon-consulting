@@ -24,9 +24,9 @@ import RGBLogo from '../../RGBLogo/RGBLogo';
 import { useAppContext } from '@/app/context/AppContext';
 
 const WebDev = () => {
-	const { isMobile, isMobileWidth } = useAppContext();
+	const { isMobile } = useAppContext();
 
-	return !isMobileWidth ? (
+	return !isMobile ? (
 		<div className={styles['desktop-content']}>
 			<div className={styles.graphics}>
 				<div className={styles['development-graphics-container']}>

@@ -9,7 +9,6 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		gap: 1rem;
 		padding: 0 1rem;
 
@@ -32,6 +31,11 @@
 			flex-direction: column;
 			gap: 0.5rem;
 
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				position: relative;
+				left: 2rem;
+			}
+
 			.bullet {
 				display: flex;
 				gap: 1rem;
@@ -45,12 +49,21 @@
 				}
 			}
 		}
+
+		.cta {
+			align-self: center;
+		}
 	}
 
 	h3 {
 		font-size: 2rem;
 		font-weight: 500;
 		color: var(--gray1);
+
+		@media screen and (max-height: 550px) and (orientation: landscape) {
+			font-size: 3rem;
+			font-weight: normal;
+		}
 	}
 
 	.mobile-webdev {
@@ -71,6 +84,10 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				max-width: 30rem;
+			}
 
 			.gear1 {
 				position: absolute;
@@ -507,6 +524,11 @@
 				color: hsl(var(--hue), 100%, 50%);
 				text-shadow: 0 0 1rem black;
 				z-index: 5;
+
+				@media screen and (max-height: 550px) and (orientation: landscape) {
+					font-size: 2rem;
+					top: 12.5%;
+				}
 			}
 		}
 
@@ -520,6 +542,10 @@
 			z-index: -1;
 
 			animation: mobile-rotation5 40s linear infinite;
+
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				left: -25%;
+			}
 
 			@keyframes mobile-rotation5 {
 				from {
@@ -551,6 +577,10 @@
 
 			animation: mobile-rotation6 40s linear infinite;
 
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				right: -40%;
+			}
+
 			@keyframes mobile-rotation6 {
 				from {
 					transform: rotate(0deg);
@@ -577,6 +607,11 @@
 			height: 5rem;
 			width: 5rem;
 			animation: glow 3s ease-in-out infinite;
+
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				bottom: 2.5rem;
+				right: 2.5rem;
+			}
 
 			@media screen and (max-width: 380px) {
 				bottom: 4%;
@@ -754,6 +789,27 @@
 					}
 				}
 			}
+
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				max-width: 30rem;
+				aspect-ratio: 5 / 2;
+
+				.palettes {
+					height: 75%;
+					left: 0%;
+				}
+
+				.rectangle {
+					height: 65%;
+					width: 75%;
+					right: 2.5rem;
+				}
+
+				.triangle-box {
+					height: 60%;
+					right: -15%;
+				}
+			}
 		}
 	}
 
@@ -769,41 +825,11 @@
 
 		.link {
 			position: relative;
-			border-bottom: 2px solid var(--gray1);
-
-			@supports (-webkit-background-clip: text) {
-				background-image: linear-gradient(
-					to right,
-					hsl(var(--hue), 100%, 50%) 50%,
-					var(--gray1) 50%
-				);
-				background-size: 200% 100%;
-				background-position: 100% 0;
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-
-			&::after {
-				content: '';
-				position: absolute;
-				top: 0px;
-				left: 0;
-				height: 100%;
-				width: 0%;
-				border-bottom: 2px solid hsl(var(--hue), 100%, 50%);
-			}
+			box-shadow: 0 2px 0 0 hsl(var(--hue), 100%, 50%); // underline effect
 		}
 
 		&:active {
 			font-weight: 500;
-
-			.link {
-				background-position: 0 0;
-			}
-
-			.link::after {
-				width: 100%;
-			}
 		}
 
 		&:focus-visible {

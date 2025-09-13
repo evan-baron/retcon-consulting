@@ -8,6 +8,10 @@
 	gap: 3rem;
 	user-select: none;
 
+	@media screen and (max-height: 550px) and (orientation: landscape) {
+		gap: 2rem;
+	}
+
 	.h2 {
 		font-size: 4rem;
 		text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
@@ -15,7 +19,8 @@
 		padding-top: 2rem;
 		color: var(--gray1);
 
-		@media screen and (max-width: 550px) {
+		@media screen and (max-width: 550px) and (orientation: portrait),
+			screen and (max-height: 550px) and (orientation: landscape) {
 			font-size: 2.5rem;
 		}
 	}
@@ -39,9 +44,13 @@
 			padding: 0 2rem;
 		}
 
-		@media screen and (max-width: 550px) {
+		@media screen and (max-width: 550px) and (orientation: portrait) {
 			gap: 4rem;
 			padding: 0 10%;
+		}
+
+		@media screen and (max-height: 550px) and (orientation: landscape) {
+			gap: 3rem;
 		}
 
 		.content-wrapper {
@@ -152,8 +161,9 @@
 				}
 			}
 
-			// Mobile Portrait
-			@media screen and (max-width: 550px) and (orientation: portrait) {
+			// Mobile
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				background-image: none;
 				backdrop-filter: none;
 				border-radius: 0;
@@ -175,6 +185,10 @@
 					}
 				}
 			}
+
+			@media screen and (max-height: 550px) and (orientation: landscape) {
+				padding: 0 10%;
+			}
 		}
 
 		.content-wrapper:nth-child(odd) {
@@ -189,8 +203,9 @@
 				transform: translateX(2.5vw);
 			}
 
-			// Mobile Portrait
-			@media screen and (max-width: 550px) and (orientation: portrait) {
+			// Mobile
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				transform: translateX(0);
 				justify-content: center;
 
@@ -224,8 +239,9 @@
 				transform: translateX(-2.5vw);
 			}
 
-			// Mobile Portrait
-			@media screen and (max-width: 550px) and (orientation: portrait) {
+			// Mobile
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				transform: translateX(0);
 				justify-content: center;
 

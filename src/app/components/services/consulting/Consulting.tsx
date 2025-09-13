@@ -19,9 +19,9 @@ import TreasureMap from '../graphics/treasureMap/TreasureMap';
 import { useAppContext } from '@/app/context/AppContext';
 
 const Consulting = () => {
-	const { isMobile, isMobileWidth } = useAppContext();
+	const { isMobile } = useAppContext();
 
-	return !isMobileWidth ? (
+	return !isMobile ? (
 		<div className={styles.content}>
 			<div className={styles.text}>
 				<div className={styles['text-content']}>
