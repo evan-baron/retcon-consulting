@@ -5,21 +5,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-color: var(--gray7);
 	filter: drop-shadow(0 0 1rem black);
 	user-select: none;
+	padding: 4rem 0;
+	transform: scaleX(1.25) rotate(-5deg);
 
-	@media screen and (max-width: 800px) {
-		height: 1100px;
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
+		height: fit-content;
 	}
 
 	.summary {
 		width: 100%;
-		height: 800px;
+		height: 100%;
 		position: relative;
-
-		clip-path: polygon(0px 150px, 100% 0px, 100% 650px, 0px 800px);
-		background-color: var(--gray7);
-
+		transform: scaleX(0.8) rotate(5deg);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -28,12 +29,6 @@
 
 		@media screen and (max-width: 1000px) {
 			padding-left: 0;
-		}
-
-		@media screen and (max-width: 800px) {
-			height: 1100px;
-			clip-path: polygon(0px 75px, 100% 0px, 100% 1025px, 0px 1100px);
-			height: 100%;
 		}
 
 		.content {
@@ -51,16 +46,15 @@
 				padding: 0 1rem;
 			}
 
-			@media screen and (max-width: 800px) {
+			@media screen and (max-width: 800px) and (orientation: landscape) {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-
+				padding: 0 5%;
 				gap: 2rem;
-				padding: 0 10%;
 			}
 
-			@media screen and (max-width: 550px) {
+			@media screen and (max-width: 550px) and (orientation: portrait) {
 				gap: 0;
 				padding: 0;
 				bottom: 2rem;
@@ -69,47 +63,40 @@
 
 		.image-wrapper {
 			width: 50%;
-
+			aspect-ratio: 3 / 2;
 			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			filter: drop-shadow(0 0 1rem black);
 
-			@media screen and (max-width: 800px) {
-				width: 80%;
+			&::after {
+				position: absolute;
+				content: '';
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				background-color: var(--gray4);
+				clip-path: ellipse(50% 40% at 50% 50%);
+				transform: rotate(-30deg);
+				z-index: -1;
+			}
+
+			@media screen and (max-width: 800px) and (orientation: landscape) {
+				width: 60%;
 			}
 
 			@media screen and (max-width: 550px) {
 				width: calc(100% - 3rem);
 			}
 
-			.wrapper {
-				width: 100%;
-				filter: drop-shadow(0 0 1rem black);
-
-				.image-background {
-					width: 90%;
-					aspect-ratio: 5 / 6;
-					position: relative;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					clip-path: ellipse(30% 50% at 50% 50%);
-					transform: rotate(60deg);
-					background-color: var(--gray4);
-					left: 2rem;
-
-					@media screen and (max-width: 550px) {
-						left: 1rem;
-					}
-				}
-			}
-
 			.image {
 				position: absolute;
 				filter: drop-shadow(0 0 1rem black);
-				aspect-ratio: 1 / 1;
+				aspect-ratio: 3 / 2;
 				width: 100%;
+				// outline: 1px solid lime;
 
 				@media screen and (max-width: 550px) {
 					display: flex;
@@ -127,11 +114,11 @@
 			gap: 1.5rem;
 			width: 50%;
 
-			@media screen and (max-width: 800px) {
+			@media screen and (max-width: 800px) and (orientation: landscape) {
 				width: 100%;
 			}
 
-			@media screen and (max-width: 550px) {
+			@media screen and (max-width: 550px) and (orientation: landscape) {
 				align-items: center;
 				justify-content: center;
 			}
@@ -142,6 +129,10 @@
 				flex-direction: column;
 				justify-content: center;
 				gap: 1rem;
+
+				@media screen and (max-height: 550px) and (orientation: landscape) {
+					width: 100%;
+				}
 
 				span {
 					color: var(--gray1);
@@ -156,7 +147,7 @@
 						font-size: 2rem;
 					}
 
-					@media screen and (max-width: 800px) {
+					@media screen and (max-width: 800px) and (orientation: landscape) {
 						font-size: 2.25rem;
 					}
 				}
@@ -171,16 +162,23 @@
 						font-size: 1.25rem;
 					}
 
-					@media screen and (max-width: 800px) {
-						font-size: 1.5rem;
+					@media screen and (max-width: 800px) and (orientation: landscape) {
+						font-size: 1.25rem;
 					}
 
-					@media screen and (max-width: 550px) {
+					@media screen and (max-width: 550px) and (orientation: portrait) {
 						font-size: 1.25rem;
 					}
 				}
 
 				.cta {
+					margin-top: 0.5rem;
+
+					@media screen and (max-width: 750px) and (orientation: landscape) {
+						display: flex;
+						justify-content: center;
+					}
+
 					@media screen and (max-width: 550px) {
 						display: flex;
 						justify-content: center;

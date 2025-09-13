@@ -26,6 +26,7 @@
 		font-size: 1.5rem;
 		color: var(--gray1);
 		margin-top: 1rem;
+		text-decoration: underline;
 
 		@media screen and (max-height: 550px) and (orientation: landscape) {
 			font-size: 2rem;
@@ -130,7 +131,7 @@
 		}
 
 		@media screen and (max-height: 550px) and (orientation: landscape) {
-			max-width: 40rem;
+			min-width: 40rem;
 			aspect-ratio: unset;
 			height: 20rem;
 

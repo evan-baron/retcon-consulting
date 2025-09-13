@@ -544,6 +544,7 @@
 			animation: mobile-rotation5 40s linear infinite;
 
 			@media screen and (max-height: 550px) and (orientation: landscape) {
+				width: 15rem;
 				left: -25%;
 			}
 
@@ -578,7 +579,8 @@
 			animation: mobile-rotation6 40s linear infinite;
 
 			@media screen and (max-height: 550px) and (orientation: landscape) {
-				right: -40%;
+				width: 20rem;
+				right: -35%;
 			}
 
 			@keyframes mobile-rotation6 {

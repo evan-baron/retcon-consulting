@@ -17,9 +17,6 @@ function Summary() {
 			>
 				<div className={styles.content}>
 					<div className={styles['image-wrapper']}>
-						<div className={styles.wrapper}>
-							<div className={styles['image-background']}></div>
-						</div>
 						<div className={styles.image}>
 							<Image
 								src='/data-extraction-cuate.svg'
