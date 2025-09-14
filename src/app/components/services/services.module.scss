@@ -44,7 +44,7 @@
 			padding: 0 2rem;
 		}
 
-		@media screen and (max-width: 550px) and (orientation: portrait) {
+		@media screen and (max-width: 850px) and (orientation: portrait) {
 			gap: 4rem;
 			padding: 0 10%;
 		}
@@ -162,7 +162,7 @@
 			}
 
 			// Mobile
-			@media screen and (max-width: 550px) and (orientation: portrait),
+			@media screen and (max-width: 850px) and (orientation: portrait),
 				screen and (max-height: 550px) and (orientation: landscape) {
 				background-image: none;
 				backdrop-filter: none;
@@ -204,7 +204,7 @@
 			}
 
 			// Mobile
-			@media screen and (max-width: 550px) and (orientation: portrait),
+			@media screen and (max-width: 850px) and (orientation: portrait),
 				screen and (max-height: 550px) and (orientation: landscape) {
 				transform: translateX(0);
 				justify-content: center;
@@ -240,7 +240,7 @@
 			}
 
 			// Mobile
-			@media screen and (max-width: 550px) and (orientation: portrait),
+			@media screen and (max-width: 850px) and (orientation: portrait),
 				screen and (max-height: 550px) and (orientation: landscape) {
 				transform: translateX(0);
 				justify-content: center;

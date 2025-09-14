@@ -1,5 +1,6 @@
 .content {
 	width: 100%;
+	max-width: 38rem;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -48,14 +49,11 @@
 		}
 
 		.bullets {
+			position: relative;
+			left: 2rem;
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
-
-			@media screen and (max-height: 550px) and (orientation: landscape) {
-				position: relative;
-				left: 2rem;
-			}
 
 			.bullet {
 				display: flex;
@@ -75,21 +73,21 @@
 	.graphics {
 		position: relative;
 		width: 100%;
-		max-width: 25rem;
-		aspect-ratio: 1;
+		min-width: 40rem;
+		height: 20rem;
 
 		.consulting-graphics-container {
 			height: 100%;
-			width: 100%;
+			width: auto;
 			position: relative;
 			display: flex;
 			// Remove background-image and mask-image from here!
 
 			.lightbulb {
 				position: absolute;
-				top: 2%;
-				right: -8%;
-				width: 60%;
+				width: 30%;
+				top: 10%;
+				right: 5%;
 				aspect-ratio: 1;
 				color: var(--gray5);
 				z-index: -1;
@@ -109,9 +107,9 @@
 
 			.puzzle {
 				position: absolute;
+				width: 30%;
 				bottom: 0%;
-				left: 0;
-				width: 60%;
+				left: 5%;
 				aspect-ratio: 1;
 				color: var(--gray5);
 				z-index: -1;
@@ -130,25 +128,26 @@
 			}
 		}
 
-		@media screen and (max-height: 550px) and (orientation: landscape) {
-			min-width: 40rem;
-			aspect-ratio: unset;
-			height: 20rem;
+		@media screen and (max-width: 550px) and (orientation: portrait) {
+			min-width: unset;
+			max-width: 25rem;
+			height: auto;
+			aspect-ratio: 1;
 
 			.consulting-graphics-container {
-				width: auto;
+				width: 100%;
 				height: 100%;
 
 				.lightbulb {
-					width: 30%;
-					top: 10%;
-					right: 5%;
+					top: 2%;
+					right: -8%;
+					width: 60%;
 				}
 
 				.puzzle {
-					width: 30%;
 					bottom: 0%;
-					left: 5%;
+					left: 0;
+					width: 60%;
 				}
 			}
 		}
