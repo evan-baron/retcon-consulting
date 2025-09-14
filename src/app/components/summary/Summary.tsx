@@ -29,9 +29,7 @@ function Summary() {
 					</div>
 					<div className={styles['text-wrapper']}>
 						<div className={styles['text-block']}>
-							<span className={styles['summary-highlight']}>
-								Growth shouldn&#39;t feel like guesswork.
-							</span>
+							<h2>Growth shouldn&#39;t feel like guesswork.</h2>
 							<p className={styles['summary-text']}>
 								If you&#39;re stuck, circling the same challenges, or unsure
 								what&#39;s next, it&#39;s time to break that cycle.

@@ -1,6 +1,7 @@
 .summary-wrapper {
 	position: relative;
-	width: 100%;
+	width: 125%;
+
 	height: 800px;
 	display: flex;
 	align-items: center;
@@ -9,7 +10,12 @@
 	filter: drop-shadow(0 0 1rem black);
 	user-select: none;
 	padding: 4rem 0;
-	transform: scaleX(1.25) rotate(-5deg);
+	transform: rotate(-5deg);
+
+	@media screen and (min-width: 600px) and (max-width: 1050px) and (orientation: portrait),
+		screen and (min-height: 600px) and (max-height: 1050px) and (orientation: landscape) {
+		height: 700px;
+	}
 
 	@media screen and (max-width: 550px) and (orientation: portrait),
 		screen and (max-height: 550px) and (orientation: landscape) {
@@ -17,10 +23,10 @@
 	}
 
 	.summary {
-		width: 100%;
+		width: 80%;
 		height: 100%;
 		position: relative;
-		transform: scaleX(0.8) rotate(5deg);
+		transform: rotate(5deg);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -46,7 +52,8 @@
 				padding: 0 1rem;
 			}
 
-			@media screen and (max-width: 800px) and (orientation: landscape) {
+			@media screen and (max-width: 550px) and (orientation: portrait),
+				screen and (max-height: 550px) and (orientation: landscape) {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
@@ -55,133 +62,139 @@
 			}
 
 			@media screen and (max-width: 550px) and (orientation: portrait) {
-				gap: 0;
 				padding: 0;
-				bottom: 2rem;
-			}
-		}
-
-		.image-wrapper {
-			width: 50%;
-			aspect-ratio: 3 / 2;
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			filter: drop-shadow(0 0 1rem black);
-
-			&::after {
-				position: absolute;
-				content: '';
-				height: 100%;
-				width: 100%;
-				top: 0;
-				left: 0;
-				background-color: var(--gray4);
-				clip-path: ellipse(50% 40% at 50% 50%);
-				transform: rotate(-30deg);
-				z-index: -1;
 			}
 
-			@media screen and (max-width: 800px) and (orientation: landscape) {
-				width: 60%;
-			}
-
-			@media screen and (max-width: 550px) {
-				width: calc(100% - 3rem);
-			}
-
-			.image {
-				position: absolute;
-				filter: drop-shadow(0 0 1rem black);
+			.image-wrapper {
+				width: 50%;
 				aspect-ratio: 3 / 2;
-				width: 100%;
-				// outline: 1px solid lime;
-
-				@media screen and (max-width: 550px) {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
-			}
-		}
-
-		.text-wrapper {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1.5rem;
-			width: 50%;
-
-			@media screen and (max-width: 800px) and (orientation: landscape) {
-				width: 100%;
-			}
-
-			@media screen and (max-width: 550px) and (orientation: landscape) {
+				position: relative;
+				display: flex;
 				align-items: center;
 				justify-content: center;
-			}
+				filter: drop-shadow(0 0 1rem black);
 
-			.text-block {
-				width: 80%;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				gap: 1rem;
-
-				@media screen and (max-height: 550px) and (orientation: landscape) {
+				&::after {
+					position: absolute;
+					content: '';
+					height: 100%;
 					width: 100%;
+					top: 0;
+					left: 0;
+					background-color: var(--gray4);
+					clip-path: ellipse(50% 40% at 50% 50%);
+					transform: rotate(-30deg);
+					z-index: -1;
 				}
 
-				span {
-					color: var(--gray1);
+				@media screen and (max-width: 800px) and (orientation: landscape) {
+					width: 60%;
 				}
 
-				.summary-highlight {
-					font-weight: 700;
-					font-size: 2.25rem;
-					line-height: 1.25;
-
-					@media screen and (max-width: 1200px) {
-						font-size: 2rem;
-					}
-
-					@media screen and (max-width: 800px) and (orientation: landscape) {
-						font-size: 2.25rem;
-					}
+				@media screen and (max-width: 550px) {
+					width: calc(100% - 3rem);
 				}
 
-				.summary-text {
-					font-size: 1.25rem;
-					color: var(--main-gray);
-					font-weight: 400;
-					line-height: 1.25;
-
-					@media screen and (max-width: 1200px) {
-						font-size: 1.25rem;
-					}
-
-					@media screen and (max-width: 800px) and (orientation: landscape) {
-						font-size: 1.25rem;
-					}
-
-					@media screen and (max-width: 550px) and (orientation: portrait) {
-						font-size: 1.25rem;
-					}
-				}
-
-				.cta {
-					margin-top: 0.5rem;
-
-					@media screen and (max-width: 750px) and (orientation: landscape) {
-						display: flex;
-						justify-content: center;
-					}
+				.image {
+					position: absolute;
+					filter: drop-shadow(0 0 1rem black);
+					aspect-ratio: 3 / 2;
+					width: 100%;
 
 					@media screen and (max-width: 550px) {
 						display: flex;
+						align-items: center;
 						justify-content: center;
+					}
+				}
+			}
+
+			.text-wrapper {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1.5rem;
+				width: 50%;
+
+				@media screen and (max-width: 550px) and (orientation: portrait),
+					screen and (max-height: 550px) and (orientation: landscape) {
+					width: 100%;
+				}
+
+				@media screen and (max-width: 550px) and (orientation: portrait) {
+					align-items: center;
+					justify-content: center;
+				}
+
+				.text-block {
+					width: 80%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					gap: 1rem;
+
+					// Tablets
+					@media screen and (min-width: 600px) and (max-width: 1050px) and (orientation: portrait),
+						screen and (min-height: 600px) and (max-height: 1050px) and (orientation: landscape) {
+						width: 100%;
+					}
+
+					@media screen and (max-height: 550px) and (orientation: landscape) {
+						width: 100%;
+					}
+
+					span {
+						color: var(--gray1);
+					}
+
+					h2 {
+						font-weight: 700;
+						font-size: 2.5rem;
+						line-height: 1.25;
+						color: var(--gray1);
+
+						@media screen and (max-width: 1200px) {
+							font-size: 2rem;
+						}
+
+						@media screen and (max-width: 800px) and (orientation: landscape) {
+							font-size: 2.25rem;
+						}
+					}
+
+					.summary-text {
+						font-size: 1.25rem;
+						color: var(--main-gray);
+						font-weight: 400;
+						line-height: 1.25;
+						text-wrap: balance;
+
+						@media screen and (max-width: 1200px) {
+							font-size: 1.25rem;
+						}
+
+						@media screen and (max-width: 800px) and (orientation: landscape) {
+							font-size: 1.25rem;
+						}
+
+						@media screen and (max-width: 550px) and (orientation: portrait) {
+							font-size: 1.25rem;
+						}
+					}
+
+					.cta {
+						margin-top: 0.5rem;
+
+						@media screen and (max-width: 750px) and (orientation: landscape) {
+							display: flex;
+							justify-content: center;
+						}
+
+						@media screen and (max-width: 550px) {
+							display: flex;
+							justify-content: center;
+						}
 					}
 				}
 			}

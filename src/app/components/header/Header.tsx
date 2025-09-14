@@ -73,7 +73,7 @@ function Header() {
 									width={40}
 									height={40}
 								/>
-								<span>Retcon Consulting</span>
+								Retcon Consulting
 							</Link>
 						</li>
 
