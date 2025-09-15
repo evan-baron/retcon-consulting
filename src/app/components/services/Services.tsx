@@ -45,6 +45,7 @@ function Services({ id }: { id: string }) {
 								aria-label='Web Development & Design details'
 							>
 								<span className={styles.link}>Learn More</span>
+								<span className='sr-only'> about Web Development & Design</span>
 								{/* <span className={styles.arrow}>&rarr;</span> */}
 							</Link>
 						</div>
