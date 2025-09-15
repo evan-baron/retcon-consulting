@@ -358,8 +358,185 @@
 		}
 	}
 
-	// Tablet Portrait
-	@media screen and (max-width: 850px) and (orientation: portrait) {
+	// Smaller Desktop Screens
+	@media screen and (max-width: 1450px) and (orientation: landscape) {
+		width: 70%;
+
+		.map {
+			height: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+
+			.start {
+				top: 16.5%;
+				left: 1%;
+				gap: 0;
+			}
+
+			.chatbox {
+				width: 45%;
+				height: 30%;
+				top: 12%;
+				right: -16%;
+
+				@media screen and (max-width: 1350px) {
+					.phone .icon,
+					.chat .icon {
+						font-size: 4.5rem;
+					}
+				}
+			}
+
+			.desktop {
+				bottom: 18%;
+				left: 11%;
+				width: 40%;
+				height: 23%;
+			}
+
+			.curved-path {
+				position: absolute;
+				top: 0.75rem;
+				transform: scale(1, 1);
+			}
+
+			.handshake {
+				width: 27%;
+				height: 27%;
+				bottom: 0%;
+				right: 2%;
+			}
+		}
+	}
+
+	// Tablet (Big) Portrait
+	@media screen and (max-width: 1050px) and (orientation: portrait) {
+		width: 60%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.map {
+			height: 80%;
+			top: 50%;
+			transform: translateY(-50%);
+
+			.start {
+				top: 15%;
+				left: 1%;
+				gap: 0;
+
+				.icon {
+					width: 3rem;
+					height: 3rem;
+				}
+
+				.lines {
+					width: 1.5rem;
+					height: 3px;
+					border-radius: 1.5px;
+
+					&::before {
+						transform: translateY(-0.5rem);
+						width: 2rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+
+					&::after {
+						transform: translateY(0.5rem);
+						width: 1rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+				}
+			}
+
+			.chatbox {
+				width: 42.5%;
+				height: 25%;
+				top: 12%;
+				right: -15%;
+
+				.phone {
+					.lines {
+						.line {
+							&::before {
+								transform: translate(-0.25rem, -0.75rem) rotate(-30deg);
+							}
+
+							&::after {
+								transform: translate(-0.25rem, 0.75rem) rotate(30deg);
+							}
+						}
+					}
+
+					.icon {
+						font-size: 3rem;
+					}
+				}
+
+				.chat {
+					.ellipsis {
+						gap: 5px;
+
+						span {
+							width: 5px;
+							height: 5px;
+						}
+					}
+
+					.icon {
+						font-size: 3rem;
+					}
+				}
+			}
+
+			.desktop {
+				bottom: 16.5%;
+				left: 11%;
+				width: 40%;
+				height: 23%;
+
+				.monitor {
+					.screen {
+						.slide {
+							gap: 4px;
+
+							.lines {
+								gap: 2px;
+
+								span {
+									height: 2px;
+								}
+							}
+						}
+					}
+				}
+
+				.base {
+					.platform {
+						height: 3px;
+					}
+				}
+			}
+
+			.curved-path {
+				position: absolute;
+				top: 0.75rem;
+				transform: scale(1, 1.25);
+			}
+
+			.handshake {
+				width: 23%;
+				height: 23%;
+				bottom: -3%;
+				right: 2%;
+			}
+		}
+	}
+
+	// Tablet (Medium) Portrait
+	@media screen and (max-width: 950px) and (orientation: portrait) {
 		width: 100%;
 		height: 100%;
 		left: 50%;
@@ -481,6 +658,132 @@
 				height: 27%;
 				bottom: -9%;
 				right: 31%;
+			}
+		}
+	}
+
+	// Tablet Landscape
+	@media screen and (max-width: 1250px) and (orientation: landscape) {
+		width: 60%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.map {
+			height: 80%;
+			top: 50%;
+			transform: translateY(-50%);
+
+			.start {
+				top: 15%;
+				left: 1%;
+				gap: 0;
+
+				.icon {
+					width: 3rem;
+					height: 3rem;
+				}
+
+				.lines {
+					width: 1.5rem;
+					height: 3px;
+					border-radius: 1.5px;
+
+					&::before {
+						transform: translateY(-0.5rem);
+						width: 2rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+
+					&::after {
+						transform: translateY(0.5rem);
+						width: 1rem;
+						height: 3px;
+						border-radius: 1.5px;
+					}
+				}
+			}
+
+			.chatbox {
+				width: 42.5%;
+				height: 25%;
+				top: 12%;
+				right: -15%;
+
+				.phone {
+					.lines {
+						.line {
+							&::before {
+								transform: translate(-0.25rem, -0.75rem) rotate(-30deg);
+							}
+
+							&::after {
+								transform: translate(-0.25rem, 0.75rem) rotate(30deg);
+							}
+						}
+					}
+
+					.icon {
+						font-size: 3rem;
+					}
+				}
+
+				.chat {
+					.ellipsis {
+						gap: 5px;
+
+						span {
+							width: 5px;
+							height: 5px;
+						}
+					}
+
+					.icon {
+						font-size: 3rem;
+					}
+				}
+			}
+
+			.desktop {
+				bottom: 16.5%;
+				left: 11%;
+				width: 40%;
+				height: 23%;
+
+				.monitor {
+					.screen {
+						.slide {
+							gap: 4px;
+
+							.lines {
+								gap: 2px;
+
+								span {
+									height: 2px;
+								}
+							}
+						}
+					}
+				}
+
+				.base {
+					.platform {
+						height: 3px;
+					}
+				}
+			}
+
+			.curved-path {
+				position: absolute;
+				top: 0.75rem;
+				transform: scale(1, 1.25);
+			}
+
+			.handshake {
+				width: 27%;
+				height: 27%;
+				bottom: -5%;
+				right: 2%;
 			}
 		}
 	}
