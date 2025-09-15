@@ -339,7 +339,6 @@ const WebDev = () => {
 							</li>
 						</ul>
 					</div>
-					{/* <FaReact className={mobileStyles.react} /> */}
 					<div className={mobileStyles.cta}>
 						<Link
 							href='/development'
@@ -347,7 +346,6 @@ const WebDev = () => {
 						>
 							<span className={mobileStyles.link}>Learn More</span>
 							<span className='sr-only'> about Web Development & Design</span>
-							{/* <span className={mobileStyles.arrow}>&rarr;</span> */}
 						</Link>
 					</div>
 				</div>
@@ -500,7 +498,6 @@ const WebDev = () => {
 						>
 							<span className={mobileStyles.link}>Learn More</span>
 							<span className='sr-only'> about Web Development & Design</span>
-							{/* <span className={mobileStyles.arrow}>&rarr;</span> */}
 						</Link>
 					</div>
 				</div>

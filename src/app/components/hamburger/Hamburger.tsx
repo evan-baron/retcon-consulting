@@ -86,7 +86,7 @@ function Hamburger({
 							</Link>
 						</li>
 						<li>
-							<Link href='#services' onClick={handleClick}>
+							<Link href='/#services' onClick={handleClick}>
 								Services
 							</Link>
 						</li>
@@ -95,11 +95,11 @@ function Hamburger({
 								Contact
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link href='#get-started' onClick={handleClick}>
 								Get Started
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</div>

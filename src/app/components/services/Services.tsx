@@ -46,7 +46,6 @@ function Services({ id }: { id: string }) {
 							>
 								<span className={styles.link}>Learn More</span>
 								<span className='sr-only'> about Web Development & Design</span>
-								{/* <span className={styles.arrow}>&rarr;</span> */}
 							</Link>
 						</div>
 					</div>
@@ -65,20 +64,6 @@ function Services({ id }: { id: string }) {
 						<Consulting />
 					</div>
 				</article>
-
-				{/* <div className={styles['services-tiles']}>
-					{tileData.map((tile) => (
-						<Tile
-							key={tile.title}
-							title={tile.title}
-							image={tile.image}
-							imageBackground={tile.imageBackground}
-							alt={tile.alt}
-							summary={tile.summary}
-							details={tile.details}
-						/>
-					))}
-				</div> */}
 			</div>
 		</section>
 	);
