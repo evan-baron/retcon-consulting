@@ -339,7 +339,7 @@ const WebDev = () => {
 							</li>
 						</ul>
 					</div>
-					<FaReact className={mobileStyles.react} />
+					{/* <FaReact className={mobileStyles.react} /> */}
 					<div className={mobileStyles.cta}>
 						<Link href='/development'>
 							<span className={mobileStyles.link}>Learn More</span>
