@@ -122,7 +122,8 @@ const WebDev = () => {
 								&rarr;
 							</p>
 							<p>
-								Modern design that's accessible, user-friendly, and engaging
+								Modern design that&apos;s accessible, user-friendly, and
+								engaging
 							</p>
 						</li>
 						<li className={styles.bullet}>
