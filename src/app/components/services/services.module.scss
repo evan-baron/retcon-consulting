@@ -110,7 +110,7 @@
 
 					.link {
 						position: relative;
-						border-bottom: 2px solid var(--gray1);
+						box-shadow: 0 2px 0 0 var(--gray1);
 
 						@supports (-webkit-background-clip: text) {
 							background-image: linear-gradient(
@@ -132,7 +132,7 @@
 							left: 0;
 							height: 100%;
 							width: 0%;
-							border-bottom: 2px solid hsl(var(--hue), 100%, 50%);
+							box-shadow: 0 2px 0 0 hsl(var(--hue), 100%, 50%);
 							transition: width 0.3s ease-in-out;
 						}
 					}
