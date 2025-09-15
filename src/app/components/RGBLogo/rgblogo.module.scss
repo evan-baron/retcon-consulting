@@ -7,6 +7,11 @@
 		position: relative;
 		width: 100%;
 		overflow: hidden;
+		// filter: drop-shadow(0 0 0.25rem hsl(180, 100%, 50%))
+		// 	drop-shadow(0 0 1rem hsl(180, 100%, 50%))
+		// 	drop-shadow(0.5rem 0.5rem 1rem black)
+		// 	drop-shadow(0.5rem 0.5rem 1rem black)
+		// 	drop-shadow(0.5rem 0.5rem 1rem black);
 		filter: drop-shadow(0 0 0.25rem hsla(var(--hue), 100%, 50%, 1))
 			drop-shadow(0 0 1rem hsla(var(--hue), 100%, 50%, 1))
 			drop-shadow(0.5rem 0.5rem 1rem black)
@@ -19,6 +24,7 @@
 			display: block;
 
 			path {
+				// stroke: hsl(180, 100%, 50%);
 				stroke: hsl(var(--hue), 100%, 50%);
 				stroke-width: 2px;
 				fill: transparent;

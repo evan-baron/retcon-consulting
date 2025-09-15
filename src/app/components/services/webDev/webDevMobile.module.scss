@@ -45,6 +45,7 @@
 					font-weight: bold;
 					transform: scaleX(1.5);
 					transform-origin: left;
+					// color: hsl(180, 100%, 50%);
 
 					@supports (-webkit-background-clip: text) {
 						background: hsl(var(--hue), 100%, 50%);
@@ -527,7 +528,7 @@
 				right: 10%;
 				font-size: 1.75rem;
 				font-weight: 600;
-				// color: var(--gray1);
+				// color: hsl(180, 100%, 50%);
 				color: hsl(var(--hue), 100%, 50%);
 				text-shadow: 0 0 1rem black;
 				z-index: 5;
@@ -735,8 +736,8 @@
 					left: 0;
 					height: 100%;
 					width: 100%;
-					// background: var(--gray7);
-					background: hsl(var(--hue), 100%, 15%);
+					background: var(--gray7);
+					// background: hsl(var(--hue), 100%, 15%);
 					border-radius: 0.5rem;
 					z-index: -1;
 					transform: translate(1.125rem, 1.125rem);
@@ -867,6 +868,7 @@
 			position: relative;
 			// text-decoration: underline;
 			// text-underline-offset: 2px;
+			// box-shadow: 0 2px 0 0 hsl(180, 100%, 50%); // underline effect
 			box-shadow: 0 2px 0 0 hsl(var(--hue), 100%, 50%); // underline effect
 		}
 
