@@ -50,7 +50,6 @@
 
 		.bullets {
 			position: relative;
-			left: 2rem;
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
@@ -64,7 +63,15 @@
 				}
 
 				.arrow {
-					transform: scaleX(1);
+					font-weight: bold;
+					transform: scaleX(1.5);
+					transform-origin: left;
+
+					@supports (-webkit-background-clip: text) {
+						background: hsl(var(--hue), 100%, 50%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
 				}
 			}
 		}
@@ -151,17 +158,5 @@
 				}
 			}
 		}
-	}
-}
-
-.arrow {
-	font-weight: bold;
-	transform: scaleX(1.5);
-	transform-origin: left;
-
-	@supports (-webkit-background-clip: text) {
-		background: hsl(var(--hue), 100%, 50%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 	}
 }

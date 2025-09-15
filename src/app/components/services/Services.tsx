@@ -13,41 +13,57 @@ import Consulting from './consulting/Consulting';
 
 function Services({ id }: { id: string }) {
 	return (
-		<section className={styles['services-wrapper']} id={id}>
-			<h2 className={styles.h2}>Services</h2>
+		<section
+			className={styles['services-wrapper']}
+			id={id}
+			aria-labelledby='services-heading'
+			role='region'
+		>
+			<h2 className={styles.h2} id='services-heading'>
+				Services
+			</h2>
 
 			<div
 				className={styles.services}
 				aria-label='The services we offer to help you grow your business'
+				role='list'
 			>
 				{/* Development */}
-				<div className={styles['content-wrapper']}>
+				<article
+					className={styles['content-wrapper']}
+					aria-labelledby='webdev-heading'
+					role='listitem'
+				>
 					<div className={styles['content-container']}>
-						<h3 className={styles['section-title']}>
+						<h3 className={styles['section-title']} id='webdev-heading'>
 							Web Development & Design
 						</h3>
 						<WebDev />
 						<div className={styles.cta}>
-							<Link href='/development'>
+							<Link
+								href='/development'
+								aria-label='Web Development & Design details'
+							>
 								<span className={styles.link}>Learn More</span>
 								{/* <span className={styles.arrow}>&rarr;</span> */}
 							</Link>
 						</div>
 					</div>
-				</div>
+				</article>
 
 				{/* Consulting */}
-				<div className={styles['content-wrapper']}>
+				<article
+					className={styles['content-wrapper']}
+					aria-labelledby='consulting-heading'
+					role='listitem'
+				>
 					<div className={styles['content-container']}>
-						<h3 className={styles['section-title']}>Strategic Consulting</h3>
+						<h3 className={styles['section-title']} id='consulting-heading'>
+							Strategic Consulting
+						</h3>
 						<Consulting />
-						{/* <div className={styles.cta}>
-							<Link href='/consulting'>
-								<span className={styles.link}>Learn More</span>
-							</Link>
-						</div> */}
 					</div>
-				</div>
+				</article>
 
 				{/* <div className={styles['services-tiles']}>
 					{tileData.map((tile) => (

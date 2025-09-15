@@ -29,7 +29,6 @@
 
 		.bullets {
 			position: relative;
-			left: 2rem;
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
@@ -43,7 +42,15 @@
 				}
 
 				.arrow {
-					transform: scaleX(1);
+					font-weight: bold;
+					transform: scaleX(1.5);
+					transform-origin: left;
+
+					@supports (-webkit-background-clip: text) {
+						background: hsl(var(--hue), 100%, 50%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
 				}
 			}
 		}
@@ -868,17 +875,5 @@
 			outline-offset: 2px;
 			box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.2); // optional glow
 		}
-	}
-}
-
-.arrow {
-	font-weight: bold;
-	transform: scaleX(1.5);
-	transform-origin: left;
-
-	@supports (-webkit-background-clip: text) {
-		background: hsl(var(--hue), 100%, 50%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 	}
 }

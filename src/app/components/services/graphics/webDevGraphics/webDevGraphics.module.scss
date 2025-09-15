@@ -27,6 +27,7 @@
 	.gear1 {
 		position: absolute;
 		height: 11%;
+		aspect-ratio: 1;
 		top: 8%;
 		right: 22%;
 		transform: rotate(24deg);
@@ -45,6 +46,7 @@
 	.gear2 {
 		position: absolute;
 		height: 16%;
+		aspect-ratio: 1;
 		top: 17%;
 		right: 7%;
 		transform: rotate(4deg);
@@ -59,20 +61,12 @@
 				transform: rotate(360deg);
 			}
 		}
-
-		.image {
-			path {
-				stroke: var(--gray5);
-				stroke-width: 3px;
-
-				fill: transparent;
-			}
-		}
 	}
 
 	.gear3 {
 		position: absolute;
 		height: 11%;
+		aspect-ratio: 1;
 		top: 30%;
 		right: 3%;
 		transform: rotate(24deg);
@@ -87,19 +81,12 @@
 				transform: rotate(-360deg);
 			}
 		}
-
-		.image {
-			path {
-				stroke: var(--gray5);
-				stroke-width: 4px;
-				fill: transparent;
-			}
-		}
 	}
 
 	.gear4 {
 		position: absolute;
 		height: 22%;
+		aspect-ratio: 1;
 		bottom: 36.5%;
 		left: 8%;
 		transform: rotate(24deg);
@@ -114,20 +101,12 @@
 				transform: rotate(360deg);
 			}
 		}
-
-		.image {
-			path {
-				stroke: var(--gray5);
-				stroke-width: 3px;
-
-				fill: transparent;
-			}
-		}
 	}
 
 	.gear5 {
 		position: absolute;
 		height: 44%;
+		aspect-ratio: 1;
 		bottom: 3%;
 		right: 4%;
 		animation: rotation5 45s linear infinite;
@@ -138,15 +117,6 @@
 			}
 			to {
 				transform: rotate(360deg);
-			}
-		}
-
-		.image {
-			path {
-				stroke: var(--gray5);
-				stroke-width: 2px;
-
-				fill: transparent;
 			}
 		}
 	}
