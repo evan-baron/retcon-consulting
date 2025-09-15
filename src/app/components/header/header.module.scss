@@ -89,13 +89,6 @@
 				padding: 0 1rem;
 				cursor: pointer;
 
-				@media screen and (max-width: 550px) and (orientation: portrait),
-					screen and (max-height: 550px) and (orientation: landscape) {
-					height: 3.5rem;
-					width: 3.5rem;
-					padding: 0 0.75rem;
-				}
-
 				&.active .line {
 					background-color: transparent;
 
@@ -139,6 +132,25 @@
 						background-color: var(--gray1);
 						transform: translateY(0.75rem);
 						transition: transform 0.5s, opacity 0.5s;
+					}
+				}
+
+				@media screen and (max-width: 550px) and (orientation: portrait),
+					screen and (max-height: 550px) and (orientation: landscape) {
+					height: 3.5rem;
+					width: 3.5rem;
+					padding: 0 0.75rem;
+
+					.line {
+						width: 2rem;
+
+						&::before {
+							width: 2.25rem;
+						}
+
+						&::after {
+							width: 2.25rem;
+						}
 					}
 				}
 			}
