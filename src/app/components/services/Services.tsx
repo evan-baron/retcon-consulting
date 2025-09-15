@@ -28,7 +28,7 @@ function Services({ id }: { id: string }) {
 						</h3>
 						<WebDev />
 						<div className={styles.cta}>
-							<Link href='/consulting'>
+							<Link href='/development'>
 								<span className={styles.link}>Learn More</span>
 								{/* <span className={styles.arrow}>&rarr;</span> */}
 							</Link>
@@ -41,12 +41,11 @@ function Services({ id }: { id: string }) {
 					<div className={styles['content-container']}>
 						<h3 className={styles['section-title']}>Strategic Consulting</h3>
 						<Consulting />
-						<div className={styles.cta}>
+						{/* <div className={styles.cta}>
 							<Link href='/consulting'>
 								<span className={styles.link}>Learn More</span>
-								{/* <span className={styles.arrow}>&rarr;</span> */}
 							</Link>
-						</div>
+						</div> */}
 					</div>
 				</div>
 
