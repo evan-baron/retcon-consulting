@@ -67,6 +67,11 @@
 		gap: 3rem;
 		padding: 0 10%;
 
+		@media screen and (max-width: 550px) and (orientation: portrait),
+			screen and (max-height: 550px) and (orientation: landscape) {
+			height: calc(100vh - 3.5rem);
+		}
+
 		@media screen and (max-width: 500px) and (orientation: portrait) {
 			padding: 0 1rem;
 		}

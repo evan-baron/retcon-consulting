@@ -61,7 +61,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		'(max-height: 550px) and (orientation: landscape)'
 	);
 	const rawTabletWidth = useMediaQuery(
-		'(max-width: 850px) and (orientation: portrait)'
+		'(max-width: 950px) and (orientation: portrait)'
 	);
 	const rawTabletHeight = useMediaQuery(
 		'(max-height: 850px) and (orientation: landscape)'

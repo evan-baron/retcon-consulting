@@ -1,0 +1,25 @@
+.chart-container {
+	width: 100%;
+	aspect-ratio: 1;
+
+	background-image: linear-gradient(
+		to bottom,
+		transparent 95%,
+		var(--gray5) 95%
+	);
+	background-size: 100% 10%;
+	background-repeat: repeat-y;
+
+	.animated-chart {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		top: 0;
+		left: 0;
+
+		polyline {
+			fill: transparent;
+			stroke: hsl(var(--hue), 100%, 50%);
+		}
+	}
+}

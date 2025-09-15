@@ -1,27 +1,56 @@
-'use client';
-
 // Library imports
 import React from 'react';
+import Link from 'next/link';
 
 // Styles imports
 import styles from './services.module.scss';
 
-// Component imports
-import Tile from './servicesTile/Tile';
+// Icon imports
 
-// Data imports
-import { tileData } from './tileInfo';
+// Component imports
+import WebDev from './webDev/WebDev';
+import Consulting from './consulting/Consulting';
 
 function Services({ id }: { id: string }) {
 	return (
-		<div className={styles['services-wrapper']} id={id}>
-			<section
+		<section className={styles['services-wrapper']} id={id}>
+			<h2 className={styles.h2}>Services</h2>
+
+			<div
 				className={styles.services}
 				aria-label='The services we offer to help you grow your business'
 			>
-				<h2 className={styles.h2}>Services</h2>
+				{/* Development */}
+				<div className={styles['content-wrapper']}>
+					<div className={styles['content-container']}>
+						<h3 className={styles['section-title']}>
+							Web Development & Design
+						</h3>
+						<WebDev />
+						<div className={styles.cta}>
+							<Link href='/consulting'>
+								<span className={styles.link}>Learn More</span>
+								{/* <span className={styles.arrow}>&rarr;</span> */}
+							</Link>
+						</div>
+					</div>
+				</div>
 
-				<div className={styles['services-tiles']}>
+				{/* Consulting */}
+				<div className={styles['content-wrapper']}>
+					<div className={styles['content-container']}>
+						<h3 className={styles['section-title']}>Strategic Consulting</h3>
+						<Consulting />
+						<div className={styles.cta}>
+							<Link href='/consulting'>
+								<span className={styles.link}>Learn More</span>
+								{/* <span className={styles.arrow}>&rarr;</span> */}
+							</Link>
+						</div>
+					</div>
+				</div>
+
+				{/* <div className={styles['services-tiles']}>
 					{tileData.map((tile) => (
 						<Tile
 							key={tile.title}
@@ -33,9 +62,9 @@ function Services({ id }: { id: string }) {
 							details={tile.details}
 						/>
 					))}
-				</div>
-			</section>
-		</div>
+				</div> */}
+			</div>
+		</section>
 	);
 }
 
