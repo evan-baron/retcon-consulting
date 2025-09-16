@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from './summary.module.scss';
 
 // Component imports
-import CTA from '../ctaButton/CTA';
+import CTA from '../CTA/CTA';
 
 function Summary() {
 	return (

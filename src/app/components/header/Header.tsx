@@ -9,7 +9,7 @@ import Link from 'next/link';
 import styles from './header.module.scss';
 
 // Component imports
-import CTA from '../ctaButton/CTA';
+import CTA from '../CTA/CTA';
 import Hamburger from '../hamburger/Hamburger';
 
 // Context
