@@ -1,0 +1,136 @@
+.contact-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--gray1);
+
+	.slant {
+		width: 125%;
+		height: 70dvh;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		// clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+		background-image: linear-gradient(
+			135deg,
+			hsla(0, 0%, 20%, 0.5),
+			hsla(0, 0%, 5%, 0.5)
+		);
+		backdrop-filter: blur(10px);
+		box-shadow: 0 0 1rem black, 0 0 2rem black,
+			0 1rem 2rem hsla(var(--hue), 100%, 50%, 0.35);
+		transform: rotate(-5deg);
+		transform-origin: left center;
+
+		.hero {
+			width: 80%;
+			height: 80%;
+			padding: 0 10%;
+			transform: rotate(5deg);
+			transform-origin: left center;
+
+			.hero-content {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+
+				h1 {
+					display: flex;
+					align-items: flex-end;
+					height: 50%;
+					font-size: 4rem;
+					font-weight: 700;
+				}
+
+				.contact-methods {
+					height: 25%;
+
+					display: flex;
+					align-items: flex-end;
+
+					.contact {
+						height: 2rem;
+						display: flex;
+						align-items: center;
+						gap: 0.5rem;
+						width: 50%;
+						font-size: 1.125rem;
+						text-decoration: none;
+						cursor: pointer;
+
+						.icon {
+							font-size: 1.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.form {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.form-types {
+			width: 80%;
+			display: flex;
+			justify-content: space-evenly;
+
+			.type {
+				font-size: 2.5rem;
+				cursor: pointer;
+				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+					0.5rem 0.5rem 3rem black;
+
+				&.active {
+					box-shadow: 0 0.1875rem 0 hsl(var(--hue), 100%, 50%);
+				}
+			}
+		}
+	}
+
+	// Mobile styles
+	@media screen and (max-width: 550px) and (orientation: portrait),
+		screen and (max-height: 550px) and (orientation: landscape) {
+		.slant {
+			height: 60dvh;
+			.hero {
+				height: 92.5%;
+				padding: 1rem 2rem;
+				.hero-content {
+					h1 {
+						height: 60%;
+						font-size: 3rem;
+					}
+					.contact-methods {
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						justify-content: flex-end;
+						gap: 1rem;
+
+						.contact {
+							width: auto;
+						}
+					}
+				}
+			}
+		}
+
+		.form {
+			padding: 1rem 2rem;
+
+			.form-types {
+				width: 100%;
+				justify-content: space-around;
+
+				.type {
+					font-size: 1.75rem;
+				}
+			}
+		}
+	}
+}

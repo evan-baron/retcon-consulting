@@ -91,7 +91,7 @@ function Hamburger({
 							</Link>
 						</li>
 						<li>
-							<Link href='#contact' onClick={handleClick}>
+							<Link href='/contact' onClick={handleClick}>
 								Contact
 							</Link>
 						</li>
