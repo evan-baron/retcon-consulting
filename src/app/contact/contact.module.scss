@@ -19,7 +19,7 @@
 		);
 		backdrop-filter: blur(10px);
 		box-shadow: 0 0 1rem black, 0 0 2rem black,
-			0 1rem 2rem hsla(var(--hue), 100%, 50%, 0.35);
+			0 1rem 4rem hsla(var(--hue), 100%, 50%, 0.25);
 		transform: rotate(-5deg);
 		transform-origin: left center;
 
@@ -69,25 +69,72 @@
 		}
 	}
 
-	.form {
+	.form-section {
 		width: 100%;
+		padding: 0 10%;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
 
 		.form-types {
 			width: 80%;
 			display: flex;
-			justify-content: space-evenly;
+			gap: 1rem;
 
 			.type {
+				width: 50%;
+				height: 3.5rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				font-size: 2.5rem;
 				cursor: pointer;
 				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 					0.5rem 0.5rem 3rem black;
+				border-bottom: 0.1875rem solid transparent;
 
 				&.active {
-					box-shadow: 0 0.1875rem 0 hsl(var(--hue), 100%, 50%);
+					position: relative;
+					border-bottom: 0.1875rem solid hsl(var(--hue), 100%, 50%);
 				}
+			}
+		}
+
+		.form-container {
+			width: 100%;
+			display: flex;
+			gap: 3rem;
+
+			.intro,
+			.form-content {
+				padding: 2rem 3rem;
+				border-radius: 1rem;
+				display: flex;
+				background-image: linear-gradient(
+					135deg,
+					hsla(0, 0%, 20%, 0.5),
+					hsla(0, 0%, 5%, 0.5)
+				);
+				backdrop-filter: blur(10px);
+				box-shadow: 0.5rem 0.5rem 1rem black;
+			}
+
+			.intro {
+				width: 40%;
+				font-size: 1.5rem;
+				height: fit-content;
+				display: flex;
+				gap: 0.5rem;
+
+				.intro-text {
+					font-style: italic;
+				}
+			}
+
+			.form-content {
+				width: 60%;
+				flex-direction: column;
 			}
 		}
 	}
@@ -120,15 +167,23 @@
 			}
 		}
 
-		.form {
+		.form-section {
 			padding: 1rem 2rem;
+			gap: 1rem;
 
 			.form-types {
 				width: 100%;
 				justify-content: space-around;
 
 				.type {
-					font-size: 1.75rem;
+					font-size: 1.5rem;
+				}
+			}
+
+			.form-container {
+				flex-direction: column;
+
+				.intro {
 				}
 			}
 		}
