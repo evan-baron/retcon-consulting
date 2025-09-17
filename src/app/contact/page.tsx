@@ -21,7 +21,7 @@ import { useAppContext } from '../context/AppContext';
 const Contact = () => {
 	const { isMobile } = useAppContext();
 
-	const [formType, setFormType] = useState<'quote' | 'general'>('general');
+	const [formType, setFormType] = useState<'detailed' | 'general'>('detailed');
 
 	return (
 		<div className={styles['contact-wrapper']}>
@@ -64,9 +64,9 @@ const Contact = () => {
 					</div>
 					<div
 						className={`${styles.type} ${
-							formType === 'quote' ? styles.active : ''
+							formType === 'detailed' ? styles.active : ''
 						}`}
-						onClick={() => setFormType('quote')}
+						onClick={() => setFormType('detailed')}
 					>
 						{isMobile ? 'Detailed' : 'Request a Quote'}
 					</div>
@@ -80,7 +80,7 @@ const Contact = () => {
 									className={styles['intro-text']}
 									aria-label="Let's just have a quick chat."
 								>
-									Let's just have a quick chat!
+									Let&apos;s just have a quick chat!
 								</p>
 							</>
 						) : (

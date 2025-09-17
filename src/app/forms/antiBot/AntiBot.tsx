@@ -19,17 +19,19 @@ import {} from '@mui/icons-material';
 import mathQuestions from '../../../lib/data/mathQuestions';
 
 // Type imports
-import { FormData } from '../../../lib/types/formTypes';
+import { FormData, DetailedFormData } from '../../../lib/types/formTypes';
 
-const AntiBot = ({
+type AntiBotProps<Data> = {
+	formData: Data;
+	setFormData: React.Dispatch<React.SetStateAction<Data>>;
+	setIsAntiBotValid: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const AntiBot = <Data extends FormData | DetailedFormData>({
 	formData,
 	setFormData,
 	setIsAntiBotValid,
-}: {
-	formData: FormData;
-	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-	setIsAntiBotValid: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}: AntiBotProps<Data>) => {
 	const [questionIndex, setQuestionIndex] = useState(null as number | null);
 
 	useEffect(() => {
@@ -62,11 +64,21 @@ const AntiBot = ({
 			<input
 				className={styles.antibot}
 				type='text'
+				inputMode='numeric'
+				pattern='[0-9]*'
 				id='antibot'
 				name='antibot'
 				required
 				autoComplete='off'
-				onChange={handleChange}
+				onChange={(e) => {
+					// Only allow digits
+					const value = e.target.value.replace(/[^0-9]/g, '');
+					setFormData((prev) => ({
+						...prev,
+						antibot: { ...prev.antibot, value },
+					}));
+					setIsAntiBotValid(value === question?.answer.toString());
+				}}
 				onBlur={() =>
 					setFormData((prev) => ({
 						...prev,
@@ -74,6 +86,7 @@ const AntiBot = ({
 					}))
 				}
 				value={formData.antibot.value}
+				placeholder='Potato' // Just a fun placeholder
 			/>
 			{formData.antibot.touched && formData.antibot.value.trim() === '' && (
 				<span className={styles.error}>This field is required</span>

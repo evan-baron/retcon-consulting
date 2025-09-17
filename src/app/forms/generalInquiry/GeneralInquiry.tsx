@@ -50,10 +50,12 @@ const GeneralInquiry = () => {
 	) => {
 		const { name, value } = e.target;
 		if (['name', 'email', 'message', 'antibot'].includes(name)) {
+			type ObjectField = Exclude<keyof FormData, 'antibotIndex'>;
+			const fieldName = name as ObjectField;
 			setFormData((prev) => ({
 				...prev,
-				[name]: {
-					...prev[name as FieldName],
+				[fieldName]: {
+					...prev[fieldName],
 					value,
 				},
 			}));
