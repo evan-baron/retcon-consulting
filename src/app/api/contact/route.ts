@@ -4,15 +4,23 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
 	try {
-		const { name, email, phone, services, message } = await req.json() as {
+		const { inquiryType, name, email, message, antibot, antibotIndex } = await req.json() as {
+			inquiryType: string;
 			name: string;
 			email: string;
-			phone: string;
-			services: string;
 			message: string;
+			antibot: string;
+			antibotIndex: number;
 		};
 
-		await sendContactForm(name, email, phone, services, message);
+		if (inquiryType === 'general') {
+			await sendContactForm(name, email, message);
+		} else if (inquiryType === 'detailed') {
+			// await sendContactForm(name, email, message);
+		} else {
+			// Handle other inquiry types if needed
+			return NextResponse.json({ message: 'Unsupported inquiry type' }, { status: 400 });
+		}
 
 		const response = NextResponse.json(
 			{

@@ -29,12 +29,10 @@ const getTemplate = (templateName: string, replacements: TemplateReplacements = 
 	return template;
 };
 
-export const sendContactForm = async (name: string, email: string, phone: string, services: string, message: string): Promise<void> => {
+export const sendContactForm = async (name: string, email: string, message: string): Promise<void> => {
 	const htmlContent = getTemplate('contactForm', {
 		name,
 		email,
-		phone,
-		services,
 		message,
 	});
 

@@ -3,6 +3,9 @@
 // Library imports
 import React, { useState } from 'react';
 
+// Axios instance import
+import axiosInstance from '@/lib/utils/axios';
+
 // Hooks imports
 
 // Styles imports
@@ -20,6 +23,7 @@ import AntiBot from '../antiBot/AntiBot';
 import { FieldName, FormField, FormData } from '../../../lib/types/formTypes';
 
 const GeneralInquiry = () => {
+	const [formComplete, setFormComplete] = useState(false);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<FormData>({
 		name: {
@@ -63,8 +67,42 @@ const GeneralInquiry = () => {
 		formData.antibot.value.trim() &&
 		isAntiBotValid;
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		try {
+			const response = await axiosInstance.post('/api/contact', {
+				inquiryType: 'general',
+				name: formData.name.value,
+				email: formData.email.value,
+				message: formData.message.value,
+				antibot: formData.antibot.value,
+				antibotIndex: formData.antibotIndex,
+			});
+			if (response.status === 201) {
+				setFormComplete(true);
+				setFormData({
+					name: {
+						value: '',
+						touched: false,
+					},
+					email: {
+						value: '',
+						touched: false,
+					},
+					message: {
+						value: '',
+						touched: false,
+					},
+					antibot: {
+						value: '',
+						touched: false,
+					},
+					antibotIndex: -1,
+				});
+			}
+		} catch (error) {
+			console.error('There was an error submitting the message.', error);
+		}
 	};
 
 	return (
