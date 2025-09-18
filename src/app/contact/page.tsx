@@ -29,26 +29,39 @@ const Contact = () => {
 		<>
 			<div className={styles['contact-wrapper']}>
 				<div className={styles.slant}>
-					<section className={styles.hero}>
+					<section
+						className={styles.hero}
+						aria-labelledby='contact-hero-heading'
+					>
 						<div className={styles['hero-content']}>
-							<h1>Let&apos;s Build Something Together.</h1>
+							<h1 id='contact-hero-heading'>
+								Let&apos;s Build Something Together.
+							</h1>
 							<div className={styles['contact-methods']}>
 								<a
 									href='tel:+17207277834'
 									className={styles.contact}
-									aria-label='Call (720) 727-7834'
+									aria-label='Call Retcon Consulting at (720) 727-7834'
 								>
-									<Phone className={styles.icon} />
+									<Phone
+										className={styles.icon}
+										aria-hidden='true'
+										focusable='false'
+									/>
 									<span className={styles['contact-number']}>
 										(720) 727-7834
 									</span>
 								</a>
 								<div className={styles.contact}>
-									<MailOutline className={styles.icon} />
+									<MailOutline
+										className={styles.icon}
+										aria-hidden='true'
+										focusable='false'
+									/>
 									<a
 										href='mailto:contact@retconconsulting.com'
 										className={styles['contact-email']}
-										aria-label='Email contact at contact@retconconsulting.com'
+										aria-label='Email Retcon Consulting at contact@retconconsulting.com'
 									>
 										contact@retconconsulting.com
 									</a>
@@ -57,51 +70,81 @@ const Contact = () => {
 						</div>
 					</section>
 				</div>
-				<section className={styles['form-section']}>
-					<div className={styles['form-types']}>
-						<div
+				<section
+					className={styles['form-section']}
+					aria-labelledby='form-section-heading'
+				>
+					<h2 id='form-section-heading' className='sr-only'>
+						Contact Forms
+					</h2>
+					<div
+						className={styles['form-types']}
+						role='tablist'
+						aria-label='Choose form type'
+					>
+						<button
+							type='button'
 							className={`${styles.type} ${
 								formType === 'general' ? styles.active : ''
 							}`}
+							role='tab'
+							aria-selected={formType === 'general'}
+							aria-controls='general-form-panel'
+							id='general-form-tab'
+							tabIndex={0}
 							onClick={() => setFormType('general')}
 						>
 							{isMobileWidth || isTabletWidth ? 'General' : 'General Inquiry'}
-						</div>
-						<div
+						</button>
+						<button
+							type='button'
 							className={`${styles.type} ${
 								formType === 'detailed' ? styles.active : ''
 							}`}
+							role='tab'
+							aria-selected={formType === 'detailed'}
+							aria-controls='detailed-form-panel'
+							id='detailed-form-tab'
+							tabIndex={0}
 							onClick={() => setFormType('detailed')}
 						>
 							{isMobileWidth || isTabletWidth ? 'Detailed' : 'Request a Quote'}
-						</div>
+						</button>
 					</div>
 					<div className={styles['form-container']}>
 						<div className={styles.intro}>
 							{formType === 'general' ? (
 								<>
 									<span aria-hidden='true'>➢</span>
-									<p
-										className={styles['intro-text']}
-										aria-label="Let's just have a quick chat."
-									>
+									<p className={styles['intro-text']} id='general-form-intro'>
 										Let&apos;s just have a quick chat!
 									</p>
 								</>
 							) : (
 								<>
 									<span aria-hidden='true'>➢</span>
-									<p
-										className={styles['intro-text']}
-										aria-label='Share your project details and requirements and we can jump into the weeds.'
-									>
+									<p className={styles['intro-text']} id='detailed-form-intro'>
 										Share your project details and requirements and we can jump
 										into the weeds!
 									</p>
 								</>
 							)}
 						</div>
-						<div className={styles['form-content']}>
+						<div
+							className={styles['form-content']}
+							role='tabpanel'
+							id={
+								formType === 'general'
+									? 'general-form-panel'
+									: 'detailed-form-panel'
+							}
+							aria-labelledby={
+								formType === 'general'
+									? 'general-form-tab'
+									: 'detailed-form-tab'
+							}
+							tabIndex={0}
+						>
 							{formType === 'general' ? (
 								<GeneralInquiry />
 							) : (

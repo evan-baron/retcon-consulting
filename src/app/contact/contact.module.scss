@@ -110,6 +110,9 @@
 				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
 					0.5rem 0.5rem 3rem black;
 				border-bottom: 0.1875rem solid transparent;
+				border-color: transparent;
+				background: transparent;
+				color: var(--gray1);
 
 				@media screen and (max-width: 1350px) {
 					font-size: 2rem;

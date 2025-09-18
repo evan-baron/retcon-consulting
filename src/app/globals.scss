@@ -175,6 +175,14 @@ p {
 	text-wrap: pretty;
 }
 
+button {
+	font-family: var(--font-ibm-plex-mono);
+
+	&:focus-visible {
+		outline: 2px solid var(--main-teal) !important;
+	}
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;

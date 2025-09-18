@@ -60,8 +60,10 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 
 	return (
 		<fieldset>
+			<legend className='sr-only'>Anti-bot Math Question</legend>
 			<label htmlFor='antibot'>
-				What is {question.a} {question.op} {question.b}?<span>*</span>
+				What is {question.a} {question.op} {question.b}?
+				<span aria-hidden='true'>*</span>
 			</label>
 			<input
 				className={styles.antibot}
@@ -71,6 +73,17 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 				id='antibot'
 				name='antibot'
 				required
+				aria-required='true'
+				aria-invalid={
+					formData.antibot.touched && formData.antibot.value.trim() === ''
+						? 'true'
+						: 'false'
+				}
+				aria-describedby={
+					formData.antibot.touched && formData.antibot.value.trim() === ''
+						? 'antibot-error'
+						: undefined
+				}
 				autoComplete='off'
 				onChange={(e) => {
 					// Only allow digits
@@ -91,7 +104,14 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 				placeholder='Potato' // Just a fun placeholder
 			/>
 			{formData.antibot.touched && formData.antibot.value.trim() === '' && (
-				<span className={styles.error}>This field is required</span>
+				<span
+					className={styles.error}
+					id='antibot-error'
+					role='alert'
+					aria-live='polite'
+				>
+					This field is required
+				</span>
 			)}
 		</fieldset>
 	);

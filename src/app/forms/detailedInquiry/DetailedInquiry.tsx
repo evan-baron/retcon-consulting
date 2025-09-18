@@ -181,12 +181,13 @@ const DetailedInquiry = () => {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<section>
-				<h2>Contact Information</h2>
+		<form className={styles.form} onSubmit={handleSubmit} noValidate>
+			<section aria-labelledby='contact-info-heading'>
+				<h2 id='contact-info-heading'>Contact Information</h2>
 				<fieldset>
+					<legend className='sr-only'>Your Name</legend>
 					<label htmlFor='name'>
-						Name<span>*</span>
+						Name<span aria-hidden='true'>*</span>
 					</label>
 					<input
 						onChange={handleChange}
@@ -201,13 +202,34 @@ const DetailedInquiry = () => {
 						id='name'
 						name='name'
 						required
+						aria-required='true'
+						aria-invalid={
+							formData.name.touched && formData.name.value.trim() === ''
+								? 'true'
+								: 'false'
+						}
+						aria-describedby={
+							formData.name.touched && formData.name.value.trim() === ''
+								? 'name-error'
+								: undefined
+						}
+						autoComplete='name'
 					/>
 					{formData.name.touched && formData.name.value.trim() === '' && (
-						<span className={styles.error}>This field is required</span>
+						<span
+							className={styles.error}
+							id='name-error'
+							role='alert'
+							aria-live='polite'
+						>
+							This field is required
+						</span>
 					)}
 				</fieldset>
+
 				<div className={styles.grouped}>
 					<fieldset>
+						<legend className='sr-only'>Your Title</legend>
 						<label htmlFor='title'>Title</label>
 						<input
 							onChange={handleChange}
@@ -215,9 +237,12 @@ const DetailedInquiry = () => {
 							type='text'
 							id='title'
 							name='title'
+							autoComplete='organization-title'
 						/>
 					</fieldset>
+
 					<fieldset>
+						<legend className='sr-only'>Your Company</legend>
 						<label htmlFor='company'>Company</label>
 						<input
 							onChange={handleChange}
@@ -225,13 +250,16 @@ const DetailedInquiry = () => {
 							type='text'
 							id='company'
 							name='company'
+							autoComplete='organization'
 						/>
 					</fieldset>
 				</div>
+
 				<div className={styles.grouped}>
 					<fieldset>
+						<legend className='sr-only'>Your Email</legend>
 						<label htmlFor='email'>
-							Email<span>*</span>
+							Email<span aria-hidden='true'>*</span>
 						</label>
 						<input
 							onChange={handleChange}
@@ -246,12 +274,32 @@ const DetailedInquiry = () => {
 							id='email'
 							name='email'
 							required
+							aria-required='true'
+							aria-invalid={
+								formData.email.touched && formData.email.value.trim() === ''
+									? 'true'
+									: 'false'
+							}
+							aria-describedby={
+								formData.email.touched && formData.email.value.trim() === ''
+									? 'email-error'
+									: undefined
+							}
+							autoComplete='email'
 						/>
 						{formData.email.touched && formData.email.value.trim() === '' && (
-							<span className={styles.error}>This field is required</span>
+							<span
+								className={styles.error}
+								id='email-error'
+								role='alert'
+								aria-live='polite'
+							>
+								This field is required
+							</span>
 						)}
 					</fieldset>
 					<fieldset>
+						<legend className='sr-only'>Your Phone</legend>
 						<label htmlFor='phone'>Phone</label>
 						<input
 							onChange={handleChange}
@@ -259,10 +307,12 @@ const DetailedInquiry = () => {
 							type='phone'
 							id='phone'
 							name='phone'
+							autoComplete='tel'
 						/>
 					</fieldset>
 				</div>
 				<fieldset>
+					<legend className='sr-only'>Your Website</legend>
 					<label htmlFor='phone'>Website</label>
 					<input
 						onChange={handleChange}
@@ -271,14 +321,23 @@ const DetailedInquiry = () => {
 						id='website'
 						name='website'
 						placeholder='https://'
+						autoComplete='url'
 					/>
 				</fieldset>
 			</section>
-			<section>
-				<h2>Services Needed</h2>
-				<fieldset className={styles.checkboxes}>
-					<legend>Digital</legend>
-					<div className={styles.options}>
+
+			<section aria-labelledby='services-heading'>
+				<h2 id='services-heading'>Services Needed</h2>
+				<fieldset
+					className={styles.checkboxes}
+					aria-labelledby='digital-services-legend'
+				>
+					<legend id='digital-services-legend'>Digital</legend>
+					<div
+						className={styles.options}
+						role='group'
+						aria-labelledby='digital-services-legend'
+					>
 						<div className={styles.option}>
 							<input
 								onChange={handleChange}
@@ -314,9 +373,16 @@ const DetailedInquiry = () => {
 						</div>
 					</div>
 				</fieldset>
-				<fieldset className={styles.checkboxes}>
-					<legend>Strategy</legend>
-					<div className={styles.options}>
+				<fieldset
+					className={styles.checkboxes}
+					aria-labelledby='strategy-services-legend'
+				>
+					<legend id='strategy-services-legend'>Strategy</legend>
+					<div
+						className={styles.options}
+						role='group'
+						aria-labelledby='strategy-services-legend'
+					>
 						<div className={styles.option}>
 							<input
 								onChange={handleChange}
@@ -355,6 +421,7 @@ const DetailedInquiry = () => {
 					</div>
 				</fieldset>
 				<fieldset className={styles.checkboxes}>
+					<legend className='sr-only'>Other Services</legend>
 					<label htmlFor='other-services'>Other</label>
 					<input
 						type='text'
@@ -380,12 +447,15 @@ const DetailedInquiry = () => {
 						}}
 						placeholder='(Please specify)'
 						maxLength={50}
+						aria-label='Other service (please specify)'
 					/>
 				</fieldset>
 			</section>
-			<section>
-				<h2>Timeline</h2>
+
+			<section aria-labelledby='timeline-heading'>
+				<h2 id='timeline-heading'>Timeline</h2>
 				<fieldset>
+					<legend className='sr-only'>Project Timeline</legend>
 					<label htmlFor='timeline' style={{ fontWeight: 400 }}>
 						When do you need this project completed by?
 					</label>
@@ -404,11 +474,16 @@ const DetailedInquiry = () => {
 					/>
 				</fieldset>
 			</section>
-			<section>
-				<h2>Budget</h2>
-				<fieldset className={styles.checkboxes}>
-					<legend>Allocated Budget</legend>
-					<div className={styles.options}>
+
+			<section aria-labelledby='budget-heading'>
+				<h2 id='budget-heading'>Budget</h2>
+				<fieldset className={styles.checkboxes} aria-labelledby='budget-legend'>
+					<legend id='budget-legend'>Allocated Budget</legend>
+					<div
+						className={styles.options}
+						role='radiogroup'
+						aria-labelledby='budget-legend'
+					>
 						<div className={styles.option}>
 							<input
 								onChange={handleChange}
@@ -417,6 +492,7 @@ const DetailedInquiry = () => {
 								name='budget'
 								value='under-10k'
 								checked={formData.budget.value === 'under-10k'}
+								aria-checked={formData.budget.value === 'under-10k'}
 							/>
 							<label htmlFor='lowest-budget'>Under $10K</label>
 						</div>
@@ -428,6 +504,7 @@ const DetailedInquiry = () => {
 								name='budget'
 								value='10k-25k'
 								checked={formData.budget.value === '10k-25k'}
+								aria-checked={formData.budget.value === '10k-25k'}
 							/>
 							<label htmlFor='low-budget'>$10K - $25K</label>
 						</div>
@@ -439,6 +516,7 @@ const DetailedInquiry = () => {
 								name='budget'
 								value='25k-50k'
 								checked={formData.budget.value === '25k-50k'}
+								aria-checked={formData.budget.value === '25k-50k'}
 							/>
 							<label htmlFor='mid-budget'>$25K - $50K</label>
 						</div>
@@ -450,18 +528,21 @@ const DetailedInquiry = () => {
 								name='budget'
 								value='50k+'
 								checked={formData.budget.value === '50k+'}
+								aria-checked={formData.budget.value === '50k+'}
 							/>
 							<label htmlFor='highest-budget'>$50K+</label>
 						</div>
 					</div>
 				</fieldset>
 			</section>
-			<section>
-				<h2>Additional Details</h2>
+
+			<section aria-labelledby='details-heading'>
+				<h2 id='details-heading'>Additional Details</h2>
 				<fieldset>
+					<legend className='sr-only'>Project Description</legend>
 					<label htmlFor='message'>
 						Please provide a brief description
-						<span>*</span>
+						<span aria-hidden='true'>*</span>
 					</label>
 					<textarea
 						onChange={handleChange}
@@ -477,11 +558,29 @@ const DetailedInquiry = () => {
 						rows={8}
 						required
 						maxLength={500}
+						aria-required='true'
+						aria-invalid={
+							formData.message.touched && formData.message.value.trim() === ''
+								? 'true'
+								: 'false'
+						}
+						aria-describedby={
+							formData.message.touched && formData.message.value.trim() === ''
+								? 'message-error'
+								: undefined
+						}
 					></textarea>
 					<div className={styles['textarea-spans']}>
 						{formData.message.touched &&
 							formData.message.value.trim() === '' && (
-								<span className={styles.error}>This field is required</span>
+								<span
+									className={styles.error}
+									id='message-error'
+									role='alert'
+									aria-live='polite'
+								>
+									This field is required
+								</span>
 							)}
 						<span className={styles.charCount}>
 							{formData.message.value.length}/500
@@ -489,8 +588,9 @@ const DetailedInquiry = () => {
 					</div>
 				</fieldset>
 			</section>
-			<section className={styles.antibot}>
-				<h2>Are You Human?</h2>
+
+			<section className={styles.antibot} aria-labelledby='antibot-heading'>
+				<h2 id='antibot-heading'>Are You Human?</h2>
 				<AntiBot
 					formData={formData}
 					formIncrement={formIncrement}
@@ -498,7 +598,12 @@ const DetailedInquiry = () => {
 					setIsAntiBotValid={setIsAntiBotValid}
 				/>
 			</section>
-			<button type='submit' className={styles.submit} disabled={!formValid}>
+			<button
+				type='submit'
+				className={styles.submit}
+				disabled={!formValid}
+				aria-disabled={!formValid}
+			>
 				Submit
 			</button>
 		</form>

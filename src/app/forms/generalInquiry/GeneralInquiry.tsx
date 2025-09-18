@@ -118,12 +118,13 @@ const GeneralInquiry = () => {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<section>
-				<h2>Contact Information</h2>
+		<form className={styles.form} onSubmit={handleSubmit} noValidate>
+			<section aria-labelledby='contact-info-heading'>
+				<h2 id='contact-info-heading'>Contact Information</h2>
 				<fieldset>
+					<legend className='sr-only'>Your Name</legend>
 					<label htmlFor='name'>
-						Name<span>*</span>
+						Name<span aria-hidden='true'>*</span>
 					</label>
 					<input
 						onChange={handleChange}
@@ -138,14 +139,34 @@ const GeneralInquiry = () => {
 						id='name'
 						name='name'
 						required
+						aria-required='true'
+						aria-invalid={
+							formData.name.touched && formData.name.value.trim() === ''
+								? 'true'
+								: 'false'
+						}
+						aria-describedby={
+							formData.name.touched && formData.name.value.trim() === ''
+								? 'name-error'
+								: undefined
+						}
+						autoComplete='name'
 					/>
 					{formData.name.touched && formData.name.value.trim() === '' && (
-						<span className={styles.error}>This field is required</span>
+						<span
+							className={styles.error}
+							id='name-error'
+							role='alert'
+							aria-live='polite'
+						>
+							This field is required
+						</span>
 					)}
 				</fieldset>
 				<fieldset>
+					<legend className='sr-only'>Your Email</legend>
 					<label htmlFor='email'>
-						Email<span>*</span>
+						Email<span aria-hidden='true'>*</span>
 					</label>
 					<input
 						onChange={handleChange}
@@ -160,18 +181,39 @@ const GeneralInquiry = () => {
 						id='email'
 						name='email'
 						required
+						aria-required='true'
+						aria-invalid={
+							formData.email.touched && formData.email.value.trim() === ''
+								? 'true'
+								: 'false'
+						}
+						aria-describedby={
+							formData.email.touched && formData.email.value.trim() === ''
+								? 'email-error'
+								: undefined
+						}
+						autoComplete='email'
 					/>
 					{formData.email.touched && formData.email.value.trim() === '' && (
-						<span className={styles.error}>This field is required</span>
+						<span
+							className={styles.error}
+							id='email-error'
+							role='alert'
+							aria-live='polite'
+						>
+							This field is required
+						</span>
 					)}
 				</fieldset>
 			</section>
-			<section>
-				<h2>Additional Details</h2>
+
+			<section aria-labelledby='details-heading'>
+				<h2 id='details-heading'>Additional Details</h2>
 				<fieldset>
+					<legend className='sr-only'>Project Description</legend>
 					<label htmlFor='message'>
 						Message
-						<span>*</span>
+						<span aria-hidden='true'>*</span>
 					</label>
 					<textarea
 						onChange={handleChange}
@@ -187,11 +229,29 @@ const GeneralInquiry = () => {
 						rows={8}
 						required
 						maxLength={500}
+						aria-required='true'
+						aria-invalid={
+							formData.message.touched && formData.message.value.trim() === ''
+								? 'true'
+								: 'false'
+						}
+						aria-describedby={
+							formData.message.touched && formData.message.value.trim() === ''
+								? 'message-error'
+								: undefined
+						}
 					></textarea>
 					<div className={styles['textarea-spans']}>
 						{formData.message.touched &&
 							formData.message.value.trim() === '' && (
-								<span className={styles.error}>This field is required</span>
+								<span
+									className={styles.error}
+									id='message-error'
+									role='alert'
+									aria-live='polite'
+								>
+									This field is required
+								</span>
 							)}
 						<span className={styles.charCount}>
 							{formData.message.value.length}/500
@@ -199,8 +259,9 @@ const GeneralInquiry = () => {
 					</div>
 				</fieldset>
 			</section>
-			<section className={styles.antibot}>
-				<h2>Are You Human?</h2>
+
+			<section className={styles.antibot} aria-labelledby='antibot-heading'>
+				<h2 id='antibot-heading'>Are You Human?</h2>
 				<AntiBot
 					formData={formData}
 					formIncrement={formIncrement}
