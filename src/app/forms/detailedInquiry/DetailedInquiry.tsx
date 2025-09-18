@@ -14,7 +14,6 @@ import axiosInstance from '@/lib/utils/axios';
 import styles from '../forms.module.scss';
 
 // Icon imports
-import { CalendarMonth } from '@mui/icons-material';
 
 // Components imports
 import AntiBot from '../antiBot/AntiBot';
@@ -22,16 +21,13 @@ import AntiBot from '../antiBot/AntiBot';
 // Context imports
 
 // Type imports
-import {
-	FieldName,
-	FormField,
-	DetailedFormData,
-} from '../../../lib/types/formTypes';
+import { FieldName, DetailedFormData } from '../../../lib/types/formTypes';
 
 // Context imports
+import { useAppContext } from '../../context/AppContext';
 
 const DetailedInquiry = () => {
-	const [formComplete, setFormComplete] = useState(false);
+	const { setLoading, setErrorMessage } = useAppContext();
 	const [formIncrement, setFormIncrement] = useState(0);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<DetailedFormData>({
@@ -122,6 +118,7 @@ const DetailedInquiry = () => {
 		event.preventDefault();
 
 		try {
+			setLoading(true);
 			const response = await axiosInstance.post('/api/contact', {
 				inquiryType: 'detailed',
 				name: formData.name.value,
@@ -138,7 +135,7 @@ const DetailedInquiry = () => {
 				antibotIndex: formData.antibotIndex,
 			});
 			if (response.status === 201) {
-				setFormComplete(true);
+				setLoading(false);
 				setFormIncrement((prev) => prev + 1);
 				setFormData({
 					name: {
@@ -178,6 +175,7 @@ const DetailedInquiry = () => {
 				});
 			}
 		} catch (error) {
+			setErrorMessage('There was an error with your submission.');
 			console.error('There was an error submitting the message.', error);
 		}
 	};

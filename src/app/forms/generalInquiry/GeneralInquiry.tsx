@@ -18,12 +18,13 @@ import {} from '@mui/icons-material';
 import AntiBot from '../antiBot/AntiBot';
 
 // Context imports
+import { useAppContext } from '../../context/AppContext';
 
 // Type imports
-import { FieldName, FormField, FormData } from '../../../lib/types/formTypes';
+import { FormData } from '../../../lib/types/formTypes';
 
 const GeneralInquiry = () => {
-	const [formComplete, setFormComplete] = useState(false);
+	const { setLoading, setErrorMessage } = useAppContext();
 	const [formIncrement, setFormIncrement] = useState(0);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<FormData>({
@@ -73,6 +74,8 @@ const GeneralInquiry = () => {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		try {
+			setLoading(true);
+
 			const response = await axiosInstance.post('/api/contact', {
 				inquiryType: 'general',
 				name: formData.name.value,
@@ -82,7 +85,9 @@ const GeneralInquiry = () => {
 				antibotIndex: formData.antibotIndex,
 			});
 			if (response.status === 201) {
-				setFormComplete(true);
+				setLoading(false);
+
+				// Reset form
 				setFormIncrement((prev) => prev + 1);
 				setFormData({
 					name: {
@@ -105,6 +110,9 @@ const GeneralInquiry = () => {
 				});
 			}
 		} catch (error) {
+			setErrorMessage(
+				'There was an error with your submission. Please try again later.'
+			);
 			console.error('There was an error submitting the message.', error);
 		}
 	};

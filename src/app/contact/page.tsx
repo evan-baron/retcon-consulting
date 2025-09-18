@@ -15,12 +15,13 @@ import { Phone, MailOutline } from '@mui/icons-material';
 import GeneralInquiry from '../forms/generalInquiry/GeneralInquiry';
 import DetailedInquiry from '../forms/detailedInquiry/DetailedInquiry';
 import FAB from '../components/FAB/FAB';
+import LoadingSpinner from '@/app/components/loadingSpinner/LoadingSpinner';
 
 // Context imports
 import { useAppContext } from '../context/AppContext';
 
 const Contact = () => {
-	const { isMobileWidth, isTabletWidth } = useAppContext();
+	const { isMobileWidth, isTabletWidth, loading } = useAppContext();
 
 	const [formType, setFormType] = useState<'detailed' | 'general'>('general');
 
@@ -111,6 +112,7 @@ const Contact = () => {
 				</section>
 			</div>
 			<FAB type='ttt' />
+			{loading && <LoadingSpinner loadingText={'Submitting'} />}
 		</>
 	);
 };

@@ -14,12 +14,16 @@ import { useMediaQuery } from '@mui/material';
 
 // Define the context value type
 interface AppContextType {
+	errorMessage: string | null;
 	isTouchDevice: boolean | undefined;
 	isMobile: boolean | undefined;
 	isMobileWidth: boolean | undefined;
 	isSmallTablet: boolean | undefined;
 	isTablet: boolean | undefined;
 	isTabletWidth: boolean | undefined;
+	loading: boolean | undefined;
+	setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>;
+	setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Create Context
@@ -32,9 +36,11 @@ interface ContextProviderProps {
 
 // Create the context provider component
 export const ContextProvider = ({ children }: ContextProviderProps) => {
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const [isTouchDevice, setIsTouchDevice] = useState<boolean | undefined>(
 		undefined
 	);
+	const [loading, setLoading] = useState(false);
 
 	// Determine if touch device or not
 	useEffect(() => {
@@ -83,12 +89,16 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 	return (
 		<AppContext.Provider
 			value={{
+				errorMessage,
 				isTouchDevice,
 				isMobile,
 				isMobileWidth,
 				isTablet,
 				isTabletWidth,
 				isSmallTablet,
+				loading,
+				setErrorMessage,
+				setLoading,
 			}}
 		>
 			{children}
