@@ -76,6 +76,11 @@
 						.icon {
 							font-size: 1.5rem;
 						}
+
+						&:focus-visible {
+							outline: 2px solid var(--main-teal) !important;
+							border-radius: 0.5rem;
+						}
 					}
 				}
 			}
@@ -161,6 +166,10 @@
 				width: 60%;
 				max-width: 55rem;
 				flex-direction: column;
+
+				&:focus-visible {
+					outline: 2px solid var(--main-teal) !important;
+				}
 			}
 
 			@media screen and (max-width: 1350px) {

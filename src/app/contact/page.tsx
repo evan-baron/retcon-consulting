@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 // Hooks imports
 
@@ -24,6 +24,27 @@ const Contact = () => {
 	const { isMobileWidth, isTabletWidth, loading } = useAppContext();
 
 	const [formType, setFormType] = useState<'detailed' | 'general'>('general');
+
+	const tabRefs = [
+		useRef<HTMLButtonElement>(null),
+		useRef<HTMLButtonElement>(null),
+	];
+
+	const handleTabKeyDown = (
+		e: React.KeyboardEvent<HTMLButtonElement>,
+		idx: number
+	) => {
+		if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+			e.preventDefault();
+			let nextIdx = idx;
+			if (idx === 0 && e.key === 'ArrowRight') {
+				nextIdx = (idx + 1) % 2;
+			} else if (idx === 1 && e.key === 'ArrowLeft') {
+				nextIdx = (idx - 1 + 2) % 2;
+			}
+			tabRefs[nextIdx].current?.focus();
+		}
+	};
 
 	return (
 		<>
@@ -53,16 +74,16 @@ const Contact = () => {
 									</span>
 								</a>
 								<div className={styles.contact}>
-									<MailOutline
-										className={styles.icon}
-										aria-hidden='true'
-										focusable='false'
-									/>
 									<a
 										href='mailto:contact@retconconsulting.com'
-										className={styles['contact-email']}
+										className={styles.contact}
 										aria-label='Email Retcon Consulting at contact@retconconsulting.com'
 									>
+										<MailOutline
+											className={styles.icon}
+											aria-hidden='true'
+											focusable='false'
+										/>
 										contact@retconconsulting.com
 									</a>
 								</div>
@@ -83,6 +104,7 @@ const Contact = () => {
 						aria-label='Choose form type'
 					>
 						<button
+							ref={tabRefs[0]}
 							type='button'
 							className={`${styles.type} ${
 								formType === 'general' ? styles.active : ''
@@ -91,12 +113,14 @@ const Contact = () => {
 							aria-selected={formType === 'general'}
 							aria-controls='general-form-panel'
 							id='general-form-tab'
-							tabIndex={0}
+							tabIndex={formType === 'general' ? 0 : -1}
 							onClick={() => setFormType('general')}
+							onKeyDown={(e) => handleTabKeyDown(e, 0)}
 						>
 							{isMobileWidth || isTabletWidth ? 'General' : 'General Inquiry'}
 						</button>
 						<button
+							ref={tabRefs[1]}
 							type='button'
 							className={`${styles.type} ${
 								formType === 'detailed' ? styles.active : ''
@@ -105,8 +129,9 @@ const Contact = () => {
 							aria-selected={formType === 'detailed'}
 							aria-controls='detailed-form-panel'
 							id='detailed-form-tab'
-							tabIndex={0}
+							tabIndex={formType === 'detailed' ? 0 : -1}
 							onClick={() => setFormType('detailed')}
+							onKeyDown={(e) => handleTabKeyDown(e, 1)}
 						>
 							{isMobileWidth || isTabletWidth ? 'Detailed' : 'Request a Quote'}
 						</button>
