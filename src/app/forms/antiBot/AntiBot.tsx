@@ -23,12 +23,14 @@ import { FormData, DetailedFormData } from '../../../lib/types/formTypes';
 
 type AntiBotProps<Data> = {
 	formData: Data;
+	formIncrement: number;
 	setFormData: React.Dispatch<React.SetStateAction<Data>>;
 	setIsAntiBotValid: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AntiBot = <Data extends FormData | DetailedFormData>({
 	formData,
+	formIncrement,
 	setFormData,
 	setIsAntiBotValid,
 }: AntiBotProps<Data>) => {
@@ -38,7 +40,7 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 		const index = Math.floor(Math.random() * mathQuestions.length);
 		setQuestionIndex(index);
 		setFormData((prev) => ({ ...prev, antibotIndex: index }));
-	}, [setFormData]);
+	}, [formIncrement, setFormData]);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;

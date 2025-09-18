@@ -24,6 +24,7 @@ import { FieldName, FormField, FormData } from '../../../lib/types/formTypes';
 
 const GeneralInquiry = () => {
 	const [formComplete, setFormComplete] = useState(false);
+	const [formIncrement, setFormIncrement] = useState(0);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<FormData>({
 		name: {
@@ -82,6 +83,7 @@ const GeneralInquiry = () => {
 			});
 			if (response.status === 201) {
 				setFormComplete(true);
+				setFormIncrement((prev) => prev + 1);
 				setFormData({
 					name: {
 						value: '',
@@ -183,6 +185,7 @@ const GeneralInquiry = () => {
 			</fieldset>
 			<AntiBot
 				formData={formData}
+				formIncrement={formIncrement}
 				setFormData={setFormData}
 				setIsAntiBotValid={setIsAntiBotValid}
 			/>

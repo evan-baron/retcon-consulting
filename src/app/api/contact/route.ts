@@ -1,24 +1,45 @@
 import mailService from '@/services/mailService';
-const { sendContactForm } = mailService;
+const { sendContactForm, sendDetailedContactForm } = mailService;
 import { NextResponse } from 'next/server';
+import mathQuestions from '@/lib/data/mathQuestions';
 
 export async function POST(req: Request) {
 	try {
-		const { inquiryType, name, email, message, antibot, antibotIndex } = await req.json() as {
-			inquiryType: string;
-			name: string;
-			email: string;
-			message: string;
-			antibot: string;
-			antibotIndex: number;
-		};
+		const body = await req.json();
+
+		console.log(body);
+		
+		const { inquiryType, name, email, message, antibot, antibotIndex } = body;
+
+		// Basic validation
+		if (!name || !email || !message || !inquiryType) {
+			return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+		}
+
+		// Simple anti-bot check
+		if (
+			antibotIndex === undefined ||
+			antibot === undefined ||
+			antibot !== mathQuestions[antibotIndex].answer.toString()
+		) {
+			return NextResponse.json({ message: 'Failed anti-bot check' }, { status: 400 });
+		}
 
 		if (inquiryType === 'general') {
 			await sendContactForm(name, email, message);
 		} else if (inquiryType === 'detailed') {
-			// await sendContactForm(name, email, message);
+			const {				
+				title,
+				company,
+				phone,
+				website,
+				services,
+				timeline,
+				budget,
+				} = body;
+			await sendDetailedContactForm(name, email, message, title, company, phone, website, services, timeline, budget);
 		} else {
-			// Handle other inquiry types if needed
+			// Unsupported inquiry type
 			return NextResponse.json({ message: 'Unsupported inquiry type' }, { status: 400 });
 		}
 

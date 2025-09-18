@@ -32,6 +32,7 @@ import {
 
 const DetailedInquiry = () => {
 	const [formComplete, setFormComplete] = useState(false);
+	const [formIncrement, setFormIncrement] = useState(0);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<DetailedFormData>({
 		name: {
@@ -119,8 +120,6 @@ const DetailedInquiry = () => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log(formData, timeline);
-		return;
 
 		try {
 			const response = await axiosInstance.post('/api/contact', {
@@ -132,6 +131,7 @@ const DetailedInquiry = () => {
 				phone: formData.phone?.value,
 				website: formData.website?.value,
 				services: formData.services?.join(', '),
+				timeline: timeline[0] ? timeline[0].toISOString().slice(0, 10) : '',
 				budget: formData.budget?.value,
 				message: formData.message.value,
 				antibot: formData.antibot.value,
@@ -139,6 +139,7 @@ const DetailedInquiry = () => {
 			});
 			if (response.status === 201) {
 				setFormComplete(true);
+				setFormIncrement((prev) => prev + 1);
 				setFormData({
 					name: {
 						value: '',
@@ -494,6 +495,7 @@ const DetailedInquiry = () => {
 				<h2>Are You Human?</h2>
 				<AntiBot
 					formData={formData}
+					formIncrement={formIncrement}
 					setFormData={setFormData}
 					setIsAntiBotValid={setIsAntiBotValid}
 				/>

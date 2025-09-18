@@ -29,6 +29,34 @@ const getTemplate = (templateName: string, replacements: TemplateReplacements = 
 	return template;
 };
 
+export const sendDetailedContactForm = async (name: string, email: string, message: string, title: string, company: string, phone: string, website: string, services: string, timeline: string, budget: string): Promise<void> => {
+	const htmlContent = getTemplate('detailedContactForm', {
+		name,
+		email,
+		message,
+		title,
+		company,
+		phone,
+		website,
+		services,
+		timeline,
+		budget,
+	});
+
+	const mailOptions = {
+		from: process.env.NEXT_PUBLIC_EMAIL,
+		to: process.env.PERSONAL_EMAIL,
+		subject: `Retcon Consulting Lead Request From ${name}`,
+		html: htmlContent,
+	};
+
+	try {
+		await transporter.sendMail(mailOptions);
+	} catch (err) {
+		console.error('Error sending email: ', err);
+	}
+};
+
 export const sendContactForm = async (name: string, email: string, message: string): Promise<void> => {
 	const htmlContent = getTemplate('contactForm', {
 		name,
@@ -51,7 +79,8 @@ export const sendContactForm = async (name: string, email: string, message: stri
 };
 
 const mailService = {
-	sendContactForm
+	sendContactForm,
+	sendDetailedContactForm,
 };
 
 export default mailService;
