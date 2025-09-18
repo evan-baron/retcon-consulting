@@ -18,10 +18,23 @@
 			hsla(0, 0%, 5%, 0.5)
 		);
 		backdrop-filter: blur(10px);
+		border-radius: 0.25rem;
 		box-shadow: 0 0 1rem black, 0 0 2rem black,
 			0 1rem 4rem hsla(var(--hue), 100%, 50%, 0.25);
 		transform: rotate(-5deg);
 		transform-origin: left center;
+
+		&::before {
+			content: 'You found the easter egg! 😶';
+			position: absolute;
+			top: 50%;
+			transform: rotate(5deg) translate(calc(-100% - 5rem), -50%);
+			left: 0;
+			color: var(--gray1);
+			font-size: 1rem;
+			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+				0.5rem 0.5rem 3rem black;
+		}
 
 		.hero {
 			width: 80%;
@@ -134,13 +147,14 @@
 
 			.form-content {
 				width: 60%;
+				max-width: 55rem;
 				flex-direction: column;
 			}
 		}
 	}
 
 	// Mobile styles
-	@media screen and (max-width: 550px) and (orientation: portrait),
+	@media screen and (max-width: 1000px) and (orientation: portrait),
 		screen and (max-height: 550px) and (orientation: landscape) {
 		.slant {
 			height: 60dvh;
@@ -168,8 +182,8 @@
 		}
 
 		.form-section {
-			padding: 1rem 2rem;
-			gap: 1rem;
+			padding: 1.5rem 1.5rem 0 1.5rem;
+			gap: 1.5rem;
 
 			.form-types {
 				width: 100%;
@@ -177,13 +191,31 @@
 
 				.type {
 					font-size: 1.5rem;
+					height: 2.5rem;
 				}
 			}
 
 			.form-container {
 				flex-direction: column;
+				gap: 1.5rem;
 
 				.intro {
+					width: 100%;
+					font-size: 1.25rem;
+					height: fit-content;
+					display: flex;
+					gap: 0.5rem;
+					padding: 1rem;
+
+					.intro-text {
+						font-style: italic;
+						text-wrap: pretty;
+					}
+				}
+
+				.form-content {
+					width: 100%;
+					padding: 2rem;
 				}
 			}
 		}

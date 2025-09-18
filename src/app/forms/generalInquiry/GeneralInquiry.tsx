@@ -111,84 +111,95 @@ const GeneralInquiry = () => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
-			<fieldset>
-				<label htmlFor='name'>
-					Name<span>*</span>
-				</label>
-				<input
-					onChange={handleChange}
-					onBlur={() =>
-						setFormData((prev) => ({
-							...prev,
-							name: { ...prev.name, touched: true },
-						}))
-					}
-					value={formData.name.value}
-					type='text'
-					id='name'
-					name='name'
-					required
-				/>
-				{formData.name.touched && formData.name.value.trim() === '' && (
-					<span className={styles.error}>This field is required</span>
-				)}
-			</fieldset>
-			<fieldset>
-				<label htmlFor='email'>
-					Email<span>*</span>
-				</label>
-				<input
-					onChange={handleChange}
-					onBlur={() =>
-						setFormData((prev) => ({
-							...prev,
-							email: { ...prev.email, touched: true },
-						}))
-					}
-					value={formData.email.value}
-					type='email'
-					id='email'
-					name='email'
-					required
-				/>
-				{formData.email.touched && formData.email.value.trim() === '' && (
-					<span className={styles.error}>This field is required</span>
-				)}
-			</fieldset>
-			<fieldset>
-				<label htmlFor='message'>
-					Message<span>*</span>
-				</label>
-				<textarea
-					onChange={handleChange}
-					onBlur={() =>
-						setFormData((prev) => ({
-							...prev,
-							message: { ...prev.message, touched: true },
-						}))
-					}
-					value={formData.message.value}
-					id='message'
-					name='message'
-					rows={8}
-					required
-					maxLength={500}
-				></textarea>
-				<div className={styles['textarea-spans']}>
-					{formData.message.touched && formData.message.value.trim() === '' && (
+			<section>
+				<h2>Contact Information</h2>
+				<fieldset>
+					<label htmlFor='name'>
+						Name<span>*</span>
+					</label>
+					<input
+						onChange={handleChange}
+						onBlur={() =>
+							setFormData((prev) => ({
+								...prev,
+								name: { ...prev.name, touched: true },
+							}))
+						}
+						value={formData.name.value}
+						type='text'
+						id='name'
+						name='name'
+						required
+					/>
+					{formData.name.touched && formData.name.value.trim() === '' && (
 						<span className={styles.error}>This field is required</span>
 					)}
-					<span className={styles.charCount}>
-						{formData.message.value.length}/500
-					</span>
-				</div>
-			</fieldset>
-			<AntiBot
-				formData={formData}
-				formIncrement={formIncrement}
-				setFormData={setFormData}
-				setIsAntiBotValid={setIsAntiBotValid}
-			/>
+				</fieldset>
+				<fieldset>
+					<label htmlFor='email'>
+						Email<span>*</span>
+					</label>
+					<input
+						onChange={handleChange}
+						onBlur={() =>
+							setFormData((prev) => ({
+								...prev,
+								email: { ...prev.email, touched: true },
+							}))
+						}
+						value={formData.email.value}
+						type='email'
+						id='email'
+						name='email'
+						required
+					/>
+					{formData.email.touched && formData.email.value.trim() === '' && (
+						<span className={styles.error}>This field is required</span>
+					)}
+				</fieldset>
+			</section>
+			<section>
+				<h2>Additional Details</h2>
+				<fieldset>
+					<label htmlFor='message'>
+						Message
+						<span>*</span>
+					</label>
+					<textarea
+						onChange={handleChange}
+						onBlur={() =>
+							setFormData((prev) => ({
+								...prev,
+								message: { ...prev.message, touched: true },
+							}))
+						}
+						value={formData.message.value}
+						id='message'
+						name='message'
+						rows={8}
+						required
+						maxLength={500}
+					></textarea>
+					<div className={styles['textarea-spans']}>
+						{formData.message.touched &&
+							formData.message.value.trim() === '' && (
+								<span className={styles.error}>This field is required</span>
+							)}
+						<span className={styles.charCount}>
+							{formData.message.value.length}/500
+						</span>
+					</div>
+				</fieldset>
+			</section>
+			<section className={styles.antibot}>
+				<h2>Are You Human?</h2>
+				<AntiBot
+					formData={formData}
+					formIncrement={formIncrement}
+					setFormData={setFormData}
+					setIsAntiBotValid={setIsAntiBotValid}
+				/>
+			</section>
 			<button type='submit' className={styles.submit} disabled={!formValid}>
 				Submit
 			</button>

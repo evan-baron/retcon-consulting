@@ -134,6 +134,20 @@
 					}
 				}
 			}
+
+			@media screen and (max-width: 550px) and (orientation: portrait) {
+				padding-left: 0;
+
+				.options {
+					.option {
+						align-items: flex-start;
+						input {
+							min-width: 1rem;
+							margin-top: 1px;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -164,9 +178,19 @@
 	}
 
 	@media screen and (max-width: 550px) and (orientation: portrait) {
+		section {
+			&.antibot {
+				padding-bottom: 1.5rem;
+			}
+		}
+
 		.grouped {
 			flex-direction: column;
 			gap: 1rem;
+		}
+
+		input {
+			min-width: unset;
 		}
 	}
 }

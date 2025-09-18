@@ -6,8 +6,6 @@ import mathQuestions from '@/lib/data/mathQuestions';
 export async function POST(req: Request) {
 	try {
 		const body = await req.json();
-
-		console.log(body);
 		
 		const { inquiryType, name, email, message, antibot, antibotIndex } = body;
 
