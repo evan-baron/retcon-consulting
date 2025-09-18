@@ -20,7 +20,7 @@ import FAB from '../components/FAB/FAB';
 import { useAppContext } from '../context/AppContext';
 
 const Contact = () => {
-	const { isMobile } = useAppContext();
+	const { isMobileWidth, isTabletWidth } = useAppContext();
 
 	const [formType, setFormType] = useState<'detailed' | 'general'>('general');
 
@@ -64,7 +64,7 @@ const Contact = () => {
 							}`}
 							onClick={() => setFormType('general')}
 						>
-							{isMobile ? 'General' : 'General Inquiry'}
+							{isMobileWidth || isTabletWidth ? 'General' : 'General Inquiry'}
 						</div>
 						<div
 							className={`${styles.type} ${
@@ -72,7 +72,7 @@ const Contact = () => {
 							}`}
 							onClick={() => setFormType('detailed')}
 						>
-							{isMobile ? 'Detailed' : 'Request a Quote'}
+							{isMobileWidth || isTabletWidth ? 'Detailed' : 'Request a Quote'}
 						</div>
 					</div>
 					<div className={styles['form-container']}>
