@@ -4,6 +4,7 @@
 	flex-direction: column;
 	align-items: center;
 	color: var(--gray1);
+	user-select: none;
 
 	.slant {
 		width: 125%;
@@ -62,6 +63,7 @@
 
 					display: flex;
 					align-items: flex-end;
+					user-select: text !important;
 
 					.contact {
 						height: 2rem;

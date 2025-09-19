@@ -6,6 +6,7 @@
 	align-items: center;
 	padding: 0 10%;
 	gap: 3rem;
+	user-select: none;
 
 	@media screen and (max-width: 550px) and (orientation: portrait) {
 		padding: 0 2rem;
