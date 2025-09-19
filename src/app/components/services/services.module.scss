@@ -6,7 +6,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: 3rem;
-	user-select: none;
 
 	@media screen and (max-height: 550px) and (orientation: landscape) {
 		gap: 2rem;

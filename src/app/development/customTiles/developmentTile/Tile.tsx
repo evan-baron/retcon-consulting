@@ -214,7 +214,21 @@ function Tile({
 		<div
 			className={`${styles.tile} ${tileVisible ? styles.visible : ''}`}
 			ref={tileRef}
-			onClick={() => setFlipped((prev) => !prev)}
+			onClick={(e) => {
+				const selection = window.getSelection();
+				if (
+					selection &&
+					selection.type === 'Range' &&
+					selection.toString().length > 0 &&
+					tileRef.current &&
+					selection.anchorNode &&
+					tileRef.current.contains(selection.anchorNode)
+				) {
+					// Selection is inside stats, don't flip
+					return;
+				}
+				setFlipped((prev) => !prev);
+			}}
 			aria-label={`Details for ${title}`}
 			aria-live='polite'
 			role='button'
@@ -237,6 +251,18 @@ function Tile({
 						aria-label={`Read more about ${title}`}
 						onClick={(e) => {
 							e.stopPropagation();
+							const selection = window.getSelection();
+							if (
+								selection &&
+								selection.type === 'Range' &&
+								selection.toString().length > 0 &&
+								tileRef.current &&
+								selection.anchorNode &&
+								tileRef.current.contains(selection.anchorNode)
+							) {
+								// Selection is inside stats, don't flip
+								return;
+							}
 							setFlipped((prev) => !prev);
 						}}
 						className={styles.more}
@@ -269,6 +295,18 @@ function Tile({
 							aria-label={`Back to summary for ${title}`}
 							onClick={(e) => {
 								e.stopPropagation();
+								const selection = window.getSelection();
+								if (
+									selection &&
+									selection.type === 'Range' &&
+									selection.toString().length > 0 &&
+									tileRef.current &&
+									selection.anchorNode &&
+									tileRef.current.contains(selection.anchorNode)
+								) {
+									// Selection is inside stats, don't flip
+									return;
+								}
 								setFlipped((prev) => !prev);
 							}}
 							className={styles.back}

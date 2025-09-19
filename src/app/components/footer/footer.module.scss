@@ -5,8 +5,6 @@
 	display: flex;
 	padding: 0 2rem;
 
-	user-select: none;
-
 	@media screen and (max-width: 550px) and (orientation: portrait) {
 		height: auto;
 		flex-direction: column;

@@ -66,6 +66,7 @@
 					font-weight: bold;
 					transform: scaleX(1.5);
 					transform-origin: left;
+					user-select: none !important;
 
 					@supports (-webkit-background-clip: text) {
 						background: hsl(var(--hue), 100%, 50%);

@@ -45,6 +45,7 @@
 					font-weight: bold;
 					transform: scaleX(1.5);
 					transform-origin: left;
+					user-select: none !important;
 					// color: hsl(180, 100%, 50%);
 
 					@supports (-webkit-background-clip: text) {
@@ -617,36 +618,6 @@
 				}
 			}
 		}
-
-		// .react {
-		// 	position: absolute;
-		// 	bottom: 10%;
-		// 	right: 0.5rem;
-		// 	height: 5rem;
-		// 	width: 5rem;
-		// 	animation: glow 3s ease-in-out infinite;
-
-		// 	@media screen and (max-height: 550px) and (orientation: landscape) {
-		// 		bottom: 2.5rem;
-		// 		right: 2.5rem;
-		// 	}
-
-		// 	@media screen and (max-width: 380px) {
-		// 		bottom: 4%;
-		// 	}
-
-		// 	@keyframes glow {
-		// 		0%,
-		// 		100% {
-		// 			color: var(--gray1);
-		// 			filter: drop-shadow(0 0 0.5rem hsla(0, 0%, 98%, 0));
-		// 		}
-		// 		50% {
-		// 			color: hsl(191, 65%, 60%);
-		// 			filter: drop-shadow(0 0 1.5rem hsla(191, 65%, 60%, 0.5));
-		// 		}
-		// 	}
-		// }
 	}
 
 	.mobile-webdesign {
