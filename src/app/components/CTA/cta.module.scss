@@ -233,7 +233,7 @@
 	&:active {
 		background-color: var(--gray5);
 		color: var(--gray1);
-		box-shadow: 0 0 0 2px white;
+		border: 2px solid var(--gray1);
 	}
 
 	&:focus-visible {

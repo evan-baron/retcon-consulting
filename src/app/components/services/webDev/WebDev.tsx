@@ -341,6 +341,7 @@ const WebDev = () => {
 					</div>
 					<div className={mobileStyles.cta}>
 						<Link
+							className={mobileStyles.learn}
 							href='/development'
 							aria-label='Web Development & Design details'
 						>
@@ -493,6 +494,7 @@ const WebDev = () => {
 					</ul>
 					<div className={mobileStyles.cta}>
 						<Link
+							className={mobileStyles.learn}
 							href='/development'
 							aria-label='Web Development & Design details'
 						>

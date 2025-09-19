@@ -41,6 +41,7 @@ function Services({ id }: { id: string }) {
 						<WebDev />
 						<div className={styles.cta}>
 							<Link
+								className={styles.learn}
 								href='/development'
 								aria-label='Web Development & Design details'
 							>
