@@ -23,7 +23,15 @@ function CTA({ content, parent }: CTAProps) {
 					touch!
 				</p>
 			</div>
-			<CTA content='Get Started' parent='development' />
+			<Link
+				href='/contact'
+				role='button'
+				tabIndex={0}
+				aria-label='Book a consultation'
+				className={`${styles.cta} ${styles['home-section-cta']}`}
+			>
+				{content}
+			</Link>
 		</section>
 	) : (
 		<Link
