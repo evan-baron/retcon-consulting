@@ -32,14 +32,14 @@ const roboto = Roboto({
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.retconconsulting.com'),
 	title:
-		'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+		'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
 	description:
 		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
 	// description: 'Tech-focused consulting services for your business needs',
 
 	openGraph: {
 		title:
-			'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
 		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		// description:
 		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title:
-			'Retcon Consulting | Professional Web Development, UX/UI Design & Online Growth Consulting',
+			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
 		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
 		// description:
 		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
