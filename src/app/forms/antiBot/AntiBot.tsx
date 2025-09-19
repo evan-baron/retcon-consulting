@@ -42,12 +42,6 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 		setFormData((prev) => ({ ...prev, antibotIndex: index }));
 	}, [formIncrement, setFormData]);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-		setFormData((prev) => ({ ...prev, antibot: { ...prev.antibot, value } }));
-		setIsAntiBotValid(value === question?.answer.toString());
-	};
-
 	if (questionIndex === null) {
 		return (
 			<fieldset>

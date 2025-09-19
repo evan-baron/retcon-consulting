@@ -214,7 +214,7 @@ function Tile({
 		<div
 			className={`${styles.tile} ${tileVisible ? styles.visible : ''}`}
 			ref={tileRef}
-			onClick={(e) => {
+			onClick={() => {
 				const selection = window.getSelection();
 				if (
 					selection &&
