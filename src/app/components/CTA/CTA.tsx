@@ -13,7 +13,19 @@ interface CTAProps {
 }
 
 function CTA({ content, parent }: CTAProps) {
-	return (
+	return parent === 'home' ? (
+		<section className={styles.section} aria-labelledby='get-started-heading'>
+			<h2 id='get-started-heading'>Ready to Get Started?</h2>
+			<div className={styles.text}>
+				<p className={styles['development-description']}>
+					Follow the link below to fill out a quick contact form or request a
+					detailed quote. Choose what best fits your needs and we&apos;ll be in
+					touch!
+				</p>
+			</div>
+			<CTA content='Get Started' parent='development' />
+		</section>
+	) : (
 		<Link
 			href='/contact'
 			role='button'

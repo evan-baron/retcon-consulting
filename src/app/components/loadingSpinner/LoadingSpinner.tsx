@@ -17,7 +17,7 @@ import {} from '@mui/icons-material';
 import { useAppContext } from '../../context/AppContext';
 
 const LoadingSpinner = ({ loadingText }: { loadingText?: string }) => {
-	const { errorMessage, setErrorMessage, setLoading } = useAppContext();
+	const { loadingMessage, setLoadingMessage, setLoading } = useAppContext();
 	const [elipses, setElipses] = useState('');
 
 	useEffect(() => {
@@ -37,10 +37,10 @@ const LoadingSpinner = ({ loadingText }: { loadingText?: string }) => {
 			className={styles['loadingspinner-wrapper']}
 			role='status'
 			aria-live='polite'
-			aria-busy={!errorMessage}
+			aria-busy={!loadingMessage}
 		>
 			<div className={styles.container}>
-				{!errorMessage ? (
+				{!loadingMessage.message ? (
 					<div className={styles.text}>
 						<span id='loading-message'>
 							{loadingText ? loadingText : 'Loading'}
@@ -52,13 +52,17 @@ const LoadingSpinner = ({ loadingText }: { loadingText?: string }) => {
 				) : (
 					<>
 						<p className={styles.error} role='alert'>
-							{errorMessage}
+							{loadingMessage.message}
 						</p>
-						<p className={styles.error}>Please try again later.</p>
+						<p className={styles.error} role='alert'>
+							{loadingMessage.type === 'error'
+								? 'Please try again later.'
+								: 'A member of our team will reach out shortly!'}
+						</p>
 						<button
 							type='button'
 							onClick={() => {
-								setErrorMessage(null);
+								setLoadingMessage({ message: null, type: null });
 								setLoading(false);
 							}}
 							aria-label='Dismiss error and close loading dialog'
@@ -67,7 +71,7 @@ const LoadingSpinner = ({ loadingText }: { loadingText?: string }) => {
 						</button>
 					</>
 				)}
-				{!errorMessage && (
+				{!loadingMessage.message && (
 					<div className={styles.spinner}>
 						<div
 							className={styles['loading-spinner']}

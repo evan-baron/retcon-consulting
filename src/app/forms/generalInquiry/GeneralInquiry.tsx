@@ -24,8 +24,9 @@ import { useAppContext } from '../../context/AppContext';
 import { FormData } from '../../../lib/types/formTypes';
 
 const GeneralInquiry = () => {
-	const { setLoading, setErrorMessage } = useAppContext();
+	const { setLoading, setLoadingMessage } = useAppContext();
 	const [formIncrement, setFormIncrement] = useState(0);
+	const [formSubmitted, setFormSubmitted] = useState(false);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<FormData>({
 		name: {
@@ -73,6 +74,8 @@ const GeneralInquiry = () => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		setFormSubmitted(true);
+
 		try {
 			setLoading(true);
 
@@ -85,10 +88,14 @@ const GeneralInquiry = () => {
 				antibotIndex: formData.antibotIndex,
 			});
 			if (response.status === 201) {
-				setLoading(false);
+				setLoadingMessage({
+					message: "We've received your message!",
+					type: 'confirm',
+				});
 
 				// Reset form
 				setFormIncrement((prev) => prev + 1);
+				setFormSubmitted(false);
 				setFormData({
 					name: {
 						value: '',
@@ -110,9 +117,11 @@ const GeneralInquiry = () => {
 				});
 			}
 		} catch (error) {
-			setErrorMessage(
-				'There was an error with your submission. Please try again later.'
-			);
+			setLoadingMessage({
+				message: 'There was an error with your submission.',
+				type: 'error',
+			});
+			setFormSubmitted(false);
 			console.error('There was an error submitting the message.', error);
 		}
 	};
@@ -269,8 +278,13 @@ const GeneralInquiry = () => {
 					setIsAntiBotValid={setIsAntiBotValid}
 				/>
 			</section>
-			<button type='submit' className={styles.submit} disabled={!formValid}>
-				Submit
+			<button
+				type='submit'
+				className={styles.submit}
+				disabled={!formValid || formSubmitted}
+				aria-disabled={!formValid || formSubmitted}
+			>
+				{formSubmitted ? 'Submitting...' : 'Submit'}
 			</button>
 		</form>
 	);

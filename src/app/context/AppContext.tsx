@@ -14,7 +14,7 @@ import { useMediaQuery } from '@mui/material';
 
 // Define the context value type
 interface AppContextType {
-	errorMessage: string | null;
+	loadingMessage: { message: string | null; type: 'error' | 'confirm' | null };
 	isTouchDevice: boolean | undefined;
 	isMobile: boolean | undefined;
 	isMobileWidth: boolean | undefined;
@@ -22,7 +22,12 @@ interface AppContextType {
 	isTablet: boolean | undefined;
 	isTabletWidth: boolean | undefined;
 	loading: boolean | undefined;
-	setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>;
+	setLoadingMessage: React.Dispatch<
+		React.SetStateAction<{
+			message: string | null;
+			type: 'error' | 'confirm' | null;
+		}>
+	>;
 	setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -34,9 +39,18 @@ interface ContextProviderProps {
 	children: ReactNode;
 }
 
+// Define the loading message type
+type LoadingMessage = {
+	message: string | null;
+	type: 'error' | 'confirm' | null;
+};
+
 // Create the context provider component
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [loadingMessage, setLoadingMessage] = useState<LoadingMessage>({
+		message: null,
+		type: null,
+	});
 	const [isTouchDevice, setIsTouchDevice] = useState<boolean | undefined>(
 		undefined
 	);
@@ -89,7 +103,6 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 	return (
 		<AppContext.Provider
 			value={{
-				errorMessage,
 				isTouchDevice,
 				isMobile,
 				isMobileWidth,
@@ -97,7 +110,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 				isTabletWidth,
 				isSmallTablet,
 				loading,
-				setErrorMessage,
+				loadingMessage,
+				setLoadingMessage,
 				setLoading,
 			}}
 		>

@@ -27,8 +27,9 @@ import { FieldName, DetailedFormData } from '../../../lib/types/formTypes';
 import { useAppContext } from '../../context/AppContext';
 
 const DetailedInquiry = () => {
-	const { setLoading, setErrorMessage } = useAppContext();
+	const { setLoading, setLoadingMessage } = useAppContext();
 	const [formIncrement, setFormIncrement] = useState(0);
+	const [formSubmitted, setFormSubmitted] = useState(false);
 	const [isAntiBotValid, setIsAntiBotValid] = useState(false);
 	const [formData, setFormData] = useState<DetailedFormData>({
 		name: {
@@ -116,7 +117,7 @@ const DetailedInquiry = () => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-
+		setFormSubmitted(true);
 		try {
 			setLoading(true);
 			const response = await axiosInstance.post('/api/contact', {
@@ -135,7 +136,11 @@ const DetailedInquiry = () => {
 				antibotIndex: formData.antibotIndex,
 			});
 			if (response.status === 201) {
-				setLoading(false);
+				setLoadingMessage({
+					message: "We've received your project request!",
+					type: 'confirm',
+				});
+				setFormSubmitted(false);
 				setFormIncrement((prev) => prev + 1);
 				setFormData({
 					name: {
@@ -175,7 +180,11 @@ const DetailedInquiry = () => {
 				});
 			}
 		} catch (error) {
-			setErrorMessage('There was an error with your submission.');
+			setLoadingMessage({
+				message: 'There was an error with your submission.',
+				type: 'error',
+			});
+			setFormSubmitted(false);
 			console.error('There was an error submitting the message.', error);
 		}
 	};
@@ -601,10 +610,10 @@ const DetailedInquiry = () => {
 			<button
 				type='submit'
 				className={styles.submit}
-				disabled={!formValid}
-				aria-disabled={!formValid}
+				disabled={!formValid || formSubmitted}
+				aria-disabled={!formValid || formSubmitted}
 			>
-				Submit
+				{formSubmitted ? 'Submitting...' : 'Submit'}
 			</button>
 		</form>
 	);
