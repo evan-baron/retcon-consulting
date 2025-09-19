@@ -604,7 +604,7 @@ const DetailedInquiry = () => {
 				</fieldset>
 			</section>
 
-			<section className={styles.antibot} aria-labelledby='antibot-heading'>
+			<section aria-labelledby='antibot-heading'>
 				<h2 id='antibot-heading'>Are You Human?</h2>
 				<AntiBot
 					formData={formData}
