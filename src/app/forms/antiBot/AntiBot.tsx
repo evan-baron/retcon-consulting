@@ -66,6 +66,7 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 				pattern='[0-9]*'
 				id='antibot'
 				name='antibot'
+				maxLength={1}
 				required
 				aria-required='true'
 				aria-invalid={

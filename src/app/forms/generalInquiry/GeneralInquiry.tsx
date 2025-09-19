@@ -147,6 +147,7 @@ const GeneralInquiry = () => {
 						type='text'
 						id='name'
 						name='name'
+						maxLength={50}
 						required
 						aria-required='true'
 						aria-invalid={
@@ -189,6 +190,7 @@ const GeneralInquiry = () => {
 						type='email'
 						id='email'
 						name='email'
+						maxLength={100}
 						required
 						aria-required='true'
 						aria-invalid={

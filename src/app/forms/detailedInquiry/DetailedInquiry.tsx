@@ -210,6 +210,7 @@ const DetailedInquiry = () => {
 						type='text'
 						id='name'
 						name='name'
+						maxLength={50}
 						required
 						aria-required='true'
 						aria-invalid={
@@ -246,6 +247,7 @@ const DetailedInquiry = () => {
 							type='text'
 							id='title'
 							name='title'
+							maxLength={100}
 							autoComplete='organization-title'
 						/>
 					</fieldset>
@@ -259,6 +261,7 @@ const DetailedInquiry = () => {
 							type='text'
 							id='company'
 							name='company'
+							maxLength={100}
 							autoComplete='organization'
 						/>
 					</fieldset>
@@ -282,6 +285,7 @@ const DetailedInquiry = () => {
 							type='email'
 							id='email'
 							name='email'
+							maxLength={100}
 							required
 							aria-required='true'
 							aria-invalid={
@@ -316,6 +320,7 @@ const DetailedInquiry = () => {
 							type='phone'
 							id='phone'
 							name='phone'
+							maxLength={20}
 							autoComplete='tel'
 						/>
 					</fieldset>
@@ -329,6 +334,7 @@ const DetailedInquiry = () => {
 						type='url'
 						id='website'
 						name='website'
+						maxLength={100}
 						placeholder='https://'
 						autoComplete='url'
 					/>
