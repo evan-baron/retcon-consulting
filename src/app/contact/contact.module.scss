@@ -25,7 +25,7 @@
 		transform-origin: left center;
 
 		&::before {
-			content: 'You found the easter egg! 😶';
+			content: 'You found an easter egg! 😶';
 			position: absolute;
 			top: 50%;
 			transform: rotate(5deg) translate(calc(-100% - 5rem), -50%);
