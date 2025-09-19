@@ -25,9 +25,11 @@ function CTA({ content, parent }: CTAProps) {
 			</div>
 			<Link
 				href='/contact'
-				role='button'
-				tabIndex={0}
-				aria-label='Book a consultation'
+				aria-label={
+					content !== 'Book a free consultation'
+						? 'Book a free consultation'
+						: undefined
+				}
 				className={`${styles.cta} ${styles['home-section-cta']}`}
 			>
 				{content}
@@ -36,9 +38,11 @@ function CTA({ content, parent }: CTAProps) {
 	) : (
 		<Link
 			href='/contact'
-			role='button'
-			tabIndex={0}
-			aria-label='Book a consultation'
+			aria-label={
+				content !== 'Book a free consultation'
+					? 'Book a free consultation'
+					: undefined
+			}
 			className={`${styles.cta} ${parent && styles[parent]}`}
 		>
 			{content}
