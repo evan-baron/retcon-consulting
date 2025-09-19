@@ -96,7 +96,7 @@ const AntiBot = <Data extends FormData | DetailedFormData>({
 					}))
 				}
 				value={formData.antibot.value}
-				placeholder='Potato' // Just a fun placeholder
+				placeholder={`Hint: It's not 'Potato'...`} // Just a fun placeholder
 			/>
 			{formData.antibot.touched && formData.antibot.value.trim() === '' && (
 				<span

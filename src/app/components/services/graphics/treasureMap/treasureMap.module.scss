@@ -288,31 +288,31 @@
 				stroke: var(--gray3);
 				stroke-width: 0.375rem;
 				fill: none;
-				stroke-dasharray: 1.5rem;
-				stroke-dashoffset: 0.75rem;
+				stroke-dasharray: 24;
+				stroke-dashoffset: 12;
 			}
 
 			.colorline {
 				stroke: hsl(var(--hue), 100%, 50%);
 				stroke-width: 0.375rem;
 				fill: none;
-				stroke-dasharray: 1.5rem;
-				stroke-dashoffset: 0.75rem;
+				stroke-dasharray: 24;
+				stroke-dashoffset: 12;
 			}
 
 			.maskline {
 				stroke: white;
 				stroke-width: 0.375rem;
 				fill: none;
-				stroke-dasharray: 125rem;
-				stroke-dashoffset: 125rem;
+				stroke-dasharray: 2000;
+				stroke-dashoffset: 2000;
 				animation: dashoffset 5s linear infinite;
 			}
 
 			@keyframes dashoffset {
 				0%,
 				10% {
-					stroke-dashoffset: 125rem;
+					stroke-dashoffset: 2000;
 				}
 
 				90%,
