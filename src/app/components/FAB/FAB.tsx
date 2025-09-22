@@ -36,7 +36,7 @@ const FAB = ({ type }: { type: string }) => {
 			case 'ttt':
 				return showFAB ? <TTT isMobile={isMobile ?? false} /> : null;
 			case 'scroll':
-				return <ScrollDown isMobile={isMobile ?? false} />;
+				return !isMobile ? <ScrollDown /> : null;
 			default:
 				return null;
 		}

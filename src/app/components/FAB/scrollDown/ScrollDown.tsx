@@ -15,7 +15,7 @@ import {} from '@mui/icons-material';
 
 // Context imports
 
-const ScrollDown = ({ isMobile }: { isMobile: boolean }) => {
+const ScrollDown = () => {
 	const [scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
@@ -27,8 +27,6 @@ const ScrollDown = ({ isMobile }: { isMobile: boolean }) => {
 		handleScroll();
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
-
-	if (isMobile) return null;
 
 	return (
 		<div className={styles['scrolldown-wrapper']}>
