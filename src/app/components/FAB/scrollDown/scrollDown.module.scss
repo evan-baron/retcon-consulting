@@ -3,6 +3,7 @@
 	z-index: 10;
 	bottom: 0;
 	filter: drop-shadow(0 0 1rem black);
+	padding-bottom: env(safe-area-inset-bottom, 0px);
 
 	.scrolldown-button {
 		all: unset;
