@@ -99,7 +99,9 @@ function Hamburger({
 								href='/contact'
 								onClick={() => {
 									handleClick();
-									formType !== 'general' && setFormType('general');
+									if (formType !== 'general') {
+										setFormType('general');
+									}
 								}}
 							>
 								Contact

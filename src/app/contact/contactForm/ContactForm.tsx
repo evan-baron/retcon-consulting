@@ -1,7 +1,7 @@
 'use client';
 
 // Library imports
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 
 // Hooks imports
 
