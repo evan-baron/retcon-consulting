@@ -14,7 +14,7 @@ import { useMediaQuery } from '@mui/material';
 
 // Define the context value type
 interface AppContextType {
-	loadingMessage: { message: string | null; type: 'error' | 'confirm' | null };
+	formType: 'general' | 'detailed';
 	isTouchDevice: boolean | undefined;
 	isMobile: boolean | undefined;
 	isMobileWidth: boolean | undefined;
@@ -22,6 +22,8 @@ interface AppContextType {
 	isTablet: boolean | undefined;
 	isTabletWidth: boolean | undefined;
 	loading: boolean | undefined;
+	loadingMessage: { message: string | null; type: 'error' | 'confirm' | null };
+	setFormType: React.Dispatch<React.SetStateAction<'general' | 'detailed'>>;
 	setLoadingMessage: React.Dispatch<
 		React.SetStateAction<{
 			message: string | null;
@@ -55,6 +57,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		undefined
 	);
 	const [loading, setLoading] = useState(false);
+	const [formType, setFormType] = useState<'general' | 'detailed'>('general');
 
 	// Determine if touch device or not
 	useEffect(() => {
@@ -103,6 +106,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 	return (
 		<AppContext.Provider
 			value={{
+				formType,
 				isTouchDevice,
 				isMobile,
 				isMobileWidth,
@@ -111,6 +115,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 				isSmallTablet,
 				loading,
 				loadingMessage,
+				setFormType,
 				setLoadingMessage,
 				setLoading,
 			}}

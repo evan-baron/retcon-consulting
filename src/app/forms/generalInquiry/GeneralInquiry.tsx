@@ -23,7 +23,7 @@ import { useAppContext } from '../../context/AppContext';
 // Type imports
 import { FormData } from '../../../lib/types/formTypes';
 
-const GeneralInquiry = () => {
+const GeneralInquiry = ({ parent }: { parent?: string }) => {
 	const { setLoading, setLoadingMessage } = useAppContext();
 	const [formIncrement, setFormIncrement] = useState(0);
 	const [formSubmitted, setFormSubmitted] = useState(false);
@@ -127,99 +127,115 @@ const GeneralInquiry = () => {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit} noValidate>
+		<form
+			className={`${styles.form} ${
+				parent === 'homeContact' ? styles['home-contact'] : ''
+			}`}
+			onSubmit={handleSubmit}
+			noValidate
+		>
 			<section aria-labelledby='contact-info-heading'>
-				<h2 id='contact-info-heading'>Contact Information</h2>
-				<fieldset>
-					<legend className='sr-only'>Your Name</legend>
-					<label htmlFor='name'>
-						Name<span aria-hidden='true'>*</span>
-					</label>
-					<input
-						onChange={handleChange}
-						onBlur={() =>
-							setFormData((prev) => ({
-								...prev,
-								name: { ...prev.name, touched: true },
-							}))
-						}
-						value={formData.name.value}
-						type='text'
-						id='name'
-						name='name'
-						maxLength={50}
-						required
-						aria-required='true'
-						aria-invalid={
-							formData.name.touched && formData.name.value.trim() === ''
-								? 'true'
-								: 'false'
-						}
-						aria-describedby={
-							formData.name.touched && formData.name.value.trim() === ''
-								? 'name-error'
-								: undefined
-						}
-						autoComplete='name'
-					/>
-					{formData.name.touched && formData.name.value.trim() === '' && (
-						<span
-							className={styles.error}
-							id='name-error'
-							role='alert'
-							aria-live='polite'
-						>
-							This field is required
-						</span>
-					)}
-				</fieldset>
-				<fieldset>
-					<legend className='sr-only'>Your Email</legend>
-					<label htmlFor='email'>
-						Email<span aria-hidden='true'>*</span>
-					</label>
-					<input
-						onChange={handleChange}
-						onBlur={() =>
-							setFormData((prev) => ({
-								...prev,
-								email: { ...prev.email, touched: true },
-							}))
-						}
-						value={formData.email.value}
-						type='email'
-						id='email'
-						name='email'
-						maxLength={100}
-						required
-						aria-required='true'
-						aria-invalid={
-							formData.email.touched && formData.email.value.trim() === ''
-								? 'true'
-								: 'false'
-						}
-						aria-describedby={
-							formData.email.touched && formData.email.value.trim() === ''
-								? 'email-error'
-								: undefined
-						}
-						autoComplete='email'
-					/>
-					{formData.email.touched && formData.email.value.trim() === '' && (
-						<span
-							className={styles.error}
-							id='email-error'
-							role='alert'
-							aria-live='polite'
-						>
-							This field is required
-						</span>
-					)}
-				</fieldset>
+				{parent === 'homeContact' ? (
+					<h3 id='contact-info-heading'>Contact Information</h3>
+				) : (
+					<h2 id='contact-info-heading'>Contact Information</h2>
+				)}
+				<div className={styles['name-email']}>
+					<fieldset>
+						<legend className='sr-only'>Your Name</legend>
+						<label htmlFor='name'>
+							Name<span aria-hidden='true'>*</span>
+						</label>
+						<input
+							onChange={handleChange}
+							onBlur={() =>
+								setFormData((prev) => ({
+									...prev,
+									name: { ...prev.name, touched: true },
+								}))
+							}
+							value={formData.name.value}
+							type='text'
+							id='name'
+							name='name'
+							maxLength={50}
+							required
+							aria-required='true'
+							aria-invalid={
+								formData.name.touched && formData.name.value.trim() === ''
+									? 'true'
+									: 'false'
+							}
+							aria-describedby={
+								formData.name.touched && formData.name.value.trim() === ''
+									? 'name-error'
+									: undefined
+							}
+							autoComplete='name'
+						/>
+						{formData.name.touched && formData.name.value.trim() === '' && (
+							<span
+								className={styles.error}
+								id='name-error'
+								role='alert'
+								aria-live='polite'
+							>
+								This field is required
+							</span>
+						)}
+					</fieldset>
+					<fieldset>
+						<legend className='sr-only'>Your Email</legend>
+						<label htmlFor='email'>
+							Email<span aria-hidden='true'>*</span>
+						</label>
+						<input
+							onChange={handleChange}
+							onBlur={() =>
+								setFormData((prev) => ({
+									...prev,
+									email: { ...prev.email, touched: true },
+								}))
+							}
+							value={formData.email.value}
+							type='email'
+							id='email'
+							name='email'
+							maxLength={100}
+							required
+							aria-required='true'
+							aria-invalid={
+								formData.email.touched && formData.email.value.trim() === ''
+									? 'true'
+									: 'false'
+							}
+							aria-describedby={
+								formData.email.touched && formData.email.value.trim() === ''
+									? 'email-error'
+									: undefined
+							}
+							autoComplete='email'
+						/>
+						{formData.email.touched && formData.email.value.trim() === '' && (
+							<span
+								className={styles.error}
+								id='email-error'
+								role='alert'
+								aria-live='polite'
+							>
+								This field is required
+							</span>
+						)}
+					</fieldset>
+				</div>
 			</section>
 
 			<section aria-labelledby='details-heading'>
-				<h2 id='details-heading'>Additional Details</h2>
+				{parent === 'homeContact' ? (
+					<h3 id='details-heading'>Additional Details</h3>
+				) : (
+					<h2 id='details-heading'>Additional Details</h2>
+				)}
 				<fieldset>
 					<legend className='sr-only'>Project Description</legend>
 					<label htmlFor='message'>
@@ -237,7 +253,7 @@ const GeneralInquiry = () => {
 						value={formData.message.value}
 						id='message'
 						name='message'
-						rows={8}
+						rows={parent === 'homeContact' ? 4 : 8}
 						required
 						maxLength={500}
 						aria-required='true'
@@ -272,7 +288,11 @@ const GeneralInquiry = () => {
 			</section>
 
 			<section aria-labelledby='antibot-heading'>
-				<h2 id='antibot-heading'>Are You Human?</h2>
+				{parent === 'homeContact' ? (
+					<h3 id='antibot-heading'>Are You Human?</h3>
+				) : (
+					<h2 id='antibot-heading'>Are You Human?</h2>
+				)}
 				<AntiBot
 					formData={formData}
 					formIncrement={formIncrement}

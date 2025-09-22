@@ -7,9 +7,12 @@
 	height: calc(100dvh - 4rem);
 	max-height: 1000px;
 
-	@media screen and (max-width: 550px) and (orientation: portrait),
-		screen and (max-height: 550px) and (orientation: landscape) {
+	@media screen and (max-width: 550px) and (orientation: portrait) {
 		height: calc(100vh - 5.5rem);
+	}
+
+	@media screen and (max-height: 550px) and (orientation: landscape) {
+		height: calc(100vh - 3.5rem);
 	}
 
 	.content {

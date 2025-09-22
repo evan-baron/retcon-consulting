@@ -41,7 +41,8 @@ import MeasureSuccess from './measureSuccess/MeasureSuccess';
 import Commitment from './commitment/Commitment';
 import Support from './support/Support';
 import FAB from '../components/FAB/FAB';
-import CTA from '../components/CTA/CTA';
+import HomeContact from '../components/homeContact/HomeContact';
+// import CTA from '../components/CTA/CTA';
 // import Contact from '../components/contact/Contact';
 
 // Context imports
@@ -115,18 +116,7 @@ const Development = () => {
 					<h2 id='support-heading'>Ongoing Support</h2>
 					<Support />
 				</section>
-				<section
-					className={styles.section}
-					aria-labelledby='get-started-heading'
-				>
-					<h2 id='get-started-heading'>Ready to get started?</h2>
-					<p className={styles['development-description']}>
-						Follow the link below to fill out a quick contact form or request a
-						detailed quote. Choose what best fits your needs and we&apos;ll be
-						in touch!
-					</p>
-					<CTA content='Get Started' parent='development' />
-				</section>
+				<HomeContact parent='development' />
 			</div>
 			{/* <Contact id={'contact'} page={'development'} /> */}
 			<FAB type='ttt' />

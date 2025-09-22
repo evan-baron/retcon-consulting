@@ -1,6 +1,7 @@
 // Library imports
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title:
@@ -58,7 +59,7 @@ const Contact = () => {
 								Let&apos;s Build Something Together.
 							</h1>
 							<div className={styles['contact-methods']}>
-								<a
+								<Link
 									href='tel:+17207277834'
 									className={styles.contact}
 									aria-label='Call Retcon Consulting at (720) 727-7834'
@@ -71,9 +72,9 @@ const Contact = () => {
 									<span className={styles['contact-number']}>
 										(720) 727-7834
 									</span>
-								</a>
+								</Link>
 								<div className={styles.contact}>
-									<a
+									<Link
 										href='mailto:contact@retconconsulting.com'
 										className={styles.contact}
 										aria-label='Email Retcon Consulting at contact@retconconsulting.com'
@@ -84,7 +85,7 @@ const Contact = () => {
 											focusable='false'
 										/>
 										contact@retconconsulting.com
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>

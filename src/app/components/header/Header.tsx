@@ -8,6 +8,9 @@ import Link from 'next/link';
 // Styles imports
 import styles from './header.module.scss';
 
+// Icon imports
+import { Phone } from '@mui/icons-material';
+
 // Component imports
 import CTA from '../CTA/CTA';
 import Hamburger from '../hamburger/Hamburger';
@@ -78,9 +81,27 @@ function Header() {
 						</li>
 
 						{!isMobile && (
-							<li>
-								<CTA content='Get Started' parent='header' />
-							</li>
+							<>
+								<li>
+									<Link
+										className={styles.phone}
+										href='tel:+17207277834'
+										aria-label='Call Retcon Consulting at (720) 727-7834'
+									>
+										<Phone
+											style={{ color: 'var(--gray1)' }}
+											aria-hidden='true'
+											focusable='false'
+										/>
+										<span className={styles['contact-number']}>
+											(720) 727-7834
+										</span>
+									</Link>
+								</li>
+								<li>
+									<CTA content='Get Started' parent='header' />
+								</li>
+							</>
 						)}
 						<li>
 							<div

@@ -75,10 +75,6 @@
 				}
 			}
 
-			li:not(:first-child) {
-				user-select: none;
-			}
-
 			.icon {
 				height: 4rem;
 				width: 4rem;
@@ -153,6 +149,23 @@
 						}
 					}
 				}
+			}
+		}
+
+		.phone {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 1.25rem;
+
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					color: var(--gray1);
+				}
+			}
+
+			@media screen and (max-width: 950px) and (orientation: portrait) {
+				display: none;
 			}
 		}
 	}

@@ -19,9 +19,8 @@ import LoadingSpinner from '@/app/components/loadingSpinner/LoadingSpinner';
 import { useAppContext } from '@/app/context/AppContext';
 
 const ContactForm = () => {
-	const { isMobileWidth, isTabletWidth, loading } = useAppContext();
-
-	const [formType, setFormType] = useState<'detailed' | 'general'>('general');
+	const { isMobileWidth, isTabletWidth, loading, formType, setFormType } =
+		useAppContext();
 
 	const tabRefs = [
 		useRef<HTMLButtonElement>(null),

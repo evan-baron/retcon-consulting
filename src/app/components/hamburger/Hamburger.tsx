@@ -7,6 +7,9 @@ import Link from 'next/link';
 // Styles imports
 import styles from './hamburger.module.scss';
 
+// Context imports
+import { useAppContext } from '@/app/context/AppContext';
+
 function Hamburger({
 	setHamburgerActive,
 	hamburgerActive,
@@ -18,6 +21,7 @@ function Hamburger({
 	isMobile: boolean;
 	iconRef: React.RefObject<HTMLDivElement | null>;
 }) {
+	const { formType, setFormType } = useAppContext();
 	const hamburgerRef = useRef<HTMLDivElement>(null);
 	const [isMouseInside, setIsMouseInside] = useState(false);
 
@@ -91,7 +95,13 @@ function Hamburger({
 							</Link>
 						</li>
 						<li>
-							<Link href='/contact' onClick={handleClick}>
+							<Link
+								href='/contact'
+								onClick={() => {
+									handleClick();
+									formType !== 'general' && setFormType('general');
+								}}
+							>
 								Contact
 							</Link>
 						</li>
