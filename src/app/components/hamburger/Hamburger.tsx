@@ -90,8 +90,8 @@ function Hamburger({
 							</Link>
 						</li>
 						<li>
-							<Link href='/#services' onClick={handleClick}>
-								Services
+							<Link href='/development' onClick={handleClick}>
+								Why Retcon?
 							</Link>
 						</li>
 						<li>
@@ -107,11 +107,6 @@ function Hamburger({
 								Contact
 							</Link>
 						</li>
-						{/* <li>
-							<Link href='#get-started' onClick={handleClick}>
-								Get Started
-							</Link>
-						</li> */}
 					</ul>
 				</div>
 			</div>

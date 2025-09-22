@@ -135,7 +135,7 @@ const GeneralInquiry = ({ parent }: { parent?: string }) => {
 			noValidate
 		>
 			<section aria-labelledby='contact-info-heading'>
-				{parent === 'homeContact' ? (
+				{parent === 'homeContact' || parent === 'development' ? (
 					<h3 id='contact-info-heading'>Contact Information</h3>
 				) : (
 					<h2 id='contact-info-heading'>Contact Information</h2>
@@ -231,7 +231,7 @@ const GeneralInquiry = ({ parent }: { parent?: string }) => {
 			</section>
 
 			<section aria-labelledby='details-heading'>
-				{parent === 'homeContact' ? (
+				{parent === 'homeContact' || parent === 'development' ? (
 					<h3 id='details-heading'>Additional Details</h3>
 				) : (
 					<h2 id='details-heading'>Additional Details</h2>
@@ -288,7 +288,7 @@ const GeneralInquiry = ({ parent }: { parent?: string }) => {
 			</section>
 
 			<section aria-labelledby='antibot-heading'>
-				{parent === 'homeContact' ? (
+				{parent === 'homeContact' || parent === 'development' ? (
 					<h3 id='antibot-heading'>Are You Human?</h3>
 				) : (
 					<h2 id='antibot-heading'>Are You Human?</h2>
