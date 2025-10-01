@@ -3,12 +3,6 @@
 // Library imports
 import React, { useState, useEffect } from 'react';
 
-// Hooks imports
-
-// Styles imports
-
-// MUI imports
-
 // Components imports
 import TTT from './toTheTop/TTT';
 import ScrollDown from './scrollDown/ScrollDown';

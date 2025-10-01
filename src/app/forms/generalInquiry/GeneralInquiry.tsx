@@ -6,8 +6,6 @@ import React, { useState } from 'react';
 // Axios instance import
 import axiosInstance from '@/lib/utils/axios';
 
-// Hooks imports
-
 // Styles imports
 import styles from '../forms.module.scss';
 

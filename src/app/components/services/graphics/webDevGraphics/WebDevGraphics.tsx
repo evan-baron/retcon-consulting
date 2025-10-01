@@ -2,8 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-// Hooks imports
-
 // Styles imports
 import styles from './webDevGraphics.module.scss';
 
@@ -12,8 +10,6 @@ import { ContentCut } from '@mui/icons-material';
 
 // Components imports
 import RGBLogo from '@/app/components/RGBLogo/RGBLogo';
-
-// Context imports
 
 const WebDevGraphics = () => {
 	return (

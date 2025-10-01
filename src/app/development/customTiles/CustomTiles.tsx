@@ -9,8 +9,6 @@ import { useMediaQuery } from '@mui/material';
 // Styles imports
 import styles from './customTiles.module.scss';
 
-// MUI imports
-
 // Components imports
 import Tile from './developmentTile/Tile';
 

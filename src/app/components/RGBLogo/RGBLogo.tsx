@@ -1,17 +1,11 @@
 // Library imports
 import React from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './rgblogo.module.scss';
 
 // MUI imports
 import {} from '@mui/icons-material';
-
-// Components imports
-
-// Context imports
 
 const RGBLogo = () => {
 	return (

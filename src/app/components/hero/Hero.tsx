@@ -11,18 +11,6 @@ function Hero() {
 	return (
 		<section className={styles.hero}>
 			<div className={styles.content}>
-				{/* <h1 className={styles.h1}>
-					Strategic Consulting, Custom Web Development, and Design for Startups,
-					Entrepreneurs, and Innovators
-				</h1> */}
-				{/* <h1 className={styles.h1}>
-					Retcon Consulting &ndash; Strategic Consulting, Custom Web Development, and Design for Startups,
-					Entrepreneurs, and Innovators
-				</h1> */}
-				{/* <h1 className={styles.h1}>
-					Strategic Consulting, Custom Web Development, and Design for Startups,
-					Entrepreneurs, and Innovators
-				</h1> */}
 				<div className={styles['h1-box']}>
 					<div className={styles['logo-box']}>
 						<div className={styles['image-outer']}>

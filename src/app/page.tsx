@@ -4,8 +4,6 @@ import Summary from './components/summary/Summary';
 import Services from './components/services/Services';
 import FAB from './components/FAB/FAB';
 import HomeContact from './components/homeContact/HomeContact';
-// import Process from './components/process/Process';
-// import About from './components/about/About';
 
 export default function Home() {
 	return (
@@ -15,9 +13,6 @@ export default function Home() {
 			<Services id='services' />
 			<HomeContact />
 			<FAB type='ttt' />
-			{/* <Process /> */}
-			{/* <About id='about' /> */}
-			{/* <section className={styles['previous-work']}>Previous Work</section> */}
 		</>
 	);
 }

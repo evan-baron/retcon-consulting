@@ -12,11 +12,9 @@ import { useAppContext } from '@/app/context/AppContext';
 function BackgroundEffect() {
 	const { isTouchDevice } = useAppContext();
 
-	// Effect to handle mouse movement and create effects under the mouse
 	const backgroundRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		// need a hero element and a background element to apply the mouse effect, basically check if mouse is in hero element, if it is create a new element inside the background that follows the mouse and fades out
 		const backgroundElement = backgroundRef.current;
 
 		if (!backgroundElement) return;
@@ -26,10 +24,6 @@ function BackgroundEffect() {
 		const MAX_EFFECTS = 20; // Maximum number of effects to show
 
 		const showEffect = (x: number, y: number) => {
-			// Change the hue of the mouse effect based on time, adds a cool color change effect
-			// const hue = (Date.now() / 10) % 360;
-			// document.body.style.setProperty('--effect-hue', `${hue}`);
-
 			// Throttle the mouse move event to keep performance smooth and reduce load on the browser
 			const now = Date.now();
 			if (now - lastTime < throttle) {

@@ -29,8 +29,6 @@ export const metadata: Metadata = {
 	},
 };
 
-// Hooks imports
-
 // Styles imports
 import styles from './development.module.scss';
 
@@ -42,10 +40,6 @@ import Commitment from './commitment/Commitment';
 import Support from './support/Support';
 import FAB from '../components/FAB/FAB';
 import HomeContact from '../components/homeContact/HomeContact';
-// import CTA from '../components/CTA/CTA';
-// import Contact from '../components/contact/Contact';
-
-// Context imports
 
 const Development = () => {
 	return (

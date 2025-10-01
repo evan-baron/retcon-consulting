@@ -3,12 +3,8 @@
 // Library imports
 import React, { useRef } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from '../contact.module.scss';
-
-// Icon imports
 
 // Components imports
 import GeneralInquiry from '@/app/forms/generalInquiry/GeneralInquiry';

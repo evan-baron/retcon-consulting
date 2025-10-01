@@ -11,8 +11,6 @@ import styles from './loadingSpinner.module.scss';
 // Icon imports
 import {} from '@mui/icons-material';
 
-// Components imports
-
 // Context imports
 import { useAppContext } from '../../context/AppContext';
 
@@ -26,10 +24,10 @@ const LoadingSpinner = ({ loadingText }: { loadingText?: string }) => {
 
 		const interval = setInterval(() => {
 			setElipses(loadingStates[index]);
-			index = (index + 1) % loadingStates.length; // Loop back to start
+			index = (index + 1) % loadingStates.length;
 		}, 500);
 
-		return () => clearInterval(interval); // Cleanup on unmount
+		return () => clearInterval(interval);
 	}, []);
 
 	return (

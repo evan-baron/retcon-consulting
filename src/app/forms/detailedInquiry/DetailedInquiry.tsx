@@ -8,17 +8,11 @@ import 'flatpickr/dist/flatpickr.min.css';
 // Axios instance import
 import axiosInstance from '@/lib/utils/axios';
 
-// Hooks imports
-
 // Styles imports
 import styles from '../forms.module.scss';
 
-// Icon imports
-
 // Components imports
 import AntiBot from '../antiBot/AntiBot';
-
-// Context imports
 
 // Type imports
 import { FieldName, DetailedFormData } from '../../../lib/types/formTypes';

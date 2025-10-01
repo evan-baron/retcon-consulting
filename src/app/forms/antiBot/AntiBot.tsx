@@ -3,17 +3,11 @@
 // Library imports
 import React, { useState, useEffect } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from '../forms.module.scss';
 
 // Icon imports
 import {} from '@mui/icons-material';
-
-// Components imports
-
-// Context imports
 
 // Data imports
 import mathQuestions from '../../../lib/data/mathQuestions';

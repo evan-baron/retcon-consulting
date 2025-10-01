@@ -9,8 +9,6 @@ import { useMediaQuery } from '@mui/material';
 // Styles imports
 import styles from './timeline.module.scss';
 
-// Components imports
-
 // Context imports
 import { useAppContext } from '@/app/context/AppContext';
 

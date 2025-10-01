@@ -3,8 +3,6 @@
 // Library imports
 import React, { useState, useEffect, useRef } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './tile.module.scss';
 

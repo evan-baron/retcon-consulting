@@ -3,8 +3,6 @@
 // Library imports
 import React, { useState, useEffect, useMemo, createRef } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './support.module.scss';
 

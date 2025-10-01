@@ -31,8 +31,6 @@ export const metadata: Metadata = {
 	},
 };
 
-// Hooks imports
-
 // Styles imports
 import styles from './contact.module.scss';
 
@@ -42,8 +40,6 @@ import { Phone, MailOutline } from '@mui/icons-material';
 // Components imports
 import FAB from '../components/FAB/FAB';
 import ContactForm from './contactForm/ContactForm';
-
-// Context imports
 
 const Contact = () => {
 	return (

@@ -3,17 +3,11 @@
 // Library imports
 import React, { useState } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './ttt.module.scss';
 
 // MUI imports
 import { KeyboardArrowUp } from '@mui/icons-material';
-
-// Components imports
-
-// Context imports
 
 const TTT = ({ isMobile }: { isMobile: boolean }) => {
 	const [isHovered, setIsHovered] = useState(false);

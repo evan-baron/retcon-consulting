@@ -35,17 +35,12 @@ export const metadata: Metadata = {
 		'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
 	description:
 		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-	// description: 'Tech-focused consulting services for your business needs',
 
 	openGraph: {
 		title:
 			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
-		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
-		// description:
-		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		description:
 			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-		// "We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		url: 'https://www.retconconsulting.com',
 		siteName: 'Retcon Consulting',
 		images: [
@@ -64,12 +59,8 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title:
 			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
-		// title: 'Retcon Consulting - Tech-Focused Business Solutions',
-		// description:
-		// 	'Helping startups, entrepreneurs, and innovators navigate the digital landscape.',
 		description:
 			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-		// "We help startups, entrepreneurs, and innovators move forward with purpose through design, product strategy, and creative problem-solving. It's time to rewrite your narrative.",
 		images: ['/og-image.jpg'],
 	},
 
@@ -121,7 +112,6 @@ const structuredData = {
 	name: 'Retcon Consulting',
 	description:
 		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-	// 'Tech-focused consulting services for startups, entrepreneurs, and innovators.',
 	url: 'https://www.retconconsulting.com',
 	email: 'evan@retconconsulting.com',
 	telephone: '720-727-7834',

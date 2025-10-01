@@ -3,8 +3,6 @@
 // Library imports
 import React, { useState, useEffect } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './treasureMap.module.scss';
 
@@ -16,8 +14,6 @@ import { IoChatboxOutline } from 'react-icons/io5';
 
 // Components imports
 import AnimatedChart from '../animatedChart/AnimatedChart';
-
-// Context imports
 
 const TreasureMap = () => {
 	const [activeDot, setActiveDot] = useState(0);

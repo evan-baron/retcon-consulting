@@ -5,8 +5,6 @@ import Link from 'next/link';
 // Styles imports
 import styles from './services.module.scss';
 
-// Icon imports
-
 // Component imports
 import WebDev from './webDev/WebDev';
 import Consulting from './consulting/Consulting';

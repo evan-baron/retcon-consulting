@@ -3,12 +3,8 @@
 // Library imports
 import React, { useState, useEffect, useRef, useMemo, createRef } from 'react';
 
-// Hooks imports
-
 // Styles imports
 import styles from './measureSuccess.module.scss';
-
-// Components imports
 
 // Context imports
 import { useAppContext } from '@/app/context/AppContext';

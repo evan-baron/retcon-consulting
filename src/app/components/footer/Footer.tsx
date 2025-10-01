@@ -3,69 +3,22 @@
 // Libary imports
 import React from 'react';
 import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
 
 // Styles imports
 import styles from './footer.module.scss';
-
-// Context
-// import { useAppContext } from '@/app/context/AppContext';
 
 // MUI icons
 import { LinkedIn, Facebook } from '@mui/icons-material';
 
 function Footer() {
-	// const { isMobileWidth } = useAppContext();
-	// const pathname = usePathname();
-
 	return (
 		<div className={styles['footer-wrapper']}>
-			{/* {isMobileWidth &&
-				(pathname === '/' ? (
-					<Link
-						href='/'
-						className={styles['to-top']}
-						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-						aria-label='Scroll to top'
-					>
-						&uarr; To the top &uarr;
-					</Link>
-				) : (
-					<button
-						className={styles['to-top']}
-						type='button'
-						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-						aria-label='Scroll to top'
-					>
-						&uarr; To the top &uarr;
-					</button>
-				))} */}
 			<div className={styles.footer}>
 				<div className={styles['footer-content']}>
 					<div className={styles.copyright}>
 						<span>&copy; {new Date().getFullYear()} Retcon Consulting.</span>{' '}
 						<span>All rights reserved.</span>
 					</div>
-					{/* {!isMobileWidth &&
-						(pathname === '/' ? (
-							<Link
-								href='/'
-								className={styles['to-top']}
-								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-								aria-label='Scroll to top'
-							>
-								&uarr; To the top &uarr;
-							</Link>
-						) : (
-							<button
-								className={styles['to-top']}
-								type='button'
-								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-								aria-label='Scroll to top'
-							>
-								&uarr; To the top &uarr;
-							</button>
-						))} */}
 					<div className={styles['social-icons']}>
 						<Link
 							href='https://www.linkedin.com/company/retcon-consulting'
@@ -85,14 +38,6 @@ function Footer() {
 						>
 							<Facebook className={styles.icon} />
 						</Link>
-						{/* <Link
-							href='https://www.instagram.com/retconconsulting'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='Visit our Instagram page'
-						>
-							<Instagram className={styles.icon} />
-						</Link> */}
 					</div>
 				</div>
 			</div>
