@@ -62,13 +62,12 @@
 				}
 
 				.contact-methods {
-					height: 25%;
+					height: 15%;
 
 					display: flex;
 					align-items: flex-end;
 
 					.contact {
-						height: 2rem;
 						display: flex;
 						align-items: center;
 						gap: 0.5rem;
@@ -231,7 +230,7 @@
 						font-size: 3rem;
 					}
 					.contact-methods {
-						height: 30%;
+						height: 15%;
 
 						display: flex;
 						flex-direction: column;
