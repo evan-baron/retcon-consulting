@@ -114,7 +114,6 @@ const structuredData = {
 		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
 	url: 'https://www.retconconsulting.com',
 	email: 'evan@retconconsulting.com',
-	telephone: '720-727-7834',
 	founder: {
 		'@type': 'Person',
 		name: 'Evan Baron',

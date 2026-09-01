@@ -55,20 +55,6 @@ const Contact = () => {
 								Let&apos;s Build Something Together.
 							</h1>
 							<div className={styles['contact-methods']}>
-								<Link
-									href='tel:+17207277834'
-									className={styles.contact}
-									aria-label='Call Retcon Consulting at (720) 727-7834'
-								>
-									<Phone
-										className={styles.icon}
-										aria-hidden='true'
-										focusable='false'
-									/>
-									<span className={styles['contact-number']}>
-										(720) 727-7834
-									</span>
-								</Link>
 								<div className={styles.contact}>
 									<Link
 										href='mailto:contact@retconconsulting.com'
