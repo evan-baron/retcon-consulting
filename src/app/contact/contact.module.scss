@@ -19,7 +19,9 @@
 		);
 		backdrop-filter: blur(10px);
 		border-radius: 0.25rem;
-		box-shadow: 0 0 1rem black, 0 0 2rem black,
+		box-shadow:
+			0 0 1rem black,
+			0 0 2rem black,
 			0 1rem 4rem hsla(var(--hue), 100%, 50%, 0.25);
 		transform: rotate(-5deg);
 		transform-origin: left center;
@@ -32,7 +34,9 @@
 			left: 0;
 			color: var(--gray1);
 			font-size: 1rem;
-			text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+			text-shadow:
+				0.5rem 0.5rem 1rem black,
+				0.5rem 0.5rem 2rem black,
 				0.5rem 0.5rem 3rem black;
 		}
 
@@ -112,7 +116,9 @@
 				align-items: center;
 				font-size: 2.5rem;
 				cursor: pointer;
-				text-shadow: 0.5rem 0.5rem 1rem black, 0.5rem 0.5rem 2rem black,
+				text-shadow:
+					0.5rem 0.5rem 1rem black,
+					0.5rem 0.5rem 2rem black,
 					0.5rem 0.5rem 3rem black;
 				border-bottom: 0.1875rem solid transparent;
 				border-color: transparent;
@@ -230,7 +236,7 @@
 						display: flex;
 						flex-direction: column;
 						align-items: flex-start;
-						justify-content: flex-end;
+						justify-content: center;
 						gap: 1rem;
 
 						.contact {
