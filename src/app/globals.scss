@@ -1,134 +1,112 @@
-@property --hue {
-	syntax: '<angle>';
-	initial-value: 0deg;
-	inherits: true;
-}
-
-@keyframes hue-rotate {
-	0% {
-		--hue: 0deg;
-	}
-	100% {
-		--hue: 360deg;
-	}
-}
-
 :root {
-	--gray1: hsl(0, 0%, 98%);
-	--gray2: hsl(0, 0%, 80%);
-	--gray3: hsl(0, 0%, 60%);
-	--gray4: hsl(0, 0%, 40%);
-	--gray5: hsl(0, 0%, 20%);
-	--gray6: hsl(0, 0%, 15%);
-	--gray7: hsl(0, 0%, 10%);
+	--bg: #ffffff;
+	--bg-subtle: #f6f7f9;
+	--surface: #ffffff;
+	--border: #e4e6eb;
+	--text: #0f1217;
+	--text-muted: #5b6270;
+	--accent: #2f4bd8;
+	--accent-hover: #2339b0;
+	--accent-contrast: #ffffff;
+	--accent-soft: #eef1fd;
+	--danger: #c62828;
+	--success: #1b7f4b;
+	--shadow: 0 1px 2px rgb(15 18 23 / 6%), 0 8px 24px rgb(15 18 23 / 6%);
 
-	--teal1: hsl(180, 100%, 50%);
-	--teal2: hsl(180, 100%, 40%);
-	--teal3: hsl(180, 100%, 30%);
-	--teal4: hsl(180, 100%, 20%);
-	--teal5: hsl(180, 100%, 10%);
-	--teal6: hsl(180, 100%, 5%);
+	--radius: 12px;
+	--radius-sm: 8px;
+	--container: 1120px;
+	--header-h: 68px;
+	--font-sans: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-	--main-gray: hsl(0, 0%, 75%);
-	--main-teal: hsl(180, 100%, 50%);
+	color-scheme: light dark;
+}
 
-	--background: hsl(0, 0%, 5%);
-
-	--hue: 0deg;
-
-	/* Font Sizes */
-	--descriptor: 1.5rem;
-
-	@media screen and (max-height: 700px) and (orientation: landscape) {
-		--descriptor: 1.25rem;
-	}
-
-	@media screen and (max-width: 550px) and (orientation: portrait),
-		screen and (max-height: 550px) and (orientation: landscape) {
-		--descriptor: 1rem;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0b0d12;
+		--bg-subtle: #11141b;
+		--surface: #141821;
+		--border: #232937;
+		--text: #f2f4f8;
+		--text-muted: #98a1b3;
+		--accent: #7b93ff;
+		--accent-hover: #9aacff;
+		--accent-contrast: #0b0d12;
+		--accent-soft: #1a2036;
+		--danger: #ff7b7b;
+		--success: #4cd08c;
+		--shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 30%);
 	}
 }
 
-html,
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--header-h) + 16px);
+	-webkit-text-size-adjust: 100%;
+}
+
 body {
-	max-width: 100vw;
-	font-family: var(--font-ibm-plex-mono), var(--font-roboto);
-	overflow-x: hidden; // elements in timeline.tsx overflow the page to the right and left
-
-	@media screen and (max-width: 550px) and (orientation: portrait),
-		screen and (max-height: 550px) and (orientation: landscape) {
-		scrollbar-width: none; /* Firefox */
-		-ms-overflow-style: none; /* Internet Explorer 10+ */
-
-		&::-webkit-scrollbar {
-			display: none; /* Chrome, Safari, Opera */
-		}
-	}
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	color: var(--main-gray);
-	background: var(--background);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	animation: hue-rotate 5s linear infinite;
-
-	.skip-link {
-		position: absolute;
-		left: -9999px;
-		top: auto;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		clip-path: inset(50%);
-		white-space: nowrap;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-family: var(--font-ibm-plex-mono);
-	}
-
-	.skip-link:focus-visible,
-	.skip-link:active {
-		left: 1rem;
-		top: 1rem;
-		width: auto;
-		height: auto;
-		padding: 1rem 2rem;
-		background: hsla(0, 0%, 5%, 0.95);
-		color: #fff;
-		border-radius: 6px;
-		text-decoration: none;
-		z-index: 9999;
-		clip: auto;
-		clip-path: none;
-		box-shadow: 0.5rem 0.5rem 1rem black;
-		font-weight: 600;
-		border-radius: 0.25rem;
-		outline: 2px solid aqua;
-	}
-
-	/* Make sure the focused target (main) is scrolled into view correctly if header is fixed */
-	#maincontent {
-		/* if your header is fixed, set this so anchor jumps account for it */
-		scroll-margin-top: var(--header-height, 4rem);
-		-webkit-overflow-scrolling: touch;
-
-		@media screen and (max-width: 550px) and (orientation: portrait),
-			screen and (max-height: 550px) and (orientation: landscape) {
-			scroll-margin-top: var(--header-height, 3.5rem);
-		}
-	}
-}
-
-* {
-	box-sizing: border-box !important;
-	padding: 0;
 	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-sans);
+	font-size: 1rem;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	font-weight: 650;
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: clamp(2.4rem, 5.5vw, 4rem);
+	letter-spacing: -0.035em;
+}
+
+h2 {
+	font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+}
+
+h3 {
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+ul,
+ol {
+	padding: 0;
+	list-style: none;
 }
 
 a {
@@ -136,43 +114,51 @@ a {
 	text-decoration: none;
 }
 
-.main {
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+::selection {
+	background: var(--accent);
+	color: var(--accent-contrast);
+}
+
+.container {
 	width: 100%;
-	max-width: 1800px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-
-	.main-content {
-		position: relative;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 4rem;
-		padding: 4rem 0;
-
-		@media screen and (max-width: 550px) and (orientation: portrait),
-			screen and (max-height: 550px) and (orientation: landscape) {
-			padding: 3.5rem 0;
-		}
-
-		@media screen and (max-width: 550px) {
-			overflow-x: hidden;
-		}
-	}
+	max-width: var(--container);
+	margin-inline: auto;
+	padding-inline: 24px;
 }
 
-p {
-	text-wrap: pretty;
-}
+.skip-link {
+	position: absolute;
+	left: 16px;
+	top: -100px;
+	z-index: 100;
+	padding: 10px 16px;
+	background: var(--accent);
+	color: var(--accent-contrast);
+	border-radius: var(--radius-sm);
+	font-weight: 600;
 
-button {
-	font-family: var(--font-ibm-plex-mono);
-
-	&:focus-visible {
-		outline: 2px solid var(--main-teal) !important;
+	&:focus {
+		top: 12px;
 	}
 }
 
@@ -180,10 +166,20 @@ button {
 	position: absolute;
 	width: 1px;
 	height: 1px;
-	padding: 0;
-	margin: -1px;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
+	clip: rect(0 0 0 0);
 	white-space: nowrap;
-	border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
 }
