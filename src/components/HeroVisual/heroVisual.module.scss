@@ -250,11 +250,27 @@
 }
 
 .score {
+	--ring-size: 14cqw;
+	--ring-value: 3.6cqw;
+	--ring-label: max(1.9cqw, 10px);
 	right: 2cqw;
 	bottom: 4cqw;
 	width: 24cqw;
 	padding: 2.4cqw 2.4cqw 2cqw;
+	display: grid;
+	justify-items: center;
+	text-align: center;
 	animation: bob 7s ease-in-out infinite 0.8s;
+}
+
+/* Narrow stages: same card width, tighter padding and a smaller label so it fits, centered */
+@container (max-width: 460px) {
+	.score {
+		--ring-size: 15cqw;
+		--ring-value: 4.4cqw;
+		--ring-label: 10.5px;
+		padding: 2.4cqw 0 2cqw;
+	}
 }
 
 .comment {
