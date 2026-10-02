@@ -35,9 +35,8 @@ export default function Footer() {
 				</div>
 			</div>
 
-			<p className={styles.word} aria-hidden='true'>
-				Retcon
-			</p>
+			{/* Decorative wordmark drawn in CSS so it isn't page text */}
+			<div className={styles.word} aria-hidden='true' />
 
 			<div className={styles.legalWrap}>
 				<div className={`container ${styles.legal}`}>

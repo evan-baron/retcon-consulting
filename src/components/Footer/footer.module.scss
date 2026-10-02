@@ -72,6 +72,10 @@
 	color: rgb(17 17 15 / 7%);
 	user-select: none;
 	white-space: nowrap;
+
+	&::before {
+		content: 'Retcon';
+	}
 }
 
 .legalWrap {
