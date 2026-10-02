@@ -17,7 +17,7 @@ export default function StackStrip() {
 	return (
 		<div className={styles.strip}>
 			<div className={`container ${styles.inner}`}>
-				<p className='mono'>Built with</p>
+				<p className='mono'>We build with</p>
 				<ul>
 					{stack.map((s) => (
 						<li key={s}>{s}</li>
