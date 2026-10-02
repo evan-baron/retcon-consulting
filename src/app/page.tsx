@@ -127,7 +127,7 @@ export default function Home() {
 								</ul>
 								{href && (
 									<Link href={href} className={styles.more}>
-										Learn more <ArrowRight size={16} aria-hidden='true' />
+										Explore {title.toLowerCase()} <ArrowRight size={16} aria-hidden='true' />
 									</Link>
 								)}
 							</div>
