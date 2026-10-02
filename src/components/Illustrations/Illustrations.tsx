@@ -46,14 +46,21 @@ export function ConsultingArt() {
 			</g>
 			<circle cx='160' cy='100' r='4.5' fill='var(--text)' />
 			<g>
-				<rect x='30' y='38' width='72' height='42' rx='10' fill='var(--white)' {...line} />
-				<path d='M48 80 l-8 12 l20 -12' fill='var(--white)' {...line} />
+				{/* One continuous outline so the bottom edge opens into the tail */}
+				<path
+					d='M40 38 H92 Q102 38 102 48 V70 Q102 80 92 80 H60 L40 92 L48 80 H40 Q30 80 30 70 V48 Q30 38 40 38 Z'
+					fill='var(--white)'
+					{...line}
+				/>
 				<line x1='42' y1='54' x2='88' y2='54' {...line} strokeWidth={1.5} />
 				<line x1='42' y1='64' x2='70' y2='64' {...line} strokeWidth={1.5} stroke='var(--text-faint)' />
 			</g>
 			<g>
-				<rect x='222' y='118' width='72' height='42' rx='10' fill='var(--bg-subtle)' {...line} />
-				<path d='M272 160 l8 12 l-20 -12' fill='var(--bg-subtle)' {...line} />
+				<path
+					d='M232 118 H284 Q294 118 294 128 V150 Q294 160 284 160 H272 L280 172 L260 160 H232 Q222 160 222 150 V128 Q222 118 232 118 Z'
+					fill='var(--bg-subtle)'
+					{...line}
+				/>
 				<circle cx='244' cy='139' r='3' fill='var(--text)' />
 				<circle cx='258' cy='139' r='3' fill='var(--text)' />
 				<circle cx='272' cy='139' r='3' fill='var(--accent)' />
@@ -65,13 +72,21 @@ export function ConsultingArt() {
 export function DevelopmentArt() {
 	return (
 		<Frame label='A code editor window'>
-			<rect x='44' y='28' width='232' height='148' rx='12' fill='var(--white)' {...line} />
+			<defs>
+				<clipPath id='dev-window-clip'>
+					<rect x='44' y='28' width='232' height='148' rx='12' />
+				</clipPath>
+			</defs>
+			<rect x='44' y='28' width='232' height='148' rx='12' fill='var(--white)' />
+			{/* Sidebar is clipped to the window's rounded shape so it can't cover the outline */}
+			<rect x='44' y='54' width='52' height='122' fill='var(--bg-subtle)' clipPath='url(#dev-window-clip)' />
+			<line x1='96' y1='54' x2='96' y2='176' {...line} strokeWidth={1} />
 			<line x1='44' y1='54' x2='276' y2='54' {...line} />
 			<circle cx='60' cy='41' r='4' fill='var(--border-strong)' />
 			<circle cx='74' cy='41' r='4' fill='var(--border-strong)' />
 			<circle cx='88' cy='41' r='4' fill='var(--border-strong)' />
-			<rect x='44' y='54' width='52' height='122' fill='var(--bg-subtle)' />
-			<line x1='96' y1='54' x2='96' y2='176' {...line} strokeWidth={1} />
+			{/* Outline drawn last so it always sits on top */}
+			<rect x='44' y='28' width='232' height='148' rx='12' fill='none' {...line} />
 			{[72, 88, 104, 120].map((y) => (
 				<rect key={y} x='54' y={y} width={y % 32 === 8 ? 28 : 20} height='5' rx='2.5' fill='var(--border-strong)' />
 			))}
