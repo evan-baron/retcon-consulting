@@ -1,0 +1,45 @@
+.section {
+	position: relative;
+	padding-block: clamp(72px, 10vw, 128px);
+}
+
+.base {
+	background: var(--bg);
+}
+
+.subtle {
+	background: var(--bg-subtle);
+	border-block: 1px solid var(--border);
+}
+
+.white {
+	background: var(--white);
+	border-block: 1px solid var(--border);
+}
+
+.head {
+	max-width: 760px;
+	margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	color: var(--text-muted);
+
+	i {
+		width: 7px;
+		height: 7px;
+		background: var(--accent);
+		border-radius: 1px;
+	}
+}
+
+.intro {
+	max-width: 54ch;
+	margin-top: 20px;
+	font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+	color: var(--text-muted);
+}

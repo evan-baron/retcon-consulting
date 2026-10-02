@@ -1,0 +1,97 @@
+.footer {
+	position: relative;
+	margin-top: clamp(64px, 9vw, 112px);
+	padding-top: 72px;
+	overflow: hidden;
+	background: var(--bg-subtle);
+	border-top: 1px solid var(--border);
+}
+
+.inner {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1.6fr 1fr 1.2fr;
+	gap: 40px;
+
+	> * {
+		min-width: 0;
+	}
+
+	h2 {
+		margin-bottom: 16px;
+		color: var(--text-faint);
+		font-size: 0.72rem;
+		letter-spacing: 0.1em;
+	}
+
+	ul {
+		display: grid;
+		gap: 10px;
+	}
+
+	nav a,
+	ul a {
+		overflow-wrap: anywhere;
+		color: var(--text-muted);
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--text);
+		}
+	}
+
+	li {
+		color: var(--text-muted);
+	}
+}
+
+.brand p {
+	margin-top: 16px;
+	max-width: 38ch;
+	color: var(--text-muted);
+	font-size: 0.95rem;
+}
+
+.logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+/* Tone-on-tone wordmark */
+.word {
+	margin-top: 40px;
+	margin-bottom: -0.16em;
+	text-align: center;
+	font-size: clamp(5rem, 24vw, 22rem);
+	font-weight: 700;
+	line-height: 0.8;
+	letter-spacing: -0.07em;
+	color: rgb(17 17 15 / 7%);
+	user-select: none;
+	white-space: nowrap;
+}
+
+.legalWrap {
+	position: relative;
+	background: var(--bg-subtle);
+	border-top: 1px solid var(--border-strong);
+}
+
+.legal {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 8px 24px;
+	padding-block: 22px 28px;
+	color: var(--text-faint);
+	font-size: 0.875rem;
+}
+
+@media (max-width: 760px) {
+	.inner {
+		grid-template-columns: 1fr;
+	}
+}

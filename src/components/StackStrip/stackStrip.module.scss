@@ -1,0 +1,34 @@
+.strip {
+	background: var(--white);
+	border-block: 1px solid var(--border);
+}
+
+.inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px 48px;
+	padding-block: 28px;
+
+	p {
+		color: var(--text-faint);
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px 32px;
+	}
+
+	li {
+		font-size: 1.05rem;
+		font-weight: 600;
+		letter-spacing: -0.03em;
+		color: var(--text-faint);
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--text);
+		}
+	}
+}

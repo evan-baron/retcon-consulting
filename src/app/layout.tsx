@@ -1,177 +1,103 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, Fredericka_the_Great, Roboto } from 'next/font/google';
-import './reset.css';
+import { Instrument_Sans, DM_Mono } from 'next/font/google';
 import './globals.scss';
 
-// Components
-import BackgroundEffect from './components/background/BackgroundEffect';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import { site } from '@/lib/site';
 
-// Context
-import { ContextProvider } from './context/AppContext';
-
-const ibmPlexMono = IBM_Plex_Mono({
-	variable: '--font-ibm-plex-mono',
-	weight: ['400', '500', '600', '700'],
+const instrument = Instrument_Sans({
+	variable: '--font-instrument',
 	subsets: ['latin'],
+	display: 'swap',
 });
 
-const frederickaTheGreat = Fredericka_the_Great({
-	variable: '--font-fredericka-the-great',
-	weight: '400',
+const dmMono = DM_Mono({
+	variable: '--font-dm-mono',
 	subsets: ['latin'],
+	weight: ['400', '500'],
+	display: 'swap',
 });
 
-const roboto = Roboto({
-	variable: '--font-roboto',
-	weight: ['400', '500', '700'],
-	subsets: ['latin'],
-});
+const title = 'Retcon Consulting | Web Development, Design & Product Strategy';
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://www.retconconsulting.com'),
-	title:
-		'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
-	description:
-		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-
+	metadataBase: new URL(site.url),
+	title: { default: title, template: `%s | ${site.name}` },
+	description: site.description,
+	applicationName: site.name,
+	authors: [{ name: site.founder }],
+	creator: site.name,
 	openGraph: {
-		title:
-			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
-		description:
-			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-		url: 'https://www.retconconsulting.com',
-		siteName: 'Retcon Consulting',
+		title,
+		description: site.description,
+		url: site.url,
+		siteName: site.name,
 		images: [
 			{
 				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
-				alt: 'Retcon Consulting - Tech-Focused Business Solutions',
+				alt: `${site.name}: web development, design, and product strategy`,
 			},
 		],
 		locale: 'en_US',
 		type: 'website',
 	},
-
 	twitter: {
 		card: 'summary_large_image',
-		title:
-			'Retcon Consulting | Professional Web Development, UX/UI Design & Digital Strategy',
-		description:
-			"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
+		title,
+		description: site.description,
 		images: ['/og-image.jpg'],
 	},
-
-	keywords: [
-		'tech consulting',
-		'startup consulting',
-		'product strategy',
-		'web development',
-		'business solutions',
-		'sales coaching',
-		'retcon consulting',
-		'denver consulting',
-	],
-	authors: [{ name: 'Retcon Consulting' }],
-	creator: 'Retcon Consulting',
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			'max-video-preview': -1,
-			'max-image-preview': 'large',
-			'max-snippet': -1,
-		},
+	robots: { index: true, follow: true },
+	verification: {
+		google: 'CiK0ImrkZ7i1sXmFFoupE_cg-gqJQgdWnOVt9n7LOzM',
 	},
-
-	icons: [
-		{
-			url: '/favicon.ico',
-			type: 'image/x-icon',
-		},
-		{
-			url: '/favicon-16x16.png',
-			type: 'image/png',
-			sizes: '16x16',
-		},
-		{
-			url: '/favicon-32x32.png',
-			type: 'image/png',
-			sizes: '32x32',
-		},
-	],
-};
-
-const structuredData = {
-	'@context': 'https://schema.org',
-	'@type': 'ProfessionalService',
-	name: 'Retcon Consulting',
-	description:
-		"Retcon Consulting empowers startups, entrepreneurs, and innovators to achieve business growth through expert web development, UX/UI design, and digital product strategy. We deliver custom websites, creative solutions, and ongoing support to help you stand out, build trust, and drive results in today's digital landscape.",
-	url: 'https://www.retconconsulting.com',
-	email: 'evan@retconconsulting.com',
-	founder: {
-		'@type': 'Person',
-		name: 'Evan Baron',
-	},
-	address: {
-		'@type': 'PostalAddress',
-		addressCountry: 'USA',
-		addressLocality: 'Denver',
-		addressRegion: 'CO',
-		postalCode: '80202',
-	},
-	serviceType: ['Business Consulting', 'Web Development', 'Product Strategy'],
-	areaServed: 'USA',
-	image: 'https://www.retconconsulting.com/og-image.jpg',
 };
 
 export const viewport: Viewport = {
 	width: 'device-width',
 	initialScale: 1,
+	themeColor: '#ffffff',
+};
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: site.name,
+	description: site.description,
+	url: site.url,
+	email: site.email,
+	image: `${site.url}/og-image.jpg`,
+	founder: { '@type': 'Person', name: site.founder },
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Denver',
+		addressRegion: 'CO',
+		postalCode: '80202',
+		addressCountry: 'US',
+	},
+	areaServed: 'US',
+	serviceType: ['Web Development', 'Web Design', 'Product Strategy Consulting'],
 };
 
 export default function RootLayout({
 	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang='en'>
-			<head>
-				<meta
-					name='google-site-verification'
-					content='CiK0ImrkZ7i1sXmFFoupE_cg-gqJQgdWnOVt9n7LOzM'
-				/>
+		<html lang='en' className={`${instrument.variable} ${dmMono.variable}`}>
+			<body>
 				<script
 					type='application/ld+json'
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(structuredData),
-					}}
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
 				/>
-			</head>
-			<body
-				className={`${ibmPlexMono.variable} ${roboto.variable} ${frederickaTheGreat.variable}`}
-			>
-				<ContextProvider>
-					<BackgroundEffect />
-					<Header />
-
-					{/* Skip link targets the main below */}
-					<a href='#maincontent' className='skip-link'>
-						Skip to content
-					</a>
-
-					<main id='maincontent' className='main' role='main'>
-						<div className='main-content'>{children}</div>
-					</main>
-
-					<Footer />
-				</ContextProvider>
+				<a href='#main' className='skip-link'>
+					Skip to content
+				</a>
+				<Header />
+				<main id='main'>{children}</main>
+				<Footer />
 			</body>
 		</html>
 	);

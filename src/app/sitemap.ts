@@ -1,12 +1,21 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { site } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://www.retconconsulting.com',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ];
+	const lastModified = new Date();
+	return [
+		{ url: site.url, lastModified, changeFrequency: 'monthly', priority: 1 },
+		{
+			url: `${site.url}/development`,
+			lastModified,
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${site.url}/contact`,
+			lastModified,
+			changeFrequency: 'yearly',
+			priority: 0.6,
+		},
+	];
 }
