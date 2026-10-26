@@ -45,6 +45,15 @@
 	clip-path: inset(0 calc(100% - var(--pos)) 0 0);
 }
 
+/* Snowfall falls over the "after" side only, so the new version feels alive. */
+.snowLayer {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	clip-path: inset(0 0 0 var(--pos));
+	pointer-events: none;
+}
+
 .tag {
 	position: absolute;
 	top: 14px;

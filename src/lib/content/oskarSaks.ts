@@ -32,6 +32,7 @@ export const oskarSaks = {
 				'A two-tone serif headline puts the emphasis on the emotional words.',
 				'"View the work" and "Book a session" replace a lone Book Now button, one for browsers and one for ready buyers.',
 				'A short "Available for travel" badge and a Families / Couples / Events line say who the studio serves.',
+				'A soft, slow snowfall drifts across the hero, echoing the winter photograph and keeping the page alive without ever stealing focus.',
 			],
 		},
 		{

@@ -100,6 +100,7 @@ export default function OskarSaksCaseStudy() {
 							afterAlt={page.afterAlt}
 							label={`${page.label} page`}
 							eager={i === 0}
+							snow={page.id === 'home'}
 						/>
 					</div>
 					<ul className={styles.changes}>

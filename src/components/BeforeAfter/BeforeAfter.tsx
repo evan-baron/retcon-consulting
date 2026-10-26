@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Snowfall from './Snowfall';
 import styles from './beforeAfter.module.scss';
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
 	afterAlt: string;
 	label: string;
 	eager?: boolean;
+	snow?: boolean;
 };
 
 /** Drag (or arrow-key) comparison: "before" on the left, "after" on the right. */
@@ -21,6 +23,7 @@ export default function BeforeAfter({
 	afterAlt,
 	label,
 	eager = false,
+	snow = false,
 }: Props) {
 	const [pos, setPos] = useState(50);
 
@@ -55,6 +58,12 @@ export default function BeforeAfter({
 						className={styles.img}
 					/>
 				</div>
+
+				{snow && (
+					<div className={styles.snowLayer} aria-hidden='true'>
+						<Snowfall />
+					</div>
+				)}
 
 				<span className={`mono ${styles.tag} ${styles.tagBefore}`} aria-hidden='true'>
 					Before
