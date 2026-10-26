@@ -79,18 +79,11 @@
 	color: var(--text);
 	border-radius: 999px;
 	font-weight: 600;
-	transition: background-color 0.2s ease, transform 0.25s var(--ease);
-
-	svg {
-		transition: transform 0.25s var(--ease);
-	}
+	transition: background-color 0.2s ease, color 0.2s ease;
 
 	&:hover {
 		background: #fff;
-
-		svg {
-			transform: translateX(4px);
-		}
+		color: var(--accent);
 	}
 }
 

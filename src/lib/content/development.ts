@@ -172,14 +172,32 @@ export const commitments: { title: string; description: string }[] = [
 	},
 ];
 
-export const supportFeatures = [
-	'Site ownership',
-	'Proactive maintenance',
-	'Monthly support hours',
-	'Technical assistance',
-	'Priority response',
-	'Feature enhancements',
-] as const;
+export const supportFeatures: { name: string; description: string }[] = [
+	{
+		name: 'Site ownership',
+		description: 'You own your domain and all the code written for it from day one.',
+	},
+	{
+		name: 'Proactive maintenance',
+		description: 'Updates, security patches, and monitoring before issues reach you.',
+	},
+	{
+		name: 'Monthly support hours',
+		description: 'Reserved hours each month for changes and content updates.',
+	},
+	{
+		name: 'Technical assistance',
+		description: 'Direct help with hosting, email, integrations, and troubleshooting.',
+	},
+	{
+		name: 'Priority response',
+		description: 'Your requests go to the front of the queue.',
+	},
+	{
+		name: 'Feature enhancements',
+		description: 'New functionality and improvements as your business grows.',
+	},
+];
 
 export const supportTiers: { name: string; includes: boolean[] }[] = [
 	{ name: 'Basic', includes: [true, false, false, false, false, false] },

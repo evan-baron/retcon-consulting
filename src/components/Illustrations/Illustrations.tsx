@@ -58,7 +58,7 @@ export function ConsultingArt() {
 			<g>
 				<path
 					d='M232 118 H284 Q294 118 294 128 V150 Q294 160 284 160 H272 L280 172 L260 160 H232 Q222 160 222 150 V128 Q222 118 232 118 Z'
-					fill='var(--bg-subtle)'
+					fill='var(--white)'
 					{...line}
 				/>
 				<circle cx='244' cy='139' r='3' fill='var(--text)' />
@@ -112,13 +112,13 @@ export function DesignArt() {
 			<g stroke='var(--text)' strokeWidth={1.4} strokeLinecap='round' opacity='0.7'>
 				<line x1='60' y1='138' x2='96' y2='36' />
 				<line x1='148' y1='36' x2='168' y2='94' />
-				<line x1='168' y1='94' x2='204' y2='146' />
+				<line x1='168' y1='94' x2='188' y2='152' />
 				<line x1='238' y1='150' x2='262' y2='62' />
 			</g>
 			{[
 				[96, 36],
 				[148, 36],
-				[204, 146],
+				[188, 152],
 				[238, 150],
 			].map(([x, y]) => (
 				<circle key={`${x}${y}`} cx={x} cy={y} r='4.5' fill='var(--white)' {...line} strokeWidth={1.6} />

@@ -43,7 +43,7 @@ export default function Footer() {
 					<p>
 						&copy; {new Date().getFullYear()} {site.name}. All rights reserved.
 					</p>
-					<p className='mono'>Rewrite the narrative</p>
+					<p className='mono'>Rewrite your narrative</p>
 				</div>
 			</div>
 		</footer>

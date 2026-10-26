@@ -88,7 +88,7 @@ export default function Home() {
 							<li key={title}>
 								<Link href={title === 'Web Development' ? '/development' : '#services'}>
 									<span className='mono'>0{i + 1}</span>
-									{title}
+									<span className={styles.label}>{title}</span>
 									<ArrowRight size={16} aria-hidden='true' />
 								</Link>
 							</li>

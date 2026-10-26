@@ -193,8 +193,11 @@ export default function Development() {
 						</thead>
 						<tbody>
 							{supportFeatures.map((feature, row) => (
-								<tr key={feature}>
-									<th scope='row'>{feature}</th>
+								<tr key={feature.name}>
+									<th scope='row'>
+										{feature.name}
+										<span className={styles.rowDesc}>{feature.description}</span>
+									</th>
 									{supportTiers.map((tier) => (
 										<td key={tier.name}>
 											{tier.includes[row] ? (
