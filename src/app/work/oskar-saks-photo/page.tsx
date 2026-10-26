@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const delay = (ms: number) => ({ '--d': ms }) as React.CSSProperties;
 
 export default function OskarSaksCaseStudy() {
-	const { client, summary, meta, challenge, approach, pages, outcome } = oskarSaks;
+	const { client, url, summary, meta, challenge, approach, pages, outcome } = oskarSaks;
 
 	return (
 		<>
@@ -45,7 +45,15 @@ export default function OskarSaksCaseStudy() {
 						Case study
 					</p>
 					<h1 id='cs-heading' className='rise' style={delay(120)}>
-						{client}
+						<a
+							href={url}
+							target='_blank'
+							rel='noopener noreferrer'
+							className={styles.nameLink}
+							aria-label={`${client} (opens in a new tab)`}
+						>
+							{client}
+						</a>
 					</h1>
 					<p className={`${styles.lede} rise`} style={delay(240)}>
 						{summary}
@@ -55,7 +63,21 @@ export default function OskarSaksCaseStudy() {
 						{meta.map(({ label, value }) => (
 							<div key={label}>
 								<dt className='mono'>{label}</dt>
-								<dd>{value}</dd>
+								<dd>
+									{label === 'Client' ? (
+										<a
+											href={url}
+											target='_blank'
+											rel='noopener noreferrer'
+											className={styles.metaLink}
+											aria-label={`${value} (opens in a new tab)`}
+										>
+											{value}
+										</a>
+									) : (
+										value
+									)}
+								</dd>
 							</div>
 						))}
 					</dl>

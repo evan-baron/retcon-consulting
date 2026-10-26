@@ -1,6 +1,7 @@
 export const oskarSaks = {
 	slug: 'oskar-saks-photo',
 	client: 'Oskar Saks Photo',
+	url: 'https://www.oskarsaksphoto.com',
 	summary:
 		'A full redesign for a Denver photography studio, so the site finally lets the photographs lead and makes booking a session effortless.',
 	meta: [

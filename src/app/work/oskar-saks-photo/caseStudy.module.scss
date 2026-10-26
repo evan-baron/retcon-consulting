@@ -25,6 +25,33 @@
 	}
 }
 
+/* Client name links out: stays a clean headline, with an accent underline on hover/focus. */
+.nameLink {
+	background: linear-gradient(currentcolor, currentcolor) 0 100% / 0 0.06em no-repeat;
+	transition:
+		background-size 0.5s var(--ease),
+		color 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--accent);
+		background-size: 100% 0.06em;
+	}
+}
+
+.metaLink {
+	border-bottom: 1px solid var(--border-strong);
+	transition:
+		color 0.2s ease,
+		border-color 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--accent);
+		border-color: var(--accent);
+	}
+}
+
 .kicker {
 	margin-bottom: 20px;
 	color: var(--accent);
