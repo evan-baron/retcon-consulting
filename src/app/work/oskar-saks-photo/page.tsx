@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react';
 import Section from '@/components/Section/Section';
 import Cta from '@/components/Cta/Cta';
 import BeforeAfter from '@/components/BeforeAfter/BeforeAfter';
@@ -172,6 +172,15 @@ export default function OskarSaksCaseStudy() {
 					{outcome.map((p) => (
 						<p key={p}>{p}</p>
 					))}
+					<a
+						href={url}
+						target='_blank'
+						rel='noopener noreferrer'
+						className={styles.liveLink}
+					>
+						Visit the live site <ArrowUpRight size={18} aria-hidden='true' />
+						<span className='sr-only'>(opens in a new tab)</span>
+					</a>
 				</div>
 			</Section>
 
