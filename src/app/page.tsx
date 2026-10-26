@@ -27,9 +27,21 @@ const art = {
 };
 
 const facts = [
-	{ icon: Briefcase, label: 'Experience', value: '10+ years in technical sales and digital transformation' },
-	{ icon: UserRound, label: 'Approach', value: 'Founder-led: you work directly with Evan' },
-	{ icon: MapPin, label: 'Based in', value: 'Denver, CO, working with clients worldwide' },
+	{
+		icon: Briefcase,
+		label: 'Experience',
+		value: '10+ years in technical sales and digital transformation',
+	},
+	{
+		icon: UserRound,
+		label: 'Approach',
+		value: 'Founder-led: you work directly with Evan',
+	},
+	{
+		icon: MapPin,
+		label: 'Based in',
+		value: 'Denver, CO, working with clients worldwide',
+	},
 ];
 
 const delay = (ms: number) => ({ '--d': ms }) as React.CSSProperties;
@@ -59,8 +71,8 @@ export default function Home() {
 						</h1>
 						<p className={`${styles.lede} rise`} style={delay(220)}>
 							Growth shouldn&apos;t feel like guesswork. We help startups,
-							founders, and growing businesses move forward with purpose
-							through custom web development, design, and product strategy.
+							founders, and growing businesses move forward with purpose through
+							custom web development, design, and product strategy.
 						</p>
 						<div className={`${styles.actions} rise`} style={delay(320)}>
 							<Button href='/contact' arrow>
@@ -88,11 +100,19 @@ export default function Home() {
 					</div>
 				</div>
 
-				<nav className={`container ${styles.strip} rise`} style={delay(560)} aria-label='Services'>
+				<nav
+					className={`container ${styles.strip} rise`}
+					style={delay(560)}
+					aria-label='Services'
+				>
 					<ul>
 						{services.map(({ title }, i) => (
 							<li key={title}>
-								<Link href={title === 'Web Development' ? '/development' : '#services'}>
+								<Link
+									href={
+										title === 'Web Development' ? '/development' : '#services'
+									}
+								>
 									<span className='mono'>0{i + 1}</span>
 									<span className={styles.label}>{title}</span>
 									<ArrowRight size={16} aria-hidden='true' />
@@ -133,7 +153,8 @@ export default function Home() {
 								</ul>
 								{href && (
 									<Link href={href} className={styles.more}>
-										Explore {title.toLowerCase()} <ArrowRight size={16} aria-hidden='true' />
+										Explore {title.toLowerCase()}{' '}
+										<ArrowRight size={16} aria-hidden='true' />
 									</Link>
 								)}
 							</div>
@@ -149,7 +170,10 @@ export default function Home() {
 				title='See what a rewrite looks like.'
 				intro='A photography studio, before and after.'
 			>
-				<Link href={`/work/${oskarSaks.slug}`} className={`${styles.work} reveal`}>
+				<Link
+					href={`/work/${oskarSaks.slug}`}
+					className={`${styles.work} reveal`}
+				>
 					<div className={styles.workShot}>
 						<Image
 							src='/work/oskar-saks-photo/home-after.webp'
@@ -161,7 +185,9 @@ export default function Home() {
 						/>
 					</div>
 					<div className={styles.workBody}>
-						<span className={`mono ${styles.workTag}`}>Case study · Photography</span>
+						<span className={`mono ${styles.workTag}`}>
+							Case study · Photography Website
+						</span>
 						<h3>{oskarSaks.client}</h3>
 						<p>{oskarSaks.summary}</p>
 						<span className={styles.more}>
@@ -198,7 +224,12 @@ export default function Home() {
 			</section>
 
 			{/* ---------- About ---------- */}
-			<Section id='about' eyebrow='About' title={`Meet ${about.name}.`} tone='subtle'>
+			<Section
+				id='about'
+				eyebrow='About'
+				title={`Meet ${about.name}.`}
+				tone='subtle'
+			>
 				<div className={styles.about}>
 					<div className={`${styles.portraitWrap} reveal`}>
 						<span className={styles.pBlock} aria-hidden='true' />
@@ -215,11 +246,16 @@ export default function Home() {
 							<p key={paragraph}>{paragraph}</p>
 						))}
 						<ul className={styles.chips} aria-label='Industries'>
-							{['SaaS', 'Martech', 'eCommerce', 'Product strategy', 'UX design', 'Full-stack development'].map(
-								(c) => (
-									<li key={c}>{c}</li>
-								),
-							)}
+							{[
+								'SaaS',
+								'Martech',
+								'eCommerce',
+								'Product strategy',
+								'UX design',
+								'Full-stack development',
+							].map((c) => (
+								<li key={c}>{c}</li>
+							))}
 						</ul>
 					</div>
 				</div>
