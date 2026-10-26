@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import BrowserChrome from '../BrowserChrome/BrowserChrome';
 import Snowfall from './Snowfall';
 import styles from './beforeAfter.module.scss';
 
@@ -32,11 +33,7 @@ export default function BeforeAfter({
 			className={styles.frame}
 			style={{ '--pos': `${pos}%` } as React.CSSProperties}
 		>
-			<div className={styles.chrome} aria-hidden='true'>
-				<span />
-				<span />
-				<span />
-			</div>
+			<BrowserChrome />
 
 			<div className={styles.stage}>
 				<Image

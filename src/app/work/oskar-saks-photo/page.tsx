@@ -5,6 +5,7 @@ import { ArrowLeft, Check } from 'lucide-react';
 import Section from '@/components/Section/Section';
 import Cta from '@/components/Cta/Cta';
 import BeforeAfter from '@/components/BeforeAfter/BeforeAfter';
+import BrowserChrome from '@/components/BrowserChrome/BrowserChrome';
 import { oskarSaks } from '@/lib/content/oskarSaks';
 import styles from './caseStudy.module.scss';
 
@@ -148,11 +149,7 @@ export default function OskarSaksCaseStudy() {
 					{admin.items.map(({ id, title, text, src, alt, width, height }) => (
 						<li key={id} className={`${styles.adminItem} reveal`}>
 							<figure className={styles.shot}>
-								<div className={styles.shotChrome} aria-hidden='true'>
-									<span />
-									<span />
-									<span />
-								</div>
+								<BrowserChrome />
 								<Image
 									src={src}
 									alt={alt}

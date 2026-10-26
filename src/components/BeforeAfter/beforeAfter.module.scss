@@ -11,21 +11,6 @@
 	}
 }
 
-.chrome {
-	display: flex;
-	gap: 6px;
-	padding: 12px 14px;
-	background: var(--bg-subtle);
-	border-bottom: 1px solid var(--border);
-
-	span {
-		width: 9px;
-		height: 9px;
-		background: var(--border-strong);
-		border-radius: 50%;
-	}
-}
-
 .stage {
 	position: relative;
 	aspect-ratio: 1920 / 1008;

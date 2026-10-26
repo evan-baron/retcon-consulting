@@ -1,0 +1,29 @@
+/* Light title bar with macOS-style traffic lights: soft radial fill, slightly darker rim */
+.chrome {
+	display: flex;
+	gap: 8px;
+	padding: 12px 16px;
+	background: linear-gradient(#f8f7f4, #efede9);
+	border-bottom: 1px solid var(--border);
+
+	span {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+
+		&:nth-child(1) {
+			background: radial-gradient(circle at 35% 30%, #f7928a, #ec6a5f 75%);
+			box-shadow: inset 0 0 0 0.5px #d2564d;
+		}
+
+		&:nth-child(2) {
+			background: radial-gradient(circle at 35% 30%, #f9d57e, #f4bf4f 75%);
+			box-shadow: inset 0 0 0 0.5px #d6a23c;
+		}
+
+		&:nth-child(3) {
+			background: radial-gradient(circle at 35% 30%, #86d97a, #62c554 75%);
+			box-shadow: inset 0 0 0 0.5px #4fa846;
+		}
+	}
+}
