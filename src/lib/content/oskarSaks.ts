@@ -61,7 +61,7 @@ export const oskarSaks = {
 			beforeAlt:
 				'Before: the old contact page, with a form asking for first and last name, email, a service level checkbox, and additional information.',
 			afterAlt:
-				'After: the new contact page, with a "Let’s make something" headline, direct contact details, and a form with a service dropdown and preferred date.',
+				'After: the new contact page, with a "Let’s create a memory" headline, direct contact details, and a form with a service dropdown and preferred date.',
 			changes: [
 				'A friendlier headline and a promised reply time set expectations before anyone writes a word.',
 				'Email, Instagram, and location sit beside the form for visitors who would rather not fill one out.',
