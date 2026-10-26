@@ -12,6 +12,7 @@ import {
 	DesignArt,
 } from '@/components/Illustrations/Illustrations';
 import { services, about } from '@/lib/content/home';
+import { oskarSaks } from '@/lib/content/oskarSaks';
 import styles from './page.module.scss';
 
 const art = {
@@ -134,6 +135,35 @@ export default function Home() {
 						</li>
 					))}
 				</ul>
+			</Section>
+
+			{/* ---------- Selected work ---------- */}
+			<Section
+				id='work'
+				eyebrow='Selected work'
+				title='See what a rewrite looks like.'
+				intro='A photography studio, before and after.'
+			>
+				<Link href={`/work/${oskarSaks.slug}`} className={`${styles.work} reveal`}>
+					<div className={styles.workShot}>
+						<Image
+							src='/work/oskar-saks-photo/home-after.webp'
+							alt='The redesigned Oskar Saks Photo home page'
+							width={1920}
+							height={1008}
+							sizes='(max-width: 1000px) 100vw, 680px'
+							loading='eager'
+						/>
+					</div>
+					<div className={styles.workBody}>
+						<span className={`mono ${styles.workTag}`}>Case study · Photography</span>
+						<h3>{oskarSaks.client}</h3>
+						<p>{oskarSaks.summary}</p>
+						<span className={styles.more}>
+							Read the case study <ArrowRight size={16} aria-hidden='true' />
+						</span>
+					</div>
+				</Link>
 			</Section>
 
 			{/* ---------- Statement ---------- */}

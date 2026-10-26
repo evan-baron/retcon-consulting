@@ -1,0 +1,120 @@
+.frame {
+	overflow: hidden;
+	background: var(--white);
+	border: 1px solid var(--border-strong);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+
+	&:focus-within {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+}
+
+.chrome {
+	display: flex;
+	gap: 6px;
+	padding: 12px 14px;
+	background: var(--bg-subtle);
+	border-bottom: 1px solid var(--border);
+
+	span {
+		width: 9px;
+		height: 9px;
+		background: var(--border-strong);
+		border-radius: 50%;
+	}
+}
+
+.stage {
+	position: relative;
+	aspect-ratio: 1920 / 1008;
+	background: var(--border);
+	user-select: none;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.top {
+	position: absolute;
+	inset: 0;
+	clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.tag {
+	position: absolute;
+	top: 14px;
+	padding: 5px 10px;
+	background: rgb(17 17 15 / 78%);
+	border-radius: 999px;
+	color: var(--white);
+	font-size: 0.68rem;
+	pointer-events: none;
+}
+
+.tagBefore {
+	left: 14px;
+}
+
+.tagAfter {
+	right: 14px;
+	background: var(--accent);
+}
+
+.divider {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--pos);
+	width: 2px;
+	margin-left: -1px;
+	background: var(--white);
+	box-shadow: 0 0 0 1px rgb(17 17 15 / 25%);
+	pointer-events: none;
+}
+
+.handle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	background: var(--white);
+	border-radius: 50%;
+	box-shadow: var(--shadow);
+	color: var(--text);
+	transform: translate(-50%, -50%);
+}
+
+/* Invisible native range input covers the stage: gives free drag, touch and keyboard support. */
+.range {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: ew-resize;
+	touch-action: pan-y;
+}
+
+@media (max-width: 600px) {
+	.tag {
+		top: 8px;
+		padding: 4px 8px;
+	}
+
+	.tagBefore {
+		left: 8px;
+	}
+
+	.tagAfter {
+		right: 8px;
+	}
+}

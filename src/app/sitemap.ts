@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.8,
 		},
 		{
+			url: `${site.url}/work/oskar-saks-photo`,
+			lastModified,
+			changeFrequency: 'yearly',
+			priority: 0.7,
+		},
+		{
 			url: `${site.url}/contact`,
 			lastModified,
 			changeFrequency: 'yearly',
