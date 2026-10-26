@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Check } from 'lucide-react';
 import Section from '@/components/Section/Section';
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
 const delay = (ms: number) => ({ '--d': ms }) as React.CSSProperties;
 
 export default function OskarSaksCaseStudy() {
-	const { client, url, summary, meta, challenge, approach, pages, outcome } = oskarSaks;
+	const { client, url, summary, meta, challenge, approach, pages, admin, outcome } = oskarSaks;
 
 	return (
 		<>
@@ -135,6 +136,39 @@ export default function OskarSaksCaseStudy() {
 					</ul>
 				</Section>
 			))}
+
+			<Section
+				id='admin'
+				eyebrow={admin.eyebrow}
+				title={admin.title}
+				intro={admin.intro}
+				tone='subtle'
+			>
+				<ul className={styles.admin}>
+					{admin.items.map(({ id, title, text, src, alt, width, height }) => (
+						<li key={id} className={`${styles.adminItem} reveal`}>
+							<figure className={styles.shot}>
+								<div className={styles.shotChrome} aria-hidden='true'>
+									<span />
+									<span />
+									<span />
+								</div>
+								<Image
+									src={src}
+									alt={alt}
+									width={width}
+									height={height}
+									sizes='(max-width: 1000px) 100vw, 640px'
+								/>
+							</figure>
+							<div className={styles.adminText}>
+								<h3>{title}</h3>
+								<p>{text}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+			</Section>
 
 			<Section id='outcome' eyebrow='The result' title='One brand, from first look to booking.' tone='subtle'>
 				<div className={`${styles.outcome} reveal`}>

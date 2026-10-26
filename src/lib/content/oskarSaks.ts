@@ -8,7 +8,7 @@ export const oskarSaks = {
 		{ label: 'Client', value: 'Oskar Saks Photo' },
 		{ label: 'Industry', value: 'Photography' },
 		{ label: 'Based in', value: 'Denver, CO' },
-		{ label: 'Scope', value: 'Web design and development' },
+		{ label: 'Scope', value: 'Web design, development, and a custom admin dashboard' },
 	],
 	challenge: [
 		'The old site had great photography and very little else going for it. The hero headline and tagline sat straight on a busy snow scene, so the words competed with the picture. Gallery images ran edge to edge with no framing or hierarchy, and the store, cart, and Book Now button gave visitors too many places to go.',
@@ -69,7 +69,43 @@ export const oskarSaks = {
 			],
 		},
 	],
+	admin: {
+		eyebrow: '04 · Admin dashboard',
+		title: 'Built so every update is his to make.',
+		intro:
+			'Oskar can change his own copy, galleries, and services whenever he likes, with no developer in the loop and no emails back and forth.',
+		items: [
+			{
+				id: 'copy',
+				title: 'Rewrite any page, in plain fields',
+				text: 'Each page has its own tab with clearly labeled fields for headlines, taglines, and descriptions. Wrap a word in asterisks and it picks up the blue accent style. Saved changes go live right away.',
+				src: '/work/oskar-saks-photo/admin-copy.webp',
+				width: 1600,
+				height: 1074,
+				alt: 'The admin dashboard Home tab, with editable fields for the small line, two-line headline, and tagline of the hero.',
+			},
+			{
+				id: 'gallery',
+				title: 'Curate galleries in minutes',
+				text: 'Upload new photos, drag to reorder, choose the cover image, write alt text, and select several at once to delete. The public galleries update to match.',
+				src: '/work/oskar-saks-photo/admin-gallery.webp',
+				width: 1600,
+				height: 1199,
+				alt: 'The admin dashboard Gallery tab, with an Add photos uploader above a grid of photo cards that each have alt text, title, cover, save, and delete controls.',
+			},
+			{
+				id: 'services',
+				title: 'Add, reorder, and price services',
+				text: 'Services open in place to edit the title, starting price, description, and what is included. He can reorder them, remove one, or add a new one, and the booking form’s dropdown follows along.',
+				src: '/work/oskar-saks-photo/admin-services.webp',
+				width: 1600,
+				height: 1199,
+				alt: 'The admin dashboard Services tab, with the Family Sessions service expanded to show title, starting price, description, and included items, above a list of three more services and an Add a service button.',
+			},
+		],
+	},
 	outcome: [
 		'The new site reads as the premium, personal studio Oskar runs. It is consistent from first impression to booking form, and it keeps the focus on the photography.',
+		'And because he can update his own words, photos, and prices, the site stays current without waiting on anyone.',
 	],
 } as const;
