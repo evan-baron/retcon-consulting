@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Check, Minus } from 'lucide-react';
 import Section from '@/components/Section/Section';
+import { pageMetadata } from '@/lib/seo';
 import Cta from '@/components/Cta/Cta';
 import Button from '@/components/Button/Button';
 import ScoreRing from '@/components/ScoreRing/ScoreRing';
@@ -18,16 +19,11 @@ import styles from './development.module.scss';
 const description =
 	'Retcon Consulting builds high-performance custom websites. Explore our process, how we measure success, and our ongoing support options.';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: 'Custom Web Development',
 	description,
-	alternates: { canonical: '/development' },
-	openGraph: {
-		title: 'Custom Web Development | Retcon Consulting',
-		description,
-		url: '/development',
-	},
-};
+	path: '/development',
+});
 
 const delay = (ms: number) => ({ '--d': ms }) as React.CSSProperties;
 

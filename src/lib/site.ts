@@ -2,6 +2,7 @@ export const site = {
 	name: 'Retcon Consulting',
 	url: 'https://www.retconconsulting.com',
 	email: 'contact@retconconsulting.com',
+	linkedin: 'https://www.linkedin.com/company/retcon-consulting/',
 	founder: 'Evan Baron',
 	description:
 		'Retcon Consulting helps startups and growing businesses with custom web development, UX/UI design, and product strategy.',

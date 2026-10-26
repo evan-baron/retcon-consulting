@@ -2,21 +2,17 @@ import type { Metadata } from 'next';
 import { Mail, Clock, MapPin } from 'lucide-react';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import { site } from '@/lib/site';
+import { pageMetadata } from '@/lib/seo';
 import styles from './contact.module.scss';
 
 const description =
 	'Get in touch with Retcon Consulting about web development, design, or product strategy. Tell us about your project and we will reply within one business day.';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: 'Contact',
 	description,
-	alternates: { canonical: '/contact' },
-	openGraph: {
-		title: 'Contact | Retcon Consulting',
-		description,
-		url: '/contact',
-	},
-};
+	path: '/contact',
+});
 
 export default function Contact() {
 	return (

@@ -7,29 +7,24 @@ import Cta from '@/components/Cta/Cta';
 import BeforeAfter from '@/components/BeforeAfter/BeforeAfter';
 import BrowserChrome from '@/components/BrowserChrome/BrowserChrome';
 import { oskarSaks } from '@/lib/content/oskarSaks';
+import { pageMetadata } from '@/lib/seo';
 import styles from './caseStudy.module.scss';
 
-const title = 'Case Study: Oskar Saks Photo';
+// With the " | Retcon Consulting" suffix this stays at ~59 characters, under Google's cutoff
+const title = 'Photography Website Redesign: Oskar Saks';
 const description = `${oskarSaks.summary} See the before and after.`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title,
 	description,
-	alternates: { canonical: `/work/${oskarSaks.slug}` },
-	openGraph: {
-		title: `${title} | Retcon Consulting`,
-		description,
-		url: `/work/${oskarSaks.slug}`,
-		images: [
-			{
-				url: '/work/oskar-saks-photo/home-after.webp',
-				width: 1920,
-				height: 1008,
-				alt: 'The redesigned Oskar Saks Photo home page',
-			},
-		],
+	path: `/work/${oskarSaks.slug}`,
+	image: {
+		url: '/work/oskar-saks-photo/og.jpg',
+		width: 1200,
+		height: 630,
+		alt: 'The redesigned Oskar Saks Photo home page',
 	},
-};
+});
 
 const delay = (ms: number) => ({ '--d': ms }) as React.CSSProperties;
 

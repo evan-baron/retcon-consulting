@@ -19,10 +19,19 @@ const dmMono = DM_Mono({
 	display: 'swap',
 });
 
-const title = 'Retcon Consulting | Web Development, Design & Product Strategy';
+// Kept under ~60 characters so Google doesn't truncate it in results
+const title = 'Retcon Consulting | Web Development, Design & Strategy';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(site.url),
+	icons: {
+		icon: [
+			{ url: '/favicon.ico', sizes: 'any' },
+			{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			{ url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+		],
+		apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+	},
 	title: { default: title, template: `%s | ${site.name}` },
 	description: site.description,
 	applicationName: site.name,
@@ -70,6 +79,8 @@ const structuredData = {
 	url: site.url,
 	email: site.email,
 	image: `${site.url}/og-image.jpg`,
+	logo: `${site.url}/apple-touch-icon.png`,
+	sameAs: [site.linkedin],
 	founder: { '@type': 'Person', name: site.founder },
 	address: {
 		'@type': 'PostalAddress',
