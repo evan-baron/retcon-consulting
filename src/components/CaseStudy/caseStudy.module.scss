@@ -109,6 +109,18 @@
 	max-width: 1080px;
 }
 
+.extra {
+	max-width: 1080px;
+	margin: clamp(28px, 4vw, 44px) 0 0;
+
+	figcaption {
+		margin-top: 12px;
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+	}
+}
+
 .changes {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

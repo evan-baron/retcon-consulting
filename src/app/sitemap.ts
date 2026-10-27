@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		{ url: `${site.url}/`, changeFrequency: 'monthly', priority: 1 },
 		{ url: `${site.url}/development`, changeFrequency: 'monthly', priority: 0.8 },
 		{ url: `${site.url}/work/oskar-saks-photo`, changeFrequency: 'yearly', priority: 0.7 },
+		{ url: `${site.url}/work/spoke-and-circle`, changeFrequency: 'yearly', priority: 0.7 },
 		{ url: `${site.url}/contact`, changeFrequency: 'yearly', priority: 0.6 },
 	];
 }

@@ -10,13 +10,16 @@ export const oskarSaks = {
 		{ label: 'Based in', value: 'Denver, CO' },
 		{ label: 'Scope', value: 'Web design, development, and a custom admin dashboard' },
 	],
-	challenge: [
-		'The old site had great photography and very little else going for it. The hero headline and tagline sat straight on a busy snow scene, so the words competed with the picture. Gallery images ran edge to edge with no framing or hierarchy, and the store, cart, and Book Now button gave visitors too many places to go.',
-		'The contact page asked for a "Basic," "Intermediate," or "Advanced" service, labels that tell a family nothing about what they are booking.',
-	],
-	approach: [
-		'Keep the photography as the star, and build everything else around it: a calm typographic system, generous space, and a single blue accent pulled from the images themselves.',
-	],
+	story: {
+		title: 'A great portfolio deserved a better frame.',
+		challenge: [
+			'The old site had great photography and very little else going for it. The hero headline and tagline sat straight on a busy snow scene, so the words competed with the picture. Gallery images ran edge to edge with no framing or hierarchy, and the store, cart, and Book Now button gave visitors too many places to go.',
+			'The contact page asked for a "Basic," "Intermediate," or "Advanced" service, labels that tell a family nothing about what they are booking.',
+		],
+		approach: [
+			'Keep the photography as the star, and build everything else around it: a calm typographic system, generous space, and a single blue accent pulled from the images themselves.',
+		],
+	},
 	pages: [
 		{
 			id: 'home',
@@ -104,8 +107,11 @@ export const oskarSaks = {
 			},
 		],
 	},
-	outcome: [
-		'The new site reads as the premium, personal studio Oskar runs. It is consistent from first impression to booking form, and it keeps the focus on the photography.',
-		'And because he can update his own words, photos, and prices, the site stays current without waiting on anyone.',
-	],
+	outcome: {
+		title: 'One brand, from first look to booking.',
+		paragraphs: [
+			'The new site reads as the premium, personal studio Oskar runs. It is consistent from first impression to booking form, and it keeps the focus on the photography.',
+			'And because he can update his own words, photos, and prices, the site stays current without waiting on anyone.',
+		],
+	},
 } as const;

@@ -14,7 +14,23 @@ import {
 } from '@/components/Illustrations/Illustrations';
 import { services, about } from '@/lib/content/home';
 import { oskarSaks } from '@/lib/content/oskarSaks';
+import { spokeAndCircle } from '@/lib/content/spokeAndCircle';
 import styles from './page.module.scss';
+
+const caseStudies = [
+	{
+		...oskarSaks,
+		tag: 'Case study · Photography Website',
+		image: '/work/oskar-saks-photo/home-after.webp',
+		alt: 'The redesigned Oskar Saks Photo home page',
+	},
+	{
+		...spokeAndCircle,
+		tag: 'Case study · Web App',
+		image: '/work/spoke-and-circle/home-after.webp',
+		alt: 'The redesigned Spoke & Circle home page',
+	},
+];
 
 export const metadata: Metadata = {
 	alternates: { canonical: '/' },
@@ -168,33 +184,36 @@ export default function Home() {
 				id='work'
 				eyebrow='Selected work'
 				title='See what a rewrite looks like.'
-				intro='A photography studio, before and after.'
+				intro='A photography studio and a cycling directory, before and after.'
 			>
-				<Link
-					href={`/work/${oskarSaks.slug}`}
-					className={`${styles.work} reveal`}
-				>
-					<div className={styles.workShot}>
-						<Image
-							src='/work/oskar-saks-photo/home-after.webp'
-							alt='The redesigned Oskar Saks Photo home page'
-							width={1920}
-							height={1008}
-							sizes='(max-width: 1000px) 100vw, 680px'
-							loading='eager'
-						/>
-					</div>
-					<div className={styles.workBody}>
-						<span className={`mono ${styles.workTag}`}>
-							Case study · Photography Website
-						</span>
-						<h3>{oskarSaks.client}</h3>
-						<p>{oskarSaks.summary}</p>
-						<span className={styles.more}>
-							Read the case study <ArrowRight size={16} aria-hidden='true' />
-						</span>
-					</div>
-				</Link>
+				<div className={styles.workList}>
+					{caseStudies.map(({ slug, client, summary, tag, image, alt }, i) => (
+						<Link
+							key={slug}
+							href={`/work/${slug}`}
+							className={`${styles.work} reveal`}
+						>
+							<div className={styles.workShot}>
+								<Image
+									src={image}
+									alt={alt}
+									width={1920}
+									height={1008}
+									sizes='(max-width: 1000px) 100vw, 680px'
+									loading={i === 0 ? 'eager' : 'lazy'}
+								/>
+							</div>
+							<div className={styles.workBody}>
+								<span className={`mono ${styles.workTag}`}>{tag}</span>
+								<h3>{client}</h3>
+								<p>{summary}</p>
+								<span className={styles.more}>
+									Read the case study <ArrowRight size={16} aria-hidden='true' />
+								</span>
+							</div>
+						</Link>
+					))}
+				</div>
 			</Section>
 
 			{/* ---------- Statement ---------- */}

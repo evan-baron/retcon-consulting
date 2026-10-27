@@ -291,6 +291,11 @@
 }
 
 /* ================= Selected work ================= */
+.workList {
+	display: grid;
+	gap: clamp(20px, 2.5vw, 32px);
+}
+
 .work {
 	display: grid;
 	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
