@@ -26,16 +26,16 @@ const caseStudies = [
 		alt: 'The redesigned Oskar Saks Photo home page',
 	},
 	{
-		...dovetally,
-		tag: 'Case study · UX Consulting',
-		image: '/work/dovetally/home-after.webp',
-		alt: 'The redesigned Dovetally home page',
-	},
-	{
 		...spokeAndCircle,
 		tag: 'Case study · Web App',
 		image: '/work/spoke-and-circle/home-after.webp',
 		alt: 'The redesigned Spoke & Circle home page',
+	},
+	{
+		...dovetally,
+		tag: 'Case study · UX Consulting',
+		image: '/work/dovetally/home-after.webp',
+		alt: 'The redesigned Dovetally home page',
 	},
 ];
 
