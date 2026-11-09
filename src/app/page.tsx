@@ -15,6 +15,7 @@ import {
 import { services, about } from '@/lib/content/home';
 import { oskarSaks } from '@/lib/content/oskarSaks';
 import { spokeAndCircle } from '@/lib/content/spokeAndCircle';
+import { dovetally } from '@/lib/content/dovetally';
 import styles from './page.module.scss';
 
 const caseStudies = [
@@ -23,6 +24,12 @@ const caseStudies = [
 		tag: 'Case study · Photography Website',
 		image: '/work/oskar-saks-photo/home-after.webp',
 		alt: 'The redesigned Oskar Saks Photo home page',
+	},
+	{
+		...dovetally,
+		tag: 'Case study · UX Consulting',
+		image: '/work/dovetally/home-after.webp',
+		alt: 'The redesigned Dovetally home page',
 	},
 	{
 		...spokeAndCircle,
@@ -184,7 +191,7 @@ export default function Home() {
 				id='work'
 				eyebrow='Selected work'
 				title='See what a rewrite looks like.'
-				intro='A photography studio and a cycling directory, before and after.'
+				intro='A photography studio, a cycling directory, and a woodworking app, before and after.'
 			>
 				<div className={styles.workList}>
 					{caseStudies.map(({ slug, client, summary, tag, image, alt }, i) => (
@@ -208,7 +215,8 @@ export default function Home() {
 								<h3>{client}</h3>
 								<p>{summary}</p>
 								<span className={styles.more}>
-									Read the case study <ArrowRight size={16} aria-hidden='true' />
+									Read the case study{' '}
+									<ArrowRight size={16} aria-hidden='true' />
 								</span>
 							</div>
 						</Link>

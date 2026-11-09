@@ -132,7 +132,7 @@ export default function CaseStudy({
 				<Section
 					key={page.id}
 					id={page.id}
-					eyebrow={`0${i + 1} · ${page.label}`}
+					eyebrow={`${String(i + 1).padStart(2, '0')} · ${page.label}`}
 					title={page.title}
 					tone={i % 2 === 0 ? 'base' : 'white'}
 				>
