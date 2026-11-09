@@ -21,13 +21,13 @@ import styles from './page.module.scss';
 const caseStudies = [
 	{
 		...oskarSaks,
-		tag: 'Case study · Photography Website',
+		tag: 'Case study · Custom Photography Website',
 		image: '/work/oskar-saks-photo/home-after.webp',
 		alt: 'The redesigned Oskar Saks Photo home page',
 	},
 	{
 		...spokeAndCircle,
-		tag: 'Case study · Web App',
+		tag: 'Case study · Website Redesign',
 		image: '/work/spoke-and-circle/home-after.webp',
 		alt: 'The redesigned Spoke & Circle home page',
 	},
